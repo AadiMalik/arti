@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 // profile
 Route::group(['middleware' => ['auth']], function () {
     Route::get('profile', 'ProfileController@index');
+    Route::post('get-tehsil','ProfileController@getTehsil');
     Route::post('update-profile', 'ProfileController@update');
     //Blog Comment
     Route::post('blog-comment', 'HomeController@blog_comment')->name('Blog.Comment');

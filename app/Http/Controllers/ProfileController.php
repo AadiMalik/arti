@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Tehsil;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -10,7 +12,9 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view('profile.index', compact('user'));
+        $district = District::orderBy('name','asc')->get();
+        $tehsil = Tehsil::orderBy('name','asc')->get();
+        return view('profile.index', compact('user','district','tehsil'));
     }
 
     public function update(Request $request)
@@ -27,5 +31,10 @@ class ProfileController extends Controller
         }
         
         return back()->with('success','Your Profile Updated!');
+    }
+    public function getTehsil(Request $request){
+        $data['tehsil'] = Tehsil::where("district_id",$request->district_id)
+                    ->get(["name","id"]);
+        return response()->json($data);
     }
 }
