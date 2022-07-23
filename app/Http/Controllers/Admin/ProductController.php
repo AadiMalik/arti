@@ -43,8 +43,6 @@ class ProductController extends Controller
         $validation = $request->validate(
             [
                 'name' => 'required|max:255',
-                'price_high' => 'required|max:191',
-                'price_low' => 'required|max:191',
                 'image1' => 'required',
                 'image2' => 'required',
                 'category' => 'required',
@@ -54,8 +52,8 @@ class ProductController extends Controller
         $product = new Product;
         
         $product->name = ucfirst($request->name);
-        $product->price_high = $request->price_high;
-        $product->price_low = $request->price_low;
+        // $product->price_high = $request->price_high;
+        // $product->price_low = $request->price_low;
         $product->category_id = $request->category;
         $product->description = $request->description;
         $product->zamidar = 0;
@@ -124,8 +122,6 @@ class ProductController extends Controller
         $validation = $request->validate(
             [
                 'name' => 'required|max:255',
-                'price_high' => 'required|max:255',
-                'price_low' => 'required',
                 'status' => 'required',
                 'category' => 'required',
                 'description' => 'required'
@@ -134,8 +130,8 @@ class ProductController extends Controller
         $product = Product::find($id);
         
         $product->name = ucfirst($request->name);
-        $product->price_high = $request->price_high;
-        $product->price_low = $request->price_low;
+        // $product->price_high = $request->price_high;
+        // $product->price_low = $request->price_low;
         $product->category_id = $request->category;
         $product->description = $request->description;
         $product->type = ucfirst($request->type);

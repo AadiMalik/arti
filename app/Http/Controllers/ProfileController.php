@@ -16,6 +16,15 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         auth()->user()->update($request->all());
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $upload = 'Images/';
+            $filename = time() . $image->getClientOriginalName();
+            $path    = move_uploaded_file($image->getPathName(), $upload . $filename);
+            $user = User::find(auth()->user()->id);
+            $user->image = $upload . $filename;
+            $user->update();
+        }
         
         return back()->with('success','Your Profile Updated!');
     }

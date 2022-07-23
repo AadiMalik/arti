@@ -194,18 +194,19 @@
                         </div>
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
-                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
-                                src="{{ asset(Auth()->user()->image??'assets_data/img/user.png') }}" class="user-img-radious-style"> <span
-                                class="d-sm-none d-lg-inline-block"></span></a>
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user has-dropdown"> <img alt="image"
+                                src="{{ asset(Auth()->user()->image??'assets_data/img/user.png') }}" class="user-img-radious-style"><i class="fas fa-angle-down" style="color:#000; padding:5px; margin-top:-7px;"></i></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{Auth()->user()->name}}</div>
+                            <div class="dropdown-title">Hello {{Auth()->user()->username}}</div>
                             <a @if(Auth()->user()->is_admin) href="{{url('admin/profile')}}" @else href="{{url('profile')}}" @endif class="dropdown-item has-icon"> <i
                                     class="far
 										fa-user"></i> Edit Profile
-                            </a> <a href="timeline.html" class="dropdown-item has-icon"> <i
+                            </a> 
+                            {{-- <a href="timeline.html" class="dropdown-item has-icon"> <i
                                     class="fas fa-bolt"></i>
                                 Activities
-                            </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                            </a> --}}
+                             <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
                                 Settings
                             </a>
                             <div class="dropdown-divider"></div>
@@ -266,7 +267,7 @@
                         @can('product_access')
                         <li class="dropdown">
                             <a href="{{url('admin/product')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Products</span></a>
+                                    data-feather="monitor"></i><span>Add Products</span></a>
                         </li>
                         @endcan
                         
@@ -373,6 +374,12 @@
                                 @endcan
                                 @can('blog_access')
                                 <li class="nav-link "> <a href="/admin/blog">Blogs</a> </li>
+                                @endcan
+                                @can('district_access')
+                                <li class="nav-link "> <a href="{{url('admin/district')}}">District</a> </li>
+                                @endcan
+                                @can('tehsil_access')
+                                <li class="nav-link "> <a href="{{url('admin/tehsil')}}">Tehsil</a> </li>
                                 @endcan
                                 @can('brand_access')
                                 <li class="nav-link "> <a href="/admin/brand">Brand</a> </li>

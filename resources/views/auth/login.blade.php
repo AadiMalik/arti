@@ -44,7 +44,12 @@
                                         required />
                                 </div>
                                 <div class="single-input-item">
-                                    <input type="password" name="password" placeholder="Enter your Password" required />
+                                    <input type="password" name="password" id="myInput" placeholder="Enter your Password" required />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="checkbox" onclick="myFunction()"> Show Password
+                                    </div>
                                 </div>
                                 <div class="single-input-item">
                                     <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -70,4 +75,16 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 @endsection

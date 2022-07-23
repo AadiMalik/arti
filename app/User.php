@@ -112,16 +112,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Result::class, 'user_id','id');
     }
 
-    public function setImageAttribute($file)
-    {
-        if ($file) {
-            $upload = 'Images/';
-            $filename = time() . $file->getClientOriginalName();
-            $path    = move_uploaded_file($file->getPathName(), $upload . $filename);
-            $image =  $upload . $filename;
-            $this->attributes['image'] = $image;
-        }
-    }
+    // public function setImageAttribute($file)
+    // {
+    //     if ($file) {
+    //         $upload = 'Images/';
+    //         $filename = time() . $file->getClientOriginalName();
+    //         $path    = move_uploaded_file($file->getPathName(), $upload . $filename);
+    //         $image =  $upload . $filename;
+    //         $this->attributes['image'] = $image;
+    //     }
+    // }
 
     // public function getImageAttribute($value)
     // {

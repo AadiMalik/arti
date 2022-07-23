@@ -16,16 +16,6 @@
             </div>
             
             <div class="form-group">
-                <label class="required" for="price">Min Price</label>
-                <input class="form-control" type="number" name="price_low" id="price_low" value="{{ old('price_low') }}" required>
-                {!!$errors->first("price_low", "<span class='text-danger'>:message</span>")!!}
-            </div>
-            <div class="form-group">
-                <label class="required" for="price">Max Price</label>
-                <input class="form-control" type="number" name="price_high" id="price_high" value="{{ old('price_high') }}" required>
-                {!!$errors->first("price_high", "<span class='text-danger'>:message</span>")!!}
-            </div>
-            <div class="form-group">
                 <label class="required" for="image">Image One</label>
                 <input class="form-control" type="file" name="image1" id="image1" required>
                 {!!$errors->first("image1", "<span class='text-danger'>:message</span>")!!}

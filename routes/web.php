@@ -71,6 +71,8 @@ Route::post('newsletter', 'NewsletterController@store')->name('newsletter');
 Route::get('arti-detail/{id}', 'HomeController@arti_detail');
 Route::post('PostLike', 'HomeController@postlike')->name('PostLike');
 Route::get('share-social/{id}', 'HomeController@shareSocial');
+Route::get('comment', 'HomeController@Comment');
+Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
 
 
 Auth::routes();
@@ -98,6 +100,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // media
     Route::resource('media', 'MediaController');
     Route::post('deletemedia', 'MediaController@destroy')->name('deleteMedia');
+    // District
+    Route::resource('district', 'DistrictController');
+    Route::post('deletedistrict', 'DistrictController@destroy')->name('deleteDistrict');
+    // Tehsil
+    Route::resource('tehsil', 'TehsilController');
+    Route::post('deleteTehsil', 'TehsilController@destroy')->name('deleteTehsil');
     // Faq
     Route::resource('faq', 'FaqController');
     Route::post('deleteFAQ', 'FaqController@destroy')->name('deleteFAQ');

@@ -29,15 +29,15 @@ class UserProductController extends Controller
      */
     public function create(Request $request)
     {
-        $category=$request->category;
-        if($category!=''){
+        $category = $request->category;
+        if ($category != '') {
             $product = Product::where('category_id', $category)->get();
-        }else{
+        } else {
             $product = Product::orderBy('name', 'ASC')->get();
         }
         $category = Category::orderBy('name', 'ASC')->get();
         $product_image = ProductImage::all();
-        return view('client/user_product.create', compact('product', 'product_image','category'));
+        return view('client/user_product.create', compact('product', 'product_image', 'category'));
     }
 
     /**
@@ -113,7 +113,7 @@ class UserProductController extends Controller
                     'price_low' => $request->price_low,
                     'price_high' => $request->price_high
                 ]);
-  
+
             return response()->json(['success' => true]);
         }
     }
@@ -127,8 +127,8 @@ class UserProductController extends Controller
                 'price_low' => 'required'
             ]
         );
-        foreach ($request->id as $index=>$item) {
-            
+        foreach ($request->id as $index => $item) {
+
             $user_product = UserProduct::find($request->id[$index]);
             $user_product->price_high = $request->price_high[$index];
             $user_product->price_low = $request->price_low[$index];
@@ -136,25 +136,27 @@ class UserProductController extends Controller
             $user_product->weight_type = $request->weight_type[$index];
             $user_product->update();
         }
-        foreach ($request->product_id as $item) {
-            $user_product = UserProduct::find($item);
-            $product_name[] = $user_product->product_name->name;
-            $product_type[] = $user_product->product_name->type;
-            $product_price_low[] = $user_product->price_low;
-            $product_price_high[] = $user_product->price_high;
-            $product_weight[] = $user_product->weight.'/'.$user_product->weight_type;
-            $product_image[] = $user_product->image1;
+        if (isset($request->product_id) == true) {
+            foreach ($request->product_id as $item) {
+                $user_product = UserProduct::find($item);
+                $product_name[] = $user_product->product_name->name;
+                $product_type[] = $user_product->product_name->type;
+                $product_price_low[] = $user_product->price_low;
+                $product_price_high[] = $user_product->price_high;
+                $product_weight[] = $user_product->weight . '/' . $user_product->weight_type;
+                $product_image[] = $user_product->image1;
+            }
+            // dd($product_name,$product_price_low,$product_price_high,$product_weight);
+            $post = new ProductPost;
+            $post->user_id = Auth()->user()->id;
+            $post->name = json_encode($product_name);
+            $post->price_low = json_encode($product_price_low);
+            $post->price_high = json_encode($product_price_high);
+            $post->weight = json_encode($product_weight);
+            $post->image = json_encode($product_image);
+            $post->type = json_encode($product_type);
+            $post->save();
         }
-        // dd($product_name,$product_price_low,$product_price_high,$product_weight);
-        $post = new ProductPost;
-        $post->user_id = Auth()->user()->id;
-        $post->name = json_encode($product_name);
-        $post->price_low = json_encode($product_price_low);
-        $post->price_high = json_encode($product_price_high);
-        $post->weight = json_encode($product_weight);
-        $post->image = json_encode($product_image);
-        $post->type = json_encode($product_type);
-        $post->save();
         return redirect('user-product')->with('success', 'Product has updated!');
     }
     public function imageEdit($id)
@@ -162,7 +164,8 @@ class UserProductController extends Controller
         $user_product = UserProduct::find($id);
         return view('client/user_product.image_update', compact('user_product'));
     }
-    public function imageUpdate(Request $request,$id){
+    public function imageUpdate(Request $request, $id)
+    {
         $user_product = UserProduct::find($id);
         if ($request->hasfile('image1')) {
             $image = $request->file('image1');

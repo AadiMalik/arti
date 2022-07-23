@@ -58,13 +58,14 @@ class HomeController extends Controller
         $user_product = UserProduct::orderBy('created_at', 'ASC')->get();
         $category = Category::orderBy('name', 'ASC')->get();
         $arti = User::orderBy('created_at', 'ASC')->get();
+        $arti_fallow = ArtiFallow::all();
         $product_image = ProductImage::all();
         $slider = Slider::orderBy('created_at', 'DESC')->get();
         $review = Review::orderBy('created_at', 'ASC')->get();
         $blog = Blog::orderBy('created_at', 'ASC')->get();
         $rating = Rating::all();
         $admin_videos = UserVideo::where('user_id',1)->get();
-        return view('welcome', compact('rating','admin_videos','sale_product','sale_product_image','product','user_product','arti', 'category', 'product_image', 'slider', 'review', 'blog'));
+        return view('welcome', compact('rating','arti_fallow','admin_videos','sale_product','sale_product_image','product','user_product','arti', 'category', 'product_image', 'slider', 'review', 'blog'));
     }
     public function about()
     {
@@ -172,6 +173,7 @@ class HomeController extends Controller
         $videos = UserVideo::where('user_id',$id)->get();
         $rating = Rating::where('arti_id',$id)->get();
         $comment = Comment::all();
+        $arti_fallow = ArtiFallow::all();
         $post = ProductPost::where('user_id',$id)->orderBy('created_at','DESC')->get();
         $socialShare = \Share::page(
             url('arti-detail/'.$id),
@@ -183,7 +185,7 @@ class HomeController extends Controller
         ->linkedin()
         ->whatsapp()
         ->telegram();
-        return view('arti_detail', compact('arti','user_product','gallery','comment','videos','post','rating','socialShare'));
+        return view('arti_detail', compact('arti','arti_fallow','user_product','gallery','comment','videos','post','rating','socialShare'));
     }
     public function newfeeds()
     {
@@ -227,12 +229,23 @@ class HomeController extends Controller
     }
     public function post_comment(Request $request)
     {
-        $comment = new Comment;
-        $comment->user_id = Auth()->user()->id;
-        $comment->post_id = $request->post_id;
-        $comment->comment = $request->comment;
-        $comment->save();
-        return back();
+        $comment_save = new Comment;
+        $comment_save->user_id = Auth()->user()->id;
+        $comment_save->post_id = $request->post_id;
+        $comment_save->comment = $request->comment;
+        $comment_save->save();
+        return response()->json(
+            [
+              'success' => true,
+              'message' => 'Comment inserted successfully!'
+            ]
+       );
+    }
+    public function Comment(){
+        $comment = Comment::all();
+        $commentData['data'] = $comment;
+
+     return json_encode($commentData);
     }
     public function rating(Request $request){
         $rating = new Rating;
@@ -261,9 +274,9 @@ class HomeController extends Controller
         } else {
             foreach (auth()->user()->roles as $role) {
                 if ($role->title == 'Arti') {
-                    return redirect()->route('client.home');
-                } elseif ($role->title == 'User') {
-                    return redirect()->route('client.home');
+                    return redirect('/');
+                } elseif ($role->title == 'Zameendar') {
+                    return redirect('/');
                 }
             }
         }

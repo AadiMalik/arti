@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\District;
 use App\Http\Controllers\Controller;
+use App\Tehsil;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -22,7 +25,16 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+    public function showRegistrationForm(){
+        $district = District::orderBy('name','asc')->get();
+        $tehsil = Tehsil::orderBy('name','asc')->get();
+        return view('auth.register',compact('district','tehsil'));
+    }
+    public function getTehsil(Request $request){
+        $data['tehsil'] = Tehsil::where("district_id",$request->district_id)
+                    ->get(["name","id"]);
+        return response()->json($data);
+    }
     /**
      * Where to redirect users after registration.
      *

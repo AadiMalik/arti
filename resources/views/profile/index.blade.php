@@ -1,6 +1,78 @@
 @extends('layouts.admin')
 
 @section('content')
+@section('style')
+    <style>
+        .logoimg {
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            /*margin: 20px auto;*/
+            margin: -60px auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            /*box-shadow: 1px 1px 15px -5px black;*/
+            box-shadow: none;
+            transition: all .3s ease;
+        }
+
+        .avatar-wrapper:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .avatar-wrapper:hover .profile-pic {
+            opacity: .5;
+        }
+
+        .avatar-wrapper .profile-pic {
+            height: 100%;
+            width: 100%;
+            transition: all .3s ease;
+        }
+
+        .avatar-wrapper .profile-pic:after {
+            font-family: FontAwesome;
+            content: "\f007";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            font-size: 190px;
+            background: #ecf0f1;
+            color: #34495e;
+            text-align: center;
+        }
+
+        .avatar-wrapper .upload-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .avatar-wrapper .upload-button .fa-arrow-circle-up {
+            position: absolute;
+            font-size: 243px;
+            top: -16px;
+            left: -5px;
+            text-align: center;
+            opacity: 0;
+            transition: all .3s ease;
+            color: #e4eae7;
+        }
+
+        .avatar-wrapper .upload-button:hover .fa-arrow-circle-up {
+            opacity: .9;
+        }
+    </style>
+@endsection
 
     <!-- main body -->
     <div class="row">
@@ -20,6 +92,15 @@
                         @endif
 
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="avatar-wrapper">
+                                    <img class="profile-pic" src="{{asset($user->image??'assets\img\user.jpg')}}" />
+                                    <div class="upload-button">
+                                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                    </div>
+                                    <input class="file-upload" type="file" name="image" accept="image/*" />
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="name">Username</label>
@@ -96,14 +177,14 @@
                                         value="{{ $user->city ?? '' }}">
                                 </div>
                             </div>
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <img src="{{ auth()->user()->image ?? asset('dash-assets/images/profile-avatar.png') }}"
                                     width="100" height="100">
                                 <div class="form-group">
                                     <label for="image">Profile Image</label>
                                     <input type="file" class="form-control" id="image" name="image">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-12">
                               <div class="form-group">
                                   <label for="bio">About</label>
@@ -121,4 +202,24 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var fileurl = e.target.result;
+                $('.profile-pic').attr('src', fileurl);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".file-upload").on('change', function() {
+        readURL(this);
+    });
+    $(".upload-button").on('click', function() {
+        $(".file-upload").click();
+    });
+</script>
 @endsection

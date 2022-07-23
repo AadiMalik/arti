@@ -53,7 +53,16 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user)
     {
+        // $user->update($request->all());
         $user->update($request->all());
+        if ($request->hasfile('image')) {
+            $image = $request->file('image');
+            $upload = 'Images/';
+            $filename = time() . $image->getClientOriginalName();
+            $path    = move_uploaded_file($image->getPathName(), $upload . $filename);
+            $user->image = $upload . $filename;
+            $user->update();
+        }
         $user->roles()->sync($request->input('roles', []));
 
         return redirect()->route('admin.users.index');

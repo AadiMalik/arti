@@ -30,6 +30,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
     <link href="{{ asset('assets/css/slider.css') }}" rel="stylesheet">
     <!-- Main Style CSS -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/select2/dist/css/select2.min.css') }}">
     <link href="{{ asset('assets/css/skin-default.css') }}" rel="stylesheet" id="galio-skin">
     <link rel="stylesheet" href="https://ZulNs.github.io/libs/calendar.css">
     <style>
@@ -136,7 +137,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                 <div class="dropdown header-top-dropdown">
                                                     <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
-                                                        <img src="{{ asset(Auth()->user()->image ?? 'assets\img\team\team_member_4.jpg') }}"
+                                                        <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
                                                             style="height: 23px; border-radius:50%;" alt="">
 
                                                         {{ Auth()->user()->username ?? Auth()->user()->first_name }}
@@ -846,6 +847,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
     <script src="{{ asset('assets/js/switcher.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/select2/dist/js/select2.full.min.js') }}"></script>
     <script type="text/javascript" src="https://ZulNs.github.io/libs/hijri-date.js"></script>
     <script type="text/javascript" src="https://ZulNs.github.io/libs/calendar.js"></script>
 
