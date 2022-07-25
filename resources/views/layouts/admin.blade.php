@@ -231,9 +231,9 @@
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
                         <a @if(auth()->user()->is_admin) href="{{route('admin.home')}}" @else href="{{route('client.home')}}" @endif>
-                             {{-- <img alt="image" src="{{ asset('assets_data/img/logo.png') }}" class="header-logo" /> --}}
+                             <img alt="image" src="{{ asset('Images/logo2.png') }}" style="height: 60px;" class="header-logo" />
                                 
-                            <span class="logo-name">Subzi Mandi</span>
+                            {{-- <span class="logo-name">Subzi Mandi</span> --}}
                         </a>
                     </div>
                     <ul class="sidebar-menu">
@@ -267,14 +267,14 @@
                         @can('product_access')
                         <li class="dropdown">
                             <a href="{{url('admin/product')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Add Products</span></a>
+                                    data-feather="monitor"></i><span>Products</span></a>
                         </li>
                         @endcan
                         
                         @can('user_product_access')
                         <li class="dropdown">
                             <a href="{{url('user-product')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Products</span></a>
+                                    data-feather="monitor"></i><span>Add Products</span></a>
                         </li>
                         @endcan
                         @can('product_image_access')

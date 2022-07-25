@@ -263,20 +263,18 @@
                                                     <div class="pro-review">
                                                         <span>{{ ceil($rating->avg('rate')) }}</span>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
+                                                </div><br>
                                                 <span class="reply-btn ">
                                                     @auth
                                                         @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $arti->id)->count() > 0)
-                                                            <a class="btn btn-danger"
+                                                            <a class="btn btn-danger form-control"
                                                                 style="background:#d8373e; color:#fff !important;">Followed</a>
                                                         @else
-                                                            <a class="btn btn-primary" style="cursor: pointer;"
+                                                            <a class="btn btn-primary form-control" style="cursor: pointer;"
                                                                 id="artifallow{{ $arti->id }}">Follow</a>
                                                         @endif
                                                     @else
-                                                        <a class="btn btn-primary" style="cursor: pointer;"
+                                                        <a class="btn btn-primary form-control" style="cursor: pointer;"
                                                             id="artifallow{{ $arti->id }}">Follow</a>
                                                     @endauth
                                                     Follow:{{ $arti_fallow->where('arti_id', $arti->id)->count() ?? '0' }}

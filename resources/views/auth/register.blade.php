@@ -74,7 +74,8 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="single-input-item">
-                                            <select name="district_id select2" id="district-dropdown">
+                                            <select name="district_id" class="select2" id="district-dropdown">
+                                                <option disabled selected>--Select District--</option>
                                                 @foreach ($district as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name ?? '' }}</option>
                                                 @endforeach
@@ -83,7 +84,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-input-item">
-                                            <select name="tehsil_id select2" id="district-dropdown">
+                                            <select name="tehsil_id" class="select2" id="district-dropdown">
+                                                <option disabled selected>--Select Tehsil--</option>
                                                 @foreach ($tehsil as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name ?? '' }}({{$item->district_name->name??''}})</option>
                                                 @endforeach
@@ -100,7 +102,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-input-item">
-                                            <input type="password" name="password_confirmation" id="myInput"
+                                            <input type="password" name="password_confirmation" id="myInput1"
                                                 placeholder="Repeat your Password" required>
                                         </div>
                                     </div>
@@ -149,10 +151,13 @@
     <script>
         function myFunction() {
             var x = document.getElementById("myInput");
-            if (x.type === "password") {
+            var x1 = document.getElementById("myInput1");
+            if (x.type == "password" && x1.type == "password") {
                 x.type = "text";
+                x1.type = "text";
             } else {
                 x.type = "password";
+                x1.type = "password";
             }
         }
     </script>

@@ -148,8 +148,17 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                             <a class="dropdown-item"
                                                                 href="{{ url('admin/admin') }}">Admin Panel</a>
                                                         @else
+                                                        @foreach(Auth()->user()->roles as $item)
+                                                        @if($item->title == 'Arti')
                                                             <a class="dropdown-item"
+                                                                href="{{ url('arti-detail/'.Auth()->user()->id) }}">Profile</a>
+                                                                @else
+                                                                <a class="dropdown-item"
                                                                 href="{{ url('dashboard') }}">Profile</a>
+                                                                @endif
+                                                        @endforeach
+                                                                <a class="dropdown-item"
+                                                                href="{{ url('profile') }}">Edit Profile</a>
                                                         @endif
                                                         <a class="dropdown-item" href="javascript:void(0);"
                                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -260,14 +269,14 @@ use Alkoumi\LaravelHijriDate\Hijri;
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <div class="brand-logo">
+                            <div>
                                 <a href="{{ url('/') }}">
-                                    <h2
+                                    {{-- <h2
                                         style="font-size: 45px;
                                     color: #b90e0e;
                                     font-weight: bold;">
-                                        Subzi <br> Mandi</h2>
-                                    {{-- <img src="{{asset('assets/img/logo/logo.png')}}" alt="brand logo"> --}}
+                                        Subzi <br> Mandi</h2> --}}
+                                    <img src="{{asset('Images/logo2.png')}}" style="height: 100px;" alt="brand logo">
                                 </a>
                             </div>
                         </div> <!-- end logo area -->

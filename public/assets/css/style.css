@@ -4286,10 +4286,13 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     font-size: 13px;
     line-height: 34px;
     min-height: 34px;
+    background-color: #065833;
+    color:#000;
+    font-weight: bold;
 }
 .nice-select .option:hover {
-    background-color: #065833;
-    color:white;
+    background-color: #fff;
+    color:#065833;
 }
 
 /*----- shop main wrapper end -----*/

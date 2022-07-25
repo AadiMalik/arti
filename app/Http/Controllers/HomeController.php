@@ -172,7 +172,7 @@ class HomeController extends Controller
         $gallery = UserGallery::where('user_id',$id)->get();
         $videos = UserVideo::where('user_id',$id)->get();
         $rating = Rating::where('arti_id',$id)->get();
-        $comment = Comment::all();
+        $comment = Comment::orderBy('created_at','desc')->get();
         $arti_fallow = ArtiFallow::all();
         $post = ProductPost::where('user_id',$id)->orderBy('created_at','DESC')->get();
         $socialShare = \Share::page(
