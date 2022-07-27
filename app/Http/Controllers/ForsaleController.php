@@ -16,9 +16,9 @@ class ForsaleController extends Controller
     public function index()
     {
         $product = Product::orderBy('created_at','DESC')->where('user_id',Auth()->user()->id)->get();
-        return view('client/forsale.index',compact('product'));
+        return view('forsale.index',compact('product'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *

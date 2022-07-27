@@ -21,6 +21,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('arti-rating', 'HomeController@rating')->name('Rating');
     //New Feeds
     Route::get('newfeeds', 'HomeController@newfeeds');
+    //forsale
+    Route::view('sell','forsale/category');
+    Route::get('sell/{category}/{sub_category}', 'OtherProductController@category');
+    // For Sale Product
+    Route::resource('forsale', 'OtherProductController');
+    Route::post('deleteForsale', 'OtherProductController@destroy')->name('deleteForsale');
+    // For Sale Image
+    Route::resource('forsale-image', 'OtherProductImageController');
+    Route::post('deleteForSaleImage', 'OtherProductImageController@destroy')->name('deleteForSaleImage');
 });
 
 // User
@@ -43,12 +52,7 @@ Route::group(['as' => 'client.', 'middleware' => ['auth']], function () {
     // Arti Post
     Route::resource('post', 'ProductPostController');
     Route::post('deleteProductPost', 'ProductPostController@destroy')->name('deleteProductPost');
-    // For Sale Product
-    Route::resource('forsale', 'OtherProductController');
-    Route::post('deleteForsale', 'OtherProductController@destroy')->name('deleteForsale');
-    // For Sale Image
-    Route::resource('forsale-image', 'OtherProductImageController');
-    Route::post('deleteOtherForSaleImage', 'OtherProductImageController@destroy')->name('deleteForSaleImage');
+    
     // Product Image
     Route::resource('product-image', 'ProductImageController');
     Route::post('deleteProductImage', 'ProductImageController@destroy')->name('deleteProductImage');

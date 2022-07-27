@@ -16,9 +16,13 @@ class OtherProductController extends Controller
     public function index()
     {
         $product = OtherProduct::orderBy('created_at','DESC')->where('user_id',Auth()->user()->id)->get();
-        return view('client/forsale.index',compact('product'));
+        return view('forsale.index',compact('product'));
     }
 
+    public function category($category, $sub_category)
+    {
+        return view('forsale.create',compact('category','sub_category'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +30,7 @@ class OtherProductController extends Controller
      */
     public function create()
     {
-        return view('client/forsale.create');
+        return view('forsale.create');
     }
 
     /**
