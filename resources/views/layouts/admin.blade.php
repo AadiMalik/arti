@@ -291,14 +291,8 @@
                         @endcan
                         @can('forsale_product_access')
                         <li class="dropdown">
-                            <a @if(Auth()->user()->is_admin) href="{{url('admin/forsale')}}" @else  href="{{url('forsale')}}" @endif class="nav-link"><i
+                            <a href="{{url('forsale')}}" class="nav-link"><i
                                     data-feather="monitor"></i><span>For Sale Products</span></a>
-                        </li>
-                        @endcan
-                        @can('forsale_image_access')
-                        <li class="dropdown">
-                            <a @if(Auth()->user()->is_admin) href="{{url('admin/forsale-image')}}" @else  href="{{url('forsale-image')}}" @endif class="nav-link"><i
-                                    data-feather="monitor"></i><span>For Sale Images</span></a>
                         </li>
                         @endcan
                         @can('user_product_post_access')
@@ -717,7 +711,7 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    <a href="templateshub.net">Templateshub</a></a>
+                    Develope by <a href="http://redbrickssolution.com">Red Bricks Solution</a>
                 </div>
                 <div class="footer-right">
                 </div>

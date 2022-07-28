@@ -84,31 +84,41 @@
             @csrf
             <input type="hidden" name="category" value="{{ $category ?? '' }}">
             <input type="hidden" name="sub_category" value="{{ $sub_category ?? '' }}">
-            <div class="form-group">
-                <label class="required" for="name">Product Name</label>
-                <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}"
-                    required>
-                {!! $errors->first('name', "<span class='text-danger'>:message</span>") !!}
-            </div>
-            @if ($category == 'vehicles')
-                <div class="form-group">
-                    <label class="required" for="company_name">Product Company Name</label>
-                    <input class="form-control" type="text" name="company_name" id="company_name"
-                        value="{{ old('company_name') }}" required>
-                    {!! $errors->first('company_name', "<span class='text-danger'>:message</span>") !!}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="name">Product Name *</label>
+                        <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}"
+                            required>
+                        {!! $errors->first('name', "<span class='text-danger'>:message</span>") !!}
+                    </div>
                 </div>
-            @endif
-            <div class="form-group">
-                <label class="required" for="quantity">Product Quantity</label>
-                <input class="form-control" type="number" name="quantity" id="quantity" value="{{ old('quantity') }}"
-                    required>
-                {!! $errors->first('quantity', "<span class='text-danger'>:message</span>") !!}
-            </div>
-            <div class="form-group">
-                <label class="required" for="price">Product Price</label>
-                <input class="form-control" type="number" name="price" id="price" value="{{ old('price') }}"
-                    required>
-                {!! $errors->first('price', "<span class='text-danger'>:message</span>") !!}
+                @if ($category == 'vehicles')
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="company_name">Product Company Name *</label>
+                        <input class="form-control" type="text" name="company_name" id="company_name"
+                            value="{{ old('company_name') }}" required>
+                        {!! $errors->first('company_name', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
+                @endif
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="quantity">Product Quantity *</label>
+                        <input class="form-control" type="number" name="quantity" id="quantity" value="{{ old('quantity') }}"
+                            required>
+                        {!! $errors->first('quantity', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="price">Product Price *</label>
+                        <input class="form-control" type="number" name="price" id="price" value="{{ old('price') }}"
+                            required>
+                        {!! $errors->first('price', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label class="required" for="price">Product Images</label>
@@ -118,7 +128,7 @@
                             <img class="profile-pic1" src="{{ asset('Images\demo1.jpg') }}" />
                             <div class="upload-button1">
                             </div>
-                            <input class="file-upload1" type="file" name="image1" accept="image/*" />
+                            <input class="file-upload1" type="file" name="image1" accept="image/*" required/>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -127,7 +137,7 @@
                             <div class="upload-button2">
                                 <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                             </div>
-                            <input class="file-upload2" type="file" name="image2" accept="image/*" />
+                            <input class="file-upload2" type="file" name="image2" accept="image/*" required />
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -222,8 +232,41 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="required" for="price">Address *</label>
+                        <input type="text" class="form-control" name="address" value="{{ old('address') }}" required>
+                        {!! $errors->first('address', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="price">District/City *</label>
+                        <select name="district_id" class="form-control select2" id="" required>
+                            <option selected disabled>--Select District/City--</option>
+                            @foreach ($district as $item)
+                            <option value="{{$item->id??''}}">{{$item->name??''}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('district_id', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="price">Tehsil *</label>
+                        <select name="tehsil_id" class="form-control select2" id="" required>
+                            <option selected disabled>--Select Tehsil--</option>
+                            @foreach ($tehsil as $item)
+                            <option value="{{$item->id??''}}">{{$item->name??''}}({{$item->district_name->name??''}})</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('tehsil_id', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
-                <label class="required" for="description">Description</label>
+                <label class="required" for="description">Description *</label>
                 <textarea id="div_editor1" class="form-control" type="text" name="description" required>{{ old('description') }}</textarea>
                 {!! $errors->first('description', "<span class='text-danger'>:message</span>") !!}
             </div>

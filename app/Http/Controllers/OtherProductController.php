@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
 use App\OtherProduct;
 use App\OtherProductImage;
+use App\Tehsil;
 use Illuminate\Http\Request;
 
 class OtherProductController extends Controller
@@ -21,7 +23,9 @@ class OtherProductController extends Controller
 
     public function category($category, $sub_category)
     {
-        return view('forsale.create',compact('category','sub_category'));
+        $district  = District::orderBy('name','ASC')->get();
+        $tehsil = Tehsil::orderBy('name','ASC')->get();
+        return view('forsale.create',compact('category','sub_category','district','tehsil'));
     }
     /**
      * Show the form for creating a new resource.
@@ -41,45 +45,72 @@ class OtherProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validation = $request->validate(
             [
                 'name' => 'required|max:255',
                 'price' => 'required|max:191',
                 'image1' => 'required',
                 'image2' => 'required',
+                'address' => 'required',
+                'district_id' => 'required',
+                'tehsil_id' => 'required',
                 'description' => 'required'
             ]
         );
         $product = new OtherProduct;
+        if($request->category=='vehicles'){
+            $validation = $request->validate(
+                [
+                    'company_name' => 'required|max:255'
+                ]
+            );
+            $product->company_name = ucfirst($request->company_name);
+        }
         
         $product->name = ucfirst($request->name);
         $product->price = $request->price;
+        $product->address = $request->address;
+        $product->district_id = $request->district_id;
+        $product->tehsil_id = $request->tehsil_id;
+        $product->quantity = $request->quantity;
         $product->description = $request->description;
+        $product->category = $request->category;
+        $product->sub_category = $request->sub_category;
         $product->user_id = Auth()->user()->id;
+        for($i=1; $i<=12; $i++){
+            if ($request->hasfile('image'.$i.'')) {
+                $image = $request->file('image'.$i.'');
+                $upload = 'Images/';
+                $filename = time() . $image->getClientOriginalName();
+                $path    = move_uploaded_file($image->getPathName(), $upload . $filename);
+                if($i==1)
+                $product->image1 = $upload . $filename;
+                if($i==2)
+                $product->image2 = $upload . $filename;
+                if($i==3)
+                $product->image3 = $upload . $filename;
+                if($i==4)
+                $product->image4 = $upload . $filename;
+                if($i==5)
+                $product->image5 = $upload . $filename;
+                if($i==6)
+                $product->image6 = $upload . $filename;
+                if($i==7)
+                $product->image7 = $upload . $filename;
+                if($i==8)
+                $product->image8 = $upload . $filename;
+                if($i==9)
+                $product->image9 = $upload . $filename;
+                if($i==10)
+                $product->image10 = $upload . $filename;
+                if($i==11)
+                $product->image11 = $upload . $filename;
+                if($i==12)
+                $product->image12 = $upload . $filename;
+            }
+        }
         $product->save();
-
-        $productImage = new OtherProductImage;
-        if ($request->hasfile('image1')) {
-            $file = $request->file('image1');
-            $upload = 'Images';
-            $filename = time() . $file->getClientOriginalName();
-            $path    = move_uploaded_file($file->getPathName(), $upload . $filename);
-            $productImage->image =  $upload . $filename;
-        }
-        $productImage->other_id = $product->id;
-        $productImage->user_id = Auth()->user()->id;
-        $productImage->save();
-        $productImage1 = new OtherProductImage;
-        if ($request->hasfile('image2')) {
-            $file = $request->file('image2');
-            $upload = 'Images';
-            $filename = time() . $file->getClientOriginalName();
-            $path    = move_uploaded_file($file->getPathName(), $upload . $filename);
-            $productImage1->image =  $upload . $filename;
-        }
-        $productImage1->other_id = $product->id;
-        $productImage->user_id = Auth()->user()->id;
-        $productImage1->save();
         return redirect('forsale')->with('success','For Sale Product has created!');
     }
 

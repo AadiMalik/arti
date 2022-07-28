@@ -54,7 +54,6 @@ class HomeController extends Controller
     {
         $product = Product::orderBy('hits', 'DESC')->where('zamidar',0)->get();
         $sale_product = OtherProduct::orderBy('created_at', 'DESC')->get();
-        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
         $user_product = UserProduct::orderBy('created_at', 'ASC')->get();
         $category = Category::orderBy('name', 'ASC')->get();
         $arti = User::orderBy('created_at', 'ASC')->get();
@@ -65,7 +64,7 @@ class HomeController extends Controller
         $blog = Blog::orderBy('created_at', 'ASC')->get();
         $rating = Rating::all();
         $admin_videos = UserVideo::where('user_id',1)->get();
-        return view('welcome', compact('rating','arti_fallow','admin_videos','sale_product','sale_product_image','product','user_product','arti', 'category', 'product_image', 'slider', 'review', 'blog'));
+        return view('welcome', compact('rating','arti_fallow','admin_videos','sale_product','product','user_product','arti', 'category', 'product_image', 'slider', 'review', 'blog'));
     }
     public function about()
     {
@@ -123,6 +122,9 @@ class HomeController extends Controller
     }
     public function zamidar_detail($id){
         $sale_product_detail = OtherProduct::find($id);
+        $product_detail = OtherProduct::find($id);
+        $product_detail->hits = $product_detail->hits+1;
+        $product_detail->update();
         $sale_product_image = OtherProductImage::where('other_id', $id)->get();
         $related = OtherProduct::orderBy('created_at','DESC')->get();
         $related_image = OtherProductImage::orderBy('created_at','DESC')->get();

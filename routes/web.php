@@ -163,12 +163,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('video', 'VideoController');
     Route::post('deleteVideo', 'VideoController@destroy')->name('deleteVideo');
     
-    // For Sale Product
-    Route::resource('forsale', 'OtherProductController');
-    Route::post('deleteForsale', 'OtherProductController@destroy')->name('deleteForsale');
-    // For Sale Image
-    Route::resource('forsale-image', 'OtherProductImageController');
-    Route::post('deleteForSaleImage', 'OtherProductImageController@destroy')->name('deleteForSaleImage');
 });
 
 

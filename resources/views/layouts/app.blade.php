@@ -148,17 +148,17 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                             <a class="dropdown-item"
                                                                 href="{{ url('admin/admin') }}">Admin Panel</a>
                                                         @else
-                                                        @foreach(Auth()->user()->roles as $item)
-                                                        @if($item->title == 'Arti')
-                                                            <a class="dropdown-item"
-                                                                href="{{ url('arti-detail/'.Auth()->user()->id) }}">Profile</a>
+                                                            @foreach (Auth()->user()->roles as $item)
+                                                                @if ($item->title == 'Arti')
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ url('arti-detail/' . Auth()->user()->id) }}">Profile</a>
                                                                 @else
-                                                                <a class="dropdown-item"
-                                                                href="{{ url('dashboard') }}">Profile</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ url('dashboard') }}">Profile</a>
                                                                 @endif
-                                                        @endforeach
-                                                                <a class="dropdown-item"
-                                                                href="{{ url('profile') }}">Edit Profile</a>
+                                                            @endforeach
+                                                            <a class="dropdown-item" href="{{ url('profile') }}">Edit
+                                                                Profile</a>
                                                         @endif
                                                         <a class="dropdown-item" href="javascript:void(0);"
                                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -276,7 +276,8 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                     color: #b90e0e;
                                     font-weight: bold;">
                                         Subzi <br> Mandi</h2> --}}
-                                    <img src="{{asset('Images/logo2.png')}}" style="height: 100px;" alt="brand logo">
+                                    <img src="{{ asset('Images/logo2.png') }}" style="height: 100px;"
+                                        alt="brand logo">
                                 </a>
                             </div>
                         </div> <!-- end logo area -->
@@ -318,51 +319,11 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                         <input type="text" placeholder="Search...">
                                         <button class="search-btn"><i class="fa fa-search"></i></button>
                                     </div>
-                                    {{-- <div class="header-mini-cart">
-                                        <div class="mini-cart-btn">
-                                            <i class="fa fa-shopping-cart"></i>
-                                            <span class="cart-notification">2</span>
+                                    <a href="{{ url('sell') }}">
+                                        <div class="form-control" style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
+                                             Sell +
                                         </div>
-                                        <div class="cart-total-price">
-                                            <span>total</span>
-                                            $50.00
-                                        </div>
-                                        <ul class="cart-list">
-                                            <li>
-                                                <div class="cart-img">
-                                                    <a href="product-details.html"><img
-                                                            src="{{ asset('assets/img/cart/cart-1.jpg') }}" alt=""></a>
-                                                </div>
-                                                <div class="cart-info">
-                                                    <h4><a href="product-details.html">simple product 09</a></h4>
-                                                    <span>$60.00</span>
-                                                </div>
-                                                <div class="del-icon">
-                                                    <i class="fa fa-times"></i>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="cart-img">
-                                                    <a href="product-details.html"><img
-                                                            src="{{ asset('assets/img/cart/cart-2.jpg') }}" alt=""></a>
-                                                </div>
-                                                <div class="cart-info">
-                                                    <h4><a href="product-details.html">virtual product 10</a></h4>
-                                                    <span>$50.00</span>
-                                                </div>
-                                                <div class="del-icon">
-                                                    <i class="fa fa-times"></i>
-                                                </div>
-                                            </li>
-                                            <li class="mini-cart-price">
-                                                <span class="subtotal">subtotal : </span>
-                                                <span class="subtotal-price">$88.66</span>
-                                            </li>
-                                            <li class="checkout-btn">
-                                                <a href="#">checkout</a>
-                                            </li>
-                                        </ul>
-                                    </div> --}}
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -579,8 +540,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                         <div class="brand-active slick-padding slick-arrow-style">
                             @foreach ($brand as $item)
                                 <div class="brand-item text-center">
-                                    <a href="#"><img src="{{ asset($item->image ?? '') }}"
-                                            alt=""></a>
+                                    <a href="#"><img src="{{ asset($item->image ?? '') }}" alt=""></a>
                                 </div>
                             @endforeach
                         </div>
@@ -713,7 +673,8 @@ use Alkoumi\LaravelHijriDate\Hijri;
                 <div class="container">
                     <div class="footer-bottom-wrap">
                         <div class="copyright-text">
-                            <p><a target="_blank" href="#">Sabzi Mandi</a></p>
+                            <p>Develope by <a target="_blank" href="http://redbrickssolution.com/">Red Bricks
+                                    Solution</a></p>
                         </div>
                         <div class="payment-method-img">
                             <img src="{{ asset('assets/img/payment.png') }}" alt="">
@@ -727,110 +688,6 @@ use Alkoumi\LaravelHijriDate\Hijri;
         <!-- footer area end -->
 
     </div>
-
-
-    <!-- Quick view modal start -->
-    <div class="modal" id="quick_view">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <!-- product details inner end -->
-                    <div class="product-details-inner">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <div class="product-large-slider slick-arrow-style_2 mb-20">
-                                    <div class="pro-large-img">
-                                        <img src="{{ asset('assets/img/product/product-details-img1.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img src="{{ asset('assets/img/product/product-details-img2.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img src="{{ asset('assets/img/product/product-details-img3.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img src="{{ asset('assets/img/product/product-details-img4.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img src="{{ asset('assets/img/product/product-details-img5.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                </div>
-                                <div class="pro-nav slick-padding2 slick-arrow-style_2">
-                                    <div class="pro-nav-thumb"><img
-                                            src="{{ asset('assets/img/product/product-details-img1.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-nav-thumb"><img
-                                            src="{{ asset('assets/img/product/product-details-img2.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-nav-thumb"><img
-                                            src="{{ asset('assets/img/product/product-details-img3.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-nav-thumb"><img
-                                            src="{{ asset('assets/img/product/product-details-img4.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                    <div class="pro-nav-thumb"><img
-                                            src="{{ asset('assets/img/product/product-details-img5.jpg') }}"
-                                            alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="product-details-des mt-md-34 mt-sm-34">
-                                    <h3><a href="product-details.html">external product 12</a></h3>
-                                    <div class="ratings">
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span><i class="fa fa-star"></i></span>
-                                        <div class="pro-review">
-                                            <span>1 review(s)</span>
-                                        </div>
-                                    </div>
-                                    <div class="availability mt-10">
-                                        <h5>Availability:</h5>
-                                        <span>1 in stock</span>
-                                    </div>
-                                    <div class="pricebox">
-                                        <span class="regular-price">$160.00</span>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
-                                        Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea
-                                        dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris
-                                        consequat nisi ut mauris efficitur lacinia.</p>
-                                    <div class="quantity-cart-box d-flex align-items-center mt-20">
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1"></div>
-                                        </div>
-                                        <div class="action_link">
-                                            <a class="buy-btn" href="#">add to cart<i
-                                                    class="fa fa-shopping-cart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- product details inner end -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick view modal end -->
 
     <!-- Scroll to top start -->
     <div class="scroll-top not-visible">

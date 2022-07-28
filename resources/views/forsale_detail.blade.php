@@ -29,23 +29,125 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product-box-slider slick-padding slick-arrow-style_2 mb-20">
-                                @foreach ($sale_product_image as $item)
+                                @if($sale_product_detail->image1)
                                 <div class="pro-large-img">
-                                    <img src="{{asset($item->image)}}" style="height: 300px;" alt="" />
+                                    <img src="{{asset($sale_product_detail->image1)}}" style="height: 300px;" alt="" />
                                 </div>
-                                @endforeach
-                                
+                                @endif
+                                @if($sale_product_detail->image2)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image2)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image3)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image3)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image4)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image4)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image5)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image5)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image6)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image6)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image7)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image7)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image8)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image8)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image9)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image9)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image10)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image10)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image11)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image11)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
+                                @if($sale_product_detail->image12)
+                                <div class="pro-large-img">
+                                    <img src="{{asset($sale_product_detail->image12)}}" style="height: 300px;" alt="" />
+                                </div>
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <div class="product-details-des slider-box-center text-center mt-14">
+                            <div class="product-details-des card-body mt-14">
                                 <h3>{{$sale_product_detail->name??''}}</h3>
-                                
                                 <div class="pricebox">
                                     <span class="regular-price">Rs. {{$sale_product_detail->price??''}}</span>
-                                </div>
-                                <p>{!!$sale_product_detail->description??''!!}</p>
-                                
+                                </div><br>
+                                <table class="table table-striped table-hover">
+                                    @if($sale_product_detail->company_name)
+                                    <tr>
+                                        <th><b>Company Name:</b></th>
+                                        <td>{{ucfirst($sale_product_detail->company_name??'')}}</td>
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <th><b>Category:</b></th>
+                                        <td>{{ucfirst($sale_product_detail->category??'')}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Sub Category:</b></th>
+                                        <td>{{ucfirst($sale_product_detail->sub_category??'')}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Price:</b></th>
+                                        <td>{{$sale_product_detail->price??''}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Address:</b></th>
+                                        <td>{{$sale_product_detail->address??''}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Tehsil:</b></th>
+                                        <td>{{$sale_product_detail->tehsil_name->name??''}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>District/City:</b></th>
+                                        <td>{{$sale_product_detail->district_name->name??''}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Created By:</b></th>
+                                        <td>{{$sale_product_detail->user_name->username??''}}</td>
+                                    </tr>
+                                    @if($sale_product_detail->updated_at)
+                                    <tr>
+                                        <th><b>Updated:</b></th>
+                                        <td>{{$sale_product_detail->updated_at??''}}</td>
+                                    </tr>
+                                    @else
+                                    <tr>
+                                        <th><b>Created:</b></th>
+                                        <td>{{$sale_product_detail->created_at??''}}</td>
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <th><b>Discription:</b></th>
+                                        <td>{!!$sale_product_detail->description??''!!}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -190,13 +292,8 @@
                         <div class="product-item fix">
                             <div class="product-thumb">
                                 <a href="{{url('forsale-detail/'.$item->id)}}">
-                                    @foreach ($related_image->where('other_id',$item->id)->take(2) as $loop=>$item2)
-                                    @if($loop->first)
-                                    <img src="{{asset($item2->image??'')}}" class="img-pri" style="height: 200px;" alt="">
-                                    @else
-                                    <img src="{{asset($item2->image??'')}}" class="img-sec" style="height: 200px;" alt="">
-                                    @endif
-                                    @endforeach
+                                    <img src="{{asset($item->image1??'')}}" class="img-pri" style="height: 200px;" alt="">
+                                    <img src="{{asset($item->image2??'')}}" class="img-sec" style="height: 200px;" alt="">
                                 </a>
                             </div>
                             <div class="product-content">
@@ -230,9 +327,7 @@
                                 <div class="category-item">
                                     <div class="category-thumb">
                                         <a href="{{url('forsale-detail/'.$item->id)}}">
-                                            @foreach ($related_image->where('other_id',$item->id)->take(1) as $item2)
-                                            <img src="{{asset($item2->image??'')}}" style="height: 100px;" alt="">
-                                            @endforeach
+                                            <img src="{{asset($item->image1??'')}}" style="height: 100px;" alt="">
                                             
                                         </a>
                                     </div>
