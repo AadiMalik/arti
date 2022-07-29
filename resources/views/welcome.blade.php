@@ -133,62 +133,6 @@
 </div>
 <br>
 
-<!-- The dots/circles -->
-{{-- <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div> --}}
-{{-- <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="slider-wrapper-area">
-                <div class="hero-slider-active hero__1 slick-dot-style hero-dot">
-                    @foreach ($slider as $item)
-                        <div class="single-slider" style="background-image: url({{ asset($item->image ?? '') }});">
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- hero slider end -->
-
-<!-- home banner area start -->
-{{-- <div class="banner-area mt-30">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 order-1">
-                <div class="img-container img-full fix imgs-res mb-sm-30">
-                    <a href="#">
-                        <img src="{{asset('assets/img/banner/banner_left.jpg')}}" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-5 order-sm-3">
-                <div class="img-container img-full fix mb-30">
-                    <a href="#">
-                        <img src="{{asset('assets/img/banner/banner_static_top1.jpg')}}" alt="">
-                    </a>
-                </div>
-                <div class="img-container img-full fix mb-30">
-                    <a href="#">
-                        <img src="{{asset('assets/img/banner/banner_static_top2.jpg')}}" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 order-2 order-md-3">
-                <div class="img-container img-full fix">
-                    <a href="#">
-                        <img src="{{asset('assets/img/banner/banner_static_top3.jpg')}}" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- home banner area end -->
 
 <!-- page wrapper start -->
 <div class="page-wrapper pt-6 pb-28 pb-md-6 pb-sm-6 pt-xs-36">
@@ -222,20 +166,7 @@
                                                 @endif
                                             @endforeach
                                         </a>
-                                        {{-- <div class="product-label">
-                                        <span>hot</span>
-                                    </div> --}}
-                                        {{-- <div class="product-action-link">
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                    class="fa fa-search"></i></span> </a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                class="fa fa-heart-o"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                class="fa fa-refresh"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                class="fa fa-shopping-cart"></i></a>
-                                    </div> --}}
+
                                     </div>
                                     <div class="product-content">
                                         <h4><a
@@ -244,16 +175,7 @@
                                         <div class="pricebox">
                                             <span class="regular-price">Rs.
                                                 {{ $item->price_low ?? '' }}-{{ $item->price_high ?? '' }}</span>
-                                            {{-- <div class="ratings">
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <div class="pro-review">
-                                                <span>1 review(s)</span>
-                                            </div>
-                                        </div> --}}
+
                                         </div>
                                     </div>
                                 </div>
@@ -288,20 +210,8 @@
                                                 <div class="regular-price">
                                                     Rs. {{ $item->price_low ?? '' }}-{{ $item->price_high ?? '' }}
                                                 </div>
-                                                {{-- <div class="old-price">
-                                                <del>$180.00</del>
-                                            </div> --}}
                                             </div>
-                                            {{-- <div class="ratings">
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <div class="pro-review">
-                                                <span>1 review(s)</span>
-                                            </div>
-                                        </div> --}}
+
                                         </div>
                                     </div> <!-- end single item -->
                                 </div>
@@ -368,408 +278,342 @@
 
                 </div>
             </div>
-        </div>
+
     </div>
-    <!-- end home sidebar -->
+</div>
+            <!-- end home sidebar -->
 
-    <div class="col-lg-9">
-        <!-- Hot Products area start -->
-        <div class="feature-category-area mt-md-70">
-            <div class="section-title mb-30">
-                <div class="title-icon">
-                    <i class="fa fa-bookmark"></i>
-                </div>
-                <h3>Hot Products</h3>
-
-            </div> <!-- section title end -->
-            <!-- featured category start -->
-            <div class="featured-carousel-active slick-padding slick-arrow-style">
-                <!-- product single item start -->
-                @foreach ($product as $item1)
-                    <div class="product-item fix">
-                        <div class="product-thumb">
-                            <a href="{{ url('product-detail/' . $item1->id) }}">
-                                @foreach ($product_image->where('product_id', $item1->id)->take(2) as $loop => $item2)
-                                    @if ($loop->first)
-                                        <img src="{{ asset($item2->image ?? '') }}" class="img-pri"
-                                            style="height: 200px;" alt="">
-                                    @else
-                                        <img src="{{ asset($item2->image ?? '') }}" class="img-sec"
-                                            style="height: 200px;" alt="">
-                                    @endif
-                                @endforeach
-
-                            </a>
-                            {{-- <div class="product-label">
-                                    <span>hot</span>
-                                </div> --}}
-                            {{-- <div class="product-action-link">
-                                    <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                            data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                class="fa fa-search"></i></span> </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                            class="fa fa-heart-o"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                            class="fa fa-refresh"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                            class="fa fa-shopping-cart"></i></a>
-                                </div> --}}
+            <div class="col-lg-9">
+                <!-- Hot Products area start -->
+                <div class="feature-category-area mt-md-70">
+                    <div class="section-title mb-30">
+                        <div class="title-icon">
+                            <i class="fa fa-bookmark"></i>
                         </div>
-                        <div class="product-content">
-                            <h4><a href="{{ url('product-detail/' . $item1->id) }}">{{ $item1->name ?? '' }}
-                                    ({{ $item1->type ?? '' }})
-                                </a></h4>
-                            <div class="pricebox">
-                                <span class="regular-price">Rs.
-                                    {{ $user_product->where('product_id', $item1->id)->min('price_low') ?? $item1->price_low }}-{{ $user_product->where('product_id', $item1->id)->max('price_high') ?? $item1->price_high }}</span>
-                                {{-- <div class="ratings">
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span><i class="fa fa-star"></i></span>
-                                        <div class="pro-review">
-                                            <span>1 review(s)</span>
-                                        </div>
-                                    </div> --}}
+                        <h3>Hot Products</h3>
+
+                    </div> <!-- section title end -->
+                    <!-- featured category start -->
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
+                        <!-- product single item start -->
+                        @foreach ($product as $item1)
+                            <div class="product-item fix">
+                                <div class="product-thumb">
+                                    <a href="{{ url('product-detail/' . $item1->id) }}">
+                                        @foreach ($product_image->where('product_id', $item1->id)->take(2) as $loop => $item2)
+                                            @if ($loop->first)
+                                                <img src="{{ asset($item2->image ?? '') }}" class="img-pri"
+                                                    style="height: 200px;" alt="">
+                                            @else
+                                                <img src="{{ asset($item2->image ?? '') }}" class="img-sec"
+                                                    style="height: 200px;" alt="">
+                                            @endif
+                                        @endforeach
+
+                                    </a>
+
+                                </div>
+                                <div class="product-content">
+                                    <h4><a href="{{ url('product-detail/' . $item1->id) }}">{{ $item1->name ?? '' }}
+                                            ({{ $item1->type ?? '' }})
+                                        </a></h4>
+                                    <div class="pricebox">
+                                        <span class="regular-price">Rs.
+                                            {{ $user_product->where('product_id', $item1->id)->min('price_low') ?? $item1->price_low }}-{{ $user_product->where('product_id', $item1->id)->max('price_high') ?? $item1->price_high }}</span>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
-            </div>
-            <!-- featured category end -->
-        </div>
-        <!-- Hot Products area end -->
-        <!-- Verified Arti area start -->
-        <div class="feature-category-area mt-md-70 mt-3">
-            <div class="section-title mb-30">
-                <div class="title-icon">
-                    <i class="fa fa-users"></i>
+                    <!-- featured category end -->
                 </div>
-                <h3>Verified Commession Agents</h3>
+                <!-- Hot Products area end -->
+                <!-- Verified Arti area start -->
+                <div class="feature-category-area mt-md-70 mt-3">
+                    <div class="section-title mb-30">
+                        <div class="title-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <h3>Verified Commession Agents</h3>
 
-            </div> <!-- section title end -->
-            <!-- featured category start -->
-            <div class="featured-carousel-active slick-padding slick-arrow-style">
-                <!-- product single item start -->
-                @foreach ($arti->where('verify', 0) as $item1)
-                    @foreach ($item1->roles as $item2)
-                        @if ($item2->title == 'Arti')
-                            <div class="product-item fix">
-                                <div class="product-thumb">
-                                    <a href="{{ url('arti-detail/' . $item1->id) }}">
-                                        <img src="{{ asset($item1->image ?? 'assets/img/user.jpg') }}"
-                                            class="img-pri" style="height: 200px; border-radius:50%;" alt="">
+                    </div> <!-- section title end -->
+                    <!-- featured category start -->
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
+                        <!-- product single item start -->
+                        @foreach ($arti->where('verify', 0) as $item1)
+                            @foreach ($item1->roles as $item2)
+                                @if ($item2->title == 'Arti')
+                                    <div class="product-item fix">
+                                        <div class="product-thumb">
+                                            <a href="{{ url('arti-detail/' . $item1->id) }}">
+                                                <img src="{{ asset($item1->image ?? 'assets/img/user.jpg') }}"
+                                                    class="img-pri" style="height: 200px; border-radius:50%;"
+                                                    alt="">
 
-                                    </a>
-                                    {{-- <div class="product-label">
-                                    <span>hot</span>
-                                </div> --}}
-                                    {{-- <div class="product-action-link">
-                                    <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                            data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                class="fa fa-search"></i></span> </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                            class="fa fa-heart-o"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                            class="fa fa-refresh"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                            class="fa fa-shopping-cart"></i></a>
-                                </div> --}}
-                                </div>
-                                <div class="product-content">
-                                    <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
-                                            {{ $item1->last_name ?? '' }}
-                                        </a></h4>
+                                            </a>
 
-                                    <div class="pricebox">
-                                        <span class="reply-btn">
-                                            @auth
-                                                @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $item1->id)->count() > 0)
-                                                    <a class="btn btn-danger"
-                                                        style="background:#d8373e; color:#fff !important;">Followed</a>
-                                                @else
-                                                    <a class="btn btn-primary" style="cursor: pointer;"
-                                                        id="artifallow{{ $item1->id }}">Follow</a>
-                                                @endif
-                                            @else
-                                                <a class="btn btn-primary" style="cursor: pointer;"
-                                                    id="artifallow{{ $item1->id }}">Follow</a>
-                                            @endauth
-                                            Follow:{{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
-                                        </span>
-                                        <div class="ratings">
-                                            @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @endif
-                                            @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) == 5.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span><i class="fa fa-star"></i></span>
-                                            @endif
-                                            <div class="pro-review">
-                                                <span>{{ $rating->where('arti_id', $item1->id)->count() }}
-                                                    Review(s)</span>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
+                                                    {{ $item1->last_name ?? '' }}
+                                                </a></h4>
+
+                                            <div class="pricebox">
+                                                <span class="reply-btn">
+                                                    @auth
+                                                        @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $item1->id)->count() > 0)
+                                                            <a class="btn btn-danger"
+                                                                style="background:#d8373e; color:#fff !important;">Followed</a>
+                                                        @else
+                                                            <a class="btn btn-primary" style="cursor: pointer;"
+                                                                id="artifallow{{ $item1->id }}">Follow</a>
+                                                        @endif
+                                                    @else
+                                                        <a class="btn btn-primary" style="cursor: pointer;"
+                                                            id="artifallow{{ $item1->id }}">Follow</a>
+                                                    @endauth
+                                                    Follow:{{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
+                                                </span>
+                                                <div class="ratings">
+                                                    @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @endif
+                                                    @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) == 5.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span><i class="fa fa-star"></i></span>
+                                                    @endif
+                                                    <div class="pro-review">
+                                                        <span>{{ $rating->where('arti_id', $item1->id)->count() }}
+                                                            Review(s)</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                @endforeach
-            </div>
-            <!-- featured category end -->
-        </div>
-        <!-- Verified Arti area end -->
-        <!-- Arti area start -->
-        <div class="feature-category-area mt-md-70 mt-3">
-            <div class="section-title mb-30">
-                <div class="title-icon">
-                    <i class="fa fa-users"></i>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+                    <!-- featured category end -->
                 </div>
-                <h3>Commession Agents</h3>
+                <!-- Verified Arti area end -->
+                <!-- Arti area start -->
+                <div class="feature-category-area mt-md-70 mt-3">
+                    <div class="section-title mb-30">
+                        <div class="title-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <h3>Commession Agents</h3>
 
-            </div> <!-- section title end -->
-            <!-- featured category start -->
-            <div class="featured-carousel-active slick-padding slick-arrow-style">
-                <!-- product single item start -->
-                @foreach ($arti->where('verify', 1) as $item1)
-                    @foreach ($item1->roles as $item2)
-                        @if ($item2->title == 'Arti')
-                            <div class="product-item fix">
-                                <div class="product-thumb">
-                                    <a href="{{ url('arti-detail/' . $item1->id) }}">
-                                        <img src="{{ asset($item1->image ?? 'assets/img/user.jpg') }}"
-                                            class="img-pri" style="height: 200px; border-radius:50%;" alt="">
+                    </div> <!-- section title end -->
+                    <!-- featured category start -->
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
+                        <!-- product single item start -->
+                        @foreach ($arti->where('verify', 1) as $item1)
+                            @foreach ($item1->roles as $item2)
+                                @if ($item2->title == 'Arti')
+                                    <div class="product-item fix">
+                                        <div class="product-thumb">
+                                            <a href="{{ url('arti-detail/' . $item1->id) }}">
+                                                <img src="{{ asset($item1->image ?? 'assets/img/user.jpg') }}"
+                                                    class="img-pri" style="height: 200px; border-radius:50%;"
+                                                    alt="">
 
-                                    </a>
-                                    {{-- <div class="product-label">
-                                    <span>hot</span>
-                                </div> --}}
-                                    {{-- <div class="product-action-link">
-                                    <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                            data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                class="fa fa-search"></i></span> </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                            class="fa fa-heart-o"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                            class="fa fa-refresh"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                            class="fa fa-shopping-cart"></i></a>
-                                </div> --}}
-                                </div>
-                                <div class="product-content">
-                                    <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
-                                            {{ $item1->last_name ?? '' }}
-                                        </a></h4>
+                                            </a>
 
-                                    <div class="pricebox">
-                                        <span class="reply-btn">
-                                            @auth
-                                                @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $item1->id)->count() > 0)
-                                                    <a class="btn btn-danger"
-                                                        style="background:#d8373e; color:#fff !important;">Followed</a>
-                                                @else
-                                                    <a class="btn btn-primary" style="cursor: pointer;"
-                                                        id="artifallow{{ $item1->id }}">Follow</a>
-                                                @endif
-                                            @else
-                                                <a class="btn btn-primary" style="cursor: pointer;"
-                                                    id="artifallow{{ $item1->id }}">Follow</a>
-                                            @endauth
-                                            Follow:{{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
-                                        </span>
-                                        <div class="ratings">
-                                            @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @endif
-                                            @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star-o"></i></span>
-                                            @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) == 5.0)
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span class="good"><i class="fa fa-star"></i></span>
-                                                <span><i class="fa fa-star"></i></span>
-                                            @endif
-                                            <div class="pro-review">
-                                                <span>{{ $rating->where('arti_id', $item1->id)->count() }}
-                                                    Review(s)</span>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
+                                                    {{ $item1->last_name ?? '' }}
+                                                </a></h4>
+
+                                            <div class="pricebox">
+                                                <span class="reply-btn">
+                                                    @auth
+                                                        @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $item1->id)->count() > 0)
+                                                            <a class="btn btn-danger"
+                                                                style="background:#d8373e; color:#fff !important;">Followed</a>
+                                                        @else
+                                                            <a class="btn btn-primary" style="cursor: pointer;"
+                                                                id="artifallow{{ $item1->id }}">Follow</a>
+                                                        @endif
+                                                    @else
+                                                        <a class="btn btn-primary" style="cursor: pointer;"
+                                                            id="artifallow{{ $item1->id }}">Follow</a>
+                                                    @endauth
+                                                    Follow:{{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
+                                                </span>
+                                                <div class="ratings">
+                                                    @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @endif
+                                                    @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star-o"></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) == 5.0)
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span class="good"><i class="fa fa-star"></i></span>
+                                                        <span><i class="fa fa-star"></i></span>
+                                                    @endif
+                                                    <div class="pro-review">
+                                                        <span>{{ $rating->where('arti_id', $item1->id)->count() }}
+                                                            Review(s)</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                @endforeach
-            </div>
-            <!-- featured category end -->
-        </div>
-        <!-- Arti area end -->
-        <!-- For Sale area start -->
-        <div class="feature-category-area mt-md-70">
-            <div class="section-title mb-30">
-                <div class="title-icon">
-                    <i class="fa fa-bookmark"></i>
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+                    <!-- featured category end -->
                 </div>
-                <h3>For Sale Products</h3>
+                <!-- Arti area end -->
+                <!-- For Sale area start -->
+                <div class="feature-category-area mt-md-70">
+                    <div class="section-title mb-30">
+                        <div class="title-icon">
+                            <i class="fa fa-bookmark"></i>
+                        </div>
+                        <h3>For Sale Products</h3>
 
-            </div> <!-- section title end -->
-            <!-- featured category start -->
-            <div class="featured-carousel-active slick-padding slick-arrow-style">
-                <!-- product single item start -->
-                @foreach ($sale_product as $item1)
-                    <div class="product-item fix">
-                        <div class="product-thumb">
-                            <a href="{{ url('forsale-detail/' . $item1->id) }}">
+                    </div> <!-- section title end -->
+                    <!-- featured category start -->
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
+                        <!-- product single item start -->
+                        @foreach ($sale_product as $item1)
+                            <div class="product-item fix">
+                                <div class="product-thumb">
+                                    <a href="{{ url('forsale-detail/' . $item1->id) }}">
                                         <img src="{{ asset($item1->image1 ?? '') }}" class="img-pri"
                                             style="height: 200px;" alt="">
                                         <img src="{{ asset($item1->image2 ?? '') }}" class="img-sec"
                                             style="height: 200px;" alt="">
 
-                            </a>
-                            {{-- <div class="product-label">
-                            <span>hot</span>
-                        </div> --}}
-                            {{-- <div class="product-action-link">
-                            <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                        class="fa fa-search"></i></span> </a>
-                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                    class="fa fa-heart-o"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                    class="fa fa-refresh"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                    class="fa fa-shopping-cart"></i></a>
-                        </div> --}}
-                        </div>
-                        <div class="product-content">
-                            <h4><a href="{{ url('forsale-detail/' . $item1->id) }}">{{ $item1->name ?? '' }}
-                                </a></h4>
-                            <div class="pricebox">
-                                <span class="regular-price">Rs.
-                                    {{ $item1->price ?? '' }}</span>
-                                {{-- <div class="ratings">
-                                <span class="good"><i class="fa fa-star"></i></span>
-                                <span class="good"><i class="fa fa-star"></i></span>
-                                <span class="good"><i class="fa fa-star"></i></span>
-                                <span class="good"><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <div class="pro-review">
-                                    <span>1 review(s)</span>
+                                    </a>
+
                                 </div>
-                            </div> --}}
+                                <div class="product-content">
+                                    <h4><a href="{{ url('forsale-detail/' . $item1->id) }}">{{ $item1->name ?? '' }}
+                                        </a></h4>
+                                    <div class="pricebox">
+                                        <span class="regular-price">Rs.
+                                            {{ $item1->price ?? '' }}</span>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
-            </div>
-            <!-- featured category end -->
-        </div>
-        <!-- For Sale area end -->
-        <!-- Video area start -->
-        <div class="feature-category-area mt-md-70 mt-3">
-            <div class="section-title mb-30">
-                <div class="title-icon">
-                    <i class="fa fa-video-camera"></i>
+                    <!-- featured category end -->
                 </div>
-                <h3>Videos</h3>
+                <!-- For Sale area end -->
+                <!-- Video area start -->
+                <div class="feature-category-area mt-md-70 mt-3">
+                    <div class="section-title mb-30">
+                        <div class="title-icon">
+                            <i class="fa fa-video-camera"></i>
+                        </div>
+                        <h3>Videos</h3>
 
-            </div> <!-- section title end -->
-            <!-- featured category start -->
-            <div class="featured-carousel-active slick-padding slick-arrow-style">
-                <!-- product single item start -->
-                @foreach ($admin_videos as $item)
-                    <div class="col-md-6">
-                        <iframe style="width:100%; height:250px;" src="{{ $item->link ?? '' }}"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                        <br><span class="caption" title="{{ $item->name ?? '' }}">{!! Str::limit($item->name ?? '', 20) !!}</span>
+                    </div> <!-- section title end -->
+                    <!-- featured category start -->
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
+                        <!-- product single item start -->
+                        @foreach ($admin_videos as $item)
+                            <div class="col-md-6">
+                                <iframe style="width:100%; height:250px;" src="{{ $item->link ?? '' }}"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                                <br><span class="caption"
+                                    title="{{ $item->name ?? '' }}">{!! Str::limit($item->name ?? '', 20) !!}</span>
+                            </div>
+                        @endforeach
                     </div>
-                @endforeach
-            </div>
-            <!-- featured category end -->
-        </div>
-        <!-- For Sale area end -->
+                    <!-- featured category end -->
+                </div>
+                <!-- For Sale area end -->
 
-        <!-- banner statistic start -->
-        <div class="banner-statistic pt-28 pb-36">
-            <div class="img-container fix img-full">
-                <a href="#">
-                    <img src="{{ asset('1.jpg') }}" style="height: 300px;" alt="">
-                </a>
+                <!-- banner statistic start -->
+                <div class="banner-statistic pt-28 pb-36">
+                    <div class="img-container fix img-full">
+                        <a href="#">
+                            <img src="{{ asset('1.jpg') }}" style="height: 300px;" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- banner statistic end -->
             </div>
         </div>
-        <!-- banner statistic end -->
     </div>
-</div>
-</div>
 </div>
 <!-- page wrapper end -->
 @endsection

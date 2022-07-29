@@ -316,8 +316,11 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="header-middle-block">
                                     <div class="header-middle-searchbox">
-                                        <input type="text" placeholder="Search...">
+                                        <form action="{{url('search')}}" method="GET">
+                                            @csrf
+                                        <input type="text" name="search" placeholder="Search...">
                                         <button class="search-btn"><i class="fa fa-search"></i></button>
+                                    </form>
                                     </div>
                                     <a href="{{ url('sell') }}">
                                         <div class="form-control" style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">

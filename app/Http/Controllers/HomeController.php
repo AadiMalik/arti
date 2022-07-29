@@ -66,6 +66,22 @@ class HomeController extends Controller
         $admin_videos = UserVideo::where('user_id',1)->get();
         return view('welcome', compact('rating','arti_fallow','admin_videos','sale_product','product','user_product','arti', 'category', 'product_image', 'slider', 'review', 'blog'));
     }
+    public function search(Request $request)
+    {
+        $product = Product::orWhere('name','LIKE','%'.$request->search.'%')->orWhere('description','LIKE','%'.$request->search.'%')->orderBy('hits', 'DESC')->where('zamidar',0)->get();
+        $sale_product = OtherProduct::orWhere('name','LIKE','%'.$request->search.'%')->orderBy('created_at', 'DESC')->get();
+        $user_product = UserProduct::orderBy('created_at', 'ASC')->get();
+        $category = Category::orderBy('name', 'ASC')->get();
+        $arti = User::orWhere('username','LIKE','%'.$request->search.'%')->orWhere('first_name','LIKE','%'.$request->search.'%')->orWhere('last_name','LIKE','%'.$request->search.'%')->orderBy('created_at', 'ASC')->get();
+        $arti_fallow = ArtiFallow::all();
+        $product_image = ProductImage::all();
+        $slider = Slider::orderBy('created_at', 'DESC')->get();
+        $review = Review::orderBy('created_at', 'ASC')->get();
+        $blog = Blog::orderBy('created_at', 'ASC')->get();
+        $rating = Rating::all();
+        $admin_videos = UserVideo::where('user_id',1)->get();
+        return view('welcome', compact('rating','arti_fallow','admin_videos','sale_product','product','user_product','arti', 'category', 'product_image', 'slider', 'review', 'blog'));
+    }
     public function about()
     {
         $team = Team::orderBy('created_at','ASC')->get();
@@ -118,8 +134,31 @@ class HomeController extends Controller
     {
         $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(10);
         $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
-        return view('zamidar', compact('sale_product', 'sale_product_image'));
+        $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
+        return view('zamidar', compact('sale_product', 'sale_product_image','sale_product_count'));
     }
+    public function zamidar_category($category)
+    {
+        $sale_product = OtherProduct::where('category',$category)->orderBy('created_at', 'DESC')->paginate(10);
+        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
+        $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
+        return view('zamidar', compact('sale_product', 'sale_product_image','sale_product_count'));
+    }
+    public function zamidar_price(Request $request)
+    {
+        $sale_product = OtherProduct::whereBetween('price', array($request->min, $request->max))->paginate(10);
+        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
+        $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
+        return view('zamidar', compact('sale_product', 'sale_product_image','sale_product_count'));
+    }
+    public function zamidar_sub_category($sub_category)
+    {
+        $sale_product = OtherProduct::where('sub_category',$sub_category)->orderBy('created_at', 'DESC')->paginate(10);
+        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
+        $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
+        return view('zamidar', compact('sale_product', 'sale_product_image','sale_product_count'));
+    }
+    
     public function zamidar_detail($id){
         $sale_product_detail = OtherProduct::find($id);
         $product_detail = OtherProduct::find($id);
