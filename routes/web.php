@@ -83,7 +83,6 @@ Route::get('share-social/{id}', 'HomeController@shareSocial');
 Route::get('comment', 'HomeController@Comment');
 Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
 
-Route::view('price','price_table');
 
 
 Auth::routes();
