@@ -10,6 +10,6 @@ class PackageController extends Controller
     public function index()
     {
         $package = Package::orderBy('no','ASC')->get();
-        return view('price_table',compact('package'));
+        return view('package',compact('package'));
     }
 }
