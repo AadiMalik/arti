@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
@@ -60,7 +61,9 @@ Route::group(['as' => 'client.', 'middleware' => ['auth']], function () {
 Route::group(['middleware' => 'Language'], function () {
     Route::get('/change-language/{lang}', "HomeController@changeLang");
 });
+
 Route::get('/', 'HomeController@home')->name('/');
+Route::get('package','PackageController@index');
 Route::get('about-us', 'HomeController@about');
 Route::get('contact-us', 'ContactController@index');
 Route::post('Send_Message', 'ContactController@store')->name('Send_Message');
@@ -167,6 +170,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Admin Video
     Route::resource('video', 'VideoController');
     Route::post('deleteVideo', 'VideoController@destroy')->name('deleteVideo');
+    // Package
+    Route::resource('package', 'PackageController');
+    Route::post('deletePackage', 'PackageController@destroy')->name('deletePackage');
     
 });
 

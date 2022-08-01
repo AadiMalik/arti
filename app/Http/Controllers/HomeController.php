@@ -13,6 +13,7 @@ use App\Category;
 use App\Comment;
 use App\OtherProduct;
 use App\OtherProductImage;
+use App\Package;
 use App\Product;
 use App\ProductImage;
 use App\ProductPost;
@@ -307,6 +308,7 @@ class HomeController extends Controller
         $faq = Faq::orderBy('created_at', 'ASC')->get();
         return view('term');
     }
+    
     public function redirect()
     {
         if (auth()->user()->is_admin) {
