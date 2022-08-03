@@ -135,6 +135,7 @@ return array(
     'App\\OtherProduct' => $baseDir . '/app/OtherProduct.php',
     'App\\OtherProductImage' => $baseDir . '/app/OtherProductImage.php',
     'App\\Package' => $baseDir . '/app/Package.php',
+    'App\\PackageHistory' => $baseDir . '/app/PackageHistory.php',
     'App\\Permission' => $baseDir . '/app/Permission.php',
     'App\\Product' => $baseDir . '/app/Product.php',
     'App\\ProductImage' => $baseDir . '/app/ProductImage.php',

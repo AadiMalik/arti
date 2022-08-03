@@ -351,7 +351,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                     <nav class="category-menu hm-1">
                                         <ul>
                                             @foreach ($category as $item)
-                                                <li><a href="#"><i class="fa fa-desktop"></i>
+                                                <li><a href="{{url('shop-category/'.$item->id)}}"><i class="fa fa-desktop"></i>
                                                         {{ $item->name ?? '' }}</a></li>
                                             @endforeach
 

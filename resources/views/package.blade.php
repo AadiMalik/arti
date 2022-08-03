@@ -24,7 +24,7 @@
         .pricingTable .pricingTable-header:before,
         .pricingTable .pricingTable-header:after {
             content: '';
-            background-color: #22A6B3;
+            background-color: #4444;
             height: 100%;
             width: 50%;
             border-radius: 0 0 50% 50%;
@@ -66,7 +66,7 @@
         }
 
         .pricingTable .pricing-content li {
-            color: #7b7b7b;
+            color: #000;
             font-size: 17px;
             line-height: 25px;
             text-transform: uppercase;
@@ -139,28 +139,26 @@
 <div class="demo">
     <div class="container">
         <div class="row">
+            @foreach ($package as $item)
             <div class="col-md-4 col-sm-6">
                 <div class="pricingTable">
-                    <div class="pricingTable-header">
-                        <h3 class="title">Standard</h3>
+                    <div class="pricingTable-header" style="background: {{$item->color??'#000'}}">
+                        <h3 class="title">{{$item->name??''}}</h3>
                         <div class="price-value">
-                            <span class="amount">$10.00</span>
-                            <span class="duration">Per Month</span>
+                            <span class="amount">Rs.{{$item->price??''}}</span>
+                            <span class="duration">{{$item->days??''}} Days</span>
                         </div>
                     </div>
                     <ul class="pricing-content">
-                        <li>50GB Disk Space</li>
-                        <li>50 Email Accounts</li>
-                        <li>50GB Bandwidth</li>
-                        <li>Maintenance</li>
-                        <li>15 Subdomains</li>
+                        <li>{{$item->add??''}} Adds</li>
                     </ul>
-                    <div class="pricingTable-signup">
-                        <a href="#">Sign Up</a>
+                    <div class="pricingTable-signup" style="background: {{$item->color??'#000'}}">
+                        <a href="{{url('package-buy/'.$item->id)}}">Sign Up</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
+            @endforeach
+            {{-- <div class="col-md-4 col-sm-6">
                 <div class="pricingTable pink">
                     <div class="pricingTable-header">
                         <h3 class="title">Business</h3>
@@ -180,7 +178,7 @@
                         <a href="#">Sign Up</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\OtherProduct;
 use App\OtherProductImage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OtherProductController extends Controller
@@ -27,7 +28,14 @@ class OtherProductController extends Controller
      */
     public function create()
     {
-        return view('admin/forsale.create');
+        $add = OtherProduct::where('user_id',Auth()->user()->id)->count();
+        dd(Auth()->user()->adds < $add);
+        if(Auth()->user()->adds < $add && Auth()->user()->expiry > Carbon::now()){
+            return view('admin/forsale.create');
+        }else{
+            $message = "Your Package limit is ".Auth()->user()->adds." And Your Package Expiry is".Auth()->user()->expiry;
+            return redirect(route('client.home'))->with('error',$message);
+        }
     }
 
     /**

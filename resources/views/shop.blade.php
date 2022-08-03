@@ -32,7 +32,7 @@
                             <ul>
                                 <li class="title"><i class="fa fa-bars"></i> categories</li>
                                 @foreach ($category as $item)
-                                <li><a href="#">{{$item->name??''}}</a><span>({{$product->where('category_id',$item->id)->count()}})</span></li>
+                                <li><a href="{{url('shop-category/'.$item->id)}}">{{$item->name??''}}</a><span>({{$product_category->where('category_id',$item->id)->count()}})</span></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -40,7 +40,7 @@
                     <!-- sidebar categorie start -->
 
                     <!-- manufacturer start -->
-                    <div class="sidebar-widget mb-30">
+                    {{-- <div class="sidebar-widget mb-30">
                         <div class="sidebar-title mb-10">
                             <h3>Manufacturers</h3>
                         </div>
@@ -53,7 +53,7 @@
                                 <li><i class="fa fa-angle-right"></i><a href="#">Versace</a><span>(16)</span></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- manufacturer end -->
 
                     <!-- pricing filter start -->
@@ -61,25 +61,23 @@
                         <div class="sidebar-title mb-10">
                             <h3>filter by price</h3>
                         </div>
-                        <div class="sidebar-widget-body">
-                            <div class="price-range-wrap">
-                                <div class="price-range" data-min="50" data-max="400"></div>
-                                <div class="range-slider">
-                                    <form action="#" class="d-flex justify-content-between">
-                                        <button class="filter-btn">filter</button>
-                                        <div class="price-input d-flex align-items-center">
-                                            <label for="amount">Price: </label>
-                                            <input type="text" id="amount">
-                                        </div>
-                                    </form>
+                        <div class="row">
+                            <form action="{{url('shop/filter')}}" method="GET">
+                                @csrf
+                                <div class="col-md-12">
+                                    <span>Min: </span>
+                                    <input type="number" required class="form-control" name="min">
+                                    <span>Max: </span>
+                                    <input type="number" required class="form-control" name="max"><br>
+                                    <button class="btn btn-success">Filter</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <!-- pricing filter end -->
 
                     <!-- product size start -->
-                    <div class="sidebar-widget mb-30">
+                    {{-- <div class="sidebar-widget mb-30">
                         <div class="sidebar-title mb-10">
                             <h3>size</h3>
                         </div>
@@ -91,7 +89,7 @@
                                 <li><i class="fa fa-angle-right"></i><a href="#">XL</a><span>(12)</span></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- product size end -->
 
                     <!-- product tag start -->
@@ -101,8 +99,8 @@
                         </div>
                         <div class="sidebar-widget-body">
                             <div class="product-tag">
-                                @foreach ($product as $item)
-                                <a href="#">{{$item->tags??''}}</a>
+                                @foreach ($product_category as $item)
+                                <a href="{{url('shop-tag/'.$item->tags)}}">{{$item->tags??''}}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -123,7 +121,7 @@
             <!-- product main wrap start -->
             <div class="col-lg-9 order-1 order-lg-2">
                 <div class="shop-banner img-full">
-                    <img src="3.jpg" alt="" style="height: 250px;">
+                    <img src="{{asset('3.jpg')}}" alt="" style="height: 250px;">
                 </div>
                 <!-- product view wrapper area start -->
                 <div class="shop-product-wrapper pt-34">
@@ -137,7 +135,7 @@
                                         <a class="active" href="#" data-target="list"><i class="fa fa-list"></i></a>
                                     </div>
                                     <div class="product-amount">
-                                        <p>Showing 1–16 of 21 results</p>
+                                        <p>{{$product->links()}}</p>
                                     </div>
                                 </div>
                             </div>

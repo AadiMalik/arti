@@ -350,15 +350,19 @@
                     <!-- manufacturer start -->
                     <div class="sidebar-widget mb-22">
                         <div class="sidebar-title mb-10">
-                            <h3>Manufacturers</h3>
+                            <h3>Categories</h3>
                         </div>
                         <div class="sidebar-widget-body">
                             <ul>
-                                <li><i class="fa fa-angle-right"></i><a href="#">calvin klein</a><span>(10)</span></li>
-                                <li><i class="fa fa-angle-right"></i><a href="#">diesel</a><span>(12)</span></li>
-                                <li><i class="fa fa-angle-right"></i><a href="#">polo</a><span>(20)</span></li>
-                                <li><i class="fa fa-angle-right"></i><a href="#">Tommy Hilfiger</a><span>(12)</span></li>
-                                <li><i class="fa fa-angle-right"></i><a href="#">Versace</a><span>(16)</span></li>
+                                <li><i class="fa fa-angle-right"></i><a
+                                        href="{{ url('category/vehicles') }}">Vehicles</a><span>({{ number_format($sale_product->where('category', 'vehicles')->count()) }})</span>
+                                </li>
+                                <li><i class="fa fa-angle-right"></i><a
+                                        href="{{ url('category/crops') }}">Crops</a><span>({{ number_format($sale_product->where('category', 'crops')->count()) }})</span>
+                                </li>
+                                <li><i class="fa fa-angle-right"></i><a
+                                        href="{{ url('category/fertilizers') }}">Fertilizers</a><span>({{ number_format($sale_product->where('category', 'fertilizers')->count()) }})</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -367,19 +371,20 @@
                     <!-- product tag start -->
                     <div class="sidebar-widget mb-22">
                         <div class="sidebar-title mb-20">
-                            <h3>tag</h3>
+                            <h3>Sub Categories</h3>
                         </div>
                         <div class="sidebar-widget-body">
-                            <div class="product-tag">
-                                <a href="#">camera</a>
-                                <a href="#">computer</a>
-                                <a href="#">tablet</a>
-                                <a href="#">watch</a>
-                                <a href="#">smart phones</a>
-                                <a href="#">handbag</a>
-                                <a href="#">shoe</a>
-                                <a href="#">men</a>
-                            </div>
+                            <ul>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/tractor')}}">Tractors</a><span>({{number_format($sale_product->where('sub_category','tractor')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/dumper')}}">Dumpers</a><span>({{number_format($sale_product->where('sub_category','dumper')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/exivator')}}">Exivators</a><span>({{number_format($sale_product->where('sub_category','exivator')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/harvestor')}}">Harvestors</a><span>({{number_format($sale_product->where('sub_category','harvestor')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/fertilizer')}}">Fertilizers</a><span>({{number_format($sale_product->where('sub_category','fertilizer')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/fruit')}}">Fruits</a><span>({{number_format($sale_product->where('sub_category','fruit')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/vegitable')}}">Vegitables</a><span>({{number_format($sale_product->where('sub_category','vegitable')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/grain')}}">Grains</a><span>({{number_format($sale_product->where('sub_category','grain')->count())}})</span></li>
+                                <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/other')}}">Others</a><span>({{number_format($sale_product->where('sub_category','other')->count())}})</span></li>
+                            </ul>
                         </div>
                     </div>
                     <!-- product tag end -->

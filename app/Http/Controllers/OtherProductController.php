@@ -6,6 +6,7 @@ use App\District;
 use App\OtherProduct;
 use App\OtherProductImage;
 use App\Tehsil;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OtherProductController extends Controller
@@ -17,15 +18,26 @@ class OtherProductController extends Controller
      */
     public function index()
     {
-        $product = OtherProduct::orderBy('created_at','DESC')->where('user_id',Auth()->user()->id)->get();
-        return view('forsale.index',compact('product'));
+        $product = OtherProduct::orderBy('created_at', 'DESC')->where('user_id', Auth()->user()->id)->get();
+        return view('forsale.index', compact('product'));
     }
 
     public function category($category, $sub_category)
     {
-        $district  = District::orderBy('name','ASC')->get();
-        $tehsil = Tehsil::orderBy('name','ASC')->get();
-        return view('forsale.create',compact('category','sub_category','district','tehsil'));
+        $add = OtherProduct::where('user_id', Auth()->user()->id)->count();
+        if(Auth()->user()->is_admin){
+            $district  = District::orderBy('name', 'ASC')->get();
+            $tehsil = Tehsil::orderBy('name', 'ASC')->get();
+            return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
+        }
+        if (Auth()->user()->adds < $add && Auth()->user()->expiry > Carbon::now()) {
+            $district  = District::orderBy('name', 'ASC')->get();
+            $tehsil = Tehsil::orderBy('name', 'ASC')->get();
+            return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
+        } else {
+            $message = 'Your Package limit is ' . Auth()->user()->adds . ' And Your Package Expiry is ' . Auth()->user()->expiry.' please subscribe package on click <a class="btn btn-primary" href="'.url('package').'">here</a>';
+            return redirect(route('client.home'))->with('error', $message);
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -34,7 +46,14 @@ class OtherProductController extends Controller
      */
     public function create()
     {
-        return view('forsale.create');
+        $add = OtherProduct::where('user_id', Auth()->user()->id)->count();
+        dd(Auth()->user()->package_name->add < $add);
+        if (Auth()->user()->package_name->add < $add && Auth()->user()->expiry > Carbon::now()) {
+            return view('forsale.create');
+        } else {
+            $message = "Your Package limit is " . Auth()->user()->package_name->add . " And Your Package Expiry is" . Auth()->user()->expiry;
+            return redirect(route('client.home'))->with('error', $message);
+        }
     }
 
     /**
@@ -59,7 +78,7 @@ class OtherProductController extends Controller
             ]
         );
         $product = new OtherProduct;
-        if($request->category=='vehicles'){
+        if ($request->category == 'vehicles') {
             $validation = $request->validate(
                 [
                     'company_name' => 'required|max:255'
@@ -67,7 +86,7 @@ class OtherProductController extends Controller
             );
             $product->company_name = ucfirst($request->company_name);
         }
-        
+
         $product->name = ucfirst($request->name);
         $product->price = $request->price;
         $product->address = $request->address;
@@ -78,40 +97,40 @@ class OtherProductController extends Controller
         $product->category = $request->category;
         $product->sub_category = $request->sub_category;
         $product->user_id = Auth()->user()->id;
-        for($i=1; $i<=12; $i++){
-            if ($request->hasfile('image'.$i.'')) {
-                $image = $request->file('image'.$i.'');
+        for ($i = 1; $i <= 12; $i++) {
+            if ($request->hasfile('image' . $i . '')) {
+                $image = $request->file('image' . $i . '');
                 $upload = 'Images/';
                 $filename = time() . $image->getClientOriginalName();
                 $path    = move_uploaded_file($image->getPathName(), $upload . $filename);
-                if($i==1)
-                $product->image1 = $upload . $filename;
-                if($i==2)
-                $product->image2 = $upload . $filename;
-                if($i==3)
-                $product->image3 = $upload . $filename;
-                if($i==4)
-                $product->image4 = $upload . $filename;
-                if($i==5)
-                $product->image5 = $upload . $filename;
-                if($i==6)
-                $product->image6 = $upload . $filename;
-                if($i==7)
-                $product->image7 = $upload . $filename;
-                if($i==8)
-                $product->image8 = $upload . $filename;
-                if($i==9)
-                $product->image9 = $upload . $filename;
-                if($i==10)
-                $product->image10 = $upload . $filename;
-                if($i==11)
-                $product->image11 = $upload . $filename;
-                if($i==12)
-                $product->image12 = $upload . $filename;
+                if ($i == 1)
+                    $product->image1 = $upload . $filename;
+                if ($i == 2)
+                    $product->image2 = $upload . $filename;
+                if ($i == 3)
+                    $product->image3 = $upload . $filename;
+                if ($i == 4)
+                    $product->image4 = $upload . $filename;
+                if ($i == 5)
+                    $product->image5 = $upload . $filename;
+                if ($i == 6)
+                    $product->image6 = $upload . $filename;
+                if ($i == 7)
+                    $product->image7 = $upload . $filename;
+                if ($i == 8)
+                    $product->image8 = $upload . $filename;
+                if ($i == 9)
+                    $product->image9 = $upload . $filename;
+                if ($i == 10)
+                    $product->image10 = $upload . $filename;
+                if ($i == 11)
+                    $product->image11 = $upload . $filename;
+                if ($i == 12)
+                    $product->image12 = $upload . $filename;
             }
         }
         $product->save();
-        return redirect('forsale')->with('success','For Sale Product has created!');
+        return redirect('forsale')->with('success', 'For Sale Product has created!');
     }
 
     /**
@@ -134,7 +153,7 @@ class OtherProductController extends Controller
     public function edit($id)
     {
         $product = OtherProduct::find($id);
-        return view('client/forsale.edit',compact('product'));
+        return view('client/forsale.edit', compact('product'));
     }
 
     /**
@@ -154,13 +173,13 @@ class OtherProductController extends Controller
             ]
         );
         $product = OtherProduct::find($id);
-        
+
         $product->name = ucfirst($request->name);
         $product->price = $request->price;
         $product->description = $request->description;
-        
+
         $product->update();
-        return redirect('forsale')->with('success','For Sale Product has updated!');
+        return redirect('forsale')->with('success', 'For Sale Product has updated!');
     }
 
     /**

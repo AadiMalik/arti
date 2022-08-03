@@ -97,7 +97,10 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPassword($token));
     }
-
+    public function package_name()
+    {
+        return $this->belongsTo(Package::class, 'package_id');
+    }
     public function roles()
     {
         return $this->belongsToMany(Role::class);

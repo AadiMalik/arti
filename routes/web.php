@@ -2,6 +2,38 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('/', 'HomeController@home')->name('/');
+Route::get('package','PackageController@index');
+Route::view('thanks-you','thanks');
+Route::get('about-us', 'HomeController@about');
+Route::get('contact-us', 'ContactController@index');
+Route::post('Send_Message', 'ContactController@store')->name('Send_Message');
+Route::get('blog', 'HomeController@blog');
+Route::get('blog-detail/{id}', 'HomeController@blog_detail');
+Route::get('shop', 'HomeController@shop');
+Route::get('shop/filter', 'HomeController@shop_price');
+Route::get('shop-category/{catgeory}', 'HomeController@shop_category');
+Route::get('shop-tag/{tag}', 'HomeController@shop_tags');
+Route::get('zamidar', 'HomeController@zamidar');
+Route::get('category/{catgeory}', 'HomeController@zamidar_category');
+Route::get('sub-category/{sub_catgeory}', 'HomeController@zamidar_sub_category');
+Route::get('zameendar/filter', 'HomeController@zamidar_price');
+Route::get('search', 'HomeController@search');
+Route::get('forsale-detail/{id}', 'HomeController@zamidar_detail');
+Route::get('product-detail/{id}', 'HomeController@product_detail');
+Route::get('faq', 'HomeController@faq');
+Route::get('term', 'HomeController@term');
+Route::post('newsletter', 'NewsletterController@store')->name('newsletter');
+Route::get('arti-detail/{id}', 'HomeController@arti_detail');
+Route::post('PostLike', 'HomeController@postlike')->name('PostLike');
+Route::get('share-social/{id}', 'HomeController@shareSocial');
+Route::get('comment', 'HomeController@Comment');
+Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
+
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -62,31 +94,6 @@ Route::group(['middleware' => 'Language'], function () {
     Route::get('/change-language/{lang}', "HomeController@changeLang");
 });
 
-Route::get('/', 'HomeController@home')->name('/');
-Route::get('package','PackageController@index');
-Route::get('about-us', 'HomeController@about');
-Route::get('contact-us', 'ContactController@index');
-Route::post('Send_Message', 'ContactController@store')->name('Send_Message');
-Route::get('blog', 'HomeController@blog');
-Route::get('blog-detail/{id}', 'HomeController@blog_detail');
-Route::get('shop', 'HomeController@shop');
-Route::get('zamidar', 'HomeController@zamidar');
-Route::get('category/{catgeory}', 'HomeController@zamidar_category');
-Route::get('sub-category/{sub_catgeory}', 'HomeController@zamidar_sub_category');
-Route::get('zameendar/filter', 'HomeController@zamidar_price');
-Route::get('search', 'HomeController@search');
-Route::get('forsale-detail/{id}', 'HomeController@zamidar_detail');
-Route::get('product-detail/{id}', 'HomeController@product_detail');
-Route::get('faq', 'HomeController@faq');
-Route::get('term', 'HomeController@term');
-Route::post('newsletter', 'NewsletterController@store')->name('newsletter');
-Route::get('arti-detail/{id}', 'HomeController@arti_detail');
-Route::post('PostLike', 'HomeController@postlike')->name('PostLike');
-Route::get('share-social/{id}', 'HomeController@shareSocial');
-Route::get('comment', 'HomeController@Comment');
-Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
-
-
 
 Auth::routes();
 
@@ -110,6 +117,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+    //Website Content
+    Route::resource('content', 'ContentController');
     // media
     Route::resource('media', 'MediaController');
     Route::post('deletemedia', 'MediaController@destroy')->name('deleteMedia');
@@ -179,7 +188,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('stripe', 'StripeController@stripe');
-    Route::post('stripe', 'StripeController@stripePost')->name('stripe.post');
+    Route::get('package-buy/{id}','PackageController@create');
+    Route::post('package-buy', 'PackageController@store')->name('stripe.post');
 });
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);

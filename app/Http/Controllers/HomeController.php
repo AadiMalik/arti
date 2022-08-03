@@ -95,7 +95,7 @@ class HomeController extends Controller
     }
     public function blog()
     {
-        $blog = Blog::orderBy('created_at', 'ASC')->get();
+        $blog = Blog::orderBy('created_at', 'ASC')->paginate(10);
         return view('blog', compact('blog'));
     }
     public function blog_detail($id)
@@ -129,7 +129,32 @@ class HomeController extends Controller
         $product = Product::orderBy('created_at', 'ASC')->where('zamidar',0)->paginate(20);
         $category = Category::orderBy('name', 'ASC')->get();
         $product_image = ProductImage::all();
-        return view('shop', compact('product', 'category', 'product_image'));
+        $product_category = Product::orderBy('created_at', 'ASC')->where('zamidar',0)->get();
+        return view('shop', compact('product','product_category', 'category', 'product_image'));
+    }
+    public function shop_price(Request $request)
+    {
+        $product = Product::orWhere('price_high', $request->max)->orWhere('price_low', $request->min)->paginate(20);
+        $category = Category::orderBy('name', 'ASC')->get();
+        $product_image = ProductImage::all();
+        $product_category = Product::orderBy('created_at', 'ASC')->where('zamidar',0)->get();
+        return view('shop', compact('product','product_category', 'category', 'product_image'));
+    }
+    public function shop_category($category)
+    {
+        $product = Product::where('category_id', $category)->paginate(20);
+        $category = Category::orderBy('name', 'ASC')->get();
+        $product_image = ProductImage::all();
+        $product_category = Product::orderBy('created_at', 'ASC')->where('zamidar',0)->get();
+        return view('shop', compact('product','product_category', 'category', 'product_image'));
+    }
+    public function shop_tags($tag)
+    {
+        $product = Product::where('tags', $tag)->paginate(20);
+        $category = Category::orderBy('name', 'ASC')->get();
+        $product_image = ProductImage::all();
+        $product_category = Product::orderBy('created_at', 'ASC')->where('zamidar',0)->get();
+        return view('shop', compact('product','product_category', 'category', 'product_image'));
     }
     public function zamidar()
     {
@@ -164,12 +189,11 @@ class HomeController extends Controller
         $sale_product_detail = OtherProduct::find($id);
         $product_detail = OtherProduct::find($id);
         $product_detail->hits = $product_detail->hits+1;
+        $sale_product = OtherProduct::find($id);
         $product_detail->update();
-        $sale_product_image = OtherProductImage::where('other_id', $id)->get();
         $related = OtherProduct::orderBy('created_at','DESC')->get();
-        $related_image = OtherProductImage::orderBy('created_at','DESC')->get();
         $feature = OtherProduct::orderBy('created_at','ASC')->get();
-        return view('forsale_detail', compact('sale_product_detail','sale_product_image','related','related_image','feature'));
+        return view('forsale_detail', compact('sale_product_detail','sale_product','related','feature'));
         
     }
     public function product_detail($id)

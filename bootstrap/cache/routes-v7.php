@@ -270,13 +270,369 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => '/',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/package' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::nU2iw4Wf9cZWoUjZ',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/thanks-you' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::akOBQBacB88Fql5J',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/about-us' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::MciX0kY0yMR1eu67',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/contact-us' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::D3K2OiUTkLtiXvSQ',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/Send_Message' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Send_Message',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/blog' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::nsYJ28fb98V2bO1t',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/shop' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::a7r0v1KSIr9jkzW5',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/shop/filter' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::hJvbc520PERzh3OZ',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/zamidar' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::Is7KKXgZfHPq6ApQ',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/zameendar/filter' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::P9C5AkXtEAH6AHXr',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/search' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::AIGtSEzqH55rtt5m',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/faq' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::xXb9MMwvK4q8CmIe',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/term' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::SdWpqldkQrXr8nqt',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/newsletter' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'newsletter',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/PostLike' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'PostLike',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/comment' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::9S4fWmXqYWUSiPDU',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/get-tehsil-by-district' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::0RBpn5VdndVe8CHM',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/profile' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::Zv3FplaSq3h89Hjt',
+            '_route' => 'generated::OdtZ2J62jh90Zgoe',
           ),
           1 => NULL,
           2 => 
@@ -296,7 +652,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3esnWczpP8DbH5oH',
+            '_route' => 'generated::xKv0Lr0mhkxPtBQt',
           ),
           1 => NULL,
           2 => 
@@ -315,7 +671,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::1e0nkxAzNjiWNLrk',
+            '_route' => 'generated::ivdDDilYnYAldpAu',
           ),
           1 => NULL,
           2 => 
@@ -429,7 +785,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Lz6ZZDM1SyxXJd5A',
+            '_route' => 'generated::UBMSh9GZX4rWRtmS',
           ),
           1 => NULL,
           2 => 
@@ -449,7 +805,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::strtGpPBoUwjB3xO',
+            '_route' => 'generated::bkuoNogem8f1SG7Z',
           ),
           1 => NULL,
           2 => 
@@ -1047,322 +1403,6 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => '/',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/about-us' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::DgAwkRpq89T5bDrA',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/contact-us' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::NGiuDkgX4cy9a5dc',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/Send_Message' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'Send_Message',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/blog' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::2TzDkDKhPiTwTm6J',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/shop' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::Hk7t05VnPhrQgnQ6',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/zamidar' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::38UlMuS1aFv0LpWu',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/zameendar/filter' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::V56CrHZO7nIpDwrG',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/search' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::En0iRARO2BOgEgb0',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/faq' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::AvhYZdnOgGFV64gh',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/term' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::Q02WuYKbBbehmUCy',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/newsletter' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'newsletter',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/PostLike' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'PostLike',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/comment' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::AFi9zUXqVOSH6Koa',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/get-tehsil-by-district' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::aIHdqHYeM4rnVlxS',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/price' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::Z0Al3LicgpVWfJd4',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
       '/login' => 
       array (
         0 => 
@@ -1386,7 +1426,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::J9NXc7yVdbFjUuBO',
+            '_route' => 'generated::qhmH9koQgfk3TOPE',
           ),
           1 => NULL,
           2 => 
@@ -1441,7 +1481,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8JcmXGndtxelpHQe',
+            '_route' => 'generated::FgIwyMI7QhSrAIY2',
           ),
           1 => NULL,
           2 => 
@@ -1532,7 +1572,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::i0mGypNEQqu4l3ZC',
+            '_route' => 'generated::trfVSM0DaWmOTHyA',
           ),
           1 => NULL,
           2 => 
@@ -1833,6 +1873,62 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'admin.users.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/content' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.content.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.content.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/content/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.content.create',
           ),
           1 => NULL,
           2 => 
@@ -3421,26 +3517,9 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/stripe' => 
+      '/package-buy' => 
       array (
         0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::CPTztcNV3OqRRhKX',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-        1 => 
         array (
           0 => 
           array (
@@ -3460,7 +3539,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/oauth2/([^/]++)/(?|authori(?|se(*:39)|ze(*:48))|callback(*:64))|/a(?|pi/v1/(?|permissions/([^/]++)(?|(*:109))|r(?|oles/([^/]++)(?|(*:138))|esults/([^/]++)(?|(*:165)))|users/([^/]++)(?|(*:192))|categories/([^/]++)(?|(*:223))|questions/([^/]++)(?|(*:253))|options/([^/]++)(?|(*:281)))|rti\\-detail/([^/]++)(*:311)|dmin/(?|p(?|a(?|id\\-users(?:/([^/]++))?(*:358)|ckage/([^/]++)(?|(*:383)|/edit(*:396)|(*:404)))|ro(?|file/([^/]++)(?|(*:435)|/edit(*:448)|(*:456))|duct(?|/([^/]++)(?|(*:484)|/edit(*:497)|(*:505))|\\-image/([^/]++)(?|(*:533)|/edit(*:546)|(*:554))))|ermissions/([^/]++)(?|(*:587)|/edit(*:600)|(*:608)))|r(?|oles/([^/]++)(?|(*:638)|/edit(*:651)|(*:659))|eview/([^/]++)(?|(*:685)|/edit(*:698)|(*:706)))|user(?|s/([^/]++)(?|(*:736)|/edit(*:749)|(*:757))|\\-(?|product/([^/]++)(?|(*:790)|/edit(*:803)|(*:811))|gallery/([^/]++)(?|(*:839)|/edit(*:852)|(*:860))|video/([^/]++)(?|(*:886)|/edit(*:899)|(*:907))))|media/([^/]++)(?|(*:935)|/edit(*:948)|(*:956))|district/([^/]++)(?|(*:985)|/edit(*:998)|(*:1006))|te(?|hsil/([^/]++)(?|(*:1037)|/edit(*:1051)|(*:1060))|am/([^/]++)(?|(*:1084)|/edit(*:1098)|(*:1107))|rm/([^/]++)(?|(*:1131)|/edit(*:1145)|(*:1154)))|faq/([^/]++)(?|(*:1180)|/edit(*:1194)|(*:1203))|b(?|rand/([^/]++)(?|(*:1233)|/edit(*:1247)|(*:1256))|log/([^/]++)(?|(*:1281)|/edit(*:1295)|(*:1304)))|slider/([^/]++)(?|(*:1333)|/edit(*:1347)|(*:1356))|newsletter/([^/]++)(?|(*:1388)|/edit(*:1402)|(*:1411))|c(?|ontact/([^/]++)(?|(*:1443)|/edit(*:1457)|(*:1466))|ategory/([^/]++)(?|(*:1495)|/edit(*:1509)|(*:1518)))|arti\\-post/([^/]++)(?|(*:1551)|/edit(*:1565)|(*:1574))|video/([^/]++)(?|(*:1601)|/edit(*:1615)|(*:1624))))|/s(?|ell/([^/]++)/([^/]++)(*:1662)|ub\\-category/([^/]++)(*:1692)|hare\\-social/([^/]++)(*:1722))|/forsale(?|/([^/]++)(?|(*:1755)|/edit(*:1769)|(*:1778))|\\-(?|image/([^/]++)(?|(*:1810)|/edit(*:1824)|(*:1833))|detail/([^/]++)(*:1858)))|/user(?|\\-(?|product/([^/]++)(?|(*:1901)|/edit(*:1915)|(*:1924))|gallery/([^/]++)(?|(*:1953)|/edit(*:1967)|(*:1976))|video/([^/]++)(?|(*:2003)|/edit(*:2017)|(*:2026)))|_product_(?|edit/([^/]++)(*:2062)|update/([^/]++)(*:2086)))|/p(?|roduct(?|_update/([^/]++)(*:2127)|\\-(?|image/([^/]++)(?|(*:2158)|/edit(*:2172)|(*:2181))|detail/([^/]++)(*:2206)))|ost/([^/]++)(?|(*:2232)|/edit(*:2246)|(*:2255))|assword/reset/([^/]++)(*:2287))|/c(?|hange\\-language/([^/]++)(*:2326)|ategory/([^/]++)(*:2351))|/blog\\-detail/([^/]++)(*:2383)|/lang/([^/]++)(*:2406))/?$}sDu',
+      0 => '{^(?|/oauth2/([^/]++)/(?|authori(?|se(*:39)|ze(*:48))|callback(*:64))|/a(?|pi/v1/(?|permissions/([^/]++)(?|(*:109))|r(?|oles/([^/]++)(?|(*:138))|esults/([^/]++)(?|(*:165)))|users/([^/]++)(?|(*:192))|categories/([^/]++)(?|(*:223))|questions/([^/]++)(?|(*:253))|options/([^/]++)(?|(*:281)))|rti\\-detail/([^/]++)(*:311)|dmin/(?|p(?|a(?|id\\-users(?:/([^/]++))?(*:358)|ckage/([^/]++)(?|(*:383)|/edit(*:396)|(*:404)))|ro(?|file/([^/]++)(?|(*:435)|/edit(*:448)|(*:456))|duct(?|/([^/]++)(?|(*:484)|/edit(*:497)|(*:505))|\\-image/([^/]++)(?|(*:533)|/edit(*:546)|(*:554))))|ermissions/([^/]++)(?|(*:587)|/edit(*:600)|(*:608)))|r(?|oles/([^/]++)(?|(*:638)|/edit(*:651)|(*:659))|eview/([^/]++)(?|(*:685)|/edit(*:698)|(*:706)))|user(?|s/([^/]++)(?|(*:736)|/edit(*:749)|(*:757))|\\-(?|product/([^/]++)(?|(*:790)|/edit(*:803)|(*:811))|gallery/([^/]++)(?|(*:839)|/edit(*:852)|(*:860))|video/([^/]++)(?|(*:886)|/edit(*:899)|(*:907))))|c(?|ont(?|ent/([^/]++)(?|(*:943)|/edit(*:956)|(*:964))|act/([^/]++)(?|(*:988)|/edit(*:1001)|(*:1010)))|ategory/([^/]++)(?|(*:1040)|/edit(*:1054)|(*:1063)))|media/([^/]++)(?|(*:1091)|/edit(*:1105)|(*:1114))|district/([^/]++)(?|(*:1144)|/edit(*:1158)|(*:1167))|te(?|hsil/([^/]++)(?|(*:1198)|/edit(*:1212)|(*:1221))|am/([^/]++)(?|(*:1245)|/edit(*:1259)|(*:1268))|rm/([^/]++)(?|(*:1292)|/edit(*:1306)|(*:1315)))|faq/([^/]++)(?|(*:1341)|/edit(*:1355)|(*:1364))|b(?|rand/([^/]++)(?|(*:1394)|/edit(*:1408)|(*:1417))|log/([^/]++)(?|(*:1442)|/edit(*:1456)|(*:1465)))|slider/([^/]++)(?|(*:1494)|/edit(*:1508)|(*:1517))|newsletter/([^/]++)(?|(*:1549)|/edit(*:1563)|(*:1572))|arti\\-post/([^/]++)(?|(*:1604)|/edit(*:1618)|(*:1627))|video/([^/]++)(?|(*:1654)|/edit(*:1668)|(*:1677))))|/blog\\-detail/([^/]++)(*:1711)|/s(?|h(?|op\\-(?|category/([^/]++)(*:1753)|tag/([^/]++)(*:1774))|are\\-social/([^/]++)(*:1804))|ub\\-category/([^/]++)(*:1835)|ell/([^/]++)/([^/]++)(*:1865))|/c(?|ategory/([^/]++)(*:1896)|hange\\-language/([^/]++)(*:1929))|/forsale(?|\\-(?|detail/([^/]++)(*:1970)|image/([^/]++)(?|(*:1996)|/edit(*:2010)|(*:2019)))|/([^/]++)(?|(*:2042)|/edit(*:2056)|(*:2065)))|/p(?|roduct(?|\\-(?|detail/([^/]++)(*:2110)|image/([^/]++)(?|(*:2136)|/edit(*:2150)|(*:2159)))|_update/([^/]++)(*:2186))|ost/([^/]++)(?|(*:2211)|/edit(*:2225)|(*:2234))|a(?|ssword/reset/([^/]++)(*:2269)|ckage\\-buy/([^/]++)(*:2297)))|/user(?|\\-(?|product/([^/]++)(?|(*:2340)|/edit(*:2354)|(*:2363))|gallery/([^/]++)(?|(*:2392)|/edit(*:2406)|(*:2415))|video/([^/]++)(?|(*:2442)|/edit(*:2456)|(*:2465)))|_product_(?|edit/([^/]++)(*:2501)|update/([^/]++)(*:2525)))|/lang/([^/]++)(*:2550))/?$}sDu',
     ),
     3 => 
     array (
@@ -3973,7 +4052,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::gJ7MbDzrGSjTAonZ',
+            '_route' => 'generated::x8CwR5CF3eoEMVe5',
           ),
           1 => 
           array (
@@ -4982,17 +5061,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      935 => 
+      943 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'admin.media.show',
+            '_route' => 'admin.content.show',
           ),
           1 => 
           array (
-            0 => 'medium',
+            0 => 'content',
           ),
           2 => 
           array (
@@ -5002,29 +5081,6 @@ app('router')->setCompiledRoutes(
           3 => NULL,
           4 => false,
           5 => true,
-          6 => NULL,
-        ),
-      ),
-      948 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.media.edit',
-          ),
-          1 => 
-          array (
-            0 => 'medium',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
           6 => NULL,
         ),
       ),
@@ -5034,76 +5090,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'admin.media.update',
+            '_route' => 'admin.content.edit',
           ),
           1 => 
           array (
-            0 => 'medium',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.media.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'medium',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      985 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.district.show',
-          ),
-          1 => 
-          array (
-            0 => 'district',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      998 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.district.edit',
-          ),
-          1 => 
-          array (
-            0 => 'district',
+            0 => 'content',
           ),
           2 => 
           array (
@@ -5116,17 +5107,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1006 => 
+      964 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'admin.district.update',
+            '_route' => 'admin.content.update',
           ),
           1 => 
           array (
-            0 => 'district',
+            0 => 'content',
           ),
           2 => 
           array (
@@ -5142,11 +5133,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'admin.district.destroy',
+            '_route' => 'admin.content.destroy',
           ),
           1 => 
           array (
-            0 => 'district',
+            0 => 'content',
           ),
           2 => 
           array (
@@ -5158,711 +5149,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1037 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.tehsil.show',
-          ),
-          1 => 
-          array (
-            0 => 'tehsil',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1051 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.tehsil.edit',
-          ),
-          1 => 
-          array (
-            0 => 'tehsil',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1060 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.tehsil.update',
-          ),
-          1 => 
-          array (
-            0 => 'tehsil',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.tehsil.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'tehsil',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1084 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.team.show',
-          ),
-          1 => 
-          array (
-            0 => 'team',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1098 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.team.edit',
-          ),
-          1 => 
-          array (
-            0 => 'team',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1107 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.team.update',
-          ),
-          1 => 
-          array (
-            0 => 'team',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.team.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'team',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1131 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.term.show',
-          ),
-          1 => 
-          array (
-            0 => 'term',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1145 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.term.edit',
-          ),
-          1 => 
-          array (
-            0 => 'term',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1154 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.term.update',
-          ),
-          1 => 
-          array (
-            0 => 'term',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.term.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'term',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1180 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.faq.show',
-          ),
-          1 => 
-          array (
-            0 => 'faq',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1194 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.faq.edit',
-          ),
-          1 => 
-          array (
-            0 => 'faq',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1203 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.faq.update',
-          ),
-          1 => 
-          array (
-            0 => 'faq',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.faq.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'faq',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1233 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.brand.show',
-          ),
-          1 => 
-          array (
-            0 => 'brand',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1247 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.brand.edit',
-          ),
-          1 => 
-          array (
-            0 => 'brand',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1256 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.brand.update',
-          ),
-          1 => 
-          array (
-            0 => 'brand',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.brand.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'brand',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1281 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.blog.show',
-          ),
-          1 => 
-          array (
-            0 => 'blog',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1295 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.blog.edit',
-          ),
-          1 => 
-          array (
-            0 => 'blog',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1304 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.blog.update',
-          ),
-          1 => 
-          array (
-            0 => 'blog',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.blog.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'blog',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1333 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.slider.show',
-          ),
-          1 => 
-          array (
-            0 => 'slider',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1347 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.slider.edit',
-          ),
-          1 => 
-          array (
-            0 => 'slider',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1356 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.slider.update',
-          ),
-          1 => 
-          array (
-            0 => 'slider',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.slider.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'slider',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1388 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.newsletter.show',
-          ),
-          1 => 
-          array (
-            0 => 'newsletter',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1402 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.newsletter.edit',
-          ),
-          1 => 
-          array (
-            0 => 'newsletter',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1411 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.newsletter.update',
-          ),
-          1 => 
-          array (
-            0 => 'newsletter',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'admin.newsletter.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'newsletter',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1443 => 
+      988 => 
       array (
         0 => 
         array (
@@ -5885,7 +5172,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1457 => 
+      1001 => 
       array (
         0 => 
         array (
@@ -5908,7 +5195,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1466 => 
+      1010 => 
       array (
         0 => 
         array (
@@ -5950,7 +5237,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1495 => 
+      1040 => 
       array (
         0 => 
         array (
@@ -5973,7 +5260,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1509 => 
+      1054 => 
       array (
         0 => 
         array (
@@ -5996,7 +5283,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1518 => 
+      1063 => 
       array (
         0 => 
         array (
@@ -6038,7 +5325,887 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1551 => 
+      1091 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.media.show',
+          ),
+          1 => 
+          array (
+            0 => 'medium',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1105 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.media.edit',
+          ),
+          1 => 
+          array (
+            0 => 'medium',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1114 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.media.update',
+          ),
+          1 => 
+          array (
+            0 => 'medium',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.media.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'medium',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1144 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.district.show',
+          ),
+          1 => 
+          array (
+            0 => 'district',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1158 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.district.edit',
+          ),
+          1 => 
+          array (
+            0 => 'district',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1167 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.district.update',
+          ),
+          1 => 
+          array (
+            0 => 'district',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.district.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'district',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1198 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.tehsil.show',
+          ),
+          1 => 
+          array (
+            0 => 'tehsil',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1212 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.tehsil.edit',
+          ),
+          1 => 
+          array (
+            0 => 'tehsil',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1221 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.tehsil.update',
+          ),
+          1 => 
+          array (
+            0 => 'tehsil',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.tehsil.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'tehsil',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1245 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.team.show',
+          ),
+          1 => 
+          array (
+            0 => 'team',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1259 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.team.edit',
+          ),
+          1 => 
+          array (
+            0 => 'team',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1268 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.team.update',
+          ),
+          1 => 
+          array (
+            0 => 'team',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.team.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'team',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1292 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.term.show',
+          ),
+          1 => 
+          array (
+            0 => 'term',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1306 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.term.edit',
+          ),
+          1 => 
+          array (
+            0 => 'term',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1315 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.term.update',
+          ),
+          1 => 
+          array (
+            0 => 'term',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.term.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'term',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1341 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.faq.show',
+          ),
+          1 => 
+          array (
+            0 => 'faq',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1355 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.faq.edit',
+          ),
+          1 => 
+          array (
+            0 => 'faq',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1364 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.faq.update',
+          ),
+          1 => 
+          array (
+            0 => 'faq',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.faq.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'faq',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1394 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.brand.show',
+          ),
+          1 => 
+          array (
+            0 => 'brand',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1408 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.brand.edit',
+          ),
+          1 => 
+          array (
+            0 => 'brand',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1417 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.brand.update',
+          ),
+          1 => 
+          array (
+            0 => 'brand',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.brand.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'brand',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1442 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.blog.show',
+          ),
+          1 => 
+          array (
+            0 => 'blog',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1456 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.blog.edit',
+          ),
+          1 => 
+          array (
+            0 => 'blog',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1465 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.blog.update',
+          ),
+          1 => 
+          array (
+            0 => 'blog',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.blog.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'blog',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1494 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.slider.show',
+          ),
+          1 => 
+          array (
+            0 => 'slider',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1508 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.slider.edit',
+          ),
+          1 => 
+          array (
+            0 => 'slider',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1517 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.slider.update',
+          ),
+          1 => 
+          array (
+            0 => 'slider',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.slider.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'slider',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1549 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.newsletter.show',
+          ),
+          1 => 
+          array (
+            0 => 'newsletter',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1563 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.newsletter.edit',
+          ),
+          1 => 
+          array (
+            0 => 'newsletter',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1572 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.newsletter.update',
+          ),
+          1 => 
+          array (
+            0 => 'newsletter',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.newsletter.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'newsletter',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1604 => 
       array (
         0 => 
         array (
@@ -6061,7 +6228,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1565 => 
+      1618 => 
       array (
         0 => 
         array (
@@ -6084,7 +6251,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1574 => 
+      1627 => 
       array (
         0 => 
         array (
@@ -6126,7 +6293,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1601 => 
+      1654 => 
       array (
         0 => 
         array (
@@ -6149,7 +6316,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1615 => 
+      1668 => 
       array (
         0 => 
         array (
@@ -6172,7 +6339,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1624 => 
+      1677 => 
       array (
         0 => 
         array (
@@ -6214,13 +6381,128 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1662 => 
+      1711 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::ipBrwX3fZMITGjr7',
+            '_route' => 'generated::vu79W5s2jpbHAtA1',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1753 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::LyepZ1H5d6FQbgwP',
+          ),
+          1 => 
+          array (
+            0 => 'catgeory',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1774 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::OCunlD2gEWhXUm5H',
+          ),
+          1 => 
+          array (
+            0 => 'tag',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1804 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::vpaIoFKBxIYF5j0h',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1835 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::4uK6NNn0Vz2HUgnp',
+          ),
+          1 => 
+          array (
+            0 => 'sub_catgeory',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1865 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::Nq49PJKjTwlRosS3',
           ),
           1 => 
           array (
@@ -6238,17 +6520,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1692 => 
+      1896 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::byrPnOkbwx6og4gE',
+            '_route' => 'generated::O2uGQ3fRhBbfoDoD',
           ),
           1 => 
           array (
-            0 => 'sub_catgeory',
+            0 => 'catgeory',
           ),
           2 => 
           array (
@@ -6261,13 +6543,36 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1722 => 
+      1929 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::XLmD0VZXsJIXiXqD',
+            '_route' => 'generated::awg9s3wM75J3t40Y',
+          ),
+          1 => 
+          array (
+            0 => 'lang',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1970 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::nyJJkyutOKFwgw6i',
           ),
           1 => 
           array (
@@ -6284,95 +6589,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1755 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'forsale.show',
-          ),
-          1 => 
-          array (
-            0 => 'forsale',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1769 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'forsale.edit',
-          ),
-          1 => 
-          array (
-            0 => 'forsale',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1778 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'forsale.update',
-          ),
-          1 => 
-          array (
-            0 => 'forsale',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'forsale.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'forsale',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1810 => 
+      1996 => 
       array (
         0 => 
         array (
@@ -6395,7 +6612,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1824 => 
+      2010 => 
       array (
         0 => 
         array (
@@ -6418,7 +6635,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1833 => 
+      2019 => 
       array (
         0 => 
         array (
@@ -6460,17 +6677,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1858 => 
+      2042 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::9NgPzHm5ELRzK3q0',
+            '_route' => 'forsale.show',
           ),
           1 => 
           array (
-            0 => 'id',
+            0 => 'forsale',
           ),
           2 => 
           array (
@@ -6483,40 +6700,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1901 => 
+      2056 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'client.user-product.show',
+            '_route' => 'forsale.edit',
           ),
           1 => 
           array (
-            0 => 'user_product',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1915 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-product.edit',
-          ),
-          1 => 
-          array (
-            0 => 'user_product',
+            0 => 'forsale',
           ),
           2 => 
           array (
@@ -6529,17 +6723,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1924 => 
+      2065 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'client.user-product.update',
+            '_route' => 'forsale.update',
           ),
           1 => 
           array (
-            0 => 'user_product',
+            0 => 'forsale',
           ),
           2 => 
           array (
@@ -6555,11 +6749,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'client.user-product.destroy',
+            '_route' => 'forsale.destroy',
           ),
           1 => 
           array (
-            0 => 'user_product',
+            0 => 'forsale',
           ),
           2 => 
           array (
@@ -6571,189 +6765,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      1953 => 
+      2110 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'client.user-gallery.show',
-          ),
-          1 => 
-          array (
-            0 => 'user_gallery',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      1967 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-gallery.edit',
-          ),
-          1 => 
-          array (
-            0 => 'user_gallery',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      1976 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-gallery.update',
-          ),
-          1 => 
-          array (
-            0 => 'user_gallery',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-gallery.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'user_gallery',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2003 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-video.show',
-          ),
-          1 => 
-          array (
-            0 => 'user_video',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2017 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-video.edit',
-          ),
-          1 => 
-          array (
-            0 => 'user_video',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      2026 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-video.update',
-          ),
-          1 => 
-          array (
-            0 => 'user_video',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.user-video.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'user_video',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2062 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.Product.Image.Edit',
+            '_route' => 'generated::eOjF6IlDnsKlrgFu',
           ),
           1 => 
           array (
@@ -6770,51 +6788,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2086 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.Product.Image.Update',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2127 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'client.Product.Update',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2158 => 
+      2136 => 
       array (
         0 => 
         array (
@@ -6837,7 +6811,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2172 => 
+      2150 => 
       array (
         0 => 
         array (
@@ -6860,7 +6834,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2181 => 
+      2159 => 
       array (
         0 => 
         array (
@@ -6902,13 +6876,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2206 => 
+      2186 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::40ONM40257yG3C2H',
+            '_route' => 'client.Product.Update',
           ),
           1 => 
           array (
@@ -6916,8 +6890,7 @@ app('router')->setCompiledRoutes(
           ),
           2 => 
           array (
-            'GET' => 0,
-            'HEAD' => 1,
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -6925,7 +6898,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2232 => 
+      2211 => 
       array (
         0 => 
         array (
@@ -6948,7 +6921,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2246 => 
+      2225 => 
       array (
         0 => 
         array (
@@ -6971,7 +6944,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2255 => 
+      2234 => 
       array (
         0 => 
         array (
@@ -7013,7 +6986,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2287 => 
+      2269 => 
       array (
         0 => 
         array (
@@ -7036,59 +7009,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      2326 => 
+      2297 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::AXxDeewlcEMeVGE3',
-          ),
-          1 => 
-          array (
-            0 => 'lang',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2351 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::x83JvxbVglGOD1Nu',
-          ),
-          1 => 
-          array (
-            0 => 'catgeory',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      2383 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::yeXEFF25ouA59WYl',
+            '_route' => 'generated::kUdeSNlGnXWIb6zr',
           ),
           1 => 
           array (
@@ -7105,7 +7032,316 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      2340 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-product.show',
+          ),
+          1 => 
+          array (
+            0 => 'user_product',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2354 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-product.edit',
+          ),
+          1 => 
+          array (
+            0 => 'user_product',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      2363 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-product.update',
+          ),
+          1 => 
+          array (
+            0 => 'user_product',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-product.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'user_product',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2392 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-gallery.show',
+          ),
+          1 => 
+          array (
+            0 => 'user_gallery',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
       2406 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-gallery.edit',
+          ),
+          1 => 
+          array (
+            0 => 'user_gallery',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      2415 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-gallery.update',
+          ),
+          1 => 
+          array (
+            0 => 'user_gallery',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-gallery.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'user_gallery',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2442 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-video.show',
+          ),
+          1 => 
+          array (
+            0 => 'user_video',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2456 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-video.edit',
+          ),
+          1 => 
+          array (
+            0 => 'user_video',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      2465 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-video.update',
+          ),
+          1 => 
+          array (
+            0 => 'user_video',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.user-video.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'user_video',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2501 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.Product.Image.Edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2525 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'client.Product.Image.Update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      2550 => 
       array (
         0 => 
         array (
@@ -8532,7 +8768,979 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::Zv3FplaSq3h89Hjt' => 
+    '/' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => '/',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@home',
+        'controller' => 'App\\Http\\Controllers\\HomeController@home',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => '/',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::nU2iw4Wf9cZWoUjZ' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'package',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PackageController@index',
+        'controller' => 'App\\Http\\Controllers\\PackageController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::nU2iw4Wf9cZWoUjZ',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::akOBQBacB88Fql5J' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'thanks-you',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
+        'controller' => '\\Illuminate\\Routing\\ViewController',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::akOBQBacB88Fql5J',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+        'view' => 'thanks',
+        'data' => 
+        array (
+        ),
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::MciX0kY0yMR1eu67' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'about-us',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@about',
+        'controller' => 'App\\Http\\Controllers\\HomeController@about',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::MciX0kY0yMR1eu67',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::D3K2OiUTkLtiXvSQ' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'contact-us',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ContactController@index',
+        'controller' => 'App\\Http\\Controllers\\ContactController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::D3K2OiUTkLtiXvSQ',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'Send_Message' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'Send_Message',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ContactController@store',
+        'controller' => 'App\\Http\\Controllers\\ContactController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'Send_Message',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::nsYJ28fb98V2bO1t' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'blog',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@blog',
+        'controller' => 'App\\Http\\Controllers\\HomeController@blog',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::nsYJ28fb98V2bO1t',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::vu79W5s2jpbHAtA1' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'blog-detail/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@blog_detail',
+        'controller' => 'App\\Http\\Controllers\\HomeController@blog_detail',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::vu79W5s2jpbHAtA1',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::a7r0v1KSIr9jkzW5' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'shop',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@shop',
+        'controller' => 'App\\Http\\Controllers\\HomeController@shop',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::a7r0v1KSIr9jkzW5',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::hJvbc520PERzh3OZ' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'shop/filter',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@shop_price',
+        'controller' => 'App\\Http\\Controllers\\HomeController@shop_price',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::hJvbc520PERzh3OZ',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::LyepZ1H5d6FQbgwP' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'shop-category/{catgeory}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@shop_category',
+        'controller' => 'App\\Http\\Controllers\\HomeController@shop_category',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::LyepZ1H5d6FQbgwP',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::OCunlD2gEWhXUm5H' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'shop-tag/{tag}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@shop_tags',
+        'controller' => 'App\\Http\\Controllers\\HomeController@shop_tags',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::OCunlD2gEWhXUm5H',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::Is7KKXgZfHPq6ApQ' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'zamidar',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar',
+        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::Is7KKXgZfHPq6ApQ',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::O2uGQ3fRhBbfoDoD' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'category/{catgeory}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_category',
+        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_category',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::O2uGQ3fRhBbfoDoD',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::4uK6NNn0Vz2HUgnp' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'sub-category/{sub_catgeory}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_sub_category',
+        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_sub_category',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::4uK6NNn0Vz2HUgnp',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::P9C5AkXtEAH6AHXr' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'zameendar/filter',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_price',
+        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_price',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::P9C5AkXtEAH6AHXr',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::AIGtSEzqH55rtt5m' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'search',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@search',
+        'controller' => 'App\\Http\\Controllers\\HomeController@search',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::AIGtSEzqH55rtt5m',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::nyJJkyutOKFwgw6i' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'forsale-detail/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_detail',
+        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_detail',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::nyJJkyutOKFwgw6i',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::eOjF6IlDnsKlrgFu' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'product-detail/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@product_detail',
+        'controller' => 'App\\Http\\Controllers\\HomeController@product_detail',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::eOjF6IlDnsKlrgFu',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::xXb9MMwvK4q8CmIe' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'faq',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@faq',
+        'controller' => 'App\\Http\\Controllers\\HomeController@faq',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::xXb9MMwvK4q8CmIe',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::SdWpqldkQrXr8nqt' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'term',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@term',
+        'controller' => 'App\\Http\\Controllers\\HomeController@term',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::SdWpqldkQrXr8nqt',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'newsletter' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'newsletter',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\NewsletterController@store',
+        'controller' => 'App\\Http\\Controllers\\NewsletterController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'newsletter',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::x8CwR5CF3eoEMVe5' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'arti-detail/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@arti_detail',
+        'controller' => 'App\\Http\\Controllers\\HomeController@arti_detail',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::x8CwR5CF3eoEMVe5',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'PostLike' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'PostLike',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@postlike',
+        'controller' => 'App\\Http\\Controllers\\HomeController@postlike',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'PostLike',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::vpaIoFKBxIYF5j0h' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'share-social/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@shareSocial',
+        'controller' => 'App\\Http\\Controllers\\HomeController@shareSocial',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::vpaIoFKBxIYF5j0h',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::9S4fWmXqYWUSiPDU' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'comment',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\HomeController@Comment',
+        'controller' => 'App\\Http\\Controllers\\HomeController@Comment',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::9S4fWmXqYWUSiPDU',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::0RBpn5VdndVe8CHM' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'get-tehsil-by-district',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Auth\\RegisterController@getTehsil',
+        'controller' => 'App\\Http\\Controllers\\Auth\\RegisterController@getTehsil',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::0RBpn5VdndVe8CHM',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::OdtZ2J62jh90Zgoe' => 
     array (
       'methods' => 
       array (
@@ -8554,7 +9762,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Zv3FplaSq3h89Hjt',
+        'as' => 'generated::OdtZ2J62jh90Zgoe',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8569,7 +9777,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::3esnWczpP8DbH5oH' => 
+    'generated::xKv0Lr0mhkxPtBQt' => 
     array (
       'methods' => 
       array (
@@ -8590,7 +9798,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3esnWczpP8DbH5oH',
+        'as' => 'generated::xKv0Lr0mhkxPtBQt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8605,7 +9813,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::1e0nkxAzNjiWNLrk' => 
+    'generated::ivdDDilYnYAldpAu' => 
     array (
       'methods' => 
       array (
@@ -8626,7 +9834,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::1e0nkxAzNjiWNLrk',
+        'as' => 'generated::ivdDDilYnYAldpAu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8821,7 +10029,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::Lz6ZZDM1SyxXJd5A' => 
+    'generated::UBMSh9GZX4rWRtmS' => 
     array (
       'methods' => 
       array (
@@ -8843,7 +10051,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Lz6ZZDM1SyxXJd5A',
+        'as' => 'generated::UBMSh9GZX4rWRtmS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8858,7 +10066,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::strtGpPBoUwjB3xO' => 
+    'generated::bkuoNogem8f1SG7Z' => 
     array (
       'methods' => 
       array (
@@ -8880,7 +10088,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::strtGpPBoUwjB3xO',
+        'as' => 'generated::bkuoNogem8f1SG7Z',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8899,7 +10107,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::ipBrwX3fZMITGjr7' => 
+    'generated::Nq49PJKjTwlRosS3' => 
     array (
       'methods' => 
       array (
@@ -8921,7 +10129,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ipBrwX3fZMITGjr7',
+        'as' => 'generated::Nq49PJKjTwlRosS3',
       ),
       'fallback' => false,
       'defaults' => 
@@ -11206,7 +12414,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::AXxDeewlcEMeVGE3' => 
+    'generated::awg9s3wM75J3t40Y' => 
     array (
       'methods' => 
       array (
@@ -11228,839 +12436,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::AXxDeewlcEMeVGE3',
+        'as' => 'generated::awg9s3wM75J3t40Y',
       ),
       'fallback' => false,
       'defaults' => 
       array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    '/' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '/',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@home',
-        'controller' => 'App\\Http\\Controllers\\HomeController@home',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => '/',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::DgAwkRpq89T5bDrA' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'about-us',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@about',
-        'controller' => 'App\\Http\\Controllers\\HomeController@about',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::DgAwkRpq89T5bDrA',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::NGiuDkgX4cy9a5dc' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'contact-us',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\ContactController@index',
-        'controller' => 'App\\Http\\Controllers\\ContactController@index',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::NGiuDkgX4cy9a5dc',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'Send_Message' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'Send_Message',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\ContactController@store',
-        'controller' => 'App\\Http\\Controllers\\ContactController@store',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'Send_Message',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::2TzDkDKhPiTwTm6J' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'blog',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@blog',
-        'controller' => 'App\\Http\\Controllers\\HomeController@blog',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::2TzDkDKhPiTwTm6J',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::yeXEFF25ouA59WYl' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'blog-detail/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@blog_detail',
-        'controller' => 'App\\Http\\Controllers\\HomeController@blog_detail',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::yeXEFF25ouA59WYl',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::Hk7t05VnPhrQgnQ6' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'shop',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@shop',
-        'controller' => 'App\\Http\\Controllers\\HomeController@shop',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::Hk7t05VnPhrQgnQ6',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::38UlMuS1aFv0LpWu' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'zamidar',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar',
-        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::38UlMuS1aFv0LpWu',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::x83JvxbVglGOD1Nu' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'category/{catgeory}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_category',
-        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_category',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::x83JvxbVglGOD1Nu',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::byrPnOkbwx6og4gE' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'sub-category/{sub_catgeory}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_sub_category',
-        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_sub_category',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::byrPnOkbwx6og4gE',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::V56CrHZO7nIpDwrG' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'zameendar/filter',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_price',
-        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_price',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::V56CrHZO7nIpDwrG',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::En0iRARO2BOgEgb0' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'search',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@search',
-        'controller' => 'App\\Http\\Controllers\\HomeController@search',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::En0iRARO2BOgEgb0',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::9NgPzHm5ELRzK3q0' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'forsale-detail/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@zamidar_detail',
-        'controller' => 'App\\Http\\Controllers\\HomeController@zamidar_detail',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::9NgPzHm5ELRzK3q0',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::40ONM40257yG3C2H' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'product-detail/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@product_detail',
-        'controller' => 'App\\Http\\Controllers\\HomeController@product_detail',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::40ONM40257yG3C2H',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::AvhYZdnOgGFV64gh' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'faq',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@faq',
-        'controller' => 'App\\Http\\Controllers\\HomeController@faq',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::AvhYZdnOgGFV64gh',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::Q02WuYKbBbehmUCy' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'term',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@term',
-        'controller' => 'App\\Http\\Controllers\\HomeController@term',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::Q02WuYKbBbehmUCy',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'newsletter' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'newsletter',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\NewsletterController@store',
-        'controller' => 'App\\Http\\Controllers\\NewsletterController@store',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'newsletter',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::gJ7MbDzrGSjTAonZ' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'arti-detail/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@arti_detail',
-        'controller' => 'App\\Http\\Controllers\\HomeController@arti_detail',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::gJ7MbDzrGSjTAonZ',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'PostLike' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'PostLike',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@postlike',
-        'controller' => 'App\\Http\\Controllers\\HomeController@postlike',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'PostLike',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::XLmD0VZXsJIXiXqD' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'share-social/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@shareSocial',
-        'controller' => 'App\\Http\\Controllers\\HomeController@shareSocial',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::XLmD0VZXsJIXiXqD',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::AFi9zUXqVOSH6Koa' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'comment',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\HomeController@Comment',
-        'controller' => 'App\\Http\\Controllers\\HomeController@Comment',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::AFi9zUXqVOSH6Koa',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::aIHdqHYeM4rnVlxS' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'get-tehsil-by-district',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\Auth\\RegisterController@getTehsil',
-        'controller' => 'App\\Http\\Controllers\\Auth\\RegisterController@getTehsil',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::aIHdqHYeM4rnVlxS',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'generated::Z0Al3LicgpVWfJd4' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'price',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => '\\Illuminate\\Routing\\ViewController@__invoke',
-        'controller' => '\\Illuminate\\Routing\\ViewController',
-        'namespace' => 'App\\Http\\Controllers',
-        'prefix' => NULL,
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::Z0Al3LicgpVWfJd4',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-        'view' => 'HomeController@price',
-        'data' => 
-        array (
-        ),
       ),
       'wheres' => 
       array (
@@ -12107,7 +12487,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::J9NXc7yVdbFjUuBO' => 
+    'generated::qhmH9koQgfk3TOPE' => 
     array (
       'methods' => 
       array (
@@ -12127,7 +12507,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::J9NXc7yVdbFjUuBO',
+        'as' => 'generated::qhmH9koQgfk3TOPE',
       ),
       'fallback' => false,
       'defaults' => 
@@ -12213,7 +12593,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::8JcmXGndtxelpHQe' => 
+    'generated::FgIwyMI7QhSrAIY2' => 
     array (
       'methods' => 
       array (
@@ -12233,7 +12613,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8JcmXGndtxelpHQe',
+        'as' => 'generated::FgIwyMI7QhSrAIY2',
       ),
       'fallback' => false,
       'defaults' => 
@@ -12426,7 +12806,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::i0mGypNEQqu4l3ZC' => 
+    'generated::trfVSM0DaWmOTHyA' => 
     array (
       'methods' => 
       array (
@@ -12446,7 +12826,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::i0mGypNEQqu4l3ZC',
+        'as' => 'generated::trfVSM0DaWmOTHyA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -13652,6 +14032,263 @@ app('router')->setCompiledRoutes(
         'as' => 'admin.users.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\UsersController@destroy',
         'controller' => 'App\\Http\\Controllers\\Admin\\UsersController@destroy',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/content',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.index',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@index',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/content/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.create',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@create',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/content',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.store',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@store',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/content/{content}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.show',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@show',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@show',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/content/{content}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.edit',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@edit',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/content/{content}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.update',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@update',
+        'namespace' => 'App\\Http\\Controllers\\Admin',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'admin.content.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/content/{content}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth.admin',
+        ),
+        'as' => 'admin.content.destroy',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ContentController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ContentController@destroy',
         'namespace' => 'App\\Http\\Controllers\\Admin',
         'prefix' => '/admin',
         'where' => 
@@ -19824,14 +20461,14 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::CPTztcNV3OqRRhKX' => 
+    'generated::kUdeSNlGnXWIb6zr' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'stripe',
+      'uri' => 'package-buy/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -19839,14 +20476,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\StripeController@stripe',
-        'controller' => 'App\\Http\\Controllers\\StripeController@stripe',
+        'uses' => 'App\\Http\\Controllers\\PackageController@create',
+        'controller' => 'App\\Http\\Controllers\\PackageController@create',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
         'where' => 
         array (
         ),
-        'as' => 'generated::CPTztcNV3OqRRhKX',
+        'as' => 'generated::kUdeSNlGnXWIb6zr',
       ),
       'fallback' => false,
       'defaults' => 
@@ -19867,7 +20504,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'stripe',
+      'uri' => 'package-buy',
       'action' => 
       array (
         'middleware' => 
@@ -19875,8 +20512,8 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\StripeController@stripePost',
-        'controller' => 'App\\Http\\Controllers\\StripeController@stripePost',
+        'uses' => 'App\\Http\\Controllers\\PackageController@store',
+        'controller' => 'App\\Http\\Controllers\\PackageController@store',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => NULL,
         'where' => 
