@@ -360,6 +360,9 @@
                                 @can('package_access')
                                 <li class="nav-link "> <a href="/admin/package">Packages</a> </li>
                                 @endcan
+                                @can('package_history_access')
+                                <li class="nav-link "> <a href="/admin/package-history">Package Histories</a> </li>
+                                @endcan
                                 @can('contact_access')
                                 <li class="nav-link "> <a href="/admin/contact">Contact Mail</a> </li>
                                 @endcan

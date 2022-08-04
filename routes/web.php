@@ -183,6 +183,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('package', 'PackageController');
     Route::post('deletePackage', 'PackageController@destroy')->name('deletePackage');
     
+    // Package history
+    Route::resource('package-history', 'PackageHistoryController');
 });
 
 

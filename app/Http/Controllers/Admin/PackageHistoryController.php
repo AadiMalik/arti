@@ -15,7 +15,8 @@ class PackageHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $package_history = PackageHistory::orderBy('created_at','DESC')->get();
+        return view('admin/package_history.index',compact('package_history'));
     }
 
     /**
