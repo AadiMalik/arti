@@ -63,7 +63,11 @@
                                     {{ $item->key??'' }}
                                 </td>
                                 <td>
+                                    @if($item->image!=null)
                                     <img src="{{asset($item->image??'')}}" style="height: 200px; width:200px;" alt="">
+                                    @else
+                                    No Image
+                                    @endif
                                 </td>
                                 <td>
                                     {!!Str::limit($item->description??'',200)!!}

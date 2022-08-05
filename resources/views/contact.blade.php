@@ -1,3 +1,6 @@
+@php
+    $data = content();
+@endphp
 @extends('layouts.app')
 @section('content')
     <!-- breadcrumb area start -->
@@ -8,7 +11,7 @@
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">contact us</li>
                             </ul>
                         </nav>
@@ -68,19 +71,17 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-info mt-md-28 mt-sm-28">
-                        <h2>contact us</h2>
-                        <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est
-                            notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas
-                            human.</p>
+                        <h2>{{$data['#contact']['heading']??''}}</h2>
+                        {!!$data['#contact']['description']??''!!}
                         <ul>
-                            <li><i class="fa fa-fax"></i> Address : No 40 Baria Sreet 133/2 NewYork City</li>
-                            <li><i class="fa fa-phone"></i> info@yourdomain.com</li>
-                            <li><i class="fa fa-envelope-o"></i> +88013245657</li>
+                            <li><i class="fa fa-fax"></i> Address : {{$data['#address']['heading']??''}}</li>
+                            <li><i class="fa fa-phone"></i> {{$data['#email']['heading']??''}}</li>
+                            <li><i class="fa fa-envelope-o"></i> {{$data['#phone']['heading']??''}}</li>
                         </ul>
-                        <div class="working-time">
+                        {{-- <div class="working-time">
                             <h3>Working hours</h3>
                             <p><span>Monday – Saturday:</span>08AM – 22PM</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

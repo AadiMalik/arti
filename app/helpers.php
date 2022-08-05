@@ -9,23 +9,23 @@ function category(){
         $brand  = App\Brand::orderBy('id','ASC')->get();
         return $brand;
     }
-// function content(){
-//         $contents  = App\Content::get();
-//         $data      = array();
-//         foreach($contents as $content){
-//             $data[$content->key] = [
-//                 'page'      => $content->page,
-//                 'heading'   => $content->heading,
-//                 'key'       => $content->key,
-//                 'description'      => $content->description,
-//                 'image'     => $content->image,
-//                 'created_at'        => $content->created_at,
-//                 'updated_at'        => $content->updated_at,
+function content(){
+        $contents  = App\Content::get();
+        $data      = array();
+        foreach($contents as $content){
+            $data[$content->key] = [
+                'page'      => $content->page,
+                'heading'   => $content->heading,
+                'key'       => $content->key,
+                'description'      => $content->description,
+                'image'     => $content->image,
+                'created_at'        => $content->created_at,
+                'updated_at'        => $content->updated_at,
 
-//             ];
-//         }
-//         return $data;
-//     }
+            ];
+        }
+        return $data;
+    }
     function media(){
         $media  = App\Media::orderBy('id','ASC')->get();
         return $media;

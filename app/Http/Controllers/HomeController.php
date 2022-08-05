@@ -23,6 +23,7 @@ use App\Sector;
 use App\Slider;
 use App\Support;
 use App\Team;
+use App\Term;
 use App\User;
 use App\UserGallery;
 use App\UserProduct;
@@ -96,6 +97,11 @@ class HomeController extends Controller
     public function blog()
     {
         $blog = Blog::orderBy('created_at', 'ASC')->paginate(10);
+        return view('blog', compact('blog'));
+    }
+    public function blog_search(Request $request)
+    {
+        $blog = Blog::where('name', 'LIKE','%'.$request->search.'%')->paginate(10);
         return view('blog', compact('blog'));
     }
     public function blog_detail($id)
@@ -329,8 +335,8 @@ class HomeController extends Controller
     }
     public function term()
     {
-        $faq = Faq::orderBy('created_at', 'ASC')->get();
-        return view('term');
+        $term = Term::orderBy('created_at', 'ASC')->get();
+        return view('term',compact('term'));
     }
     
     public function redirect()

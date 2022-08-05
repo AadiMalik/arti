@@ -2,6 +2,7 @@
 $category = category();
 $brand = brand();
 $media = media();
+$data = content();
 use Carbon\Carbon;
 use Alkoumi\LaravelHijriDate\Hijri;
 @endphp
@@ -116,13 +117,13 @@ use Alkoumi\LaravelHijriDate\Hijri;
                     <div class="row">
                         <div class="col-lg-6 col-md-5">
                             <div class="header-call-action">
-                                <a href="#">
+                                <a href="mailto:{{$data['#email']['heading']??''}}">
                                     <i class="fa fa-envelope"></i>
-                                    info@website.com
+                                    {{$data['#email']['heading']??''}}
                                 </a>
-                                <a href="#">
+                                <a href="tel:{{$data['#phone']['heading']??''}}">
                                     <i class="fa fa-phone"></i>
-                                    0123456789
+                                    {{$data['#phone']['heading']??''}}
                                 </a>
                             </div>
                         </div>
@@ -276,7 +277,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                     color: #b90e0e;
                                     font-weight: bold;">
                                         Subzi <br> Mandi</h2> --}}
-                                    <img src="{{ asset('Images/logo2.png') }}" style="height: 100px;"
+                                    <img src="{{ asset($data['#logo']['image']??'Images/logo2.png') }}" style="height: 100px;"
                                         alt="brand logo">
                                 </a>
                             </div>
@@ -609,12 +610,10 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="widget-body">
                                     <ul class="location">
-                                        <li><i class="fa fa-envelope"></i>support@galio.com</li>
-                                        <li><i class="fa fa-phone"></i>(800) 0123 456 789</li>
-                                        <li><i class="fa fa-map-marker"></i>Address: 1234 - Bandit Tringi Aliquam
-                                            Vitae. New York</li>
+                                        <li><i class="fa fa-envelope"></i>{{$data['#email']['heading']??''}}</li>
+                                        <li><i class="fa fa-phone"></i>{{$data['#phone']['heading']??''}}</li>
+                                        <li><i class="fa fa-map-marker"></i>Address: {{$data['#address']['heading']??''}}</li>
                                     </ul>
-                                    <a class="map-btn" href="contact-us.html">open in google map</a>
                                 </div>
                             </div> <!-- single widget end -->
                         </div> <!-- single widget column end -->
@@ -625,11 +624,18 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="widget-body">
                                     <ul>
-                                        <li><a href="#">my account</a></li>
-                                        <li><a href="#">my cart</a></li>
-                                        <li><a href="#">checkout</a></li>
-                                        <li><a href="#">my wishlist</a></li>
-                                        <li><a href="#">login</a></li>
+                                        @auth
+                                        @if(Auth()->user()->is_admin)
+                                        <li><a href="{{url('admin/admin')}}">Admin Panel</a></li>
+                                        @else
+                                        <li><a href="{{url('dashboard')}}">Dashboard</a></li>
+                                        @endif
+                                        @else
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="{{route('register')}}">Signup</a></li>
+                                        @endauth
+                                        <li><a href="{{url('faq')}}">FAQ's</a></li>
+                                        <li><a href="{{url('term')}}">Terms & Conditions</a></li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -637,15 +643,15 @@ use Alkoumi\LaravelHijriDate\Hijri;
                         <div class="col-md-3 col-sm-6">
                             <div class="footer-widget mb-sm-30">
                                 <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>short code</h4>
+                                    <h4>Links</h4>
                                 </div>
                                 <div class="widget-body">
                                     <ul>
-                                        <li><a href="#">gallery</a></li>
-                                        <li><a href="#">accordion</a></li>
-                                        <li><a href="#">carousel</a></li>
-                                        <li><a href="#">map</a></li>
-                                        <li><a href="#">tab</a></li>
+                                        <li><a href="{{url('home')}}">Home</a></li>
+                                        <li><a href="{{url('about-us')}}">about Us</a></li>
+                                        <li><a href="{{url('contact-us')}}">Contact us</a></li>
+                                        <li><a href="{{url('blog')}}">Blogs</a></li>
+                                        <li><a href="{{url('package')}}">Packages</a></li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -653,15 +659,14 @@ use Alkoumi\LaravelHijriDate\Hijri;
                         <div class="col-md-3 col-sm-6">
                             <div class="footer-widget mb-sm-30">
                                 <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>product tags</h4>
+                                    <h4>Other Links</h4>
                                 </div>
                                 <div class="widget-body">
                                     <ul>
-                                        <li><a href="#">computer</a></li>
-                                        <li><a href="#">camera</a></li>
-                                        <li><a href="#">smart phone</a></li>
-                                        <li><a href="#">watch</a></li>
-                                        <li><a href="#">tablet</a></li>
+                                        <li><a href="{{url('shop')}}">Products</a></li>
+                                        <li><a href="{{url('zamidar')}}">For Sale</a></li>
+                                        <li><a href="{{url('sell')}}">Sell</a></li>
+                                        <li><a href="{{url('newfeeds')}}">New Feed</a></li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->

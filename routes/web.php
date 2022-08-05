@@ -12,6 +12,7 @@ Route::get('contact-us', 'ContactController@index');
 Route::post('Send_Message', 'ContactController@store')->name('Send_Message');
 Route::get('blog', 'HomeController@blog');
 Route::get('blog-detail/{id}', 'HomeController@blog_detail');
+Route::get('blog-search', 'HomeController@blog_search');
 Route::get('shop', 'HomeController@shop');
 Route::get('shop/filter', 'HomeController@shop_price');
 Route::get('shop-category/{catgeory}', 'HomeController@shop_category');

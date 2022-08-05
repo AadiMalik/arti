@@ -4,7 +4,7 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        ul li {
+        .blog-sharing ul li {
             display: inline-block;
         }
     </style>
@@ -37,8 +37,9 @@
                     <div class="blog-sidebar-wrapper mt-md-34 mt-sm-30">
                         <div class="blog-sidebar mb-30">
                             <div class="sidebar-serch-form">
-                                <form action="#">
-                                    <input type="text" class="search-field" placeholder="search here">
+                                <form action="{{url('blog-search')}}" method="GET">
+                                    @csrf
+                                    <input type="text" name="search" class="search-field" placeholder="search here">
                                     <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
@@ -54,7 +55,7 @@
                         </ul>
                     </div> --}}
                         <!-- single sidebar end -->
-                        <div class="blog-sidebar mb-24">
+                        {{-- <div class="blog-sidebar mb-24">
                             <h4 class="title mb-20">Blog Archives</h4>
                             <ul class="blog-archive">
                                 <li><a href="#">January (10)</a></li>
@@ -63,7 +64,8 @@
                                 <li><a href="#">April (14)</a></li>
                                 <li><a href="#">May (10)</a></li>
                             </ul>
-                        </div> <!-- single sidebar end -->
+                        </div> --}}
+                         <!-- single sidebar end -->
                         <div class="blog-sidebar mb-24">
                             <h4 class="title mb-30">recent post</h4>
                             @foreach ($blog->take(3) as $item)
@@ -80,7 +82,7 @@
                                 </div>
                             @endforeach
                         </div> <!-- single sidebar end -->
-                        <div class="blog-sidebar mb-24">
+                        {{-- <div class="blog-sidebar mb-24">
                             <h4 class="title mb-30">Tags</h4>
                             <ul class="blog-tags">
                                 <li><a href="#">camera</a></li>
@@ -90,7 +92,8 @@
                                 <li><a href="#">bag</a></li>
                                 <li><a href="#">shoes</a></li>
                             </ul>
-                        </div> <!-- single sidebar end -->
+                        </div> --}}
+                         <!-- single sidebar end -->
                     </div>
                 </div>
                 <div class="col-lg-9 order-1">

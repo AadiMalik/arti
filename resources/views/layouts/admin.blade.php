@@ -1,3 +1,6 @@
+@php
+    $data = content();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,7 +234,7 @@
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
                         <a @if(auth()->user()->is_admin) href="{{route('admin.home')}}" @else href="{{route('client.home')}}" @endif>
-                             <img alt="image" src="{{ asset('Images/logo2.png') }}" style="height: 60px;" class="header-logo" />
+                             <img alt="image" src="{{ asset($data['#logo']['image']??'Images/logo2.png') }}" style="height: 60px;" class="header-logo" />
                                 
                             {{-- <span class="logo-name">Subzi Mandi</span> --}}
                         </a>
