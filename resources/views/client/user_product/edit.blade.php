@@ -16,7 +16,7 @@
                 <table  class="table table-striped table-hover" style="width:100%;">
                     <thead>
                         <tr>
-                            <th></th>
+                            {{-- <th></th> --}}
                             <th>
                                 Sr.
                             </th>
@@ -46,10 +46,10 @@
                     <tbody>
                         @foreach ($user_product as $index => $item)
                             <tr>
-                                <td>
+                                {{-- <td>
                                     <input type="checkbox" name="product_id[]" value="{{ $item->id ?? '' }}"
                                         id="">
-                                </td>
+                                </td> --}}
 
                                 <td>
                                     <input type="hidden" name="id[]" value="{{ $item->id ?? '' }}">

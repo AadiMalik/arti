@@ -135,28 +135,25 @@ class UserProductController extends Controller
             $user_product->weight = $request->weight[$index];
             $user_product->weight_type = $request->weight_type[$index];
             $user_product->update();
+            //post data
+            $user_product = UserProduct::find($request->id[$index]);
+            $product_name[] = $user_product->product_name->name;
+            $product_type[] = $user_product->product_name->type;
+            $product_price_low[] = $user_product->price_low;
+            $product_price_high[] = $user_product->price_high;
+            $product_weight[] = $user_product->weight . '/' . $user_product->weight_type;
+            $product_image[] = $user_product->image1;
         }
-        if (isset($request->product_id) == true) {
-            foreach ($request->product_id as $item) {
-                $user_product = UserProduct::find($item);
-                $product_name[] = $user_product->product_name->name;
-                $product_type[] = $user_product->product_name->type;
-                $product_price_low[] = $user_product->price_low;
-                $product_price_high[] = $user_product->price_high;
-                $product_weight[] = $user_product->weight . '/' . $user_product->weight_type;
-                $product_image[] = $user_product->image1;
-            }
-            // dd($product_name,$product_price_low,$product_price_high,$product_weight);
-            $post = new ProductPost;
-            $post->user_id = Auth()->user()->id;
-            $post->name = json_encode($product_name);
-            $post->price_low = json_encode($product_price_low);
-            $post->price_high = json_encode($product_price_high);
-            $post->weight = json_encode($product_weight);
-            $post->image = json_encode($product_image);
-            $post->type = json_encode($product_type);
-            $post->save();
-        }
+        // dd($product_name,$product_price_low,$product_price_high,$product_weight);
+        $post = new ProductPost;
+        $post->user_id = Auth()->user()->id;
+        $post->name = json_encode($product_name);
+        $post->price_low = json_encode($product_price_low);
+        $post->price_high = json_encode($product_price_high);
+        $post->weight = json_encode($product_weight);
+        $post->image = json_encode($product_image);
+        $post->type = json_encode($product_type);
+        $post->save();
         return redirect('user-product')->with('success', 'Product has updated!');
     }
     public function imageEdit($id)

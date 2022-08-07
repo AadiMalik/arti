@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,5 +37,12 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    
+    public function credentials(Request $request)
+    {
+        if (is_numeric($request->email)) {
+            return ['phone1' => $request->username, 'password' => $request->password];
+        } elseif (filter_var($request->email)) {
+            return ['username' => $request->email, 'password' => $request->password];
+        } 
+    }
 }

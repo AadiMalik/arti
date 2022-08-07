@@ -251,6 +251,7 @@
                                                 <hr>
                                                 <hr>
                                             </div> --}}
+                                            @if($fallow->count()>0)
                                 @foreach ($fallow as $item1)
                                 @foreach ($post->where('user_id',$item1->arti_id) as $index=> $item)
                                                 <div class="col-lg-12 col-md-12 col-sm-12 myaccount-content mb-3">
@@ -337,6 +338,11 @@
                                                 </div> <!-- product single column end -->
                                             @endforeach
                                             @endforeach
+                                            @else
+                                                <div class="alert alert-danger">
+                                                    <h4>You have not followed any body yet nothing to show!</h4>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

@@ -189,6 +189,13 @@
                                         <a href="{{ url('dashboard') }}"><i class="fa fa-line-chart"></i>Dashboard</a>
                                         <a href="{{ url('user-product') }}"><i class="fa fa-truck"></i>My Products</a>
                                         <a href="{{ url('profile') }}"><i class="fa fa-edit"></i>Edit Profile</a>
+                                        <a href="javascript:void(0);"
+                                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                           <i class="fa fa-lock"></i> Logout</a>
+                                                        <form id="logout-form" action="{{ route('logout') }}"
+                                                            method="POST" style="display: none;">
+                                                            @csrf
+                                                        </form>
                                     @endif
                                 @endauth
                                 {{-- <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a>

@@ -67,6 +67,10 @@
                                     </div>
                                 </div>
                                 <div class="single-input-item">
+                                    <input type="number" name="phone1" value="{{ old('phone1') }}"
+                                        placeholder="Enter your Phone" required />
+                                </div>
+                                <div class="single-input-item">
                                     <input type="email" name="email" value="{{ old('email') }}"
                                         placeholder="Enter your Email" required />
                                 </div>

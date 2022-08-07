@@ -136,6 +136,16 @@ use Alkoumi\LaravelHijriDate\Hijri;
 
                                             <li>
                                                 <div class="dropdown header-top-dropdown">
+                                                    @foreach (Auth()->user()->roles as $item)
+                                                                @if ($item->title == 'Arti')
+                                                    <a href="{{ url('arti-detail/' . Auth()->user()->id) }}">
+                                                        <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
+                                                            style="height: 23px; border-radius:50%;" alt="">
+
+                                                        {{ Auth()->user()->username ?? Auth()->user()->first_name }}
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </a>
+                                                    @else
                                                     <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
                                                         <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
@@ -144,6 +154,8 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                         {{ Auth()->user()->username ?? Auth()->user()->first_name }}
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
+                                                    @endif
+                                                    @endforeach
                                                     <div class="dropdown-menu" aria-labelledby="myaccount">
                                                         @if (Auth()->user()->is_Admin)
                                                             <a class="dropdown-item"
