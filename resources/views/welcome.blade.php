@@ -339,7 +339,7 @@
 
                     </div> <!-- section title end -->
                     <!-- featured category start -->
-                    <div class="featured-carousel-active slick-padding slick-arrow-style" id="v_commession">
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
                         <!-- product single item start -->
                         @foreach ($arti->where('verify', 0) as $item1)
                             @foreach ($item1->roles as $item2)
@@ -443,7 +443,7 @@
 
                     </div> <!-- section title end -->
                     <!-- featured category start -->
-                    <div class="featured-carousel-active slick-padding slick-arrow-style" id="commession">
+                    <div class="featured-carousel-active slick-padding slick-arrow-style">
                         <!-- product single item start -->
                         @foreach ($arti->where('verify', 1) as $item1)
                             @foreach ($item1->roles as $item2)
@@ -630,7 +630,6 @@
         });
 
         $('#artifallow<?php echo $item->id; ?>').click(function() {
-            alert(v_fallow());
             <?php if (auth()->user() != null) { ?>
             $.ajax({
                 type: 'POST',
@@ -642,10 +641,7 @@
                 },
 
                 success: function(data) {
-                    // $("#commession").load(location.href +
-                    //             " #commession");
-                    v_fallow();
-                    fallow();
+                    location.reload();
                 }
             });
             <?php } else { ?>
@@ -655,25 +651,6 @@
         });
         <?php }?>
     });
-
-    function v_fallow(){
-        $.ajax({
-                type: 'GET',
-                url: "{{ url('vfallow') }}",
-                success: function(data) {
-                    $('#v_commession').html(data);
-                }
-            });
-    }
-    function fallow(){
-        $.ajax({
-                type: 'GET',
-                url: "{{ url('fallow') }}",
-                success: function(data) {
-                    $('#commession').html(data);
-                }
-            });
-    }
 </script>
 <script>
     let slideIndex = 0;
