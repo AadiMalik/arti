@@ -210,7 +210,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="email">Phone 1</label>
-                                <input class="form-control" type="number" id="phone1" name="phone1"
+                                <input class="form-control" readonly type="number" id="phone1" name="phone1"
                                     value="{{ $user->phone1 ?? '' }}">
                             </div>
                         </div>

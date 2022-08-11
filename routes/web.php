@@ -32,6 +32,8 @@ Route::post('PostLike', 'HomeController@postlike')->name('PostLike');
 Route::get('share-social/{id}', 'HomeController@shareSocial');
 Route::get('comment', 'HomeController@Comment');
 Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
+Route::get('fallow', 'HomeController@getFallow');
+Route::get('vfallow', 'HomeController@getVFallow');
 
 
 

@@ -197,7 +197,7 @@ class UserProductController extends Controller
 
     public function post(Request $request)
     {
-
+        if($request->product_id!=null){
         foreach ($request->product_id as $item) {
             $user_product = UserProduct::find($item);
             $product_name[] = $user_product->product_name->name;
@@ -218,6 +218,9 @@ class UserProductController extends Controller
         $post->type = json_encode($product_type);
         $post->save();
         return back()->with('success', 'Post created!');
+    }else{
+        return back()->with('success', 'Please select first!');
+    }
         // dd($product_name,$product_price_low,$product_price_high,$product_weight);
         // dd($request->all());
 

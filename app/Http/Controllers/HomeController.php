@@ -237,6 +237,190 @@ class HomeController extends Controller
         $arti_fallow->save();
         return back();
     }
+    public function getFallow(){
+        
+        $data = "@foreach ($arti->where('verify', 1) as $item1)
+                            @foreach ($item1->roles as $item2)
+                                @if ($item2->title == 'Arti')
+                                    <div class='product-item fix'>
+                                        <div class='product-thumb'>
+                                            <a href='{{ url('arti-detail/' . $item1->id) }}'>
+                                                <img src='{{ asset($item1->image ?? 'assets/img/user.jpg') }}'
+                                                    class='img-pri' style='height: 200px; border-radius:50%;'
+                                                    alt=''>
+
+                                            </a>
+
+                                        </div>
+                                        <div class='product-content'>
+                                            <h4><a href='{{ url('arti-detail/' . $item1->id) }}'>{{ $item1->first_name ?? '' }}
+                                                    {{ $item1->last_name ?? '' }}
+                                                </a></h4>
+
+                                            <div class='pricebox'>
+                                                <span class='reply-btn'>
+                                                    @auth
+                                                        @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $item1->id)->count() > 0)
+                                                            <a class='btn btn-danger'
+                                                                style='background:#d8373e; color:#fff !important;'>Followed</a>
+                                                        @else
+                                                            <a class='btn btn-primary' style='cursor: pointer;'
+                                                                id='artifallow{{ $item1->id }}'>Follow</a>
+                                                        @endif
+                                                    @else
+                                                        <a class='btn btn-primary' style='cursor: pointer;'
+                                                            id='artifallow{{ $item1->id }}'>Follow</a>
+                                                    @endauth
+                                                    Follow:{{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
+                                                </span>
+                                                <div class='ratings'>
+                                                    @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @endif
+                                                    @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) == 5.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span><i class='fa fa-star'></i></span>
+                                                    @endif
+                                                    <div class='pro-review'>
+                                                        <span>{{ $rating->where('arti_id', $item1->id)->count() }}
+                                                            Review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endforeach";
+                echo $data;
+    }
+    public function getVFallow(){
+        
+        $data = "@foreach ($arti->where('verify', 0) as $item1)
+                            @foreach ($item1->roles as $item2)
+                                @if ($item2->title == 'Arti')
+                                    <div class='product-item fix'>
+                                        <div class='product-thumb'>
+                                            <a href='{{ url('arti-detail/' . $item1->id) }}'>
+                                                <img src='{{ asset($item1->image ?? 'assets/img/user.jpg') }}'
+                                                    class='img-pri' style='height: 200px; border-radius:50%;'
+                                                    alt=''>
+
+                                            </a>
+
+                                        </div>
+                                        <div class='product-content'>
+                                            <h4><a href='{{ url('arti-detail/' . $item1->id) }}'>{{ $item1->first_name ?? '' }}
+                                                    {{ $item1->last_name ?? '' }}
+                                                </a></h4>
+
+                                            <div class='pricebox'>
+                                                <span class='reply-btn'>
+                                                    @auth
+                                                        @if ($arti_fallow->where('user_id', Auth()->user()->id)->where('arti_id', $item1->id)->count() > 0)
+                                                            <a class='btn btn-danger'
+                                                                style='background:#d8373e; color:#fff !important;'>Followed</a>
+                                                        @else
+                                                            <a class='btn btn-primary' style='cursor: pointer;'
+                                                                id='artifallow{{ $item1->id }}'>Follow</a>
+                                                        @endif
+                                                    @else
+                                                        <a class='btn btn-primary' style='cursor: pointer;'
+                                                            id='artifallow{{ $item1->id }}'>Follow</a>
+                                                    @endauth
+                                                    Follow:{{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
+                                                </span>
+                                                <div class='ratings'>
+                                                    @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @endif
+                                                    @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
+                                                        ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star-o'></i></span>
+                                                    @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) == 5.0)
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span class='good'><i class='fa fa-star'></i></span>
+                                                        <span><i class='fa fa-star'></i></span>
+                                                    @endif
+                                                    <div class='pro-review'>
+                                                        <span>{{ $rating->where('arti_id', $item1->id)->count() }}
+                                                            Review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endforeach";
+                echo $data;
+    }
     public function arti_detail($id)
     {
         $arti = User::find($id);

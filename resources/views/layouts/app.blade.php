@@ -141,6 +141,9 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                     <a href="{{ url('arti-detail/' . Auth()->user()->id) }}">
                                                         <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
                                                             style="height: 23px; border-radius:50%;" alt="">
+                                                    </a>
+                                                    <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
 
                                                         {{ Auth()->user()->username ?? Auth()->user()->first_name }}
                                                         <i class="fa fa-angle-down"></i>
