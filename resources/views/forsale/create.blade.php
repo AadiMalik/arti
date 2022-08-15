@@ -72,7 +72,7 @@
 
 <div class="card">
     <div class="card-header">
-        Create Sell Product
+        Create Sell Product @if(!Auth()->user()->is_admin)  <a href="{{url('package')}}" class="btn btn-primary"> Packages</a> @endif
     </div>
 
     <div class="card-body">

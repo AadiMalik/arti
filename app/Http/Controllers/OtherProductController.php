@@ -25,19 +25,19 @@ class OtherProductController extends Controller
     public function category($category, $sub_category)
     {
         $add = OtherProduct::where('user_id', Auth()->user()->id)->count();
-        if(Auth()->user()->is_admin){
+        // if(Auth()->user()->is_admin){
             $district  = District::orderBy('name', 'ASC')->get();
             $tehsil = Tehsil::orderBy('name', 'ASC')->get();
             return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
-        }
-        if (Auth()->user()->adds < $add && Auth()->user()->expiry > Carbon::now()) {
-            $district  = District::orderBy('name', 'ASC')->get();
-            $tehsil = Tehsil::orderBy('name', 'ASC')->get();
-            return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
-        } else {
-            $message = 'Your Package limit is ' . Auth()->user()->adds . ' And Your Package Expiry is ' . Auth()->user()->expiry.' please subscribe package on click <a class="btn btn-primary" href="'.url('package').'">here</a>';
-            return redirect(route('client.home'))->with('error', $message);
-        }
+        // }
+        // if (Auth()->user()->adds < $add && Auth()->user()->expiry > Carbon::now()) {
+        //     $district  = District::orderBy('name', 'ASC')->get();
+        //     $tehsil = Tehsil::orderBy('name', 'ASC')->get();
+        //     return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
+        // } else {
+        //     $message = 'Your Package limit is ' . Auth()->user()->adds . ' And Your Package Expiry is ' . Auth()->user()->expiry.' please subscribe package on click <a class="btn btn-primary" href="'.url('package').'">here</a>';
+        //     return redirect(route('client.home'))->with('error', $message);
+        // }
     }
     /**
      * Show the form for creating a new resource.
@@ -47,13 +47,12 @@ class OtherProductController extends Controller
     public function create()
     {
         $add = OtherProduct::where('user_id', Auth()->user()->id)->count();
-        dd(Auth()->user()->package_name->add < $add);
-        if (Auth()->user()->package_name->add < $add && Auth()->user()->expiry > Carbon::now()) {
+        // if (Auth()->user()->package_name->add < $add && Auth()->user()->expiry > Carbon::now()) {
             return view('forsale.create');
-        } else {
-            $message = "Your Package limit is " . Auth()->user()->package_name->add . " And Your Package Expiry is" . Auth()->user()->expiry;
-            return redirect(route('client.home'))->with('error', $message);
-        }
+        // } else {
+        //     $message = "Your Package limit is " . Auth()->user()->package_name->add . " And Your Package Expiry is" . Auth()->user()->expiry;
+        //     return redirect(route('client.home'))->with('error', $message);
+        // }
     }
 
     /**

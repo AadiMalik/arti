@@ -26,7 +26,7 @@
                 {!!$errors->first("days", "<span class='text-danger'>:message</span>")!!}
             </div>
             <div class="form-group">
-                <label class="required" for="add">Adds Limit</label>
+                <label class="required" for="add">Top Days Limit</label>
                 <input class="form-control" type="number" name="add" id="add" value="{{ $package->add??'' }}" required>
                 {!!$errors->first("add", "<span class='text-danger'>:message</span>")!!}
             </div>

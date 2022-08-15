@@ -1,3 +1,7 @@
+@php
+    
+    use Carbon\Carbon;
+@endphp
 @extends('layouts.app')
 @section('content')
     <!-- breadcrumb area start -->
@@ -66,7 +70,7 @@
                                 <h3>filter by price</h3>
                             </div>
                             <div class="row">
-                                <form action="{{url('zameendar/filter')}}" method="GET">
+                                <form action="{{ url('zameendar/filter') }}" method="GET">
                                     @csrf
                                     <div class="col-md-12">
                                         <span>Min: </span>
@@ -78,31 +82,49 @@
                                 </form>
                             </div>
                         </div>
-                            <!-- pricing filter end -->
+                        <!-- pricing filter end -->
 
-                            <!-- product size start -->
-                            <div class="sidebar-widget mb-30">
-                                <div class="sidebar-title mb-10">
-                                    <h3>Sub Categories</h3>
-                                </div>
-                                <div class="sidebar-widget-body">
-                                    <ul>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/tractor')}}">Tractors</a><span>({{number_format($sale_product_count->where('sub_category','tractor')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/dumper')}}">Dumpers</a><span>({{number_format($sale_product_count->where('sub_category','dumper')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/exivator')}}">Exivators</a><span>({{number_format($sale_product_count->where('sub_category','exivator')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/harvestor')}}">Harvestors</a><span>({{number_format($sale_product_count->where('sub_category','harvestor')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/fertilizer')}}">Fertilizers</a><span>({{number_format($sale_product_count->where('sub_category','fertilizer')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/fruit')}}">Fruits</a><span>({{number_format($sale_product_count->where('sub_category','fruit')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/vegitable')}}">Vegitables</a><span>({{number_format($sale_product_count->where('sub_category','vegitable')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/grain')}}">Grains</a><span>({{number_format($sale_product_count->where('sub_category','grain')->count())}})</span></li>
-                                        <li><i class="fa fa-angle-right"></i><a href="{{url('sub-category/other')}}">Others</a><span>({{number_format($sale_product_count->where('sub_category','other')->count())}})</span></li>
-                                    </ul>
-                                </div>
+                        <!-- product size start -->
+                        <div class="sidebar-widget mb-30">
+                            <div class="sidebar-title mb-10">
+                                <h3>Sub Categories</h3>
                             </div>
-                            <!-- product size end -->
+                            <div class="sidebar-widget-body">
+                                <ul>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/tractor') }}">Tractors</a><span>({{ number_format($sale_product_count->where('sub_category', 'tractor')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/dumper') }}">Dumpers</a><span>({{ number_format($sale_product_count->where('sub_category', 'dumper')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/exivator') }}">Exivators</a><span>({{ number_format($sale_product_count->where('sub_category', 'exivator')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/harvestor') }}">Harvestors</a><span>({{ number_format($sale_product_count->where('sub_category', 'harvestor')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/fertilizer') }}">Fertilizers</a><span>({{ number_format($sale_product_count->where('sub_category', 'fertilizer')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/fruit') }}">Fruits</a><span>({{ number_format($sale_product_count->where('sub_category', 'fruit')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/vegitable') }}">Vegitables</a><span>({{ number_format($sale_product_count->where('sub_category', 'vegitable')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/grain') }}">Grains</a><span>({{ number_format($sale_product_count->where('sub_category', 'grain')->count()) }})</span>
+                                    </li>
+                                    <li><i class="fa fa-angle-right"></i><a
+                                            href="{{ url('sub-category/other') }}">Others</a><span>({{ number_format($sale_product_count->where('sub_category', 'other')->count()) }})</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- product size end -->
 
-                            <!-- product tag start -->
-                            {{-- <div class="sidebar-widget mb-30">
+                        <!-- product tag start -->
+                        {{-- <div class="sidebar-widget mb-30">
                         <div class="sidebar-title mb-10">
                             <h3>tags</h3>
                         </div>
@@ -114,42 +136,42 @@
                             </div>
                         </div>
                     </div> --}}
-                            <!-- product tag end -->
+                        <!-- product tag end -->
 
-                            <!-- sidebar banner start -->
-                            <div class="sidebar-widget mb-30">
-                                <div class="img-container fix img-full">
-                                    <a href="#"><img src="1.jpg" alt=""></a>
-                                </div>
+                        <!-- sidebar banner start -->
+                        <div class="sidebar-widget mb-30">
+                            <div class="img-container fix img-full">
+                                <a href="#"><img src="1.jpg" alt=""></a>
                             </div>
-                            <!-- sidebar banner end -->
                         </div>
+                        <!-- sidebar banner end -->
                     </div>
-                    <!-- sidebar end -->
+                </div>
+                <!-- sidebar end -->
 
-                    <!-- product main wrap start -->
-                    <div class="col-lg-9 order-1 order-lg-2">
-                        <div class="shop-banner img-full">
-                            <img src="{{asset('3.jpg')}}" alt="" style="height: 250px;">
-                        </div>
-                        <!-- product view wrapper area start -->
-                        <div class="shop-product-wrapper pt-34">
-                            <!-- shop product top wrap start -->
-                            <div class="shop-top-bar">
-                                <div class="row">
-                                    <div class="col-lg-7 col-md-6">
-                                        <div class="top-bar-left">
-                                            <div class="product-view-mode mr-70 mr-sm-0">
-                                                <a href="#" data-target="grid"><i class="fa fa-th"></i></a>
-                                                <a class="active" href="#" data-target="list"><i
-                                                        class="fa fa-list"></i></a>
-                                            </div>
-                                            <div class="product-amount">
-                                                <p>{{$sale_product->links()}}</p>
-                                            </div>
+                <!-- product main wrap start -->
+                <div class="col-lg-9 order-1 order-lg-2">
+                    <div class="shop-banner img-full">
+                        <img src="{{ asset('3.jpg') }}" alt="" style="height: 250px;">
+                    </div>
+                    <!-- product view wrapper area start -->
+                    <div class="shop-product-wrapper pt-34">
+                        <!-- shop product top wrap start -->
+                        <div class="shop-top-bar">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-6">
+                                    <div class="top-bar-left">
+                                        <div class="product-view-mode mr-70 mr-sm-0">
+                                            <a href="#" data-target="grid"><i class="fa fa-th"></i></a>
+                                            <a class="active" href="#" data-target="list"><i
+                                                    class="fa fa-list"></i></a>
+                                        </div>
+                                        <div class="product-amount">
+                                            <p>{{ $sale_product->links() }}</p>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-5 col-md-6">
+                                </div>
+                                {{-- <div class="col-lg-5 col-md-6">
                                 <div class="top-bar-right">
                                     <div class="product-short">
                                         <p>Sort By : </p>
@@ -165,46 +187,77 @@
                                     </div>
                                 </div>
                             </div> --}}
-                                </div>
                             </div>
-                            <!-- shop product top wrap start -->
+                        </div>
+                        <!-- shop product top wrap start -->
 
-                            <!-- product item start -->
-                            <div class="shop-product-wrap list row">
-                                @if($sale_product->count()>0)
+                        <!-- product item start -->
+                        <div class="shop-product-wrap list row">
+                            @if ($sale_product->count() > 0)
                                 @foreach ($sale_product as $item)
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <!-- product single grid item start -->
-                                        <div class="product-item fix mb-30">
-                                            <div class="product-thumb">
-                                                <a href="{{ url('forsale-detail/' . $item->id) }}">
-                                                    <img src="{{ asset($item->image1 ?? '') }}" class="img-pri"
-                                                        style="height: 200px;" alt="">
-                                                    <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
-                                                        style="height: 200px;" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h4><a
-                                                        href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
-                                                </h4>
-                                                <div class="pricebox">
-                                                    <span class="regular-price">Rs. {{ $item->price ?? '' }}</span>
+                                    @if ($item->user_name->expiry > Carbon::now())
+                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                            <!-- product single grid item start -->
+                                            <div class="product-item fix mb-30">
+                                                <i class="badge badge-primary">Featured</i>
+                                                <div class="product-thumb">
+                                                    <a href="{{ url('forsale-detail/' . $item->id) }}">
+                                                        <img src="{{ asset($item->image1 ?? '') }}" class="img-pri"
+                                                            style="height: 200px;" alt="">
+                                                        <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
+                                                            style="height: 200px;" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h4><a
+                                                            href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
+                                                    </h4>
+                                                    <div class="pricebox">
+                                                        <span class="regular-price">Rs. {{ $item->price ?? '' }}</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- product single grid item end -->
-                                    </div> <!-- product single column end -->
+                                            <!-- product single grid item end -->
+                                        </div> <!-- product single column end -->
+                                    @endif
                                 @endforeach
-                                @else
+                                @foreach ($sale_product as $item)
+                                    @if ($item->user_name->expiry < Carbon::now())
+                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                            <!-- product single grid item start -->
+                                            <div class="product-item fix mb-30">
+                                                <div class="product-thumb">
+                                                    <a href="{{ url('forsale-detail/' . $item->id) }}">
+                                                        <img src="{{ asset($item->image1 ?? '') }}" class="img-pri"
+                                                            style="height: 200px;" alt="">
+                                                        <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
+                                                            style="height: 200px;" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h4><a
+                                                            href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
+                                                    </h4>
+                                                    <div class="pricebox">
+                                                        <span class="regular-price">Rs.
+                                                            {{ $item->price ?? '' }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- product single grid item end -->
+                                        </div> <!-- product single column end -->
+                                    @endif
+                                @endforeach
+                            @else
                                 <div class="col-md-12">
                                     <h4>No Product Found</h4>
                                 </div>
-                                @endif
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- product single list item start -->
-                                    
-                                    @foreach ($sale_product as $item)
+                            @endif
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <!-- product single list item start -->
+
+                                @foreach ($sale_product as $item)
+                                    @if ($item->user_name->expiry < Carbon::now())
                                         <div class="product-list-item mb-30">
                                             <div class="product-thumb">
                                                 <a href="{{ url('forsale-detail/' . $item->id) }}">
@@ -213,62 +266,66 @@
                                                     <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
                                                         style="height: 310px;" alt="">
                                                 </a>
-                                                {{-- <div class="product-label">
-                                        <span>hot</span>
-                                    </div> --}}
                                             </div>
                                             <div class="product-list-content">
                                                 <h3><a
                                                         href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
                                                 </h3>
-                                                {{-- <div class="ratings">
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span><i class="fa fa-star"></i></span>
-                                        <div class="pro-review">
-                                            <span>1 review(s)</span>
-                                        </div>
-                                    </div> --}}
                                                 <div class="pricebox">
                                                     <span class="regular-price">Rs. {{ $item->price ?? '' }}</span>
-                                                    {{-- <span class="old-price"><del>$90.00</del></span> --}}
                                                 </div>
                                                 <p>{!! $item->description ?? '' !!}</p>
-                                                {{-- <p>Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p> --}}
-                                                {{-- <div class="product-list-action-link">
-                                        <a class="buy-btn" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart">go to buy <i class="fa fa-shopping-cart"></i> </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search"></i></span> </a>
-                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i></a>
-                                    </div> --}}
                                             </div>
                                         </div>
-                                    @endforeach
-                                    <!-- product single list item start -->
-                                </div> <!-- product single column end -->
-                            </div>
-                            <!-- product item end -->
+                                    @endif
+                                @endforeach
+                                @foreach ($sale_product as $item)
+                                    @if ($item->user_name->expiry > Carbon::now())
+                                        <div class="product-list-item mb-30">
+                                            <div class="product-thumb">
+                                                <i class="badge badge-primary">Featured</i>
+                                                <a href="{{ url('forsale-detail/' . $item->id) }}">
+                                                    <img src="{{ asset($item->image1 ?? '') }}" class="img-pri"
+                                                        style="height: 310px;" alt="">
+                                                    <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
+                                                        style="height: 310px;" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="product-list-content">
+                                                <h3><a
+                                                        href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
+                                                </h3>
+                                                <div class="pricebox">
+                                                    <span class="regular-price">Rs. {{ $item->price ?? '' }}</span>
+                                                </div>
+                                                <p>{!! $item->description ?? '' !!}</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                <!-- product single list item start -->
+                            </div> <!-- product single column end -->
                         </div>
-                        <!-- product view wrapper area end -->
-
-                        <!-- start pagination area -->
-                        <div class="paginatoin-area text-center pt-28">
-                            <div class="row">
-                                <div class="col-12">
-                                    <ul class="pagination-box">
-                                        {{ $sale_product->links() }}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end pagination area -->
-
+                        <!-- product item end -->
                     </div>
-                    <!-- product main wrap end -->
+                    <!-- product view wrapper area end -->
+
+                    <!-- start pagination area -->
+                    <div class="paginatoin-area text-center pt-28">
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="pagination-box">
+                                    {{ $sale_product->links() }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end pagination area -->
+
                 </div>
+                <!-- product main wrap end -->
             </div>
         </div>
-        <!-- page wrapper end -->
-    @endsection
+    </div>
+    <!-- page wrapper end -->
+@endsection

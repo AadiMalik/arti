@@ -284,7 +284,7 @@
                                                         <a class="btn btn-primary form-control" style="cursor: pointer;"
                                                             id="artifallow{{ $arti->id }}">Follow</a>
                                                     @endauth
-                                                    Follow:{{ $arti_fallow->where('arti_id', $arti->id)->count() ?? '0' }}
+                                                    <i class="fa fa-feed"></i> {{ $arti_fallow->where('arti_id', $arti->id)->count() ?? '0' }}
                                                 </span>
                                             </div>
                                             <div class="col-md-12 mt-2">

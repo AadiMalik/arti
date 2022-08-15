@@ -34,7 +34,7 @@
                                 Price
                             </th>
                             <th>
-                                Adds
+                                Top
                             </th>
                             <th>
                                 Days

@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <ul class="pricing-content">
-                        <li>{{ $package->add ?? '' }} Adds</li>
+                        <li>{{ $package->add ?? '' }} Days Display Front Page</li>
                     </ul>
                     <div class="pricingTable-signup" style="background: {{ $package->color ?? '#000' }}">
                         <a href="#">Sign Up</a>

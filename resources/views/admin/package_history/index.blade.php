@@ -31,7 +31,7 @@
                                 Package Days
                             </th>
                             <th>
-                                Package Adds
+                                Top Limit
                             </th>
                             <th>
                                 Created At

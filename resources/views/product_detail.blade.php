@@ -127,7 +127,7 @@
                                                                                 <a style="cursor: pointer;"
                                                                                     id="artifallow{{ $item->user_id }}">Follow</a>
                                                                             @endauth
-                                                                            <br>Follow:{{ $arti_fallow->where('arti_id', $item->user_id)->count() ?? '0' }}
+                                                                            <br><i class="fa fa-feed"></i> {{ $arti_fallow->where('arti_id', $item->user_id)->count() ?? '0' }} @if($item->verify==0)<i class="badge badge-success">Verify</i>@endif 
                                                                         </span>
 
 
