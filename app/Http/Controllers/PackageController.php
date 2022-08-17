@@ -44,15 +44,19 @@ class PackageController extends Controller
             $packagehistory->package_add = $package->add;
             $packagehistory->save();
             $user = User::find(Auth()->user()->id);
-            if($user->expiry==null){
+            if ($user->expiry == null) {
                 $date = Carbon::now()->format('Y.m.d');
                 $user->expiry = Carbon::now()->addDays($package->days);
-            }else{
-                $date = Carbon::createFromFormat('Y.m.d', $user->expiry);
-                $user->expiry = $date->addDays($package->days);
+            } else {
+                if ($user->expiry < Carbon::now()) {
+                    $date = Carbon::createFromFormat('Y.m.d', $user->expiry);
+                    $user->expiry = $date->addDays($package->days);
+                } else {
+                    return back()->with('error', 'Your has already Package!');
+                }
             }
             $user->package_id = $package->id;
-            $user->days = $user->days+$package->days;
+            $user->days = $package->top;
             $user->adds = $package->add;
             $user->update();
             return redirect('thanks-you');

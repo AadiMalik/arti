@@ -322,7 +322,12 @@
                                     data-feather="monitor"></i><span>Videos</span></a>
                         </li>
                         @endcan
-                        
+                        @if(!Auth()->user()->is_Admin)
+                        <li class="dropdown">
+                            <a href="{{url('package')}}" class="nav-link"><i
+                                    data-feather="monitor"></i><span>Packages</span></a>
+                        </li>
+                        @endif
                         @can('video_access')
                         <li class="dropdown">
                             <a href="{{url('admin/video')}}" class="nav-link"><i

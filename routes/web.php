@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
     // For Sale Product
     Route::resource('forsale', 'OtherProductController');
     Route::post('deleteForsale', 'OtherProductController@destroy')->name('deleteForsale');
+    Route::post('featured', 'OtherProductController@feature')->name('Featured');
     // For Sale Image
     Route::resource('forsale-image', 'OtherProductImageController');
     Route::post('deleteForSaleImage', 'OtherProductImageController@destroy')->name('deleteForSaleImage');

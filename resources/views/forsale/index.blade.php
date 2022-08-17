@@ -12,13 +12,18 @@
 
     <div class="card">
         <div class="card-header">
-            For Sale Products
+            For Sale Products (<small style="color:red;">Featured add limit is {{Auth()->user()->adds}}</small>)
         </div>
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
+        @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
@@ -40,6 +45,9 @@
                                 Product image
                             </th>
                             <th>
+                                Featured
+                            </th>
+                            <th>
                                 Actions
                             </th>
                         </tr>
@@ -59,9 +67,13 @@
                                 <td>
                                     {{ $item->hits ?? '' }}
                                 </td>
+                                
                                 <td>
                                     <img src="{{ asset($item->image1) }}" style="width: 100px; height:100px;"
                                         alt="">
+                                </td>
+                                <td>
+                                    {{ $item->expiry ?? 'No' }}
                                 </td>
                                 <td>
                                     {{-- @can('forsale_product_edit')
@@ -78,6 +90,13 @@
                                             Delete
                                         </a>
                                     @endcan
+                                    <form action="{{url('featured')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{$item->id}}">
+                                        <button type="submit" class="btn btn-xs btn-info">
+                                            Featured
+                                          </button>
+                                    </form>
                                 </td>
 
                             </tr>

@@ -150,7 +150,8 @@
                         </div>
                     </div>
                     <ul class="pricing-content">
-                        <li>{{$item->add??''}} Days Display Front Page</li>
+                        <li>{{$item->add??''}} Featured Adds</li>
+                        <li>{{$item->top??''}} Days Display Front Page</li>
                     </ul>
                     <div class="pricingTable-signup" style="background: {{$item->color??'#000'}}">
                         <a href="{{url('package-buy/'.$item->id)}}">Sign Up</a>

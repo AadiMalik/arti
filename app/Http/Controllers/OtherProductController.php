@@ -26,9 +26,9 @@ class OtherProductController extends Controller
     {
         $add = OtherProduct::where('user_id', Auth()->user()->id)->count();
         // if(Auth()->user()->is_admin){
-            $district  = District::orderBy('name', 'ASC')->get();
-            $tehsil = Tehsil::orderBy('name', 'ASC')->get();
-            return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
+        $district  = District::orderBy('name', 'ASC')->get();
+        $tehsil = Tehsil::orderBy('name', 'ASC')->get();
+        return view('forsale.create', compact('category', 'sub_category', 'district', 'tehsil'));
         // }
         // if (Auth()->user()->adds < $add && Auth()->user()->expiry > Carbon::now()) {
         //     $district  = District::orderBy('name', 'ASC')->get();
@@ -48,7 +48,7 @@ class OtherProductController extends Controller
     {
         $add = OtherProduct::where('user_id', Auth()->user()->id)->count();
         // if (Auth()->user()->package_name->add < $add && Auth()->user()->expiry > Carbon::now()) {
-            return view('forsale.create');
+        return view('forsale.create');
         // } else {
         //     $message = "Your Package limit is " . Auth()->user()->package_name->add . " And Your Package Expiry is" . Auth()->user()->expiry;
         //     return redirect(route('client.home'))->with('error', $message);
@@ -192,5 +192,21 @@ class OtherProductController extends Controller
         $product = OtherProduct::find($request->id);
         $product->delete();
         return response(['message' => 'For Sale Product delete successfully']);
+    }
+    public function feature(Request $request)
+    {
+        if (Auth()->user()->expiry !=null && Auth()->user()->expiry > Carbon::now()) {
+            $featured = OtherProduct::where('user_id', Auth()->user()->id)->where('expiry', '>', Carbon::now())->get();
+            if ($featured->count() < Auth()->user()->adds) {
+                $product = OtherProduct::find($request->product_id);
+                $product->expiry = Carbon::now()->addDays(Auth()->user()->days);
+                $product->update();
+            } else {
+                return back()->with('error', 'Featured add limit is full');
+            }
+            return redirect('forsale')->with('success', 'For Sale Product has featured!');
+        } else {
+            return redirect('package');
+        }
     }
 }

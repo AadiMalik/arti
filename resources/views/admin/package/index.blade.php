@@ -34,7 +34,10 @@
                                 Price
                             </th>
                             <th>
-                                Top
+                                Adds
+                            </th>
+                            <th>
+                                Top Limit
                             </th>
                             <th>
                                 Days
@@ -64,6 +67,9 @@
                                 </td>
                                 <td>
                                     {{ $item->add??'' }}
+                                </td>
+                                <td>
+                                    {{ $item->top??'' }}
                                 </td>
                                 <td>
                                     {{ $item->days??'' }}

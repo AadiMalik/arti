@@ -1,5 +1,5 @@
 @php
-    use Carbon\Carbon;
+use Carbon\Carbon;
 @endphp
 @extends('layouts.app')
 @section('content')
@@ -104,40 +104,24 @@
                 opacity: 1
             }
         }
+
         /* The ribbons */
 
-.corner-ribbon{
-  width: 200px;
-  background: #e43;
-  position: absolute;
-  top: 25px;
-  left: -50px;
-  text-align: center;
-  line-height: 50px;
-  letter-spacing: 1px;
-  color: #f0f0f0;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-/* Custom styles */
-
-.corner-ribbon.sticky{
-  position: fixed;
-}
-
-.corner-ribbon.shadow{
-  box-shadow: 0 0 3px rgba(0,0,0,.3);
-}
-
-/* Different positions */
-
-.corner-ribbon.top-left{
-  top: 25px;
-  left: -50px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
+        .ribbon {
+            font: bold 15px sans-serif;
+            text-align: center;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            position: absolute;
+            padding: 7px 0;
+            top: 15px;
+            left: -30px;
+            width: 120px;
+            background-color: #0c8b51;
+            color: #fff;
+        }
     </style>
 @endsection
 <!-- hero slider start -->
@@ -383,7 +367,7 @@
                         @if ($item2->title == 'Arti')
                             <div class="product-item fix">
                                 <div class="product-thumb">
-                                    <i class="badge badge-success">Verify</i>
+                                    <i class="ribbon">Verified</i>
                                     <a href="{{ url('arti-detail/' . $item1->id) }}">
                                         <img src="{{ asset($item1->image ?? 'assets/img/user.jpg') }}"
                                             class="img-pri" style="height: 200px; border-radius:50%;" alt="">
@@ -410,7 +394,8 @@
                                                 <a class="btn btn-primary" style="cursor: pointer;"
                                                     id="artifallow{{ $item1->id }}">Follow</a>
                                             @endauth
-                                            <i class="fa fa-feed"></i> {{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
+                                            <i class="fa fa-feed"></i>
+                                            {{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
                                         </span>
                                         <div class="ratings">
                                             @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
@@ -513,7 +498,8 @@
                                                 <a class="btn btn-primary" style="cursor: pointer;"
                                                     id="artifallow{{ $item1->id }}">Follow</a>
                                             @endauth
-                                           <i class="fa fa-feed"></i> {{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
+                                            <i class="fa fa-feed"></i>
+                                            {{ $arti_fallow->where('arti_id', $item1->id)->count() ?? '0' }}
                                         </span>
                                         <div class="ratings">
                                             @if ($rating->where('arti_id', $item1->id)->count() == 0.0)
@@ -586,15 +572,15 @@
             <div class="featured-carousel-active slick-padding slick-arrow-style">
                 <!-- product single item start -->
                 @foreach ($sale_product as $item1)
-                    @if ($item1->user_name->expiry > Carbon::now())
+                    @if ($item1->expiry > Carbon::now())
                         <div class="product-item fix">
-                            <i class="badge badge-primary">Featured</i>
                             <div class="product-thumb">
+                                <i class="ribbon">Featured</i>
                                 <a href="{{ url('forsale-detail/' . $item1->id) }}">
                                     <img src="{{ asset($item1->image1 ?? '') }}" class="img-pri"
                                         style="height: 200px;" alt="">
-                                    <img src="{{ asset($item1->image2 ?? '') }}" class="img-sec"
-                                        style="height: 200px;" alt="">
+                                    {{-- <img src="{{ asset($item1->image2 ?? '') }}" class="img-sec"
+                                        style="height: 200px;" alt=""> --}}
 
                                 </a>
 
@@ -612,7 +598,7 @@
                     @endif
                 @endforeach
                 @foreach ($sale_product as $item1)
-                    @if ($item1->user_name->expiry < Carbon::now())
+                    @if ($item1->expiry < Carbon::now() || $item->expiry=null)
                         <div class="product-item fix">
                             <div class="product-thumb">
                                 <a href="{{ url('forsale-detail/' . $item1->id) }}">

@@ -43,6 +43,7 @@ class PackageController extends Controller
                 'price' => 'required|max:255',
                 'no' => 'required|unique:packages,no',
                 'add' => 'required',
+                'top' => 'required',
                 'days' => 'required|max:10',
                 'color' => 'required'
             ]
@@ -52,6 +53,7 @@ class PackageController extends Controller
         $package->price = $request->price;
         $package->no = $request->no;
         $package->add = $request->add;
+        $package->top = $request->top;
         $package->days = $request->days;
         $package->color = $request->color;
         $package->save();
@@ -95,6 +97,7 @@ class PackageController extends Controller
                 'name' => 'required|max:255',
                 'price' => 'required|max:255',
                 'add' => 'required',
+                'top' => 'required',
                 'days' => 'required|max:10',
                 'status' => 'required',
                 'color' => 'required'
@@ -104,6 +107,7 @@ class PackageController extends Controller
         $package->name = $request->name;
         $package->price = $request->price;
         $package->add = $request->add;
+        $package->top = $request->top;
         $package->days = $request->days;
         $package->color = $request->color;
         $package->status = $request->status;
