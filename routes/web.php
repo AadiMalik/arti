@@ -37,6 +37,8 @@ Route::get('vfallow', 'HomeController@getVFallow');
 
 
 
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -189,6 +191,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     
     // Package history
     Route::resource('package-history', 'PackageHistoryController');
+
+    
+Route::post('/mark-as-read', 'HomeController@markNotification')->name('markNotification');
 });
 
 

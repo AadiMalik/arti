@@ -4,13 +4,26 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class HomeController
 {
     public function index()
     {
+
         return view('home');
     }
+    public function markNotification(Request $request)
+{
+    auth()->user()
+        ->unreadNotifications
+        ->when($request->input('id'), function ($query) use ($request) {
+            return $query->where('id', $request->input('id'));
+        })
+        ->markAsRead();
+
+    return response()->noContent();
+}
 
     public function about()
     {
