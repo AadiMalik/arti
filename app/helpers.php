@@ -1,6 +1,8 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 function category(){
         $category  = App\Category::orderBy('id','ASC')->get();
         return $category;
@@ -29,6 +31,13 @@ function content(){
     function media(){
         $media  = App\Media::orderBy('id','ASC')->get();
         return $media;
+    }
+    function notification(){
+        $notifications='';
+        if (Auth::check()){
+        $notifications = auth()->user()->unreadNotifications;
+        }
+        return $notifications;
     }
     // function news(){
     //     $news  = App\News::orderBy('created_at','DESC')->get();

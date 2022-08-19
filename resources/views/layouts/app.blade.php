@@ -3,6 +3,7 @@ $category = category();
 $brand = brand();
 $media = media();
 $data = content();
+$notifications = notification();
 use Carbon\Carbon;
 use Alkoumi\LaravelHijriDate\Hijri;
 @endphp
@@ -117,13 +118,13 @@ use Alkoumi\LaravelHijriDate\Hijri;
                     <div class="row">
                         <div class="col-lg-6 col-md-5">
                             <div class="header-call-action">
-                                <a href="mailto:{{$data['#email']['heading']??''}}">
+                                <a href="mailto:{{ $data['#email']['heading'] ?? '' }}">
                                     <i class="fa fa-envelope"></i>
-                                    {{$data['#email']['heading']??''}}
+                                    {{ $data['#email']['heading'] ?? '' }}
                                 </a>
-                                <a href="tel:{{$data['#phone']['heading']??''}}">
+                                <a href="tel:{{ $data['#phone']['heading'] ?? '' }}">
                                     <i class="fa fa-phone"></i>
-                                    {{$data['#phone']['heading']??''}}
+                                    {{ $data['#phone']['heading'] ?? '' }}
                                 </a>
                             </div>
                         </div>
@@ -137,27 +138,31 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                             <li>
                                                 <div class="dropdown header-top-dropdown">
                                                     @foreach (Auth()->user()->roles as $item)
-                                                                @if ($item->title == 'Arti')
-                                                    <a href="{{ url('arti-detail/' . Auth()->user()->id) }}">
-                                                        <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
-                                                            style="height: 23px; border-radius:50%;" alt="">
-                                                    </a>
-                                                    <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
+                                                        @if ($item->title == 'Arti')
+                                                            <a href="{{ url('arti-detail/' . Auth()->user()->id) }}">
+                                                                <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
+                                                                    style="height: 23px; border-radius:50%;"
+                                                                    alt="">
+                                                            </a>
+                                                            <a class="dropdown-toggle" id="myaccount"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
 
-                                                        {{ Auth()->user()->username ?? Auth()->user()->first_name }}
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    @else
-                                                    <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
-                                                            style="height: 23px; border-radius:50%;" alt="">
+                                                                {{ Auth()->user()->username ?? Auth()->user()->first_name }}
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </a>
+                                                        @else
+                                                            <a class="dropdown-toggle" id="myaccount"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                                <img src="{{ asset(Auth()->user()->image ?? 'assets\img\user.jpg') }}"
+                                                                    style="height: 23px; border-radius:50%;"
+                                                                    alt="">
 
-                                                        {{ Auth()->user()->username ?? Auth()->user()->first_name }}
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </a>
-                                                    @endif
+                                                                {{ Auth()->user()->username ?? Auth()->user()->first_name }}
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </a>
+                                                        @endif
                                                     @endforeach
                                                     <div class="dropdown-menu" aria-labelledby="myaccount">
                                                         @if (Auth()->user()->is_Admin)
@@ -186,68 +191,50 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="dropdown header-top-dropdown"><a href="#"
-                                                    data-toggle="dropdown" class="notification-toggle"><i
-                                                        class="fa fa-bell" style="font-size:18px;"></i> <i
-                                                        class="badge badge-dark">20</i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
-                                                    <div class="dropdown-header">
-                                                        Notifications
-                                                        <div class="float-right">
-                                                            <a href="#">Mark All As Read</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropdown-list-content dropdown-list-icons">
-                                                        <a href="#" class="dropdown-item dropdown-item-unread">
-                                                            <span class="dropdown-item-icon bg-primary text-white"> <i
-                                                                    class="fas
-                                                            fa-code"></i>
-                                                            </span> <span class="dropdown-item-desc"> Template update is
-                                                                available now! <span class="time">2 Min
-                                                                    Ago</span>
-                                                            </span>
-                                                        </a> <a href="#" class="dropdown-item"> <span
-                                                                class="dropdown-item-icon bg-info text-white"> <i
-                                                                    class="far
-                                                            fa-user"></i>
-                                                            </span> <span class="dropdown-item-desc"> <b>You</b> and
-                                                                <b>Dedik
-                                                                    Sugiharto</b> are now friends <span class="time">10
-                                                                    Hours
-                                                                    Ago</span>
-                                                            </span>
-                                                        </a> <a href="#" class="dropdown-item"> <span
-                                                                class="dropdown-item-icon bg-success text-white"> <i
-                                                                    class="fas
-                                                            fa-check"></i>
-                                                            </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
-                                                                moved task <b>Fix bug header</b> to <b>Done</b> <span
-                                                                    class="time">12
-                                                                    Hours
-                                                                    Ago</span>
-                                                            </span>
-                                                        </a> <a href="#" class="dropdown-item"> <span
-                                                                class="dropdown-item-icon bg-danger text-white"> <i
-                                                                    class="fas fa-exclamation-triangle"></i>
-                                                            </span> <span class="dropdown-item-desc"> Low disk space. Let's
-                                                                clean it! <span class="time">17 Hours Ago</span>
-                                                            </span>
-                                                        </a> <a href="#" class="dropdown-item"> <span
-                                                                class="dropdown-item-icon bg-info text-white"> <i
-                                                                    class="fas
-                                                            fa-bell"></i>
-                                                            </span> <span class="dropdown-item-desc"> Welcome to Otika
-                                                                template! <span class="time">Yesterday</span>
-                                                            </span>
+                                            @foreach (Auth()->user()->roles as $item)
+                                                @if ($item->title == 'Arti')
+                                                    <li class="dropdown header-top-dropdown"><a href="#"
+                                                            data-toggle="dropdown" class="notification-toggle"><i
+                                                                class="fa fa-bell" style="font-size:18px;"></i>
+                                                            @if ($notifications->count() > 0)
+                                                                <i
+                                                                    class="badge badge-dark">{{ $notifications->count() ?? '0' }}</i>
+                                                            @endif
                                                         </a>
-                                                    </div>
-                                                    <div class="dropdown-footer text-center">
-                                                        <a href="#">View All <i
-                                                                class="fas fa-chevron-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                        <div
+                                                            class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                                                            <div class="dropdown-header">
+                                                                Notifications
+                                                                <div class="float-right">
+                                                                    <a href="#" id="mark-all">Mark All As Read</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown-list-content dropdown-list-icons">
+
+                                                                @foreach ($notifications as $notification)
+                                                                    <div class="notification">
+                                                                        <a href="#"
+                                                                            class="dropdown-item dropdown-item-unread  mark-as-read"
+                                                                            data-id="{{ $notification->id ?? '' }}"> <span
+                                                                                class="dropdown-item-icon bg-primary text-white">
+                                                                                <i
+                                                                                    class="fas
+                                                                            fa-bell"></i>
+                                                                            </span> <span class="dropdown-item-desc">
+                                                                                {{ $notification->data['name'] }} new
+                                                                                comment.
+                                                                                <span
+                                                                                    class="time">{{ $notification->created_at->diffForHumans() }}</span>
+                                                                            </span>
+                                                                        </a>
+
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                            @endforeach
                                         @else
                                             <li>
                                                 <a href="{{ route('login') }}">{{ __('sentence.Login') }}</a>
@@ -292,8 +279,8 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                     color: #b90e0e;
                                     font-weight: bold;">
                                         Subzi <br> Mandi</h2> --}}
-                                    <img src="{{ asset($data['#logo']['image']??'Images/logo2.png') }}" style="height: 100px;"
-                                        alt="brand logo">
+                                    <img src="{{ asset($data['#logo']['image'] ?? 'Images/logo2.png') }}"
+                                        style="height: 100px;" alt="brand logo">
                                 </a>
                             </div>
                         </div> <!-- end logo area -->
@@ -332,15 +319,16 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="header-middle-block">
                                     <div class="header-middle-searchbox">
-                                        <form action="{{url('search')}}" method="GET">
+                                        <form action="{{ url('search') }}" method="GET">
                                             @csrf
-                                        <input type="text" name="search" placeholder="Search...">
-                                        <button class="search-btn"><i class="fa fa-search"></i></button>
-                                    </form>
+                                            <input type="text" name="search" placeholder="Search...">
+                                            <button class="search-btn"><i class="fa fa-search"></i></button>
+                                        </form>
                                     </div>
                                     <a href="{{ url('sell') }}">
-                                        <div class="form-control" style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
-                                             Sell +
+                                        <div class="form-control"
+                                            style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
+                                            Sell +
                                         </div>
                                     </a>
                                 </div>
@@ -367,7 +355,8 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                     <nav class="category-menu hm-1">
                                         <ul>
                                             @foreach ($category as $item)
-                                                <li><a href="{{url('shop-category/'.$item->id)}}"><i class="fa fa-desktop"></i>
+                                                <li><a href="{{ url('shop-category/' . $item->id) }}"><i
+                                                            class="fa fa-desktop"></i>
                                                         {{ $item->name ?? '' }}</a></li>
                                             @endforeach
 
@@ -625,9 +614,10 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="widget-body">
                                     <ul class="location">
-                                        <li><i class="fa fa-envelope"></i>{{$data['#email']['heading']??''}}</li>
-                                        <li><i class="fa fa-phone"></i>{{$data['#phone']['heading']??''}}</li>
-                                        <li><i class="fa fa-map-marker"></i>Address: {{$data['#address']['heading']??''}}</li>
+                                        <li><i class="fa fa-envelope"></i>{{ $data['#email']['heading'] ?? '' }}</li>
+                                        <li><i class="fa fa-phone"></i>{{ $data['#phone']['heading'] ?? '' }}</li>
+                                        <li><i class="fa fa-map-marker"></i>Address:
+                                            {{ $data['#address']['heading'] ?? '' }}</li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -640,17 +630,17 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 <div class="widget-body">
                                     <ul>
                                         @auth
-                                        @if(Auth()->user()->is_admin)
-                                        <li><a href="{{url('admin/admin')}}">Admin Panel</a></li>
+                                            @if (Auth()->user()->is_admin)
+                                                <li><a href="{{ url('admin/admin') }}">Admin Panel</a></li>
+                                            @else
+                                                <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
+                                            @endif
                                         @else
-                                        <li><a href="{{url('dashboard')}}">Dashboard</a></li>
-                                        @endif
-                                        @else
-                                        <li><a href="{{route('login')}}">Login</a></li>
-                                        <li><a href="{{route('register')}}">Signup</a></li>
+                                            <li><a href="{{ route('login') }}">Login</a></li>
+                                            <li><a href="{{ route('register') }}">Signup</a></li>
                                         @endauth
-                                        <li><a href="{{url('faq')}}">FAQ's</a></li>
-                                        <li><a href="{{url('term')}}">Terms & Conditions</a></li>
+                                        <li><a href="{{ url('faq') }}">FAQ's</a></li>
+                                        <li><a href="{{ url('term') }}">Terms & Conditions</a></li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -662,11 +652,11 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="widget-body">
                                     <ul>
-                                        <li><a href="{{url('home')}}">Home</a></li>
-                                        <li><a href="{{url('about-us')}}">about Us</a></li>
-                                        <li><a href="{{url('contact-us')}}">Contact us</a></li>
-                                        <li><a href="{{url('blog')}}">Blogs</a></li>
-                                        <li><a href="{{url('package')}}">Packages</a></li>
+                                        <li><a href="{{ url('home') }}">Home</a></li>
+                                        <li><a href="{{ url('about-us') }}">about Us</a></li>
+                                        <li><a href="{{ url('contact-us') }}">Contact us</a></li>
+                                        <li><a href="{{ url('blog') }}">Blogs</a></li>
+                                        <li><a href="{{ url('package') }}">Packages</a></li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -678,10 +668,10 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 </div>
                                 <div class="widget-body">
                                     <ul>
-                                        <li><a href="{{url('shop')}}">Products</a></li>
-                                        <li><a href="{{url('zamidar')}}">For Sale</a></li>
-                                        <li><a href="{{url('sell')}}">Sell</a></li>
-                                        <li><a href="{{url('newfeeds')}}">New Feed</a></li>
+                                        <li><a href="{{ url('shop') }}">Products</a></li>
+                                        <li><a href="{{ url('zamidar') }}">For Sale</a></li>
+                                        <li><a href="{{ url('sell') }}">Sell</a></li>
+                                        <li><a href="{{ url('newfeeds') }}">New Feed</a></li>
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -741,7 +731,36 @@ use Alkoumi\LaravelHijriDate\Hijri;
     <script type="text/javascript" src="https://ZulNs.github.io/libs/calendar.js"></script>
 
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62b2b574b5b86e45"></script>
-
+    <script>
+        function sendMarkRequest(id = null) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            return $.ajax("{{ route('admin.markNotification') }}", {
+                method: 'POST',
+                data: {
+                    _token:$('meta[name="csrf-token"]').attr('content'),
+                    id
+                }
+            });
+        }
+        $(function() {
+            $('.mark-as-read').click(function() {
+                let request = sendMarkRequest($(this).data('id'));
+                request.done(() => {
+                    $(this).parents('div.notification').remove();
+                });
+            });
+            $('#mark-all').click(function() {
+                let request = sendMarkRequest();
+                request.done(() => {
+                    $('div.notification').remove();
+                })
+            });
+        });
+        </script>
     <script>
         var cal1 = new Calendar(false, 1, false, true),
             cal2 = new Calendar(true, 0, false, true),

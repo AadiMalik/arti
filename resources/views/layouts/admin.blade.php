@@ -1,5 +1,6 @@
 @php
-    $data = content();
+$data = content();
+$notifications = notification();
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Arti Dashboard</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets_data/css/app.min.css') }}">
     <!-- Template CSS -->
@@ -19,26 +21,34 @@
         href="{{ asset('assets_data/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets_data/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets_data/css/components.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{ asset('assets_data/css/custom.css') }}">
-    
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-daterangepicker/daterangepicker.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/select2/dist/css/select2.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/jquery-selectric/selectric.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/summernote/summernote-bs4.css')}}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/codemirror/lib/codemirror.css')}}">
-  <link rel="stylesheet" href="{{ asset('assets_data/bundles/codemirror/theme/duotone-dark.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets_data/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/jquery-selectric/selectric.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets_data/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/codemirror/lib/codemirror.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets_data/bundles/codemirror/theme/duotone-dark.css') }}">
     <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets_data/img/favicon.ico') }}" />
-    
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet"/>
-    <script>$.fn.poshytip={defaults:null}</script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
-    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css"
+        rel="stylesheet" />
+    <script>
+        $.fn.poshytip = {
+            defaults: null
+        }
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js">
+    </script>
+
     @yield('style')
 </head>
 
@@ -51,8 +61,8 @@
                 <div class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <i
-                                    data-feather="align-justify"></i></a></li>
+									collapse-btn">
+                                <i data-feather="align-justify"></i></a></li>
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
                                 <i data-feather="maximize"></i>
                             </a></li>
@@ -92,7 +102,8 @@
                                         <span class="time messege-text">Please check your mail !!</span>
                                         <span class="time">2 Min Ago</span>
                                     </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-avatar text-white">
                                         <img alt="image" src="{{ asset('assets_data/img/users/user-2.png') }}"
                                             class="rounded-circle">
                                     </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
@@ -100,14 +111,16 @@
                                             application</span>
                                         <span class="time">5 Min Ago</span>
                                     </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-avatar text-white">
                                         <img alt="image" src="{{ asset('assets_data/img/users/user-5.png') }}"
                                             class="rounded-circle">
                                     </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
                                             Ryan</span> <span class="time messege-text">Your payment invoice is
                                             generated.</span> <span class="time">12 Min Ago</span>
                                     </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-avatar text-white">
                                         <img alt="image" src="{{ asset('assets_data/img/users/user-4.png') }}"
                                             class="rounded-circle">
                                     </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
@@ -116,7 +129,8 @@
                                             related to task.</span> <span class="time">30
                                             Min Ago</span>
                                     </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-avatar text-white">
                                         <img alt="image" src="{{ asset('assets_data/img/users/user-3.png') }}"
                                             class="rounded-circle">
                                     </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
@@ -125,7 +139,8 @@
                                             know if you have any query.</span> <span class="time">1
                                             Days Ago</span>
                                     </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                                </a> <a href="#" class="dropdown-item"> <span
+                                        class="dropdown-item-avatar text-white">
                                         <img alt="image" src="{{ asset('assets_data/img/users/user-2.png') }}"
                                             class="rounded-circle">
                                     </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
@@ -140,277 +155,268 @@
                         </div>
                     </li>
                     <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
-                            class="nav-link notification-toggle nav-link-lg"><i data-feather="bell"
-                                class="bell"></i>
+                            class="nav-link  message-toggle nav-link-lg"><i data-feather="bell"
+                                class="bell"></i>@if($notifications->count()>0)<span class="badge headerBadge1" style="border-radius: 50%;
+                                height: 11px;
+                                background: red;"></span>
+                                     @endif  </a>
                         </a>
                         <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
                             <div class="dropdown-header">
                                 Notifications
                                 <div class="float-right">
-                                    <a href="#">Mark All As Read</a>
+                                    <a href="#" id="mark-all">Mark All As Read</a>
                                 </div>
                             </div>
                             <div class="dropdown-list-content dropdown-list-icons">
-                                <a href="#" class="dropdown-item dropdown-item-unread"> <span
-                                        class="dropdown-item-icon bg-primary text-white"> <i
-                                            class="fas
-												fa-code"></i>
-                                    </span> <span class="dropdown-item-desc"> Template update is
-                                        available now! <span class="time">2 Min
-                                            Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span
-                                        class="dropdown-item-icon bg-info text-white"> <i
-                                            class="far
-												fa-user"></i>
-                                    </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
-                                            Sugiharto</b> are now friends <span class="time">10 Hours
-                                            Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span
-                                        class="dropdown-item-icon bg-success text-white"> <i
-                                            class="fas
-												fa-check"></i>
-                                    </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
-                                        moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
-                                            Hours
-                                            Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span
-                                        class="dropdown-item-icon bg-danger text-white"> <i
-                                            class="fas fa-exclamation-triangle"></i>
-                                    </span> <span class="dropdown-item-desc"> Low disk space. Let's
-                                        clean it! <span class="time">17 Hours Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span
-                                        class="dropdown-item-icon bg-info text-white"> <i
-                                            class="fas
+                                @if (auth()->user()->is_admin)
+                                    @foreach ($notifications as $notification)
+                                    <div class="alert">
+                                        <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
+                                                class="dropdown-item-icon bg-primary text-white"> <i
+                                                    class="fas
 												fa-bell"></i>
-                                    </span> <span class="dropdown-item-desc"> Welcome to Otika
-                                        template! <span class="time">Yesterday</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="dropdown-footer text-center">
-                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                            </div>
+                                            </span> <span class="dropdown-item-desc">New User
+                                                {{ $notification->data['name'] }} ({{ $notification->data['email'] }})
+                                                registered.
+                                                <span
+                                                    class="time">{{ $notification->created_at->diffForHumans() }}</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    @endforeach
+                                @if($notifications->count()==0)
+                                    <a href="#" class="dropdown-item dropdown-item-unread">
+                                        <span class="dropdown-item-desc">No Notification found
+                                        </span>
+                                    </a>
+                                @endif
+                            @endif
                         </div>
-                    </li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown"
-                            class="nav-link dropdown-toggle nav-link-lg nav-link-user has-dropdown"> <img alt="image"
-                                src="{{ asset(Auth()->user()->image??'assets_data/img/user.png') }}" class="user-img-radious-style"><i class="fas fa-angle-down" style="color:#000; padding:5px; margin-top:-7px;"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello {{Auth()->user()->username}}</div>
-                            <a @if(Auth()->user()->is_admin) href="{{url('admin/profile')}}" @else href="{{url('profile')}}" @endif class="dropdown-item has-icon"> <i
-                                    class="far
+                        {{-- <div class="dropdown-footer text-center">
+                            <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                        </div> --}}
+                    </div>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown"
+                        class="nav-link dropdown-toggle nav-link-lg nav-link-user has-dropdown"> <img
+                            alt="image" src="{{ asset(Auth()->user()->image ?? 'assets_data/img/user.png') }}"
+                            class="user-img-radious-style"><i class="fas fa-angle-down"
+                            style="color:#000; padding:5px; margin-top:-7px;"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right pullDown">
+                        <div class="dropdown-title">Hello {{ Auth()->user()->username }}</div>
+                        <a @if (Auth()->user()->is_admin) href="{{ url('admin/profile') }}" @else href="{{ url('profile') }}" @endif
+                            class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Edit Profile
-                            </a> 
-                            {{-- <a href="timeline.html" class="dropdown-item has-icon"> <i
+                        </a>
+                        {{-- <a href="timeline.html" class="dropdown-item has-icon"> <i
                                     class="fas fa-bolt"></i>
                                 Activities
                             </a> --}}
-                             <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-                                Settings
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            {{-- <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i
+                        <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        {{-- <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i
                                     class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a> --}}
-                            <a class="dropdown-item has-icon text-danger" href="javascript:void(0);"
-                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span
-                                            class="ms-2"><i
-                                            class="fas fa-sign-out-alt"></i>
-                                        Logout </span></a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-            <div class="main-sidebar sidebar-style-2">
-                <aside id="sidebar-wrapper">
-                    <div class="sidebar-brand">
-                        <a @if(auth()->user()->is_admin) href="{{route('admin.home')}}" @else href="{{route('client.home')}}" @endif>
-                             <img alt="image" src="{{ asset($data['#logo']['image']??'Images/logo2.png') }}" style="height: 60px;" class="header-logo" />
-                                
-                            {{-- <span class="logo-name">Subzi Mandi</span> --}}
-                        </a>
+                        <a class="dropdown-item has-icon text-danger" href="javascript:void(0);"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span
+                                class="ms-2"><i class="fas fa-sign-out-alt"></i>
+                                Logout </span></a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            style="display: none;">
+                            @csrf
+                        </form>
                     </div>
-                    <ul class="sidebar-menu">
-                        <li class="menu-header">Main</li>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-sidebar sidebar-style-2">
+            <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a
+                        @if (auth()->user()->is_admin) href="{{ route('admin.home') }}" @else href="{{ route('client.home') }}" @endif>
+                        <img alt="image" src="{{ asset($data['#logo']['image'] ?? 'Images/logo2.png') }}"
+                            style="height: 60px;" class="header-logo" />
+
+                        {{-- <span class="logo-name">Subzi Mandi</span> --}}
+                    </a>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="menu-header">Main</li>
+                    <li class="dropdown">
+                        <a @if (auth()->user()->is_admin) href="{{ route('admin.home') }}" @else href="{{ route('client.home') }}" @endif
+                            class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{{ route('/') }}" class="nav-link"><i data-feather="monitor"></i><span>Home
+                                Page</span></a>
+                    </li>
+                    @can('user_management_access')
                         <li class="dropdown">
-                            <a @if(auth()->user()->is_admin) href="{{route('admin.home')}}" @else href="{{route('client.home')}}" @endif class="nav-link"><i
-                                    data-feather="monitor"></i><span>Dashboard</span></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="{{route('/')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Home Page</span></a>
-                        </li>
-                        @can('user_management_access')
-                        <li class="dropdown">
-                            <a href="#" class='menu-toggle nav-link has-dropdown'><i
-                                data-feather="user"></i> <span>Users Management</span> </a>
+                            <a href="#" class='menu-toggle nav-link has-dropdown'><i data-feather="user"></i>
+                                <span>Users Management</span> </a>
                             <ul class="dropdown-menu ">
                                 <li class="nav-link "> <a href="/admin/permissions">Permissions</a> </li>
                                 <li class="nav-link "> <a href="/admin/roles">Roles</a> </li>
                                 <li class="nav-link "> <a href="/admin/users">Users</a> </li>
-                               
+
                             </ul>
                         </li>
                         @endif
                         @can('category_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/category')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Categories</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/category') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Categories</span></a>
+                            </li>
                         @endcan
                         @can('product_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/product')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Products</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/product') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Products</span></a>
+                            </li>
                         @endcan
-                        
+
                         @can('user_product_access')
-                        <li class="dropdown">
-                            <a href="{{url('user-product')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Add Products</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('user-product') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Add Products</span></a>
+                            </li>
                         @endcan
                         @can('product_image_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/product-image')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Product Images</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/product-image') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Product Images</span></a>
+                            </li>
                         @endcan
                         @can('user_product_access')
-                        <li class="dropdown">
-                            <a href="{{ route('client.user-product.edit', Auth()->user()->id) }}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Edit Products</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ route('client.user-product.edit', Auth()->user()->id) }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Edit Products</span></a>
+                            </li>
                         @endcan
                         @can('forsale_product_access')
-                        <li class="dropdown">
-                            <a href="{{url('forsale')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>For Sale Products</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('forsale') }}" class="nav-link"><i data-feather="monitor"></i><span>For
+                                        Sale Products</span></a>
+                            </li>
                         @endcan
                         @can('user_product_post_access')
-                        <li class="dropdown">
-                            <a href="{{url('post')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Delete Post</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('post') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Delete Post</span></a>
+                            </li>
                         @endcan
                         @can('user_product_post_access')
-                        <li class="dropdown">
-                            <a href="{{url('arti-detail/'.Auth()->user()->id)}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Profile</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('arti-detail/' . Auth()->user()->id) }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Profile</span></a>
+                            </li>
                         @endcan
                         @can('user_gallery_access')
-                        <li class="dropdown">
-                            <a href="{{url('user-gallery')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Gallery</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('user-gallery') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Gallery</span></a>
+                            </li>
                         @endcan
                         @can('user_video_access')
-                        <li class="dropdown">
-                            <a href="{{url('user-video')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Videos</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('user-video') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Videos</span></a>
+                            </li>
                         @endcan
-                        @if(!Auth()->user()->is_Admin)
-                        <li class="dropdown">
-                            <a href="{{url('package')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Packages</span></a>
-                        </li>
+                        @if (!Auth()->user()->is_Admin)
+                            <li class="dropdown">
+                                <a href="{{ url('package') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Packages</span></a>
+                            </li>
                         @endif
                         @can('video_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/video')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Videos</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/video') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Videos</span></a>
+                            </li>
                         @endcan
                         @can('admin_user_product_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/user-product')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Arti Products</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/user-product') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Arti Products</span></a>
+                            </li>
                         @endcan
                         @can('arti_post_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/arti-post')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Arti Posts</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/arti-post') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Arti Posts</span></a>
+                            </li>
                         @endcan
                         @can('admin_user_gallery_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/user-gallery')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Arti Gallery</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/user-gallery') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Arti Gallery</span></a>
+                            </li>
                         @endcan
                         @can('admin_user_video_access')
-                        <li class="dropdown">
-                            <a href="{{url('admin/user-video')}}" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Arti Videos</span></a>
-                        </li>
+                            <li class="dropdown">
+                                <a href="{{ url('admin/user-video') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Arti Videos</span></a>
+                            </li>
                         @endcan
                         @can('setting_access')
-                        <li class="dropdown">
-                            <a href="#" class='menu-toggle nav-link has-dropdown'> <i data-feather="shield"></i> <span>Settings</span> </a>
-                            <ul class="dropdown-menu ">
-                                @can('content_access')
-                                <li class="nav-link "> <a href="/admin/content">Website Content</a> </li>
-                                @endcan
-                                @can('package_access')
-                                <li class="nav-link "> <a href="/admin/package">Packages</a> </li>
-                                @endcan
-                                @can('package_history_access')
-                                <li class="nav-link "> <a href="/admin/package-history">Package Histories</a> </li>
-                                @endcan
-                                @can('contact_access')
-                                <li class="nav-link "> <a href="/admin/contact">Contact Mail</a> </li>
-                                @endcan
-                                @can('review_access')
-                                <li class="nav-link "> <a href="/admin/review">Review</a> </li>
-                                @endcan
-                                @can('slider_access')
-                                <li class="nav-link "> <a href="/admin/slider">Slider</a> </li>
-                                @endcan
-                                @can('blog_access')
-                                <li class="nav-link "> <a href="/admin/blog">Blogs</a> </li>
-                                @endcan
-                                @can('district_access')
-                                <li class="nav-link "> <a href="{{url('admin/district')}}">District</a> </li>
-                                @endcan
-                                @can('tehsil_access')
-                                <li class="nav-link "> <a href="{{url('admin/tehsil')}}">Tehsil</a> </li>
-                                @endcan
-                                @can('brand_access')
-                                <li class="nav-link "> <a href="/admin/brand">Brand</a> </li>
-                                @endcan
-                                @can('media_access')
-                                <li class="nav-link "> <a href="/admin/media">Social Media</a> </li>
-                                @endcan
-                                @can('faq_access')
-                                <li class="nav-link "> <a href="/admin/faq">FAQ's</a> </li>
-                                @endcan
-                                @can('team_access')
-                                <li class="nav-link "> <a href="/admin/team">Team</a> </li>
-                                @endcan
-                                @can('term_access')
-                                <li class="nav-link "> <a href="/admin/term">Term & Conditions</a> </li>
-                                @endcan
-                                @can('newsletter_access')
-                                <li class="nav-link "> <a href="/admin/newsletter">Newsletter</a> </li>
-                                @endcan
-                                
-                               
-                            </ul>
-                        </li>
+                            <li class="dropdown">
+                                <a href="#" class='menu-toggle nav-link has-dropdown'> <i
+                                        data-feather="shield"></i> <span>Settings</span> </a>
+                                <ul class="dropdown-menu ">
+                                    @can('content_access')
+                                        <li class="nav-link "> <a href="/admin/content">Website Content</a> </li>
+                                    @endcan
+                                    @can('package_access')
+                                        <li class="nav-link "> <a href="/admin/package">Packages</a> </li>
+                                    @endcan
+                                    @can('package_history_access')
+                                        <li class="nav-link "> <a href="/admin/package-history">Package Histories</a> </li>
+                                    @endcan
+                                    @can('contact_access')
+                                        <li class="nav-link "> <a href="/admin/contact">Contact Mail</a> </li>
+                                    @endcan
+                                    @can('review_access')
+                                        <li class="nav-link "> <a href="/admin/review">Review</a> </li>
+                                    @endcan
+                                    @can('slider_access')
+                                        <li class="nav-link "> <a href="/admin/slider">Slider</a> </li>
+                                    @endcan
+                                    @can('blog_access')
+                                        <li class="nav-link "> <a href="/admin/blog">Blogs</a> </li>
+                                    @endcan
+                                    @can('district_access')
+                                        <li class="nav-link "> <a href="{{ url('admin/district') }}">District</a> </li>
+                                    @endcan
+                                    @can('tehsil_access')
+                                        <li class="nav-link "> <a href="{{ url('admin/tehsil') }}">Tehsil</a> </li>
+                                    @endcan
+                                    @can('brand_access')
+                                        <li class="nav-link "> <a href="/admin/brand">Brand</a> </li>
+                                    @endcan
+                                    @can('media_access')
+                                        <li class="nav-link "> <a href="/admin/media">Social Media</a> </li>
+                                    @endcan
+                                    @can('faq_access')
+                                        <li class="nav-link "> <a href="/admin/faq">FAQ's</a> </li>
+                                    @endcan
+                                    @can('team_access')
+                                        <li class="nav-link "> <a href="/admin/team">Team</a> </li>
+                                    @endcan
+                                    @can('term_access')
+                                        <li class="nav-link "> <a href="/admin/term">Term & Conditions</a> </li>
+                                    @endcan
+                                    @can('newsletter_access')
+                                        <li class="nav-link "> <a href="/admin/newsletter">Newsletter</a> </li>
+                                    @endcan
+
+
+                                </ul>
+                            </li>
                         @endcan
                         {{-- <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown"><i
@@ -746,32 +752,63 @@
     <script src="{{ asset('assets_data/bundles/datatables/export-tables/vfs_fonts.js') }}"></script>
     <script src="{{ asset('assets_data/bundles/datatables/export-tables/buttons.print.min.js') }}"></script>
     <script src="{{ asset('assets_data/js/page/datatables.js') }}"></script>
-    
-  <script src="{{ asset('assets_data/bundles/cleave-js/dist/cleave.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/cleave-js/dist/addons/cleave-phone.us.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/jquery-pwstrength/jquery.pwstrength.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/select2/dist/js/select2.full.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/jquery-selectric/jquery.selectric.min.js') }}"></script>
-  <script src="{{ asset('assets_data/bundles/summernote/summernote-bs4.js')}}"></script>
-  <script src="{{ asset('assets_data/bundles/codemirror/lib/codemirror.js')}}"></script>
-  <script src="{{ asset('assets_data/bundles/codemirror/mode/javascript/javascript.js')}}"></script>
-  <script src="{{ asset('assets_data/bundles/ckeditor/ckeditor.js') }}"></script>
-  <!-- Page Specific JS File -->
-  <script src="{{ asset('js/page/ckeditor.js') }}"></script>
+
+    <script src="{{ asset('assets_data/bundles/cleave-js/dist/cleave.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/cleave-js/dist/addons/cleave-phone.us.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/jquery-pwstrength/jquery.pwstrength.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/jquery-selectric/jquery.selectric.min.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/summernote/summernote-bs4.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/codemirror/lib/codemirror.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/codemirror/mode/javascript/javascript.js') }}"></script>
+    <script src="{{ asset('assets_data/bundles/ckeditor/ckeditor.js') }}"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('js/page/ckeditor.js') }}"></script>
     <!-- Template JS File -->
     <script src="{{ asset('assets_data/js/scripts.js') }}"></script>
     <!-- Custom JS File -->
     <script src="{{ asset('assets_data/js/custom.js') }}"></script>
-    
-  <!-- JS Libraies -->
-  <script src="{{asset('assets/bundles/editable-table/mindmup-editabletable.js')}}"></script>
-  <!-- Page Specific JS File -->
-  <script src="{{asset('assets/js/page/editable-table.js')}}"></script>
-    
+
+    <!-- JS Libraies -->
+    <script src="{{ asset('assets/bundles/editable-table/mindmup-editabletable.js') }}"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('assets/js/page/editable-table.js') }}"></script>
+    @if(auth()->user()->is_admin)
+    <script>
+    function sendMarkRequest(id = null) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        return $.ajax("{{ route('admin.markNotification') }}", {
+            method: 'POST',
+            data: {
+                _token:$('meta[name="csrf-token"]').attr('content'),
+                id
+            }
+        });
+    }
+    $(function() {
+        $('.mark-as-read').click(function() {
+            let request = sendMarkRequest($(this).data('id'));
+            request.done(() => {
+                $(this).parents('div.alert').remove();
+            });
+        });
+        $('#mark-all').click(function() {
+            let request = sendMarkRequest();
+            request.done(() => {
+                $('div.alert').remove();
+            })
+        });
+    });
+    </script>
+@endif
     @yield('script')
 </body>
 
