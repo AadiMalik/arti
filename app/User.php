@@ -101,6 +101,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Package::class, 'package_id');
     }
+    public function district_name()
+    {
+        return $this->belongsTo(District::class, 'district_id');
+    }
+    public function tehsil_name()
+    {
+        return $this->belongsTo(Tehsil::class, 'tehsil_id');
+    }
     public function roles()
     {
         return $this->belongsToMany(Role::class);
