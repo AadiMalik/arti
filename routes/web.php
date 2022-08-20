@@ -47,6 +47,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('profile', 'ProfileController@index');
     Route::post('get-tehsil','ProfileController@getTehsil');
     Route::post('update-profile', 'ProfileController@update');
+    //for arti note update
+    Route::get('view-note', 'ProfileController@view_note');
+    Route::post('update-note', 'ProfileController@arti_note');
     //Blog Comment
     Route::post('blog-comment', 'HomeController@blog_comment')->name('Blog.Comment');
     //Product Comment

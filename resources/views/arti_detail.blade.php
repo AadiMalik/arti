@@ -190,12 +190,12 @@
                                         <a href="{{ url('user-product') }}"><i class="fa fa-truck"></i>My Products</a>
                                         <a href="{{ url('profile') }}"><i class="fa fa-edit"></i>Edit Profile</a>
                                         <a href="javascript:void(0);"
-                                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                                           <i class="fa fa-lock"></i> Logout</a>
-                                                        <form id="logout-form" action="{{ route('logout') }}"
-                                                            method="POST" style="display: none;">
-                                                            @csrf
-                                                        </form>
+                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-lock"></i> Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            @csrf
+                                        </form>
                                     @endif
                                 @endauth
                                 {{-- <a href="#download" data-toggle="tab"><i class="fa fa-cloud-download"></i> Download</a>
@@ -277,14 +277,16 @@
                                                             <a class="btn btn-danger form-control"
                                                                 style="background:#d8373e; color:#fff !important;">Followed</a>
                                                         @else
-                                                            <a class="btn btn-primary form-control" style="cursor: pointer;"
+                                                            <a class="btn btn-primary form-control"
+                                                                style="cursor: pointer;"
                                                                 id="artifallow{{ $arti->id }}">Follow</a>
                                                         @endif
                                                     @else
                                                         <a class="btn btn-primary form-control" style="cursor: pointer;"
                                                             id="artifallow{{ $arti->id }}">Follow</a>
                                                     @endauth
-                                                    <i class="fa fa-feed"></i> {{ $arti_fallow->where('arti_id', $arti->id)->count() ?? '0' }}
+                                                    <i class="fa fa-feed"></i>
+                                                    {{ $arti_fallow->where('arti_id', $arti->id)->count() ?? '0' }}
                                                 </span>
                                             </div>
                                             <div class="col-md-12 mt-2">
@@ -294,6 +296,15 @@
                                                 </p>
 
                                                 <hr>
+                                                @if (isset($arti->note))
+                                                    <b>Note:</b>
+                                                    <marquee behavior="scroll" direction="left" scrollamount=".7" style="background: #e52d2d;
+                                                    color: #ffff;
+                                                    font-size: 16px;
+                                                    line-height: 35px;
+                                                    font-weight: bold;">
+                                                        {!! $arti->note ?? 'No important' !!}</marquee>
+                                                @endif
                                                 <hr>
                                             </div>
                                             @foreach ($post as $index => $item)
@@ -507,10 +518,8 @@
                                                             </div>
                                                         @endif
                                                     @endauth
-                                                    <a class="thumbnail"
-                                                        href="{{ asset($item->image ?? '') }}"><img
-                                                            src="{{ asset($item->image ?? '') }}"
-                                                            alt=""></a>
+                                                    <a class="thumbnail" href="{{ asset($item->image ?? '') }}"><img
+                                                            src="{{ asset($item->image ?? '') }}" alt=""></a>
                                                 </div>
                                             @endforeach
                                         </div>
@@ -556,8 +565,7 @@
                                     <div class="myaccount-content">
                                         @auth
                                             @if (Auth()->user()->id != $arti->id && $rating->where('user_id', Auth()->user()->id)->count() == 0)
-                                                <form action="{{ route('Rating') }}" class="review-form"
-                                                    method="POST">
+                                                <form action="{{ route('Rating') }}" class="review-form" method="POST">
                                                     @csrf
                                                     <div class="form-group row">
                                                         <div class="col">
@@ -1176,7 +1184,7 @@
                     if (response.success) {
                         alert(response.message);
                         $("#comment_section").load(location.href +
-                                " #comment_section");
+                            " #comment_section");
                         $.ajaxSetup({
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(

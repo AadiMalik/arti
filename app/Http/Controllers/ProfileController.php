@@ -37,4 +37,21 @@ class ProfileController extends Controller
                     ->get(["name","id"]);
         return response()->json($data);
     }
+
+    public function view_note()
+    {
+        $user = auth()->user();
+        $district = District::orderBy('name','asc')->get();
+        $tehsil = Tehsil::orderBy('name','asc')->get();
+        return view('profile.arti_note', compact('user'));
+    }
+    public function arti_note(Request $request)
+    {
+        $user = User::find(Auth()->user()->id);
+        $user->update($request->all());
+        $user->note = $request->note;
+        $user->update();
+
+        return back()->with('success','Your Note Published');
+    }
 }
