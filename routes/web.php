@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('profile', 'ProfileController@index');
     Route::post('get-tehsil','ProfileController@getTehsil');
     Route::post('update-profile', 'ProfileController@update');
+    Route::post('/mark-as-read', 'HomeController@markNotification');
     //for arti note update
     Route::get('view-note', 'ProfileController@view_note');
     Route::post('update-note', 'ProfileController@arti_note');

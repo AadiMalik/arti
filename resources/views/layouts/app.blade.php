@@ -215,14 +215,14 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                                     <div class="notification">
                                                                         <a href="#"
                                                                             class="dropdown-item dropdown-item-unread  mark-as-read"
-                                                                            data-id="{{ $notification->id ?? '' }}"> <span
+                                                                            data-id="{{ $notification->id ?? '' }}"> <span style="padding: 2px;
+                                                                            margin: 4px;"
                                                                                 class="dropdown-item-icon bg-primary text-white">
                                                                                 <i
                                                                                     class="fas
                                                                             fa-bell"></i>
                                                                             </span> <span class="dropdown-item-desc">
-                                                                                {{ $notification->data['name'] }} new
-                                                                                comment.
+                                                                                {{ $notification->data['name'] }} {{ $notification->data['message'] }}
                                                                                 <span
                                                                                     class="time">{{ $notification->created_at->diffForHumans() }}</span>
                                                                             </span>
@@ -272,7 +272,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-3">
-                            <div>
+                            <div style="text-align: center;">
                                 <a href="{{ url('/') }}">
                                     {{-- <h2
                                         style="font-size: 45px;
@@ -738,7 +738,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            return $.ajax("{{ route('admin.markNotification') }}", {
+            return $.ajax("{{ url('mark-as-read') }}", {
                 method: 'POST',
                 data: {
                     _token:$('meta[name="csrf-token"]').attr('content'),

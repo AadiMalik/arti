@@ -66,7 +66,7 @@ $notifications = notification();
                         <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
                                 <i data-feather="maximize"></i>
                             </a></li>
-                        <li>
+                        {{-- <li>
                             <form class="form-inline mr-auto">
                                 <div class="search-element">
                                     <input class="form-control" type="search" placeholder="Search" aria-label="Search"
@@ -76,11 +76,11 @@ $notifications = notification();
                                     </button>
                                 </div>
                             </form>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <ul class="navbar-nav navbar-right">
-                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                    {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                             class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
                             <span class="badge headerBadge1">
                                 6 </span> </a>
@@ -153,7 +153,7 @@ $notifications = notification();
                                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                             class="nav-link  message-toggle nav-link-lg"><i data-feather="bell"
                                 class="bell"></i>@if($notifications->count()>0)<span class="badge headerBadge1" style="border-radius: 50%;

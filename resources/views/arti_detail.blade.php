@@ -294,16 +294,49 @@
                                                 <p style="text-align: justify;">
                                                     {!! $arti->bio ?? 'No description' !!}
                                                 </p>
-
+                                                @auth
+                                                @if(Auth()->user()->id==$arti->id)
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="{{ asset($arti->image ?? 'assets/img/user.jpg') }}"
+                                                    style="border-radius: 50%; height:50px; float:right" alt="">
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <input type="text" style="border-radius: 20px; height:45px; background: #4444;" class="form-control" placeholder="Say something about your business.." data-toggle="modal" data-target="#model">
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade" id="model" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="modeltitle">Say something about your business</h5>
+                                                            </div>
+                                                            <hr>
+                                                            <form action="{{url('update-note')}}" method="POST">
+                                                            <div class="modal-body">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea name="note" class="form-control" style="min-height: 100px;">{{$arti->note ?? old('note')}}</textarea>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endif
+                                                @endauth
                                                 <hr>
                                                 @if (isset($arti->note))
                                                     <b>Note:</b>
-                                                    <marquee behavior="scroll" direction="left" scrollamount=".7" style="background: #e52d2d;
+                                                    <p style="background: 
+                                                    #0c8b51;
                                                     color: #ffff;
-                                                    font-size: 16px;
-                                                    line-height: 35px;
-                                                    font-weight: bold;">
-                                                        {!! $arti->note ?? 'No important' !!}</marquee>
+                                                    font-size: 14px; text-align: justify;">
+                                                        {!! $arti->note ?? 'No important' !!}</p>
                                                 @endif
                                                 <hr>
                                             </div>

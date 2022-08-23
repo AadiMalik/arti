@@ -7,8 +7,9 @@
                 {!! session('error') !!}
             </div>
         @endif
-    <div class="row ">
-        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="row">
+        <h1 style="text-align: center;">Welcome in Dashbaord..</h1>
+        {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="card">
                 <div class="card-statistic-4">
                     <div class="align-items-center justify-content-between">
@@ -96,9 +97,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card ">
                 <div class="card-header">
@@ -631,9 +632,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </section>
-<div class="settingSidebar">
+{{-- <div class="settingSidebar">
     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
     </a>
     <div class="settingSidebar-body ps-container ps-theme-default">
@@ -725,5 +726,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

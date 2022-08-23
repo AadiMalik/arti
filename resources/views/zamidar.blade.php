@@ -7,16 +7,16 @@ use Carbon\Carbon;
 @section('style')
     <style>
         .ribbon {
-            font: bold 15px sans-serif;
+            font: bold 12px sans-serif;
             text-align: center;
-            -webkit-transform: rotate(-45deg);
-            -moz-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
             position: absolute;
-            padding: 7px 0;
+            padding: 4px 0;
             top: 15px;
-            left: -30px;
+            right: -30px;
             width: 120px;
             background-color: #0c8b51;
             color: #fff;
@@ -181,8 +181,8 @@ use Carbon\Carbon;
                             <div class="col-lg-7 col-md-6">
                                 <div class="top-bar-left">
                                     <div class="product-view-mode mr-70 mr-sm-0">
-                                        <a href="#" data-target="grid"><i class="fa fa-th"></i></a>
-                                        <a class="active" href="#" data-target="list"><i
+                                        <a class="active" href="#" data-target="grid"><i class="fa fa-th"></i></a>
+                                        <a href="#" data-target="list"><i
                                                 class="fa fa-list"></i></a>
                                     </div>
                                     <div class="product-amount">
@@ -211,7 +211,7 @@ use Carbon\Carbon;
                     <!-- shop product top wrap start -->
 
                     <!-- product item start -->
-                    <div class="shop-product-wrap list row">
+                    <div class="shop-product-wrap grid row">
                         @if ($sale_product->count() > 0)
                             @foreach ($sale_product as $item)
                                 @if ($item->expiry > Carbon::now())

@@ -1,3 +1,6 @@
+@php
+    use Carbon\Carbon;
+@endphp
 @extends('layouts.app')
 @section('content')
 <!-- breadcrumb area start -->
@@ -323,6 +326,8 @@
                         </div> <!-- section title end -->
                         <div class="category-carousel-active row" data-row="4">
                             @foreach ($feature as $item)
+                            
+                    @if ($item->expiry > Carbon::now())
                             <div class="col">
                                 <div class="category-item">
                                     <div class="category-thumb">
@@ -342,6 +347,7 @@
                                     </div>
                                 </div> <!-- end single item -->
                             </div> <!-- end single item column -->
+                            @endif
                             @endforeach
                         </div>
                     </div>

@@ -108,16 +108,16 @@ use Carbon\Carbon;
         /* The ribbons */
 
         .ribbon {
-            font: bold 15px sans-serif;
+            font: bold 12px sans-serif;
             text-align: center;
-            -webkit-transform: rotate(-45deg);
-            -moz-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
             position: absolute;
-            padding: 7px 0;
+            padding: 4px 0;
             top: 15px;
-            left: -30px;
+            right: -30px;
             width: 120px;
             background-color: #0c8b51;
             color: #fff;

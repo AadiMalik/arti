@@ -16,9 +16,9 @@ class NewFallowNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -29,7 +29,7 @@ class NewFallowNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -56,6 +56,7 @@ class NewFallowNotification extends Notification
     {
         return [
             'name' => $this->user->first_name . ' '. $this->user->last_name,
+            'message' => 'new fallow you!',
         ];
     }
 }
