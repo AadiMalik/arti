@@ -232,22 +232,26 @@
 		prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
 		nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
 		slidesToShow: 4,
+		slidesToScroll: 4,
 		responsive: [{
 				breakpoint: 1200,
 				settings: {
 					slidesToShow: 3,
+					slidesToScroll: 3,
 				}
 			},
 			{
 				breakpoint: 768,
 				settings: {
 					slidesToShow: 2,
+					slidesToScroll: 2,
 				}
 			},
 			{
 				breakpoint: 480,
 				settings: {
 					slidesToShow: 1,
+					slidesToScroll: 1,
 					arrows: false,
 				}
 			},
@@ -263,7 +267,7 @@
 			arrows: true,
 			dots: false,
 			slidesToShow: 4,
-			slidesToScroll: 1,
+			slidesToScroll: 4,
 			rows: $row,
 			prevArrow: '<button class="slick-prev"><i class="fa fa-angle-left"></i></button>',
 			nextArrow: '<button class="slick-next"><i class="fa fa-angle-right"></i></button>',
@@ -271,18 +275,21 @@
 					breakpoint: 1200,
 					settings: {
 						slidesToShow: 3,
+						slidesToScroll: 3,
 					}
 				},
 				{
 					breakpoint: 768,
 					settings: {
 						slidesToShow: 2,
+						slidesToScroll: 2,
 					}
 				},
 				{
 					breakpoint: 480,
 					settings: {
 						slidesToShow: 1,
+						slidesToScroll: 1,
 						arrows: false,
 					}
 				},
