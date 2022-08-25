@@ -102,6 +102,22 @@
                         {!! $errors->first('company_name', "<span class='text-danger'>:message</span>") !!}
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="make">Make *</label>
+                        <input class="form-control" type="text" name="make" id="make"
+                            value="{{ old('make') }}" required>
+                        {!! $errors->first('make', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="required" for="model">Model *</label>
+                        <input class="form-control" type="number" name="model" id="model"
+                            value="{{ old('model') }}" required>
+                        {!! $errors->first('model', "<span class='text-danger'>:message</span>") !!}
+                    </div>
+                </div>
                 @endif
                 <div class="col-md-6">
                     <div class="form-group">

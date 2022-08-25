@@ -79,7 +79,7 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $product = Product::orWhere('name', 'LIKE', '%' . $request->search . '%')->orWhere('description', 'LIKE', '%' . $request->search . '%')->orderBy('hits', 'DESC')->where('zamidar', 0)->get();
-        $sale_product = OtherProduct::orWhere('name', 'LIKE', '%' . $request->search . '%')->orWhere('price', 'LIKE', '%' . $request->search . '%')->orderBy('created_at', 'DESC')->get();
+        $sale_product = OtherProduct::orWhere('name', 'LIKE', '%' . $request->search . '%')->orWhere('price', 'LIKE', '%' . $request->search . '%')->orWhere('category', 'LIKE', '%' . $request->search . '%')->orWhere('sub_category', 'LIKE', '%' . $request->search . '%')->orWhere('make', 'LIKE', '%' . $request->search . '%')->orWhere('model', 'LIKE', '%' . $request->search . '%')->orderBy('created_at', 'DESC')->get();
         $user_product = UserProduct::orderBy('created_at', 'ASC')->get();
         $category = Category::orderBy('name', 'ASC')->get();
         $arti = User::with(['district_name', 'tehsil_name'])->orWhere('username', 'LIKE', '%' . $request->search . '%')->orWhere('first_name', 'LIKE', '%' . $request->search . '%')->orWhere('last_name', 'LIKE', '%' . $request->search . '%')->orWhere('phone1', 'LIKE', '%' . $request->search . '%')->orWhere('email', 'LIKE', '%' . $request->search . '%')
@@ -181,6 +181,21 @@ class HomeController extends Controller
         $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
         return view('zamidar', compact('sale_product', 'sale_product_image', 'sale_product_count'));
+    }
+    public function advance_serach()
+    {
+        $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(10);
+        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
+        $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
+        return view('advance_serach', compact('sale_product', 'sale_product_image', 'sale_product_count'));
+    }
+    public function advance_serach_filter(Request $request)
+    {
+        dd($request->all());
+        $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(10);
+        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
+        $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
+        return view('advance_serach', compact('sale_product', 'sale_product_image', 'sale_product_count'));
     }
     public function zamidar_category($category)
     {

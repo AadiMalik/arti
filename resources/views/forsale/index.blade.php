@@ -129,10 +129,20 @@
                                 <label for="">Product Price:</label>
                                 <b>{{$item->price??''}}</b>
                             </div>
+                            @if($item->category== 'vehicles')
                             <div class="col-md-6">
                                 <label for="">Company Name:</label>
                                 <b>{{$item->company_name??''}}</b>
                             </div>
+                            <div class="col-md-6">
+                                <label for="">Make:</label>
+                                <b>{{$item->make??''}}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Model:</label>
+                                <b>{{$item->model??''}}</b>
+                            </div>
+                            @endif
                             <div class="col-md-6">
                                 <label for="">Product Category:</label>
                                 <b>{{$item->category??''}}</b>
@@ -141,10 +151,7 @@
                                 <label for="">Product Sub Category:</label>
                                 <b>{{$item->sub_category??''}}</b>
                             </div>
-                            <div class="col-md-12">
-                                <label for="">Address:</label>
-                                <b>{{$item->address??''}}</b>
-                            </div>
+                            
                             <div class="col-md-6">
                                 <label for="">District/City:</label>
                                 <b>{{$item->district_name->name??''}}</b>
@@ -152,6 +159,10 @@
                             <div class="col-md-6">
                                 <label for="">Tehsil:</label>
                                 <b>{{$item->tehsil_name->name??''}}</b>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Address:</label>
+                                <b>{{$item->address??''}}</b>
                             </div>
                             <div class="col-md-12">
                                 <label for="">Product Images:</label><br>

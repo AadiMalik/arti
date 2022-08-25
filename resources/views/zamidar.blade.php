@@ -140,22 +140,6 @@ use Carbon\Carbon;
                             </ul>
                         </div>
                     </div>
-                    <!-- product size end -->
-
-                    <!-- product tag start -->
-                    {{-- <div class="sidebar-widget mb-30">
-                        <div class="sidebar-title mb-10">
-                            <h3>tags</h3>
-                        </div>
-                        <div class="sidebar-widget-body">
-                            <div class="product-tag">
-                                @foreach ($product as $item)
-                                <a href="#">{{$item->tags??''}}</a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div> --}}
-                    <!-- product tag end -->
 
                     <!-- sidebar banner start -->
                     <div class="sidebar-widget mb-30">
@@ -190,22 +174,6 @@ use Carbon\Carbon;
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-5 col-md-6">
-                                <div class="top-bar-right">
-                                    <div class="product-short">
-                                        <p>Sort By : </p>
-                                        <select class="nice-select" name="sortby">
-                                            <option value="trending">Relevance</option>
-                                            <option value="sales">Name (A - Z)</option>
-                                            <option value="sales">Name (Z - A)</option>
-                                            <option value="rating">Price (Low &gt; High)</option>
-                                            <option value="date">Rating (Lowest)</option>
-                                            <option value="price-asc">Model (A - Z)</option>
-                                            <option value="price-asc">Model (Z - A)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                     <!-- shop product top wrap start -->

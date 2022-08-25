@@ -120,6 +120,14 @@
                                         <td>{{$sale_product_detail->price??''}}</td>
                                     </tr>
                                     <tr>
+                                        <th><b>Make:</b></th>
+                                        <td>{{$sale_product_detail->make??''}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Model:</b></th>
+                                        <td>{{$sale_product_detail->model??''}}</td>
+                                    </tr>
+                                    <tr>
                                         <th><b>Address:</b></th>
                                         <td>{{$sale_product_detail->address??''}}</td>
                                     </tr>

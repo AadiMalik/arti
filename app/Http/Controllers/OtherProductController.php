@@ -80,10 +80,14 @@ class OtherProductController extends Controller
         if ($request->category == 'vehicles') {
             $validation = $request->validate(
                 [
-                    'company_name' => 'required|max:255'
+                    'company_name' => 'required|max:255',
+                    'make' => 'required|max:255',
+                    'model' => 'required|max:255'
                 ]
             );
             $product->company_name = ucfirst($request->company_name);
+            $product->make = ucfirst($request->make);
+            $product->model = $request->model;
         }
 
         $product->name = ucfirst($request->name);
