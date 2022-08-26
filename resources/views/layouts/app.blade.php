@@ -324,6 +324,12 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                             <input type="text" name="search" placeholder="Search...">
                                             <button class="search-btn"><i class="fa fa-search"></i></button>
                                         </form>
+                                        <div style="text-align: center; margin-top:10px;">
+                                            <a href="{{url('advance-search')}}" style="color: #0c8b51;
+                                            font-weight: bold;
+                                            border: 2px solid #0c8b51;
+                                            padding: 3px 15px;">Advance Search >></a>
+                                        </div>
                                     </div>
                                     <a href="{{ url('sell') }}">
                                         <div class="form-control"

@@ -11,6 +11,7 @@ use App\News;
 use App\Brand;
 use App\Category;
 use App\Comment;
+use App\District;
 use App\Events\NewComment;
 use App\Notifications\NewCommentNotification;
 use App\Notifications\NewFallowNotification;
@@ -27,6 +28,7 @@ use App\Sector;
 use App\Slider;
 use App\Support;
 use App\Team;
+use App\Tehsil;
 use App\Term;
 use App\User;
 use App\UserGallery;
@@ -185,17 +187,36 @@ class HomeController extends Controller
     public function advance_serach()
     {
         $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(10);
-        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
-        return view('advance_serach', compact('sale_product', 'sale_product_image', 'sale_product_count'));
+        $product = Product::orderBy('created_at', 'ASC')->where('zamidar', 0)->paginate(10);
+        $product_image = ProductImage::all();
+        $district = District::orderBY('name','ASC')->get();
+        $tehsil = Tehsil::orderBY('name','ASC')->get();
+        return view('advance_serach', compact('sale_product', 'sale_product_count','product','product_image','district','tehsil'));
     }
     public function advance_serach_filter(Request $request)
     {
-        dd($request->all());
-        $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(10);
-        $sale_product_image = OtherProductImage::orderBy('created_at', 'DESC')->get();
+        // dd($request->all());
+        $district_search = $request->district;
+        $tehsil_search = $request->tehsil;
+        $sale_product = OtherProduct::where('category', $request->category)->where('sub_category', $request->sub_category)
+        ->where('make', $request->make)->where('model', $request->model)
+        ->whereBetween('price', [$request->min, $request->max])
+        ->with(['district_name','tehsil_name'])
+        ->orWhereHas('district_name', function ($q) use ($district_search) {
+            $q->where('name', $district_search);
+        })
+        ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
+            $q->where('name',$tehsil_search);
+        })->paginate(10);
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
-        return view('advance_serach', compact('sale_product', 'sale_product_image', 'sale_product_count'));
+        $product = Product::orderBy('created_at', 'ASC')->where('zamidar', 0)
+        ->whereBetween('price_high', [$request->min, $request->max])
+        ->whereBetween('price_low', [$request->min, $request->max])->paginate(10);
+        $product_image = ProductImage::all();
+        $district = District::orderBY('name','ASC')->get();
+        $tehsil = Tehsil::orderBY('name','ASC')->get();
+        return view('advance_serach', compact('sale_product', 'sale_product_count','product','product_image','district','tehsil'));
     }
     public function zamidar_category($category)
     {

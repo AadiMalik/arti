@@ -21,8 +21,9 @@ use Carbon\Carbon;
             background-color: #0c8b51;
             color: #fff;
         }
-        .nice-select{
-            width:100%;
+
+        .nice-select {
+            width: 100%;
         }
     </style>
 @endsection
@@ -66,7 +67,7 @@ use Carbon\Carbon;
                     <!-- sidebar categorie start -->
 
                     <!-- manufacturer start -->
-                    <form action="{{ url('advance-search/filter') }}" method="GET">
+                    <form action="{{ url('advance-search/filter') }}" method="POST">
                         @csrf
                         <div class="sidebar-widget mb-30">
                             <div class="sidebar-title mb-10">
@@ -133,16 +134,20 @@ use Carbon\Carbon;
                                     <div class="form-group">
                                         <select name="district" style="width: 100%;" class="form-control"
                                             id="">
-                                            <option value="">--Select District--</option>
-                                            <option value="">Okara</option>
+                                            <option selected disabled>--Select District--</option>
+                                            @foreach ($district as $item)
+                                            <option value="{{$item->id??''}}">{{$item->name??''}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div><br><br>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <select name="tehsil" class="form-control" id="">
-                                            <option value="">--Select Tehsil--</option>
-                                            <option value="">Okara</option>
+                                            <option disabled selected>--Select Tehsil--</option>
+                                            @foreach ($tehsil as $item)
+                                            <option value="{{$item->id??''}}">{{$item->name??''}} ({{$item->district_name->name??''}})</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -175,7 +180,7 @@ use Carbon\Carbon;
                                 </div>
                             </div>
                         </div>
-                        
+
                         <button class="btn btn-success">Filter</button>
                         <hr>
 
@@ -209,67 +214,69 @@ use Carbon\Carbon;
                     <hr>
                     <!-- product item start -->
                     <div class="shop-product-wrap grid row">
-                        @if ($sale_product->count() > 0)
-                            @foreach ($sale_product as $item)
-                                @if ($item->expiry > Carbon::now())
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <!-- product single grid item start -->
-                                        <div class="product-item fix mb-30">
-                                            <div class="product-thumb">
-                                                <i class="ribbon">Featured</i>
-                                                <a href="{{ url('forsale-detail/' . $item->id) }}">
-                                                    <img src="{{ asset($item->image1 ?? '') }}" class="img-pri"
-                                                        style="height: 200px;" alt="">
-                                                    {{-- <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
-                                                            style="height: 200px;" alt=""> --}}
-                                                </a>
+                        @if ($product->count() > 0)
+                        @foreach ($product as $item)
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!-- product single grid item start -->
+                            <div class="product-item fix mb-30">
+                                <div class="product-thumb">
+                                    <a href="{{url('product-detail/'.$item->id)}}">
+                                        @foreach ($product_image->where('product_id',$item->id)->take(2) as $loop=> $item2)
+                                        @if($loop->first)
+                                        <img src="{{asset($item2->image??'')}}" class="img-pri" style="height: 200px;" alt="">
+                                        @else
+                                        <img src="{{asset($item2->image??'')}}" class="img-sec" style="height: 200px;" alt="">
+                                        @endif
+                                        @endforeach
+                                    </a>
+                                    {{-- <div class="product-label">
+                                        <span>hot</span>
+                                    </div>
+                                    <div class="product-action-link">
+                                        <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                    </div> --}}
+                                </div>
+                                <div class="product-content">
+                                    <h4><a href="{{url('product-detail/'.$item->id)}}">{{$item->name??''}}({{$item->type??''}})</a></h4>
+                                    <div class="pricebox">
+                                        <span class="regular-price">Rs. {{$item->price_low??''}} - {{$item->price_high??''}}</span>
+                                        {{-- <div class="ratings">
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <div class="pro-review">
+                                                <span>1 review(s)</span>
                                             </div>
-                                            <div class="product-content">
-                                                <h4><a
-                                                        href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
-                                                </h4>
-                                                <div class="pricebox">
-                                                    <span class="regular-price">Rs. {{ $item->price ?? '' }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- product single grid item end -->
-                                    </div> <!-- product single column end -->
-                                @endif
-                            @endforeach
-                            @foreach ($sale_product as $item)
-                                @if ($item->expiry < Carbon::now() || ($item->expiry = null))
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <!-- product single grid item start -->
-                                        <div class="product-item fix mb-30">
-                                            <div class="product-thumb">
-                                                <a href="{{ url('forsale-detail/' . $item->id) }}">
-                                                    <img src="{{ asset($item->image1 ?? '') }}" class="img-pri"
-                                                        style="height: 200px;" alt="">
-                                                    {{-- <img src="{{ asset($item->image2 ?? '') }}" class="img-sec"
-                                                            style="height: 200px;" alt=""> --}}
-                                                </a>
-                                            </div>
-                                            <div class="product-content">
-                                                <h4><a
-                                                        href="{{ url('forsale-detail/' . $item->id) }}">{{ $item->name ?? '' }}</a>
-                                                </h4>
-                                                <div class="pricebox">
-                                                    <span class="regular-price">Rs.
-                                                        {{ $item->price ?? '' }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- product single grid item end -->
-                                    </div> <!-- product single column end -->
-                                @endif
-                            @endforeach
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- product single grid item end -->
+                        </div> <!-- product single column end -->
+                        @endforeach
                         @else
                             <div class="col-md-12">
                                 <h4>No Product Found</h4>
                             </div>
                         @endif
                     </div>
+                    <!-- start pagination area -->
+                    <div class="paginatoin-area text-center pt-28">
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="pagination-box">
+                                    {{ $product->links() }}
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <!-- end pagination area -->
                     <!-- product item end -->
                     <h3>For Sale Products</h3>
                     <hr>

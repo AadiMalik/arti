@@ -24,7 +24,7 @@ Route::get('zameendar/filter', 'HomeController@zamidar_price');
 Route::get('search', 'HomeController@search');
 // Advance search
 Route::get('advance-search', 'HomeController@advance_serach');
-Route::get('advance-search/filter', 'HomeController@advance_serach_filter');
+Route::post('advance-search/filter', 'HomeController@advance_serach_filter');
 
 
 Route::get('forsale-detail/{id}', 'HomeController@zamidar_detail');
