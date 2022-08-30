@@ -186,7 +186,7 @@ class HomeController extends Controller
     }
     public function advance_serach()
     {
-        $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(10);
+        $sale_product = OtherProduct::orderBy('created_at', 'DESC')->paginate(12);
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
         $arti = User::orderBy('verify', 'ASC')->get();
         $product_image = ProductImage::all();
@@ -208,7 +208,7 @@ class HomeController extends Controller
         })
         ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
             $q->orWhere('name',$tehsil_search);
-        })->paginate(10);
+        })->paginate(12);
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
         $arti = User::orderBy('verify', 'ASC')->orWhereHas('district_name', function ($q) use ($district_search) {
             $q->orWhere('name', $district_search);
