@@ -199,16 +199,19 @@ class HomeController extends Controller
         // dd($request->all());
         $district_search = $request->district;
         $tehsil_search = $request->tehsil;
-        $sale_product = OtherProduct::orWhere('category', $request->category)->orWhere('sub_category', $request->sub_category)
-        ->orWhere('make', $request->make)->orWhere('model', $request->model)
+        $sale_product = OtherProduct::where('category', $request->category)->where('sub_category', $request->sub_category)
+        ->where('make', $request->make)->where('model', $request->model)
         ->whereBetween('price', [$request->min, $request->max])
         ->with(['district_name','tehsil_name'])
         ->orWhereHas('district_name', function ($q) use ($district_search) {
-            $q->orWhere('name', $district_search);
+            $q->where('name', $district_search);
         })
         ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
-            $q->orWhere('name',$tehsil_search);
+            $q->where('name',$tehsil_search);
         })->paginate(12);
+        if($sale_product->count()==0){
+            $sale_product = OtherProduct::paginate(12);
+        }
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
         $arti = User::orderBy('verify', 'ASC')->orWhereHas('district_name', function ($q) use ($district_search) {
             $q->orWhere('name', $district_search);
@@ -216,6 +219,9 @@ class HomeController extends Controller
         ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
             $q->orWhere('name',$tehsil_search);
         })->get();
+        if($arti->count()==0){
+            $arti = User::get();
+        }
         $product_image = ProductImage::all();
         $district = District::orderBY('name','ASC')->get();
         $tehsil = Tehsil::orderBY('name','ASC')->get();
