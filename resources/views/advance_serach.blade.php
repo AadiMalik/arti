@@ -133,7 +133,7 @@ use Carbon\Carbon;
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <select name="district" style="width: 100%;" class="form-control"
-                                            id="">
+                                            id="" required>
                                             <option selected disabled>--Select District--</option>
                                             @foreach ($district as $item)
                                             <option value="{{$item->id??''}}">{{$item->name??''}}</option>
@@ -143,7 +143,7 @@ use Carbon\Carbon;
                                 </div><br><br>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <select name="tehsil" class="form-control" id="">
+                                        <select name="tehsil" class="form-control" id="" required>
                                             <option disabled selected>--Select Tehsil--</option>
                                             @foreach ($tehsil as $item)
                                             <option value="{{$item->id??''}}">{{$item->name??''}} ({{$item->district_name->name??''}})</option>
@@ -161,9 +161,9 @@ use Carbon\Carbon;
                             <div class="row">
                                 <div class="col-md-12">
                                     <span>Min: </span>
-                                    <input type="number" class="form-control" name="min">
+                                    <input type="number" class="form-control" name="min" required>
                                     <span>Max: </span>
-                                    <input type="number" class="form-control" name="max"><br>
+                                    <input type="number" class="form-control" name="max" required><br>
                                 </div>
                             </div>
                         </div>
@@ -174,9 +174,9 @@ use Carbon\Carbon;
                             <div class="row">
                                 <div class="col-md-12">
                                     <span>Make: </span>
-                                    <input type="text" class="form-control" name="make">
+                                    <input type="text" class="form-control" name="make" required>
                                     <span>Model: </span>
-                                    <input type="text" class="form-control" name="model">
+                                    <input type="text" class="form-control" name="model" required>
                                 </div>
                             </div>
                         </div>

@@ -199,15 +199,15 @@ class HomeController extends Controller
         // dd($request->all());
         $district_search = $request->district;
         $tehsil_search = $request->tehsil;
-        $sale_product = OtherProduct::where('category', $request->category)->where('sub_category', $request->sub_category)
-        ->where('make', $request->make)->where('model', $request->model)
-        ->whereBetween('price', [$request->min, $request->max])
+        $sale_product = OtherProduct::where('category','LIKE', '%' . $request->category.'%')->where('sub_category','LIKE', '%' . $request->sub_category.'%')
+        ->where('make','LIKE', '%' . $request->make.'%')->where('model', 'LIKE', '%' .$request->model.'%')
+        ->orWhereBetween('price', [$request->min, $request->max])
         ->with(['district_name','tehsil_name'])
         ->orWhereHas('district_name', function ($q) use ($district_search) {
-            $q->where('name', $district_search);
+            $q->where('name', 'LIKE', '%' .$district_search.'%');
         })
         ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
-            $q->where('name',$tehsil_search);
+            $q->where('name','LIKE', '%' .$tehsil_search.'%');
         })->paginate(12);
         if($sale_product->count()==0){
             $sale_product = OtherProduct::paginate(12);
