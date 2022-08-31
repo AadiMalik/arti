@@ -199,8 +199,8 @@ class HomeController extends Controller
         // dd($request->all());
         $district_search = $request->district;
         $tehsil_search = $request->tehsil;
-        $sale_product = OtherProduct::where('category','LIKE', '%' . $request->category.'%')->where('sub_category','LIKE', '%' . $request->sub_category.'%')
-        ->where('make','LIKE', '%' . $request->make.'%')->where('model', 'LIKE', '%' .$request->model.'%')
+        $sale_product = OtherProduct::orWhere('category','LIKE', '%' . $request->category.'%')->orWhere('sub_category','LIKE', '%' . $request->sub_category.'%')
+        ->orWhere('make','LIKE', '%' . $request->make.'%')->orWhere('model', 'LIKE', '%' .$request->model.'%')
         ->orWhereBetween('price', [$request->min, $request->max])
         ->with(['district_name','tehsil_name'])
         ->orWhereHas('district_name', function ($q) use ($district_search) {
@@ -214,10 +214,10 @@ class HomeController extends Controller
         }
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
         $arti = User::orderBy('verify', 'ASC')->orWhereHas('district_name', function ($q) use ($district_search) {
-            $q->orWhere('name', $district_search);
+            $q->orWhere('name','LIKE', '%' . $district_search .'%');
         })
         ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
-            $q->orWhere('name',$tehsil_search);
+            $q->orWhere('name','LIKE', '%' .$tehsil_search.'%');
         })->get();
         if($arti->count()==0){
             $arti = User::get();
