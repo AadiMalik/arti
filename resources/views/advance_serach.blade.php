@@ -75,13 +75,13 @@ use Carbon\Carbon;
                             </div>
                             <div class="sidebar-widget-body">
                                 <ul>
-                                    <li><input type="radio" name="category" value="vehicles" required>
+                                    <li><input type="radio" name="category" value="vehicles">
                                         Vehicles<span>({{ number_format($sale_product_count->where('category', 'vehicles')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="category" value="crops" required>
+                                    <li><input type="radio" name="category" value="crops">
                                         Crops<span>({{ number_format($sale_product_count->where('category', 'crops')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="category" value="fertilizers" required>
+                                    <li><input type="radio" name="category" value="fertilizers">
                                         Fertilizers<span>({{ number_format($sale_product_count->where('category', 'fertilizers')->count()) }})</span>
                                     </li>
                                 </ul>
@@ -93,31 +93,31 @@ use Carbon\Carbon;
                             </div>
                             <div class="sidebar-widget-body">
                                 <ul>
-                                    <li><input type="radio" name="sub_category" value="tractor" required>
+                                    <li><input type="radio" name="sub_category" value="tractor">
                                         Tractors<span>({{ number_format($sale_product_count->where('sub_category', 'tractor')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="dumper" required>
+                                    <li><input type="radio" name="sub_category" value="dumper">
                                         Dumpers<span>({{ number_format($sale_product_count->where('sub_category', 'dumper')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="exivator" required>
+                                    <li><input type="radio" name="sub_category" value="exivator">
                                         Exivators<span>({{ number_format($sale_product_count->where('sub_category', 'exivator')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="harvestor" required>
+                                    <li><input type="radio" name="sub_category" value="harvestor">
                                         Harvestors<span>({{ number_format($sale_product_count->where('sub_category', 'harvestor')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="fertilizer" required>
+                                    <li><input type="radio" name="sub_category" value="fertilizer">
                                         Fertilizers<span>({{ number_format($sale_product_count->where('sub_category', 'fertilizer')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="fruit" required>
+                                    <li><input type="radio" name="sub_category" value="fruit">
                                         Fruits<span>({{ number_format($sale_product_count->where('sub_category', 'fruit')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="vegitable" required>
+                                    <li><input type="radio" name="sub_category" value="vegitable">
                                         Vegitables<span>({{ number_format($sale_product_count->where('sub_category', 'vegitable')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="grain" required>
+                                    <li><input type="radio" name="sub_category" value="grain">
                                         Grains<span>({{ number_format($sale_product_count->where('sub_category', 'grain')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="other" required>
+                                    <li><input type="radio" name="sub_category" value="other">
                                         Others<span>({{ number_format($sale_product_count->where('sub_category', 'other')->count()) }})</span>
                                     </li>
                                 </ul>
@@ -133,7 +133,8 @@ use Carbon\Carbon;
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <select name="district" style="width: 100%;" class="form-control"
-                                            id="" required>
+                                            id="">
+                                            <option disabled selected>--select district--</option>
                                             @foreach ($district as $item)
                                             <option value="{{$item->id??''}}">{{$item->name??''}}</option>
                                             @endforeach
@@ -142,7 +143,8 @@ use Carbon\Carbon;
                                 </div><br><br>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <select name="tehsil" class="form-control" id="" required>
+                                        <select name="tehsil" class="form-control" id="">
+                                            <option disabled selected>--select tehsil--</option>
                                             @foreach ($tehsil as $item)
                                             <option value="{{$item->id??''}}">{{$item->name??''}} ({{$item->district_name->name??''}})</option>
                                             @endforeach
@@ -159,9 +161,9 @@ use Carbon\Carbon;
                             <div class="row">
                                 <div class="col-md-12">
                                     <span>Min: </span>
-                                    <input type="number" class="form-control" value="0" name="min" required>
+                                    <input type="number" class="form-control" name="min">
                                     <span>Max: </span>
-                                    <input type="number" class="form-control" value="1000" name="max" required><br>
+                                    <input type="number" class="form-control" name="max"><br>
                                 </div>
                             </div>
                         </div>
@@ -172,9 +174,9 @@ use Carbon\Carbon;
                             <div class="row">
                                 <div class="col-md-12">
                                     <span>Make: </span>
-                                    <input type="text" class="form-control" value="make" name="make" required>
+                                    <input type="text" class="form-control" name="make">
                                     <span>Model: </span>
-                                    <input type="text" class="form-control" value="model" name="model" required>
+                                    <input type="text" class="form-control" name="model">
                                 </div>
                             </div>
                         </div>
@@ -347,7 +349,7 @@ use Carbon\Carbon;
                 <!-- product view wrapper area end -->
 
                 <!-- start pagination area -->
-                <div class="paginatoin-area text-center pt-28">
+                {{--<div class="paginatoin-area text-center pt-28">
                     <div class="row">
                         <div class="col-12">
                             <ul class="pagination-box">
@@ -355,7 +357,7 @@ use Carbon\Carbon;
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <!-- end pagination area -->
 
             </div>

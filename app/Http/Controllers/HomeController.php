@@ -199,18 +199,30 @@ class HomeController extends Controller
         // dd($request->all());
         $district_search = $request->district;
         $tehsil_search = $request->tehsil;
-        $sale_product = OtherProduct::orWhere('category','LIKE', '%' . $request->category.'%')->orWhere('sub_category','LIKE', '%' . $request->sub_category.'%')
-        ->orWhere('make','LIKE', '%' . $request->make.'%')->orWhere('model', 'LIKE', '%' .$request->model.'%')
-        ->orWhereBetween('price', [$request->min, $request->max])
-        ->with(['district_name','tehsil_name'])
+        $sale_product = OtherProduct::with(['district_name','tehsil_name'])
         ->orWhereHas('district_name', function ($q) use ($district_search) {
-            $q->where('name', 'LIKE', '%' .$district_search.'%');
+            $q->orWhere('name', $district_search);
         })
         ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
-            $q->where('name','LIKE', '%' .$tehsil_search.'%');
-        })->paginate(12);
+            $q->orWhere('name',$tehsil_search);
+        })->get();
+        if($request->category!=null){
+            $sale_product = $sale_product->where('category', $request->category);
+        }
+        if($request->sub_category!=null){
+            $sale_product = $sale_product->where('sub_category', $request->sub_category);
+        }
+        if($request->make!=null){
+            $sale_product = $sale_product->where('make', $request->make);
+        }
+        if($request->model!=null){
+            $sale_product = $sale_product->where('model', $request->model);
+        }
+        if($request->min!=null){
+            $sale_product = $sale_product->whereBetween('price', [$request->min, $request->max]);
+        }
         if($sale_product->count()==0){
-            $sale_product = OtherProduct::paginate(12);
+            $sale_product = OtherProduct::get();
         }
         $sale_product_count = OtherProduct::orderBy('created_at', 'DESC')->get();
         $arti = User::orderBy('verify', 'ASC')->orWhereHas('district_name', function ($q) use ($district_search) {
