@@ -75,13 +75,13 @@ use Carbon\Carbon;
                             </div>
                             <div class="sidebar-widget-body">
                                 <ul>
-                                    <li><input type="radio" name="category" value="vehicles">
+                                    <li><input type="radio" name="category" value="vehicles" required>
                                         Vehicles<span>({{ number_format($sale_product_count->where('category', 'vehicles')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="category" value="crops">
+                                    <li><input type="radio" name="category" value="crops" required>
                                         Crops<span>({{ number_format($sale_product_count->where('category', 'crops')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="category" value="fertilizers">
+                                    <li><input type="radio" name="category" value="fertilizers" required>
                                         Fertilizers<span>({{ number_format($sale_product_count->where('category', 'fertilizers')->count()) }})</span>
                                     </li>
                                 </ul>
@@ -93,31 +93,31 @@ use Carbon\Carbon;
                             </div>
                             <div class="sidebar-widget-body">
                                 <ul>
-                                    <li><input type="radio" name="sub_category" value="tractor">
+                                    <li><input type="radio" name="sub_category" value="tractor" required>
                                         Tractors<span>({{ number_format($sale_product_count->where('sub_category', 'tractor')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="dumper">
+                                    <li><input type="radio" name="sub_category" value="dumper" required>
                                         Dumpers<span>({{ number_format($sale_product_count->where('sub_category', 'dumper')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="exivator">
+                                    <li><input type="radio" name="sub_category" value="exivator" required>
                                         Exivators<span>({{ number_format($sale_product_count->where('sub_category', 'exivator')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="harvestor">
+                                    <li><input type="radio" name="sub_category" value="harvestor" required>
                                         Harvestors<span>({{ number_format($sale_product_count->where('sub_category', 'harvestor')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="fertilizer">
+                                    <li><input type="radio" name="sub_category" value="fertilizer" required>
                                         Fertilizers<span>({{ number_format($sale_product_count->where('sub_category', 'fertilizer')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="fruit">
+                                    <li><input type="radio" name="sub_category" value="fruit" required>
                                         Fruits<span>({{ number_format($sale_product_count->where('sub_category', 'fruit')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="vegitable">
+                                    <li><input type="radio" name="sub_category" value="vegitable" required>
                                         Vegitables<span>({{ number_format($sale_product_count->where('sub_category', 'vegitable')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="grain">
+                                    <li><input type="radio" name="sub_category" value="grain" required>
                                         Grains<span>({{ number_format($sale_product_count->where('sub_category', 'grain')->count()) }})</span>
                                     </li>
-                                    <li><input type="radio" name="sub_category" value="other">
+                                    <li><input type="radio" name="sub_category" value="other" required>
                                         Others<span>({{ number_format($sale_product_count->where('sub_category', 'other')->count()) }})</span>
                                     </li>
                                 </ul>
