@@ -71,6 +71,18 @@ use Carbon\Carbon;
                         @csrf
                         <div class="sidebar-widget mb-30">
                             <div class="sidebar-title mb-10">
+                                <h3>Advance Search For</h3>
+                            </div>
+                            <div class="sidebar-widget-body">
+                                <ul>
+                                    <li style="background: #0c8b51; padding:5px;"><a style="color:#fff; font-weight:bold;" href="{{url('advance-search')}}">For Sale Product</a></li>
+                                    <li><a href="{{url('arti-advance-search')}}">For Arti</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-widget mb-30">
+                            <div class="sidebar-title mb-10">
                                 <h3>forsale Categories</h3>
                             </div>
                             <div class="sidebar-widget-body">
@@ -278,88 +290,7 @@ use Carbon\Carbon;
                     </div>
                     <!-- product item end -->
                     <!-- shop product top wrap start -->
-                    <h3>Arti</h3>
-                    <hr>
-                    <!-- product item start -->
-                    <div class="shop-product-wrap grid row">
-                        @if ($arti->count() > 0)
-                        @foreach ($arti as $item)
-                        @foreach ($item->roles as $item2)
-                        @if ($item2->title == 'Arti')
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <!-- product single grid item start -->
-                            <div class="product-item fix mb-30">
-                                <div class="product-thumb">
-                                    @if($item->verify==0)
-                                    <i class="ribbon">Verify</i>
-                                    @endif
-                                    <a href="{{url('arti-detail/'.$item->id)}}">
-                                        <img src="{{asset($item->image?? 'assets/img/user.jpg')}}" class="img-pri" style="height: 200px;" alt="">
-                                    </a>
-                                    {{-- <div class="product-label">
-                                        <span>hot</span>
-                                    </div>
-                                    <div class="product-action-link">
-                                        <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
-                                    </div> --}}
-                                </div>
-                                <div class="product-content">
-                                    <h4><a href="{{url('arti-detail/'.$item->id)}}">{{$item->first_name??''}} {{$item->last_name??''}}</a></h4>
-                                    <div class="pricebox">
-                                        {{-- <span class="regular-price">Rs. {{$item->price_low??''}} - {{$item->price_high??''}}</span> --}}
-                                        {{-- <div class="ratings">
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span class="good"><i class="fa fa-star"></i></span>
-                                            <span><i class="fa fa-star"></i></span>
-                                            <div class="pro-review">
-                                                <span>1 review(s)</span>
-                                            </div>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single grid item end -->
-                        </div> <!-- product single column end -->
-                        @endif
-                        @endforeach
-                        @endforeach
-                        @else
-                            <div class="col-md-12">
-                                <h4>No Arti Found</h4>
-                            </div>
-                        @endif
-                    </div>
-                    <!-- start pagination area -->
-                    {{-- <div class="paginatoin-area text-center pt-28">
-                        <div class="row">
-                            <div class="col-12">
-                                <ul class="pagination-box">
-                                    {{ $arti->links() }}
-                                </ul>
-                            </div>
-                        </div>
-                    </div> --}}
-                    <!-- end pagination area -->
                 </div>
-                <!-- product view wrapper area end -->
-
-                <!-- start pagination area -->
-                {{--<div class="paginatoin-area text-center pt-28">
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="pagination-box">
-                                {{ $sale_product->links() }}
-                            </ul>
-                        </div>
-                    </div>
-                </div>--}}
-                <!-- end pagination area -->
-
             </div>
             <!-- product main wrap end -->
         </div>

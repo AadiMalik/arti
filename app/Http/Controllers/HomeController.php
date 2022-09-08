@@ -239,6 +239,39 @@ class HomeController extends Controller
         $tehsil = Tehsil::orderBY('name','ASC')->get();
         return view('advance_serach', compact('sale_product', 'sale_product_count','arti','district','tehsil'));
     }
+    public function arti_advance_serach()
+    {
+        $arti = User::orderBy('verify', 'ASC')->get();
+        $district = District::orderBY('name','ASC')->get();
+        $tehsil = Tehsil::orderBY('name','ASC')->get();
+        return view('arti_advance_search', compact('arti','district','tehsil'));
+    }
+    public function arti_advance_serach_filter(Request $request)
+    {
+        // dd($request->all());
+        $district_search = $request->district;
+        $tehsil_search = $request->tehsil;
+        $arti = User::orWhere('username',$request->arti)
+        ->orWhere('first_name',$request->arti)
+        ->orWhere('last_name',$request->arti)
+        ->orWhere('email',$request->arti)
+        ->orWhere('phone1',$request->arti)
+        ->orWhere('phone2',$request->arti)
+        ->orWhere('address',$request->arti)
+        ->with(['district_name','tehsil_name'])
+        ->orWhereHas('district_name', function ($q) use ($district_search) {
+            $q->orWhere('name', $district_search);
+        })
+        ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
+            $q->orWhere('name',$tehsil_search);
+        })->get();
+        if($arti->count()==0){
+            $arti = User::get();
+        }
+        $district = District::orderBY('name','ASC')->get();
+        $tehsil = Tehsil::orderBY('name','ASC')->get();
+        return view('arti_advance_search', compact('arti','district','tehsil'));
+    }
     public function zamidar_category($category)
     {
         $sale_product = OtherProduct::where('category', $category)->orderBy('created_at', 'DESC')->paginate(10);
