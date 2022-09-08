@@ -251,20 +251,40 @@ class HomeController extends Controller
         // dd($request->all());
         $district_search = $request->district;
         $tehsil_search = $request->tehsil;
-        $arti = User::orWhere('username',$request->arti)
-        ->orWhere('first_name',$request->arti)
-        ->orWhere('last_name',$request->arti)
-        ->orWhere('email',$request->arti)
-        ->orWhere('phone1',$request->arti)
-        ->orWhere('phone2',$request->arti)
-        ->orWhere('address',$request->arti)
+        $arti = User::orWhere('username', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('first_name', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('last_name', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('email', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('phone1', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('phone2', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('address', 'LIKE', '%' .$request->arti."%")->get();
+        if($request->district){
+            $arti = User::orWhere('username', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('first_name', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('last_name', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('email', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('phone1', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('phone2', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('address', 'LIKE', '%' .$request->arti."%")
         ->with(['district_name','tehsil_name'])
-        ->orWhereHas('district_name', function ($q) use ($district_search) {
-            $q->orWhere('name', $district_search);
+        ->whereHas('district_name', function ($q) use ($district_search) {
+            $q->where('name', 'LIKE', '%' .$district_search."%");
         })
-        ->orWhereHas('tehsil_name', function ($q) use ($tehsil_search) {
-            $q->orWhere('name',$tehsil_search);
+        ->get();
+        }
+        if($request->teshil){
+            $arti = User::orWhere('username', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('first_name', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('last_name', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('email', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('phone1', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('phone2', 'LIKE', '%' .$request->arti."%")
+        ->orWhere('address', 'LIKE', '%' .$request->arti."%")
+        ->with(['district_name','tehsil_name'])
+        ->whereHas('tehsil_name', function ($q) use ($tehsil_search) {
+            $q->where('name','LIKE', '%' .$tehsil_search."%");
         })->get();
+        }
         if($arti->count()==0){
             $arti = User::get();
         }
