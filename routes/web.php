@@ -27,6 +27,10 @@ Route::get('advance-search', 'HomeController@advance_serach');
 Route::post('advance-search/filter', 'HomeController@advance_serach_filter');
 
 
+Route::get('arti-advance-search', 'HomeController@arti_advance_serach');
+Route::post('arti-advance-search/filter', 'HomeController@arti_advance_serach_filter');
+
+
 Route::get('forsale-detail/{id}', 'HomeController@zamidar_detail');
 Route::get('product-detail/{id}', 'HomeController@product_detail');
 Route::get('faq', 'HomeController@faq');
