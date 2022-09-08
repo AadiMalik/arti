@@ -251,7 +251,6 @@ class HomeController extends Controller
         // dd($request->all());
         $district_search = $request->district;
         $tehsil_search = $request->tehsil;
-<<<<<<< HEAD
         $arti = User::orWhere('username',$request->arti)
         ->orWhere('first_name',$request->arti)
         ->orWhere('last_name',$request->arti)
@@ -259,15 +258,6 @@ class HomeController extends Controller
         ->orWhere('phone1',$request->arti)
         ->orWhere('phone2',$request->arti)
         ->orWhere('address',$request->arti)
-=======
-        $arti = User::orWhere('username', 'LIKE', "%" .$request->arti."%")
-        ->orWhere('first_name', 'LIKE', "%" .$request->arti."%")
-        ->orWhere('last_name', 'LIKE', "%" .$request->arti."%")
-        ->orWhere('email', 'LIKE', "%" .$request->arti."%")
-        ->orWhere('phone1', 'LIKE', "%" .$request->arti."%")
-        ->orWhere('phone2', 'LIKE', "%" .$request->arti."%")
-        ->orWhere('address', 'LIKE', "%" .$request->arti."%")
->>>>>>> f28b55b7fad23efadeb326062fc3fc1167a20bc1
         ->with(['district_name','tehsil_name'])
         ->orWhereHas('district_name', function ($q) use ($district_search) {
             $q->orWhere('name', $district_search);
