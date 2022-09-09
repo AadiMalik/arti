@@ -215,14 +215,16 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                                     <div class="notification">
                                                                         <a href="#"
                                                                             class="dropdown-item dropdown-item-unread  mark-as-read"
-                                                                            data-id="{{ $notification->id ?? '' }}"> <span style="padding: 2px;
+                                                                            data-id="{{ $notification->id ?? '' }}"> <span
+                                                                                style="padding: 2px;
                                                                             margin: 4px;"
                                                                                 class="dropdown-item-icon bg-primary text-white">
                                                                                 <i
                                                                                     class="fas
                                                                             fa-bell"></i>
                                                                             </span> <span class="dropdown-item-desc">
-                                                                                {{ $notification->data['name'] }} {{ $notification->data['message'] }}
+                                                                                {{ $notification->data['name'] }}
+                                                                                {{ $notification->data['message'] }}
                                                                                 <span
                                                                                     class="time">{{ $notification->created_at->diffForHumans() }}</span>
                                                                             </span>
@@ -325,48 +327,70 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                             <button class="search-btn"><i class="fa fa-search"></i></button>
                                         </form>
                                         <div style="text-align: center; margin-top:10px;">
-                                            <a href="{{url('advance-search')}}" style="color: #0c8b51;
+                                            <a href="{{ url('advance-search') }}"
+                                                style="color: #0c8b51;
                                             font-weight: bold;
                                             border: 2px solid #0c8b51;
-                                            padding: 3px 15px;">Advance Search >></a>
+                                            padding: 3px 15px;">Advance
+                                                Search >></a>
                                         </div>
                                     </div>
-                                    <a href="{{ url('sell') }}">
-                                        <div class="form-control"
-                                            style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
-                                            Sell +
-                                        </div>
-                                    </a>
+                                    @auth
+                                        @foreach (Auth()->user()->roles as $item)
+                                            @if ($item->title == 'Arti')
+                                                <a href="{{ url('user-product') }}">
+                                                    <div class="form-control"
+                                                        style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
+                                                        Sell +
+                                                    </div>
+                                                </a>
+                                            @else
+                                                <a href="{{ url('sell') }}">
+                                                    <div class="form-control"
+                                                        style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
+                                                        Sell +
+                                                    </div>
+                                                </a>
+                                            @endif
+                                        @endforeach
+                                        @else
+                                        <a href="{{ url('login') }}">
+                                            <div class="form-control"
+                                                style="display: block; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;">
+                                                Sell +
+                                            </div>
+                                        </a>
+                                        @endAuth
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- header middle end -->
+                <!-- header middle end -->
 
-            <!-- main menu area start -->
-            <div class="main-header-wrapper bdr-bottom1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="main-header-inner">
-                                <div class="category-toggle-wrap">
-                                    <div class="category-toggle">
-                                        category
-                                        <div class="cat-icon">
-                                            <i class="fa fa-angle-down"></i>
+                <!-- main menu area start -->
+                <div class="main-header-wrapper bdr-bottom1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="main-header-inner">
+                                    <div class="category-toggle-wrap">
+                                        <div class="category-toggle">
+                                            category
+                                            <div class="cat-icon">
+                                                <i class="fa fa-angle-down"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <nav class="category-menu hm-1">
-                                        <ul>
-                                            @foreach ($category as $item)
-                                                <li><a href="{{ url('shop-category/' . $item->id) }}"><i
-                                                            class="fa fa-desktop"></i>
-                                                        {{ $item->name ?? '' }}</a></li>
-                                            @endforeach
+                                        <nav class="category-menu hm-1">
+                                            <ul>
+                                                @foreach ($category as $item)
+                                                    <li><a href="{{ url('shop-category/' . $item->id) }}"><i
+                                                                class="fa fa-desktop"></i>
+                                                            {{ $item->name ?? '' }}</a></li>
+                                                @endforeach
 
-                                            {{-- <li class="menu-item-has-children"><a href="shop-grid-left-sidebar.html"><i
+                                                {{-- <li class="menu-item-has-children"><a href="shop-grid-left-sidebar.html"><i
                                                         class="fa fa-camera"></i> camera</a>
                                                 <!-- Mega Category Menu Start -->
                                                 <ul class="category-mega-menu">
@@ -489,326 +513,326 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                     microchip</a></li>
                                             <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-bullhorn"></i>
                                                     bullhorn</a></li> --}}
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class="active"><a href="{{ url('/') }}"><i
-                                                        class="fa fa-home"></i>Home</a>
-                                            </li>
-                                            <li class="static"><a href="{{ url('about-us') }}">About Us</a>
-                                            </li>
-                                            <li><a href="{{ url('newfeeds') }}">New Feed</a>
-                                            <li><a href="#">Products <i class="fa fa-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="{{ url('shop') }}">Shop</a></li>
-                                                    <li><a href="{{ url('zamidar') }}">For Sale</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="main-menu">
+                                        <nav id="mobile-menu">
+                                            <ul>
+                                                <li class="active"><a href="{{ url('/') }}"><i
+                                                            class="fa fa-home"></i>Home</a>
+                                                </li>
+                                                <li class="static"><a href="{{ url('about-us') }}">About Us</a>
+                                                </li>
+                                                <li><a href="{{ url('newfeeds') }}">New Feed</a>
+                                                <li><a href="#">Products <i class="fa fa-angle-down"></i></a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="{{ url('shop') }}">Shop</a></li>
+                                                        <li><a href="{{ url('zamidar') }}">For Sale</a></li>
 
-                                                </ul>
-                                            </li>
-                                            <li><a href="{{ url('blog') }}">Blog</a>
-                                            </li>
-                                            <li><a href="{{ url('contact-us') }}">Contact us</a></li>
-                                            <li class="static"><a href="#">Calendar <i
-                                                        class="fa fa-angle-down"></i></a>
-                                                <ul class="megamenu dropdown" style="right:0px; width:70%;">
-                                                    <div id="calendar-converter" style="margin-left:25px;">
-                                                    </div>
-                                                </ul>
-                                            </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="{{ url('blog') }}">Blog</a>
+                                                </li>
+                                                <li><a href="{{ url('contact-us') }}">Contact us</a></li>
+                                                <li class="static"><a href="#">Calendar <i
+                                                            class="fa fa-angle-down"></i></a>
+                                                    <ul class="megamenu dropdown" style="right:0px; width:70%;">
+                                                        <div id="calendar-converter" style="margin-left:25px;">
+                                                        </div>
+                                                    </ul>
+                                                </li>
 
-                                        </ul>
-                                    </nav>
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 d-block d-lg-none">
-                            <div class="mobile-menu"></div>
+                            <div class="col-12 d-block d-lg-none">
+                                <div class="mobile-menu"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- main menu area end -->
+                <!-- main menu area end -->
 
-        </header>
-        <!-- header area end -->
-        @yield('content')
+            </header>
+            <!-- header area end -->
+            @yield('content')
 
-        <!-- brand area start -->
-        <div class="brand-area pt-34 pb-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title mb-30">
-                            <div class="title-icon">
-                                <i class="fa fa-crop"></i>
-                            </div>
-                            <h3>Popular Brand</h3>
-                        </div> <!-- section title end -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="brand-active slick-padding slick-arrow-style">
-                            @foreach ($brand as $item)
-                                <div class="brand-item text-center">
-                                    <a href="#"><img src="{{ asset($item->image ?? '') }}" alt=""></a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- brand area end -->
-        <!-- footer area start -->
-        <footer>
-            <!-- footer top start -->
-            <div class="footer-top bg-black pt-14 pb-14">
-                <div class="container">
-                    <div class="footer-top-wrapper">
-                        <div class="newsletter__wrap">
-                            <div class="newsletter__title">
-                                <div class="newsletter__icon">
-                                    <i class="fa fa-envelope"></i>
-                                </div>
-                                <div class="newsletter__content">
-                                    <h3>sign up for newsletter</h3>
-                                    <p>Duis autem vel eum iriureDuis autem vel eum</p>
-                                </div>
-                            </div>
-                            <div class="newsletter__box">
-                                {!! $errors->first('email', "<span class='text-danger'>:message</span>") !!}
-                                <form action="{{ route('newsletter') }}" method="POST">
-                                    @csrf
-
-                                    <input type="email" name="email" autocomplete="off" placeholder="Email"
-                                        required>
-                                    <button type="submit" id="mc-submit">subscribe!</button>
-
-                                </form>
-                            </div>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
-                            <!-- mailchimp-alerts end -->
-                        </div>
-                        <div class="social-icons">
-                            @foreach ($media as $item)
-                                <a href="{{ $item->link ?? '' }}" data-toggle="tooltip" data-placement="top"
-                                    title="{{ $item->name ?? '' }}"><i class="{{ $item->icon ?? '' }}"></i></a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- footer top end -->
-
-            <!-- footer main start -->
-            <div class="footer-widget-area pt-40 pb-38 pb-sm-10">
+            <!-- brand area start -->
+            <div class="brand-area pt-34 pb-30">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget mb-sm-30">
-                                <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>contact us</h4>
+                        <div class="col-12">
+                            <div class="section-title mb-30">
+                                <div class="title-icon">
+                                    <i class="fa fa-crop"></i>
                                 </div>
-                                <div class="widget-body">
-                                    <ul class="location">
-                                        <li><i class="fa fa-envelope"></i>{{ $data['#email']['heading'] ?? '' }}</li>
-                                        <li><i class="fa fa-phone"></i>{{ $data['#phone']['heading'] ?? '' }}</li>
-                                        <li><i class="fa fa-map-marker"></i>Address:
-                                            {{ $data['#address']['heading'] ?? '' }}</li>
-                                    </ul>
+                                <h3>Popular Brand</h3>
+                            </div> <!-- section title end -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="brand-active slick-padding slick-arrow-style">
+                                @foreach ($brand as $item)
+                                    <div class="brand-item text-center">
+                                        <a href="#"><img src="{{ asset($item->image ?? '') }}" alt=""></a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- brand area end -->
+            <!-- footer area start -->
+            <footer>
+                <!-- footer top start -->
+                <div class="footer-top bg-black pt-14 pb-14">
+                    <div class="container">
+                        <div class="footer-top-wrapper">
+                            <div class="newsletter__wrap">
+                                <div class="newsletter__title">
+                                    <div class="newsletter__icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="newsletter__content">
+                                        <h3>sign up for newsletter</h3>
+                                        <p>Duis autem vel eum iriureDuis autem vel eum</p>
+                                    </div>
                                 </div>
-                            </div> <!-- single widget end -->
-                        </div> <!-- single widget column end -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget mb-sm-30">
-                                <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>my account</h4>
+                                <div class="newsletter__box">
+                                    {!! $errors->first('email', "<span class='text-danger'>:message</span>") !!}
+                                    <form action="{{ route('newsletter') }}" method="POST">
+                                        @csrf
+
+                                        <input type="email" name="email" autocomplete="off" placeholder="Email"
+                                            required>
+                                        <button type="submit" id="mc-submit">subscribe!</button>
+
+                                    </form>
                                 </div>
-                                <div class="widget-body">
-                                    <ul>
-                                        @auth
-                                            @if (Auth()->user()->is_admin)
-                                                <li><a href="{{ url('admin/admin') }}">Admin Panel</a></li>
+                                <!-- mailchimp-alerts Start -->
+                                <div class="mailchimp-alerts">
+                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                </div>
+                                <!-- mailchimp-alerts end -->
+                            </div>
+                            <div class="social-icons">
+                                @foreach ($media as $item)
+                                    <a href="{{ $item->link ?? '' }}" data-toggle="tooltip" data-placement="top"
+                                        title="{{ $item->name ?? '' }}"><i class="{{ $item->icon ?? '' }}"></i></a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer top end -->
+
+                <!-- footer main start -->
+                <div class="footer-widget-area pt-40 pb-38 pb-sm-10">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer-widget mb-sm-30">
+                                    <div class="widget-title mb-10 mb-sm-6">
+                                        <h4>contact us</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul class="location">
+                                            <li><i class="fa fa-envelope"></i>{{ $data['#email']['heading'] ?? '' }}</li>
+                                            <li><i class="fa fa-phone"></i>{{ $data['#phone']['heading'] ?? '' }}</li>
+                                            <li><i class="fa fa-map-marker"></i>Address:
+                                                {{ $data['#address']['heading'] ?? '' }}</li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- single widget end -->
+                            </div> <!-- single widget column end -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer-widget mb-sm-30">
+                                    <div class="widget-title mb-10 mb-sm-6">
+                                        <h4>my account</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul>
+                                            @auth
+                                                @if (Auth()->user()->is_admin)
+                                                    <li><a href="{{ url('admin/admin') }}">Admin Panel</a></li>
+                                                @else
+                                                    <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
+                                                @endif
                                             @else
-                                                <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
-                                            @endif
-                                        @else
-                                            <li><a href="{{ route('login') }}">Login</a></li>
-                                            <li><a href="{{ route('register') }}">Signup</a></li>
-                                        @endauth
-                                        <li><a href="{{ url('faq') }}">FAQ's</a></li>
-                                        <li><a href="{{ url('term') }}">Terms & Conditions</a></li>
-                                    </ul>
-                                </div>
-                            </div> <!-- single widget end -->
-                        </div> <!-- single widget column end -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget mb-sm-30">
-                                <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>Links</h4>
-                                </div>
-                                <div class="widget-body">
-                                    <ul>
-                                        <li><a href="{{ url('home') }}">Home</a></li>
-                                        <li><a href="{{ url('about-us') }}">about Us</a></li>
-                                        <li><a href="{{ url('contact-us') }}">Contact us</a></li>
-                                        <li><a href="{{ url('blog') }}">Blogs</a></li>
-                                        <li><a href="{{ url('package') }}">Packages</a></li>
-                                    </ul>
-                                </div>
-                            </div> <!-- single widget end -->
-                        </div> <!-- single widget column end -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget mb-sm-30">
-                                <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>Other Links</h4>
-                                </div>
-                                <div class="widget-body">
-                                    <ul>
-                                        <li><a href="{{ url('shop') }}">Products</a></li>
-                                        <li><a href="{{ url('zamidar') }}">For Sale</a></li>
-                                        <li><a href="{{ url('sell') }}">Sell</a></li>
-                                        <li><a href="{{ url('newfeeds') }}">New Feed</a></li>
-                                    </ul>
-                                </div>
-                            </div> <!-- single widget end -->
-                        </div> <!-- single widget column end -->
-                    </div>
-                </div>
-            </div>
-            <!-- footer main end -->
-
-            <!-- footer bootom start -->
-            <div class="footer-bottom-area bg-gray pt-20 pb-20">
-                <div class="container">
-                    <div class="footer-bottom-wrap">
-                        <div class="copyright-text">
-                            <p>Develope by <a target="_blank" href="http://redbrickssolution.com/">Red Bricks
-                                    Solution</a></p>
-                        </div>
-                        <div class="payment-method-img">
-                            <img src="{{ asset('assets/img/payment.png') }}" alt="">
+                                                <li><a href="{{ route('login') }}">Login</a></li>
+                                                <li><a href="{{ route('register') }}">Signup</a></li>
+                                            @endauth
+                                            <li><a href="{{ url('faq') }}">FAQ's</a></li>
+                                            <li><a href="{{ url('term') }}">Terms & Conditions</a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- single widget end -->
+                            </div> <!-- single widget column end -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer-widget mb-sm-30">
+                                    <div class="widget-title mb-10 mb-sm-6">
+                                        <h4>Links</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul>
+                                            <li><a href="{{ url('home') }}">Home</a></li>
+                                            <li><a href="{{ url('about-us') }}">about Us</a></li>
+                                            <li><a href="{{ url('contact-us') }}">Contact us</a></li>
+                                            <li><a href="{{ url('blog') }}">Blogs</a></li>
+                                            <li><a href="{{ url('package') }}">Packages</a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- single widget end -->
+                            </div> <!-- single widget column end -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer-widget mb-sm-30">
+                                    <div class="widget-title mb-10 mb-sm-6">
+                                        <h4>Other Links</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul>
+                                            <li><a href="{{ url('shop') }}">Products</a></li>
+                                            <li><a href="{{ url('zamidar') }}">For Sale</a></li>
+                                            <li><a href="{{ url('sell') }}">Sell</a></li>
+                                            <li><a href="{{ url('newfeeds') }}">New Feed</a></li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- single widget end -->
+                            </div> <!-- single widget column end -->
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- footer bootom end -->
+                <!-- footer main end -->
 
-        </footer>
-        <!-- footer area end -->
+                <!-- footer bootom start -->
+                <div class="footer-bottom-area bg-gray pt-20 pb-20">
+                    <div class="container">
+                        <div class="footer-bottom-wrap">
+                            <div class="copyright-text">
+                                <p>Develope by <a target="_blank" href="http://redbrickssolution.com/">Red Bricks
+                                        Solution</a></p>
+                            </div>
+                            <div class="payment-method-img">
+                                <img src="{{ asset('assets/img/payment.png') }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer bootom end -->
 
-    </div>
+            </footer>
+            <!-- footer area end -->
 
-    <!-- Scroll to top start -->
-    <div class="scroll-top not-visible">
-        <i class="fa fa-angle-up"></i>
-    </div>
-    <!-- Scroll to Top End -->
+        </div>
+
+        <!-- Scroll to top start -->
+        <div class="scroll-top not-visible">
+            <i class="fa fa-angle-up"></i>
+        </div>
+        <!-- Scroll to Top End -->
 
 
 
-    <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
-    <script src="{{ asset('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
-    <!-- Jquery Min Js -->
-    <script src="{{ asset('assets/js/vendor/jquery-3.3.1.min.js') }}"></script>
-    <!-- Popper Min Js -->
-    <script src="{{ asset('assets/js/vendor/popper.min.js') }}"></script>
-    <!-- Bootstrap Min Js -->
-    <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
-    <!-- Plugins Js-->
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <!-- Ajax Mail Js -->
-    <script src="{{ asset('assets/js/ajax-mail.js') }}"></script>
-    <!-- Active Js -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-    <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
-    <script src="{{ asset('assets/js/switcher.js') }}"></script>
-    <script src="{{ asset('assets_data/bundles/select2/dist/js/select2.full.min.js') }}"></script>
-    <script type="text/javascript" src="https://ZulNs.github.io/libs/hijri-date.js"></script>
-    <script type="text/javascript" src="https://ZulNs.github.io/libs/calendar.js"></script>
+        <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+        <script src="{{ asset('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+        <!-- Jquery Min Js -->
+        <script src="{{ asset('assets/js/vendor/jquery-3.3.1.min.js') }}"></script>
+        <!-- Popper Min Js -->
+        <script src="{{ asset('assets/js/vendor/popper.min.js') }}"></script>
+        <!-- Bootstrap Min Js -->
+        <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
+        <!-- Plugins Js-->
+        <script src="{{ asset('assets/js/plugins.js') }}"></script>
+        <!-- Ajax Mail Js -->
+        <script src="{{ asset('assets/js/ajax-mail.js') }}"></script>
+        <!-- Active Js -->
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
+        <script src="{{ asset('assets/js/switcher.js') }}"></script>
+        <script src="{{ asset('assets_data/bundles/select2/dist/js/select2.full.min.js') }}"></script>
+        <script type="text/javascript" src="https://ZulNs.github.io/libs/hijri-date.js"></script>
+        <script type="text/javascript" src="https://ZulNs.github.io/libs/calendar.js"></script>
 
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62b2b574b5b86e45"></script>
-    <script>
-        function sendMarkRequest(id = null) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            return $.ajax("{{ url('mark-as-read') }}", {
-                method: 'POST',
-                data: {
-                    _token:$('meta[name="csrf-token"]').attr('content'),
-                    id
-                }
-            });
-        }
-        $(function() {
-            $('.mark-as-read').click(function() {
-                let request = sendMarkRequest($(this).data('id'));
-                request.done(() => {
-                    $(this).parents('div.notification').remove();
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62b2b574b5b86e45"></script>
+        <script>
+            function sendMarkRequest(id = null) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                return $.ajax("{{ url('mark-as-read') }}", {
+                    method: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
+                        id
+                    }
+                });
+            }
+            $(function() {
+                $('.mark-as-read').click(function() {
+                    let request = sendMarkRequest($(this).data('id'));
+                    request.done(() => {
+                        $(this).parents('div.notification').remove();
+                    });
+                });
+                $('#mark-all').click(function() {
+                    let request = sendMarkRequest();
+                    request.done(() => {
+                        $('div.notification').remove();
+                    })
                 });
             });
-            $('#mark-all').click(function() {
-                let request = sendMarkRequest();
-                request.done(() => {
-                    $('div.notification').remove();
-                })
-            });
-        });
         </script>
-    <script>
-        var cal1 = new Calendar(false, 1, false, true),
-            cal2 = new Calendar(true, 0, false, true),
-            cal1Mode = cal1.isHijriMode(),
-            cal2Mode = cal2.isHijriMode();
-        document.getElementById("calendar-converter").appendChild(cal1.getElement());
-        document.getElementById("calendar-converter").appendChild(cal2.getElement());
-        cal1.setDisplayStyle("inline-block");
-        cal2.setDisplayStyle("inline-block");
-        cal2.getElement().style.marginLeft = "20px";
-        cal1.show();
-        cal2.show();
-
-        cal1.callback = function() {
-            if (cal1Mode !== cal1.isHijriMode()) {
-                cal2.disableCallback(true);
-                cal2.changeDateMode();
-                cal2.disableCallback(false);
-                cal1Mode = cal1.isHijriMode();
+        <script>
+            var cal1 = new Calendar(false, 1, false, true),
+                cal2 = new Calendar(true, 0, false, true),
+                cal1Mode = cal1.isHijriMode(),
                 cal2Mode = cal2.isHijriMode();
-            } else cal2.setTime(cal1.getTime());
-        };
-
-        cal2.callback = function() {
-            if (cal2Mode !== cal2.isHijriMode()) {
-                cal1.disableCallback(true);
-                cal1.changeDateMode();
-                cal1.disableCallback(false);
-                cal1Mode = cal1.isHijriMode();
-                cal2Mode = cal2.isHijriMode();
-            } else cal1.setTime(cal2.getTime());
-        };
-
-        cal1.onHide = function() {
+            document.getElementById("calendar-converter").appendChild(cal1.getElement());
+            document.getElementById("calendar-converter").appendChild(cal2.getElement());
+            cal1.setDisplayStyle("inline-block");
+            cal2.setDisplayStyle("inline-block");
+            cal2.getElement().style.marginLeft = "20px";
             cal1.show();
-        };
-
-        cal2.onHide = function() {
             cal2.show();
-        };
-    </script>
-    @yield('script')
-</body>
 
-</html>
+            cal1.callback = function() {
+                if (cal1Mode !== cal1.isHijriMode()) {
+                    cal2.disableCallback(true);
+                    cal2.changeDateMode();
+                    cal2.disableCallback(false);
+                    cal1Mode = cal1.isHijriMode();
+                    cal2Mode = cal2.isHijriMode();
+                } else cal2.setTime(cal1.getTime());
+            };
+
+            cal2.callback = function() {
+                if (cal2Mode !== cal2.isHijriMode()) {
+                    cal1.disableCallback(true);
+                    cal1.changeDateMode();
+                    cal1.disableCallback(false);
+                    cal1Mode = cal1.isHijriMode();
+                    cal2Mode = cal2.isHijriMode();
+                } else cal1.setTime(cal2.getTime());
+            };
+
+            cal1.onHide = function() {
+                cal1.show();
+            };
+
+            cal2.onHide = function() {
+                cal2.show();
+            };
+        </script>
+        @yield('script')
+    </body>
+
+    </html>

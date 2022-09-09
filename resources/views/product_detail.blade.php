@@ -149,7 +149,7 @@
                                                                 </li>
                                                             @endforeach
                                                         @else
-                                                            <li>No Arti Found</li>
+                                                            <li>No Commession Agent Found</li>
                                                         @endif
 
                                                     </ul>
@@ -204,7 +204,7 @@
                                                                 </li>
                                                             @endforeach
                                                         @else
-                                                            <li>No Arti Found</li>
+                                                            <li>No Commession Agent Found</li>
                                                         @endif
 
                                                     </ul>

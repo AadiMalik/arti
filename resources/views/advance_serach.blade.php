@@ -76,7 +76,7 @@ use Carbon\Carbon;
                             <div class="sidebar-widget-body">
                                 <ul>
                                     <li style="background: #0c8b51; padding:5px;"><a style="color:#fff; font-weight:bold;" href="{{url('advance-search')}}">For Sale Product</a></li>
-                                    <li><a href="{{url('arti-advance-search')}}">For Arti</a></li>
+                                    <li><a href="{{url('arti-advance-search')}}">For Commession Agent</a></li>
                                     
                                 </ul>
                             </div>

@@ -158,7 +158,7 @@
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Arti Detail</li>
+                            <li class="breadcrumb-item active" aria-current="page">Commession Agent Detail</li>
                         </ul>
                     </nav>
                 </div>

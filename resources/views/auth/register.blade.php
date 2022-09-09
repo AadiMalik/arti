@@ -43,7 +43,7 @@
                                         <div class="single-input-item">
                                             <select name="role" id="" class="form-control">
                                                 <option value="2">Zameendar</option>
-                                                <option value="3">Arti</option>
+                                                <option value="3">Commession Agent</option>
                                             </select>
                                         </div>
                                     </div>

@@ -11,7 +11,7 @@ $notifications = notification();
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Arti Dashboard</title>
+    <title>Commession Agent Dashboard</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets_data/css/app.min.css') }}">
@@ -347,25 +347,25 @@ $notifications = notification();
                         @can('admin_user_product_access')
                             <li class="dropdown">
                                 <a href="{{ url('admin/user-product') }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Arti Products</span></a>
+                                        data-feather="monitor"></i><span>Commession Agent Products</span></a>
                             </li>
                         @endcan
                         @can('arti_post_access')
                             <li class="dropdown">
                                 <a href="{{ url('admin/arti-post') }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Arti Posts</span></a>
+                                        data-feather="monitor"></i><span>Commession Agent Posts</span></a>
                             </li>
                         @endcan
                         @can('admin_user_gallery_access')
                             <li class="dropdown">
                                 <a href="{{ url('admin/user-gallery') }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Arti Gallery</span></a>
+                                        data-feather="monitor"></i><span>Commession Agent Gallery</span></a>
                             </li>
                         @endcan
                         @can('admin_user_video_access')
                             <li class="dropdown">
                                 <a href="{{ url('admin/user-video') }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Arti Videos</span></a>
+                                        data-feather="monitor"></i><span>Commession Agent Videos</span></a>
                             </li>
                         @endcan
                         @can('setting_access')

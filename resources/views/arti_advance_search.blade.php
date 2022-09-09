@@ -76,7 +76,7 @@ use Carbon\Carbon;
                             <div class="sidebar-widget-body">
                                 <ul>
                                     <li><a href="{{url('advance-search')}}">For Sale Product</a></li>
-                                    <li style="background: #0c8b51; padding:5px;"><a style="color:#fff; font-weight:bold;" href="{{url('arti-advance-search')}}">For Arti</a></li>
+                                    <li style="background: #0c8b51; padding:5px;"><a style="color:#fff; font-weight:bold;" href="{{url('arti-advance-search')}}">For Commession Agent</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ use Carbon\Carbon;
                 <!-- product view wrapper area start -->
                 <div class="shop-product-wrapper pt-34">
                     <!-- shop product top wrap start -->
-                    <h3>Arti</h3>
+                    <h3>Commession Agents</h3>
                     <hr>
                     <!-- product item start -->
                     <div class="shop-product-wrap grid row">
@@ -182,7 +182,7 @@ use Carbon\Carbon;
                         @endforeach
                         @else
                             <div class="col-md-12">
-                                <h4>No Arti Found</h4>
+                                <h4>No Commession Agent Found</h4>
                             </div>
                         @endif
                     </div>
