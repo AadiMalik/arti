@@ -141,7 +141,7 @@ class UserProductController extends Controller
             $product_type[] = $user_product->product_name->type;
             $product_price_low[] = $user_product->price_low;
             $product_price_high[] = $user_product->price_high;
-            $product_weight[] = $user_product->weight . '/' . $user_product->weight_type;
+            $product_weight[] = $user_product->weight . '-' . $user_product->weight_type;
             $product_image[] = $user_product->image1;
         }
         // dd($product_name,$product_price_low,$product_price_high,$product_weight);

@@ -15,7 +15,7 @@ use Carbon\Carbon;
             -o-transform: rotate(45deg);
             position: absolute;
             padding: 4px 0;
-            top: 15px;
+            top: 25px;
             right: -30px;
             width: 120px;
             background-color: #0c8b51;
@@ -170,7 +170,7 @@ use Carbon\Carbon;
                                     </a>
                                 </div>
                                 <div class="product-content">
-                                    <h4><a href="{{url('arti-detail/'.$item->id)}}">{{$item->first_name??''}} {{$item->last_name??''}}</a></h4>
+                                    <h4><a href="{{url('arti-detail/'.$item->id)}}">{{$item->first_name??''}} {{$item->last_name??''}}</a>@if($item->verify==0) <i class="fa fa-check-circle" style="color: blue;" aria-hidden="true"></i>@endif</h4>
                                     <div class="pricebox">
                                     </div>
                                 </div>

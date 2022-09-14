@@ -189,7 +189,7 @@
                                         <a href="{{ url('dashboard') }}"><i class="fa fa-line-chart"></i>Dashboard</a>
                                         <a href="{{ url('user-product') }}"><i class="fa fa-truck"></i>My Products</a>
                                         <a href="{{ url('profile') }}"><i class="fa fa-edit"></i>Edit Profile</a>
-                                        <a href="javascript:void(0);"
+                                        <a href="javascript:void(0);" style="border-bottom: 1px solid #ccc;"
                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                             <i class="fa fa-lock"></i> Logout</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -220,10 +220,11 @@
                                                     style="border-radius: 50%; height:115px;" alt="">
                                             </div>
                                             <div class="col-md-8" style="padding-top: 30px;">
-                                                <h4>{{ $arti->first_name ?? '' }} {{ $arti->last_name ?? '' }}</h4>
-                                                <b>{{ $arti->address ?? '' }}</b>
+                                                <h4 style="font-weight:bold;">{{ $arti->first_name ?? '' }}
+                                                    {{ $arti->last_name ?? '' }}</h4>
+                                                <b>{{ strtoupper($arti->address ?? '') }}</b>
                                                 <h5>{{ $arti->email ?? '' }}</h5>
-                                                <h5>{{ $arti->phone ?? '' }}</h5>
+                                                <h5>{{ $arti->phone1 ?? '' }}</h5>
 
                                             </div>
 
@@ -295,41 +296,52 @@
                                                     {!! $arti->bio ?? 'No description' !!}
                                                 </p>
                                                 @auth
-                                                @if(Auth()->user()->id==$arti->id)
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <img src="{{ asset($arti->image ?? 'assets/img/user.jpg') }}"
-                                                    style="border-radius: 50%; height:50px; float:right" alt="">
-                                                    </div>
-                                                    <div class="col-md-10">
-                                                        <input type="text" style="border-radius: 20px; height:45px; background: #4444;" class="form-control" placeholder="Say something about your business.." data-toggle="modal" data-target="#model">
-                                                    </div>
-                                                </div>
-                                                <div class="modal fade" id="model" role="dialog">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="modeltitle">Say something about your business</h5>
+                                                    @if (Auth()->user()->id == $arti->id)
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <img src="{{ asset($arti->image ?? 'assets/img/user.jpg') }}"
+                                                                    style="border-radius: 50%; height:50px; float:right"
+                                                                    alt="">
                                                             </div>
-                                                            <hr>
-                                                            <form action="{{url('update-note')}}" method="POST">
-                                                            <div class="modal-body">
-                                                                    @csrf
-                                                                    <div class="form-group">
-                                                                        <textarea name="note" class="form-control" style="min-height: 100px;">{{$arti->note ?? old('note')}}</textarea>
-                                                                    </div>
+                                                            <div class="col-md-10">
+                                                                <input type="text"
+                                                                    style="border-radius: 20px; height:45px; background: #4444;"
+                                                                    class="form-control"
+                                                                    placeholder="Say something about your business.."
+                                                                    data-toggle="modal" data-target="#model">
                                                             </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </form>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                @endif
+                                                        <div class="modal fade" id="model" role="dialog">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="modeltitle">Say
+                                                                            something about your business</h5>
+                                                                    </div>
+                                                                    <hr>
+                                                                    <form action="{{ url('update-note') }}"
+                                                                        method="POST">
+                                                                        <div class="modal-body">
+                                                                            @csrf
+                                                                            <div class="form-group">
+                                                                                <textarea name="post" class="form-control" style="min-height: 100px;">{{ old('post') }}</textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Post</button>
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
                                                 @endauth
-                                                <hr>
+                                                {{-- <hr>
                                                 @if (isset($arti->note))
                                                     <b>Note:</b>
                                                     <p style="background: 
@@ -337,7 +349,7 @@
                                                     color: #ffff;
                                                     font-size: 14px; text-align: justify;">
                                                         {!! $arti->note ?? 'No important' !!}</p>
-                                                @endif
+                                                @endif --}}
                                                 <hr>
                                             </div>
                                             @foreach ($post as $index => $item)
@@ -360,44 +372,58 @@
                                                             </div>
                                                         @endif
                                                     @endauth
+
                                                     <table class="table table-striped table-hover">
-                                                        <thead>
-                                                            <tr style="background:#239B56 ; color:#fff;">
-                                                                <th>Name</th>
-                                                                <th>Picture</th>
-                                                                <th>Type</th>
-                                                                <th>Price Low</th>
-                                                                <th>Price High</th>
-                                                                <th>Weight</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @php
-                                                                $product_name = json_decode($item->name, true);
-                                                                $product_image = json_decode($item->image, true);
-                                                                $product_type = json_decode($item->type, true);
-                                                                $product_price_low = json_decode($item->price_low, true);
-                                                                $product_price_high = json_decode($item->price_high, true);
-                                                                $product_weight = json_decode($item->weight, true);
-                                                            @endphp
-                                                            @foreach ($product_name as $index => $item1)
-                                                                <tr>
-                                                                    <td>{{ $product_name[$index] ?? '' }}</td>
-                                                                    <td><img src="{{ asset($product_image[$index] ?? '') }}"
-                                                                            style="height: 70px; width:100px;"
-                                                                            alt=""></td>
-                                                                    <td>{{ $product_type[$index] ?? '' }}</td>
-                                                                    <td>{{ $product_price_low[$index] ?? '' }}</td>
-                                                                    <td>{{ $product_price_high[$index] ?? '' }}</td>
-                                                                    <td>{{ $product_weight[$index] ?? '' }}</td>
+                                                        @if ($item->post_type == 0)
+                                                            <thead>
+                                                                <tr style="background:#239B56 ; color:#fff;">
+                                                                    <th>Name</th>
+                                                                    <th>Picture</th>
+                                                                    <th>Type</th>
+                                                                    <th>Price Low</th>
+                                                                    <th>Price High</th>
+                                                                    <th>Weight</th>
                                                                 </tr>
-                                                            @endforeach
+                                                            </thead>
+                                                            <tbody>
+                                                                @php
+                                                                    $product_name = json_decode($item->name, true);
+                                                                    $product_image = json_decode($item->image, true);
+                                                                    $product_type = json_decode($item->type, true);
+                                                                    $product_price_low = json_decode($item->price_low, true);
+                                                                    $product_price_high = json_decode($item->price_high, true);
+                                                                    $product_weight = json_decode($item->weight, true);
+                                                                @endphp
+                                                                @foreach ($product_name as $index => $item1)
+                                                                    <tr>
+                                                                        <td>{{ $product_name[$index] ?? '' }}</td>
+                                                                        <td><img src="{{ asset($product_image[$index] ?? '') }}"
+                                                                                style="height: 70px; width:100px;"
+                                                                                alt=""></td>
+                                                                        <td>{{ $product_type[$index] ?? '' }}</td>
+                                                                        <td>{{ $product_price_low[$index] ?? '' }}</td>
+                                                                        <td>{{ $product_price_high[$index] ?? '' }}
+                                                                        </td>
+                                                                        <td>{{ $product_weight[$index] ?? '' }}</td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            @else
+                                                                <thead>
+                                                                    <tr style="background:#239B56 ; width:100%;">
+                                                                        <th colspan="5">
+                                                                            <p
+                                                                                style=" color:#fff; text-align:justify;">
+                                                                                {!! $item->description ?? '' !!}</p>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                        @endif
                                                         </tbody>
                                                         <tfoot style="text-align:center;">
                                                             <tr style="border-top:2px solid #239B56 ">
-                                                                <th colspan="2" @auth
-                                                                        @if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->count() > 0) style="color:blue;" @endif
-                                                                    @endauth>
+                                                                <th colspan="2"
+                                                                    @auth
+@if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->count() > 0) style="color:blue;" @endif @endauth>
                                                                     <input type="hidden"
                                                                         id="post{{ $item->id }}"
                                                                         value="{{ $item->id }}">
@@ -481,19 +507,19 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body" id="comment_section">
+                                                <div class="modal-body" id="comment_section{{ $item->id ?? '' }}">
 
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <input type="hidden" name="post_id" id="post_id"
+                                                            <input type="hidden" name="post_id" id="post_id{{ $item->id ?? '' }}"
                                                                 value="{{ $item->id ?? '' }}">
                                                             <label>Comment</label>
-                                                            <input name="comment" id="comment" class="form-control"
+                                                            <input name="comment" id="comment{{ $item->id ?? '' }}" class="form-control"
                                                                 placeholder="Write a comment">
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="coment-btn mt-20">
-                                                                <input class="sqr-btn" id="comment_send"
+                                                                <input class="sqr-btn" id="comment_send{{ $item->id ?? '' }}"
                                                                     type="submit" name="submit"
                                                                     value="post comment">
                                                             </div>
@@ -1196,14 +1222,14 @@
         });
     });
 </script>
+
+@foreach ($post as $item)
 <script type="text/javascript">
-    $(document).ready(function() {
-
-
-        $('#comment_send').click(function() {
+        $('#comment_send{{$item->id??''}}').click(function() {
             <?php if (auth()->user() != null) { ?>
-            var post_id = parseInt($('#post_id').val());
-            var comment = $('#comment').val();
+            var post_id = parseInt($('#post_id{{$item->id??''}}').val());
+            var comment = $('#comment{{$item->id??''}}').val();
+            
             $.ajax({
                 type: 'POST',
                 url: "{{ route('Post.Comment') }}",
@@ -1216,8 +1242,8 @@
                 success: function(response) {
                     if (response.success) {
                         alert(response.message);
-                        $("#comment_section").load(location.href +
-                            " #comment_section");
+                        $("#comment_section{{$item->id??''}}").load(location.href +
+                            " #comment_section{{$item->id??''}}");
                         $.ajaxSetup({
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
@@ -1234,7 +1260,6 @@
             <?php } ?>
 
         });
-    });
 </script>
-</script>
+@endforeach
 @endsection

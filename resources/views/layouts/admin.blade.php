@@ -241,8 +241,7 @@ $notifications = notification();
         <div class="main-sidebar sidebar-style-2">
             <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
-                    <a
-                        @if (auth()->user()->is_admin) href="{{ route('admin.home') }}" @else href="{{ route('client.home') }}" @endif>
+                    <a href="{{ route('/') }}">
                         <img alt="image" src="{{ asset($data['#logo']['image'] ?? 'Images/logo2.png') }}"
                             style="height: 60px;" class="header-logo" />
 

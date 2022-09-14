@@ -116,7 +116,7 @@ use Carbon\Carbon;
             -o-transform: rotate(45deg);
             position: absolute;
             padding: 4px 0;
-            top: 15px;
+            top: 25px;
             right: -30px;
             width: 120px;
             background-color: #0c8b51;
@@ -378,7 +378,7 @@ use Carbon\Carbon;
                                 <div class="product-content">
                                     <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
                                             {{ $item1->last_name ?? '' }}
-                                        </a></h4>
+                                        </a><i class="fa fa-check-circle" style="color: blue;" aria-hidden="true"></i></h4>
 
                                     <div class="pricebox">
                                         <span class="reply-btn">

@@ -187,7 +187,7 @@
 
                                                                         <b class="comment-author"><a
                                                                                 href="{{ url('arti-detail/' . $item->id) }}">{{ $item->first_name }}
-                                                                                {{ $item->last_name }}</a></b><br>
+                                                                                {{ $item->last_name }}</a> <i class="fa fa-check-circle" style="color: blue;" aria-hidden="true"></i></b><br>
                                                                         <img src="{{ asset($item->image1 ?? '') }}"
                                                                             style="height: 50px;
                                                                             width: 50px;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\District;
+use App\ProductPost;
 use App\Tehsil;
 use Illuminate\Http\Request;
 use App\User;
@@ -47,11 +48,17 @@ class ProfileController extends Controller
     }
     public function arti_note(Request $request)
     {
-        $user = User::find(Auth()->user()->id);
-        $user->update($request->all());
-        $user->note = $request->note;
-        $user->update();
+        // $user = User::find(Auth()->user()->id);
+        // $user->update($request->all());
+        // $user->note = $request->note;
+        // $user->update();
 
-        return back()->with('success','Your Note Published');
+        $post = new ProductPost;
+        $post->post_type = 1;
+        $post->description = $request->post;
+        $post->user_id = Auth()->user()->id;
+        $post->save();
+
+        return back()->with('success','Your Post Published');
     }
 }

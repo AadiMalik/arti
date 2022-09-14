@@ -276,7 +276,7 @@
                             </div> --}}
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="bio">About</label>
+                                <label for="bio">Description</label>
                                 <textarea class="form-control" id="bio" name="bio">{{ $user->bio ?? '' }}</textarea>
                             </div>
                         </div>
