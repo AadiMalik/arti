@@ -355,7 +355,7 @@
                                             @foreach ($post as $index => $item)
                                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                                     <div style="float: left;">
-                                                        {{ $item->created_at->diffForHumans() }}
+                                                        {{ $item->created_at??'' }}
                                                     </div>
                                                     @auth()
                                                         @if ($item->user_id == Auth()->user()->id)

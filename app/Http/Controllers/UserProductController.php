@@ -154,7 +154,7 @@ class UserProductController extends Controller
         $post->image = json_encode($product_image);
         $post->type = json_encode($product_type);
         $post->save();
-        return redirect('user-product')->with('success', 'Product has updated!');
+        return back()->with('success', 'Product has updated!');
     }
     public function imageEdit($id)
     {

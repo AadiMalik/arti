@@ -390,7 +390,12 @@ class HomeController extends Controller
     }
     public function newfeeds()
     {
-        $post = ProductPost::orderBy('created_at', 'DESC')->get();
+        $query = "SELECT users.username,users.first_name,users.last_name,users.image as arti_image,arti_fallows.arti_id, arti_fallows.user_id,product_posts.id,product_posts.name,product_posts.image,product_posts.type,product_posts.price_low,
+        product_posts.price_high,product_posts.weight,product_posts.post_type,product_posts.description,product_posts.created_at FROM arti_fallows
+        JOIN product_posts ON product_posts.user_id=arti_fallows.arti_id
+        JOIN users ON users.id=arti_fallows.arti_id WHERE arti_fallows.user_id = ".Auth()->user()->id." ORDER BY created_at DESC";
+        $post = DB::select( DB::raw($query) );
+        // $post = ProductPost::orderBy('created_at', 'DESC')->get();
         $fallow = ArtiFallow::orderBy('created_at', 'DESC')->where('user_id', Auth()->user()->id)->get();
         $comment = Comment::all();
         $socialShare = \Share::page(

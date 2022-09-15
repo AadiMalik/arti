@@ -8,7 +8,7 @@
             </div>
         @endif
     <div class="row">
-        <h1 style="text-align: center;">Welcome in Dashbaord..</h1>
+        <h1 style="text-align: center;">Welcome in News Feed..</h1>
         {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="card">
                 <div class="card-statistic-4">

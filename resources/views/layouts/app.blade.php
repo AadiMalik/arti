@@ -524,7 +524,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                 </li>
                                                 <li class="static"><a href="{{ url('about-us') }}">About Us</a>
                                                 </li>
-                                                <li><a href="{{ url('newfeeds') }}">New Feed</a>
+                                                <li><a href="{{ url('newfeeds') }}">News Feed</a>
                                                 <li><a href="#">Products <i class="fa fa-angle-down"></i></a>
                                                     <ul class="dropdown">
                                                         <li><a href="{{ url('shop') }}">Shop</a></li>

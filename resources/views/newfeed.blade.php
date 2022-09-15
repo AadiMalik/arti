@@ -158,7 +158,7 @@
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">New Feeds</li>
+                            <li class="breadcrumb-item active" aria-current="page">News Feeds</li>
                         </ul>
                     </nav>
                 </div>
@@ -252,22 +252,22 @@
                                                 <hr>
                                             </div> --}}
                                             @if($fallow->count()>0)
-                                @foreach ($fallow as $item1)
-                                @foreach ($post->where('user_id',$item1->arti_id) as $index=> $item)
+                                @foreach ($post as $index=> $item)
                                                 <div class="col-lg-12 col-md-12 col-sm-12 myaccount-content mb-3">
                                                     
                                                     <div class="row">
                                                         <div class="col-md-1" style="padding-right: 0px;">
-                                                            <a href="{{url('arti-detail/'.$item->id)}}"><img src="{{$item->arti_name->image??'assets\img\team\team_member_4.jpg'}}" style="height: 60px; width:100%; border-radius:50%;" alt=""></a>
+                                                            <a href="{{url('arti-detail/'.$item->id)}}"><img src="{{$item->arti_image??'assets\img\team\team_member_4.jpg'}}" style="height: 60px; width:100%; border-radius:50%;" alt=""></a>
                                                         </div>
                                                         <div class="col-md-10">
-                                                            <a href="{{url('arti-detail/'.$item->id)}}"><b>{{$item->arti_name->first_name??''}} {{$item->arti_name->last_name??''}}</b></a><br>
-                                                            {{ $item->created_at->diffForHumans() }}
+                                                            <a href="{{url('arti-detail/'.$item->id)}}"><b>{{$item->first_name??''}} {{$item->last_name??''}}</b></a><br>
+                                                            {{ $item->created_at??'' }}
                                                         </div>
                                                     </div>
                                                 
                                                     <hr>
                                                     <table class="table table-striped table-hover">
+                                                        @if ($item->post_type == 0)
                                                         <thead>
                                                             <tr style="background:#239B56 ; color:#fff;">
                                                                 <th>Name</th>
@@ -299,6 +299,17 @@
                                                                     <td>{{ $product_weight[$index] ?? '' }}</td>
                                                                 </tr>
                                                             @endforeach
+                                                            @else
+                                                                <thead>
+                                                                    <tr style="background:#239B56 ; width:100%;">
+                                                                        <th colspan="5">
+                                                                            <p
+                                                                                style=" color:#fff; text-align:justify;">
+                                                                                {!! $item->description ?? '' !!}</p>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                        @endif
                                                         </tbody>
                                                         <tfoot style="text-align:center;">
                                                             <tr style="border-top:2px solid #239B56 ">
@@ -336,7 +347,6 @@
                                                         </tfoot>
                                                     </table>
                                                 </div> <!-- product single column end -->
-                                            @endforeach
                                             @endforeach
                                             @else
                                                 <div class="alert alert-danger">
@@ -381,7 +391,7 @@
                                 </div>
                                 <!--Comment Modal -->
                                 @foreach ($fallow as $item1)
-                                @foreach ($post->where('user_id',$item1->arti_id) as $item)
+                                @foreach ($post as $item)
                                     <div class="modal fade" id="comment{{ $item->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -425,7 +435,7 @@
                                                                         <div class="comment-body">
                                                                             {{-- <span class="reply-btn"><a href="#">reply</a></span> --}}
                                                                             <h5 class="comment-author">
-                                                                                {{ $item->user_name->name ?? 'User' }}
+                                                                                {{ $item->user_name->username ?? 'User' }}
                                                                             </h5>
                                                                             <div class="comment-post-date">
                                                                                 {{ $item->created_at->diffForHumans() }}
