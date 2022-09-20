@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 @extends('layouts.app')
 @section('content')
 @section('style')
@@ -224,7 +227,11 @@
                                                     {{ $arti->last_name ?? '' }}</h4>
                                                 <b>{{ strtoupper($arti->address ?? '') }}</b>
                                                 <h5>{{ $arti->email ?? '' }}</h5>
-                                                <h5>{{ $arti->phone1 ?? '' }}</h5>
+                                                <button class="btn-success" id="phonebtn" style="border-radius: 20px;
+                                                border: 2px solid #28a745;
+                                                cursor: pointer;
+                                                margin-top: 5px;" onclick="ViewPhone()">Phone view</button>
+                                                <h5 id="phone" style="display: none;">{{ $arti->phone1 ?? '' }}</h5>
 
                                             </div>
 
@@ -355,7 +362,11 @@
                                             @foreach ($post as $index => $item)
                                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                                     <div style="float: left;">
-                                                        {{ $item->created_at??'' }}
+                                                        @if ($item->created_at->addDay(3) <= Carbon::now())
+                                                            {{ $item->created_at->format('d M Y') ?? '' }}
+                                                        @else
+                                                            {{ $item->created_at->diffForHumans() ?? '' }}
+                                                        @endif
                                                     </div>
                                                     @auth()
                                                         @if ($item->user_id == Auth()->user()->id)
@@ -511,17 +522,18 @@
 
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <input type="hidden" name="post_id" id="post_id{{ $item->id ?? '' }}"
+                                                            <input type="hidden" name="post_id"
+                                                                id="post_id{{ $item->id ?? '' }}"
                                                                 value="{{ $item->id ?? '' }}">
                                                             <label>Comment</label>
-                                                            <input name="comment" id="comment{{ $item->id ?? '' }}" class="form-control"
-                                                                placeholder="Write a comment">
+                                                            <input name="comment" id="word{{ $item->id ?? '' }}"
+                                                                class="form-control" placeholder="Write a comment">
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="coment-btn mt-20">
-                                                                <input class="sqr-btn" id="comment_send{{ $item->id ?? '' }}"
-                                                                    type="submit" name="submit"
-                                                                    value="post comment">
+                                                                <button class="sqr-btn"
+                                                                    id="comment_send{{ $item->id ?? '' }}"
+                                                                    type="submit" name="submit">Post Comment</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1036,6 +1048,40 @@
         <?php
         foreach ($post as $item) {
         ?>
+        $('#comment_send{{ $item->id ?? '' }}').click(function() {
+            <?php if (auth()->user() != null) { ?>
+            var post_id = parseInt($('#post_id{{ $item->id ?? '' }}').val());
+            var comment = $('#word{{$item->id ?? '' }}').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('Post.Comment') }}",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    post_id: post_id,
+                    comment: comment
+                },
+
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        $("#comment_section{{ $item->id ?? '' }}").load(location.href +
+                            " #comment_section{{ $item->id ?? '' }}");
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                    'content')
+                            }
+                        });
+                    } else {
+                        alert("Error")
+                    }
+                }
+            });
+            <?php } else { ?>
+            alert('Please Login First!');
+            <?php } ?>
+
+        });
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1064,7 +1110,62 @@
 
         });
         <?php }?>
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('#artifallow<?php echo $arti->id; ?>').click(function() {
+            <?php if (auth()->user() != null) { ?>
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('ArtiFallow') }}",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    arti_id: <?php echo $arti->id; ?>,
+                    user_id: <?php echo auth()->user()->id; ?>
+                },
+
+                success: function(data) {
+                    document.getElementById("phone").style.display = "block";
+                    location.reload();
+                }
+            });
+            <?php } else { ?>
+            alert('Please Login First!');
+            <?php } ?>
+
+        });
     });
+    function ViewPhone() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            <?php if (auth()->user() != null) { ?>
+            $.ajax({
+                type: 'POST',
+                url: "{{ url('arti_phone/store') }}",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    arti_id: <?php echo $arti->id; ?>,
+                    user_id: <?php echo auth()->user()->id; ?>
+                },
+
+                success: function(data) {
+        document.getElementById("phone").style.display = "block";
+        document.getElementById("phonebtn").style.display = "none";
+                    // location.reload();
+                }
+            });
+            <?php } else { ?>
+            alert('Please Login First!');
+            <?php } ?>
+        }
 </script>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -1192,74 +1293,4 @@
         </script>
     @endforeach
 @endauth
-<script>
-    $(document).ready(function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('#artifallow<?php echo $arti->id; ?>').click(function() {
-            <?php if (auth()->user() != null) { ?>
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('ArtiFallow') }}",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
-                    arti_id: <?php echo $arti->id; ?>,
-                    user_id: <?php echo auth()->user()->id; ?>
-                },
-
-                success: function(data) {
-                    location.reload();
-                }
-            });
-            <?php } else { ?>
-            alert('Please Login First!');
-            <?php } ?>
-
-        });
-    });
-</script>
-
-@foreach ($post as $item)
-<script type="text/javascript">
-        $('#comment_send{{$item->id??''}}').click(function() {
-            <?php if (auth()->user() != null) { ?>
-            var post_id = parseInt($('#post_id{{$item->id??''}}').val());
-            var comment = $('#comment{{$item->id??''}}').val();
-            
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('Post.Comment') }}",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
-                    post_id: post_id,
-                    comment: comment
-                },
-
-                success: function(response) {
-                    if (response.success) {
-                        alert(response.message);
-                        $("#comment_section{{$item->id??''}}").load(location.href +
-                            " #comment_section{{$item->id??''}}");
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
-                                    'content')
-                            }
-                        });
-                    } else {
-                        alert("Error")
-                    }
-                }
-            });
-            <?php } else { ?>
-            alert('Please Login First!');
-            <?php } ?>
-
-        });
-</script>
-@endforeach
 @endsection

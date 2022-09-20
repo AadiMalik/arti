@@ -35,9 +35,10 @@ class UserProductController extends Controller
         } else {
             $product = Product::orderBy('name', 'ASC')->get();
         }
+        $select_category = Category::find($category);
         $category = Category::orderBy('name', 'ASC')->get();
         $product_image = ProductImage::all();
-        return view('client/user_product.create', compact('product', 'product_image', 'category'));
+        return view('client/user_product.create', compact('product', 'product_image', 'category','select_category'));
     }
 
     /**
@@ -154,7 +155,7 @@ class UserProductController extends Controller
         $post->image = json_encode($product_image);
         $post->type = json_encode($product_type);
         $post->save();
-        return back()->with('success', 'Product has updated!');
+        return back()->with('success', 'Post is submited!');
     }
     public function imageEdit($id)
     {

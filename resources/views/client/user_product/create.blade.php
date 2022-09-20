@@ -8,6 +8,11 @@
         <div class="card-body">
             <form method="POST" action="{{ route('client.user-product.store') }}" enctype="multipart/form-data">
                 @csrf
+                @if(isset($select_category))
+                <div class="form-group">
+                    <b>Select Category: {{$select_category->name??''}}</b>
+                </div>
+                @endif
                 <div class="form-group">
                     <div class="dropdown filter-dropdown d-inline mr-1">
                         <button class="btn btn-primary " type="button" id="invoice-dropdown" data-toggle="dropdown"

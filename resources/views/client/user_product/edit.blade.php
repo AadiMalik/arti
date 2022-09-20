@@ -8,9 +8,14 @@
                 @csrf
                 @method('PUT')
                 <button class="btn btn-danger" type="submit">
-                    UPDATE
+                    POST
                 </button>
         </div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="card-body">
             <div class="table-responsive">
                 <table  class="table table-striped table-hover" style="width:100%;">

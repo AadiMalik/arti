@@ -313,6 +313,12 @@ $notifications = notification();
                                         data-feather="monitor"></i><span>Delete Post</span></a>
                             </li>
                         @endcan
+                        @can('user_product_access')
+                            <li class="dropdown">
+                                <a href="{{ url('arti-phone') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Phone View</span></a>
+                            </li>
+                        @endcan
                         @can('user_product_post_access')
                             <li class="dropdown">
                                 <a href="{{ url('arti-detail/' . Auth()->user()->id) }}" class="nav-link"><i

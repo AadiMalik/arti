@@ -404,49 +404,51 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('Post.Comment') }}" method="POST">
-                                                        @csrf
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <input type="hidden" name="post_id"
-                                                                    value="{{ $item->id ?? '' }}">
-                                                                <label>Comment</label>
-                                                                <textarea name="comment" class="form-control" placeholder="Write a comment"></textarea>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div class="coment-btn mt-20">
-                                                                    <input class="sqr-btn" type="submit"
-                                                                        name="submit" value="post comment">
-                                                                </div>
+                                                <div class="modal-body" id="comment_section{{ $item->id ?? '' }}">
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <input type="hidden" name="post_id"
+                                                                id="post_id{{ $item->id ?? '' }}"
+                                                                value="{{ $item->id ?? '' }}">
+                                                            <label>Comment</label>
+                                                            <input name="comment" id="word{{ $item->id ?? '' }}"
+                                                                class="form-control" placeholder="Write a comment">
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="coment-btn mt-20">
+                                                                <button class="sqr-btn"
+                                                                    id="comment_send{{ $item->id ?? '' }}"
+                                                                    type="submit" name="submit">Post Comment</button>
                                                             </div>
                                                         </div>
-                                                        <hr>
-                                                        <div class="comment-section">
-                                                            <ul>
-                                                                @foreach ($comment->where('post_id', $item->id)->where('comment', '!=', null) as $item)
-                                                                    <li style="text-align: left;">
-                                                                        <div class="author-avatar"
-                                                                            style="margin-right:5px;">
-                                                                            <img src="{{ asset($item->user_name->image ?? '') }}"
-                                                                                style="border-radius:20%; height:50px;"
-                                                                                alt="">
+                                                    </div>
+                                                    <hr>
+                                                    <div class="comment-section"
+                                                        style="overflow-y: auto; height:350px;">
+                                                        <ul>
+                                                            @foreach ($comment->where('post_id', $item->id)->where('comment', '!=', null) as $item)
+                                                                <li style="text-align: left;">
+                                                                    <div class="author-avatar"
+                                                                        style="margin-right:5px;">
+                                                                        <img src="{{ asset($item->user_name->image ?? '') }}"
+                                                                            style="border-radius:20%; height:50px;"
+                                                                            alt="">
+                                                                    </div>
+                                                                    <div class="comment-body">
+                                                                        {{-- <span class="reply-btn"><a href="#">reply</a></span> --}}
+                                                                        <h5 class="comment-author">
+                                                                            {{ $item->user_name->name ?? 'User' }}
+                                                                        </h5>
+                                                                        <div class="comment-post-date">
+                                                                            {{ $item->created_at->diffForHumans() }}
                                                                         </div>
-                                                                        <div class="comment-body">
-                                                                            {{-- <span class="reply-btn"><a href="#">reply</a></span> --}}
-                                                                            <h5 class="comment-author">
-                                                                                {{ $item->user_name->username ?? 'User' }}
-                                                                            </h5>
-                                                                            <div class="comment-post-date">
-                                                                                {{ $item->created_at->diffForHumans() }}
-                                                                            </div>
-                                                                            <p>{{ $item->comment ?? '' }}</p>
-                                                                        </div>
-                                                                    </li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
-                                                    </form>
+                                                                        <p>{{ $item->comment ?? '' }}</p>
+                                                                    </div>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -471,6 +473,45 @@
         <?php
         foreach ($post as $item) {
         ?>
+        $('#comment_send{{ $item->id ?? '' }}').click(function() {
+            <?php if (auth()->user() != null) { ?>
+            var post_id = parseInt($('#post_id{{ $item->id ?? '' }}').val());
+            var comment = $('#word{{$item->id ?? '' }}').val();
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('Post.Comment') }}",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    post_id: post_id,
+                    comment: comment
+                },
+
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        $("#comment_section{{ $item->id ?? '' }}").load(location.href +
+                            " #comment_section{{ $item->id ?? '' }}");
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                    'content')
+                            }
+                        });
+                    } else {
+                        alert("Error")
+                    }
+                }
+            });
+            <?php } else { ?>
+            alert('Please Login First!');
+            <?php } ?>
+
+        });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

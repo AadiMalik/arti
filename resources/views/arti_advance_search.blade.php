@@ -15,9 +15,9 @@ use Carbon\Carbon;
             -o-transform: rotate(45deg);
             position: absolute;
             padding: 4px 0;
-            top: 25px;
-            right: -30px;
-            width: 120px;
+            top: 55px;
+            right: -45px;
+            width: 206px;
             background-color: #0c8b51;
             color: #fff;
         }
@@ -75,8 +75,10 @@ use Carbon\Carbon;
                             </div>
                             <div class="sidebar-widget-body">
                                 <ul>
-                                    <li><a href="{{url('advance-search')}}">For Sale Product</a></li>
-                                    <li style="background: #0c8b51; padding:5px;"><a style="color:#fff; font-weight:bold;" href="{{url('arti-advance-search')}}">For Commession Agent</a></li>
+                                    <li><a href="{{ url('advance-search') }}">For Sale Product</a></li>
+                                    <li style="background: #0c8b51; padding:5px;"><a
+                                            style="color:#fff; font-weight:bold;"
+                                            href="{{ url('arti-advance-search') }}">For Commession Agent</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -104,7 +106,7 @@ use Carbon\Carbon;
                                             id="">
                                             <option disabled selected>--select district--</option>
                                             @foreach ($district as $item)
-                                            <option value="{{$item->id??''}}">{{$item->name??''}}</option>
+                                                <option value="{{ $item->id ?? '' }}">{{ $item->name ?? '' }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -114,7 +116,8 @@ use Carbon\Carbon;
                                         <select name="tehsil" class="form-control" id="">
                                             <option disabled selected>--select tehsil--</option>
                                             @foreach ($tehsil as $item)
-                                            <option value="{{$item->id??''}}">{{$item->name??''}} ({{$item->district_name->name??''}})</option>
+                                                <option value="{{ $item->id ?? '' }}">{{ $item->name ?? '' }}
+                                                    ({{ $item->district_name->name ?? '' }})</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -155,31 +158,38 @@ use Carbon\Carbon;
                     <!-- product item start -->
                     <div class="shop-product-wrap grid row">
                         @if ($arti->count() > 0)
-                        @foreach ($arti as $item)
-                        @foreach ($item->roles as $item2)
-                        @if ($item2->title == 'Arti')
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <!-- product single grid item start -->
-                            <div class="product-item fix mb-30">
-                                <div class="product-thumb">
-                                    @if($item->verify==0)
-                                    <i class="ribbon">Verify</i>
+                            @foreach ($arti as $item)
+                                @foreach ($item->roles as $item2)
+                                    @if ($item2->title == 'Arti')
+                                        <div class="col-lg-3 col-md-4 col-sm-6">
+                                            <!-- product single grid item start -->
+                                            <div class="product-item fix mb-30">
+                                                <div class="product-thumb">
+                                                    @if ($item->verify == 0)
+                                                        <i class="ribbon">Verify</i>
+                                                    @endif
+                                                    <a href="{{ url('arti-detail/' . $item->id) }}">
+                                                        <img src="{{ asset($item->image ?? 'assets/img/user.jpg') }}"
+                                                            class="img-pri" style="height: 200px;" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h4><a href="{{ url('arti-detail/' . $item->id) }}">{{ $item->first_name ?? '' }}
+                                                            {{ $item->last_name ?? '' }}</a>
+                                                        @if ($item->verify == 0)
+                                                            <i class="fa fa-check-circle" style="color: blue;"
+                                                                aria-hidden="true"></i>
+                                                        @endif
+                                                    </h4>
+                                                    <div class="pricebox">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- product single grid item end -->
+                                        </div> <!-- product single column end -->
                                     @endif
-                                    <a href="{{url('arti-detail/'.$item->id)}}">
-                                        <img src="{{asset($item->image?? 'assets/img/user.jpg')}}" class="img-pri" style="height: 200px;" alt="">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h4><a href="{{url('arti-detail/'.$item->id)}}">{{$item->first_name??''}} {{$item->last_name??''}}</a>@if($item->verify==0) <i class="fa fa-check-circle" style="color: blue;" aria-hidden="true"></i>@endif</h4>
-                                    <div class="pricebox">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- product single grid item end -->
-                        </div> <!-- product single column end -->
-                        @endif
-                        @endforeach
-                        @endforeach
+                                @endforeach
+                            @endforeach
                         @else
                             <div class="col-md-12">
                                 <h4>No Commession Agent Found</h4>

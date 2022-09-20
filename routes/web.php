@@ -43,6 +43,7 @@ Route::get('comment', 'HomeController@Comment');
 Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
 Route::get('fallow', 'HomeController@getFallow');
 Route::get('vfallow', 'HomeController@getVFallow');
+Route::post('arti_phone/store', 'PhoneCountController@store');
 
 
 
@@ -108,6 +109,8 @@ Route::group(['as' => 'client.', 'middleware' => ['auth']], function () {
     // Product Image
     Route::resource('product-image', 'ProductImageController');
     Route::post('deleteProductImage', 'ProductImageController@destroy')->name('deleteProductImage');
+    // arti phone
+    Route::resource('arti-phone', 'PhoneCountController');
 });
 Route::group(['middleware' => 'Language'], function () {
     Route::get('/change-language/{lang}', "HomeController@changeLang");
