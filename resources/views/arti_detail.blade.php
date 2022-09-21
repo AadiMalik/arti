@@ -190,7 +190,7 @@ use Carbon\Carbon;
                                 @auth
                                     @if (Auth()->user()->id == $arti->id)
                                         <a href="{{ url('dashboard') }}"><i class="fa fa-line-chart"></i>Dashboard</a>
-                                        <a href="{{ url('user-product') }}"><i class="fa fa-truck"></i>My Products</a>
+                                        <a href="{{ url('user-product/create') }}"><i class="fa fa-truck"></i>Add Products</a>
                                         <a href="{{ url('profile') }}"><i class="fa fa-edit"></i>Edit Profile</a>
                                         <a href="javascript:void(0);" style="border-bottom: 1px solid #ccc;"
                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -363,7 +363,7 @@ use Carbon\Carbon;
                                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                                     <div style="float: left;">
                                                         @if ($item->created_at->addDay(3) <= Carbon::now())
-                                                            {{ $item->created_at->format('d M Y') ?? '' }}
+                                                            {{ $item->created_at ?? '' }}
                                                         @else
                                                             {{ $item->created_at->diffForHumans() ?? '' }}
                                                         @endif
@@ -518,7 +518,7 @@ use Carbon\Carbon;
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body" id="comment_section{{ $item->id ?? '' }}">
+                                                <div class="modal-body">
 
                                                     <div class="row">
                                                         <div class="col-12">
@@ -539,7 +539,7 @@ use Carbon\Carbon;
                                                     </div>
                                                     <hr>
                                                     <div class="comment-section"
-                                                        style="overflow-y: auto; height:350px;">
+                                                        style="overflow-y: auto; height:350px;" id="comment_section{{ $item->id ?? '' }}">
                                                         <ul>
                                                             @foreach ($comment->where('post_id', $item->id)->where('comment', '!=', null) as $item)
                                                                 <li style="text-align: left;">

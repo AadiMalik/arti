@@ -4,15 +4,17 @@
         <div class="card-header">
             Create Product
         </div>
-
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <div class="card-body">
             <form method="POST" action="{{ route('client.user-product.store') }}" enctype="multipart/form-data">
                 @csrf
-                @if(isset($select_category))
                 <div class="form-group">
-                    <b>Select Category: {{$select_category->name??''}}</b>
+                    <b>Select Category: <span style="font-size:20px; font-weight:bold;">{{$select_category->name??'All'}}</span></b>
                 </div>
-                @endif
                 <div class="form-group">
                     <div class="dropdown filter-dropdown d-inline mr-1">
                         <button class="btn btn-primary " type="button" id="invoice-dropdown" data-toggle="dropdown"
@@ -122,7 +124,7 @@
                 let category = $('#invoice-dropdown').data('selected');
 
 
-                window.location.href = 'create/?category=' + category;
+                window.location.href = '?category=' + category;
 
             });
         });

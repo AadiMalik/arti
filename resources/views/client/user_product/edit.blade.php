@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Update Products
+            Update & Post Products
             <form method="POST" action="{{ route('client.user-product.update', Auth()->user()->id) }}"
                 enctype="multipart/form-data">
                 @csrf

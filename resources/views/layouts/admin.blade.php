@@ -285,7 +285,7 @@ $notifications = notification();
 
                         @can('user_product_access')
                             <li class="dropdown">
-                                <a href="{{ url('user-product') }}" class="nav-link"><i
+                                <a href="{{ url('user-product/create') }}" class="nav-link"><i
                                         data-feather="monitor"></i><span>Add Products</span></a>
                             </li>
                         @endcan
