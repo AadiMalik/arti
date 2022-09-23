@@ -342,9 +342,9 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                 <button class="form-control" style="display: block; cursor:pointer; height:52px; line-height:38px; background: #0c8b51; color:#fff; font-weight: bold; width: 100%;border-radius: 10%;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                   Sell +
                                                 </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                  <a class="dropdown-item" href="{{url('user-product/create')}}">Product</a>
-                                                  <a class="dropdown-item" href="{{url('sell')}}">For Sale</a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="left: -130px;">
+                                                  <a class="dropdown-item" href="{{url('user-product/create')}}">Commission agent</a>
+                                                  <a class="dropdown-item" href="{{url('sell')}}">Other product</a>
                                                 </div>
                                               </div>
                                                 {{-- <a href="{{ url('user-product') }}">

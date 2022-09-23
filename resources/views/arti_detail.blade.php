@@ -218,11 +218,11 @@ use Carbon\Carbon;
                                 <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
                                     <div class="myaccount-content">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <img src="{{ asset($arti->image ?? 'assets/img/user.jpg') }}"
-                                                    style="border-radius: 50%; height:115px;" alt="">
+                                                    style="border-radius: 50%; height:180px;" alt="">
                                             </div>
-                                            <div class="col-md-8" style="padding-top: 30px;">
+                                            <div class="col-md-7" style="padding-top: 30px;">
                                                 <h4 style="font-weight:bold;">{{ $arti->first_name ?? '' }}
                                                     {{ $arti->last_name ?? '' }}</h4>
                                                 <b>{{ strtoupper($arti->address ?? '') }}</b>
@@ -363,7 +363,7 @@ use Carbon\Carbon;
                                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                                     <div style="float: left;">
                                                         @if ($item->created_at->addDay(3) <= Carbon::now())
-                                                            {{ $item->created_at ?? '' }}
+                                                            {{ $item->created_at->format('d-m-y h:i A') ?? '' }}
                                                         @else
                                                             {{ $item->created_at->diffForHumans() ?? '' }}
                                                         @endif
@@ -434,13 +434,13 @@ use Carbon\Carbon;
                                                             <tr style="border-top:2px solid #239B56 ">
                                                                 <th colspan="2"
                                                                     @auth
-@if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->count() > 0) style="color:blue;" @endif @endauth>
+@if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->where('comment',null)->count() > 0) style="color:blue;" @endif @endauth>
                                                                     <input type="hidden"
                                                                         id="post{{ $item->id }}"
                                                                         value="{{ $item->id }}">
                                                                     {{-- {{dd($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->count())}} --}}
                                                                     @auth
-                                                                        @if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->count() == 0)
+                                                                        @if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->where('comment',null)->count() == 0)
                                                                             <a id="likepost{{ $item->id }}"
                                                                                 style="cursor: pointer;">Like <i
                                                                                     class="fa fa-thumbs-up"></i></a>

@@ -72,7 +72,7 @@ class UserProductController extends Controller
             $user_product->image2 = $product_image[1]['image'];
             $user_product->save();
         }
-        return back()->with('success', 'Products has created!');
+        return redirect(route('client.user-product.edit',Auth()->user()->id))->with('success', 'Products has created!');
     }
 
     /**

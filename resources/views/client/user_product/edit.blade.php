@@ -46,6 +46,9 @@
                             <th>
                                 Image 2
                             </th>
+                            <th>
+                                Actions
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -91,6 +94,14 @@
                                 <td>
                                     <img src="{{asset($item->image2??'')}}" style="height: 100px; width:100px;" alt="">
                                 </td>
+                                <td>
+                                    @can('user_product_delete')
+                                            <a class="btn btn-xs btn-danger"
+                                                onclick="userproductDelete{{ $item->id }}({{ $item->id }})">
+                                                Delete
+                                            </a>
+                                        @endcan
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -99,4 +110,49 @@
             </form>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js"></script>
+    @foreach ($user_product as $item)
+        <script>
+            function userproductDelete{{ $item->id }}(id) {
+                swal({
+                    title: "Are You Sure Want To Delete Product?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        var url = '{{ route('client.deleteUserProduct', ':id') }}';
+                        url = url.replace(':id', id);
+                        $.ajax({
+                            type: "POST",
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            url: url,
+                            dataType: "json",
+                            data: {
+                                id: id
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                //var data = JSON.parse(response);
+                                iziToast.success({
+                                    message: data.message,
+                                    position: 'topRight'
+                                });
+                                //Reload page
+                                window.location.reload();
+
+                            }
+                        });
+                    }
+                });
+
+            }
+        </script>
+    @endforeach
 @endsection

@@ -289,6 +289,12 @@ $notifications = notification();
                                         data-feather="monitor"></i><span>Add Products</span></a>
                             </li>
                         @endcan
+                        @can('user_product_access')
+                            <li class="dropdown">
+                                <a href="{{ url('newfeeds') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Newsfeed</span></a>
+                            </li>
+                        @endcan
                         @can('product_image_access')
                             <li class="dropdown">
                                 <a href="{{ url('admin/product-image') }}" class="nav-link"><i
