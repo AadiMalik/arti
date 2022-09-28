@@ -156,9 +156,7 @@ $notifications = notification();
                     </li> --}}
                     <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
                             class="nav-link  message-toggle nav-link-lg"><i data-feather="bell"
-                                class="bell"></i>@if($notifications->count()>0)<span class="badge headerBadge1" style="border-radius: 50%;
-                                height: 11px;
-                                background: red;"></span>
+                                class="bell"></i>@if($notifications->count()>0)<span class="badge headerBadge1">{{$notifications->count()??'0'}}</span>
                                      @endif  </a>
                         </a>
                         <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
@@ -168,8 +166,9 @@ $notifications = notification();
                                     <a href="#" id="mark-all">Mark All As Read</a>
                                 </div>
                             </div>
-                            <div class="dropdown-list-content dropdown-list-icons">
-                                @if (auth()->user()->is_admin)
+                            <div class="dropdown-list-content dropdown-list-icons" style="overflow-y:scroll;">
+                                @foreach (Auth()->user()->roles as $item)
+                                @if($item->title=='Admin')
                                     @foreach ($notifications as $notification)
                                     <div class="alert">
                                         <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
@@ -185,13 +184,31 @@ $notifications = notification();
                                         </a>
                                     </div>
                                     @endforeach
+                                    @elseif($item->title=='Arti')
+                                        @foreach ($notifications as $notification)
+                                    <div class="alert" style="padding: 0px; margin-bottom:0px;">
+                                        <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
+                                                class="dropdown-item-icon bg-primary text-white"> <i
+                                                    class="fas
+												fa-bell"></i>
+                                            </span> <span class="dropdown-item-desc">
+                                                {{ $notification->data['name'] }} {{ $notification->data['message'] }}
+                                                
+                                                <span
+                                                    class="time">{{ $notification->created_at->diffForHumans() }}</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    @endforeach
+                                    
+                                    @endif
+                                    @endforeach
                                 @if($notifications->count()==0)
                                     <a href="#" class="dropdown-item dropdown-item-unread">
                                         <span class="dropdown-item-desc">No Notification found
                                         </span>
                                     </a>
                                 @endif
-                            @endif
                         </div>
                         {{-- <div class="dropdown-footer text-center">
                             <a href="#">View All <i class="fas fa-chevron-right"></i></a>
