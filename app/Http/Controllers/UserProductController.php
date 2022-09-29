@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Notifications\NewPostNotification;
 use App\Product;
 use App\ProductImage;
 use App\ProductPost;
 use App\UserProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class UserProductController extends Controller
 {
@@ -155,7 +157,9 @@ class UserProductController extends Controller
         $post->image = json_encode($product_image);
         $post->type = json_encode($product_type);
         $post->save();
-        return back()->with('success', 'Post is submited!');
+        $user = Auth()->user();
+        Notification::send($user, new NewPostNotification($user));
+        return redirect('arti-detail/'.Auth()->user()->id)->with('success', 'Post is submited!');
     }
     public function imageEdit($id)
     {

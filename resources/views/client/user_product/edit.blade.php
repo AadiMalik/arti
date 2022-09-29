@@ -2,14 +2,12 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            Update & Post Products
+            {{-- Update & Post Products --}}
             <form method="POST" action="{{ route('client.user-product.update', Auth()->user()->id) }}"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <button class="btn btn-danger" type="submit">
-                    POST
-                </button>
+                
         </div>
         @if (session('success'))
             <div class="alert alert-success">
@@ -37,7 +35,7 @@
                             <th>
                                 Weight
                             </th>
-                            <th>
+                            <th style="width: 120px;">
                                 Weight Type
                             </th>
                             <th>
@@ -107,8 +105,13 @@
                     </tbody>
                 </table>
             </div>
-            </form>
         </div>
+        <div class="card-footer">
+            <button class="btn btn-success" type="submit">
+                POST
+            </button>
+        </div>
+    </form>
     </div>
 @endsection
 @section('script')

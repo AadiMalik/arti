@@ -11,7 +11,7 @@ $notifications = notification();
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Commession Agent Dashboard</title>
+    <title>Zameendar.com</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets_data/css/app.min.css') }}">
@@ -36,7 +36,7 @@ $notifications = notification();
     <link rel="stylesheet" href="{{ asset('assets_data/bundles/summernote/summernote-bs4.css') }}">
     <link rel="stylesheet" href="{{ asset('assets_data/bundles/codemirror/lib/codemirror.css') }}">
     <link rel="stylesheet" href="{{ asset('assets_data/bundles/codemirror/theme/duotone-dark.css') }}">
-    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets_data/img/favicon.ico') }}" />
+    {{-- <link rel='shortcut icon' type='image/x-icon' href="{{ asset('assets_data/img/favicon.ico') }}" /> --}}
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css"
@@ -186,21 +186,36 @@ $notifications = notification();
                                     @endforeach
                                     @elseif($item->title=='Arti')
                                         @foreach ($notifications as $notification)
-                                    <div class="alert" style="padding: 0px; margin-bottom:0px;">
-                                        <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
-                                                class="dropdown-item-icon bg-primary text-white"> <i
-                                                    class="fas
-												fa-bell"></i>
-                                            </span> <span class="dropdown-item-desc">
-                                                {{ $notification->data['name'] }} {{ $notification->data['message'] }}
-                                                
-                                                <span
-                                                    class="time">{{ $notification->created_at->diffForHumans() }}</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    @endforeach
-                                    
+                                        <div class="alert" style="padding: 0px; margin-bottom:0px;">
+                                            <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
+                                                    class="dropdown-item-icon bg-primary text-white"> <i
+                                                        class="fas
+                                                    fa-bell"></i>
+                                                </span> <span class="dropdown-item-desc">
+                                                    {{ $notification->data['name'] }} {{ $notification->data['message'] }}
+                                                    
+                                                    <span
+                                                        class="time">{{ $notification->created_at->diffForHumans() }}</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                    @elseif($item->title=='User')
+                                    @foreach ($notifications as $notification)
+                                        <div class="alert" style="padding: 0px; margin-bottom:0px;">
+                                            <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
+                                                    class="dropdown-item-icon bg-primary text-white"> <i
+                                                        class="fas
+                                                    fa-bell"></i>
+                                                </span> <span class="dropdown-item-desc">
+                                                    {{ $notification->data['name'] }} {{ $notification->data['message'] }}
+                                                    
+                                                    <span
+                                                        class="time">{{ $notification->created_at->diffForHumans() }}</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        @endforeach
                                     @endif
                                     @endforeach
                                 @if($notifications->count()==0)
@@ -267,10 +282,16 @@ $notifications = notification();
                 </div>
                 <ul class="sidebar-menu">
                     <li class="menu-header">Main</li>
-                    <li class="dropdown">
+                    {{-- <li class="dropdown">
                         <a @if (auth()->user()->is_admin) href="{{ route('admin.home') }}" @else href="{{ route('client.home') }}" @endif
                             class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
-                    </li>
+                    </li> --}}
+                    @can('user_product_access')
+                            <li class="dropdown">
+                                <a href="{{ url('newfeeds') }}" class="nav-link"><i
+                                        data-feather="monitor"></i><span>Newsfeed</span></a>
+                            </li>
+                        @endcan
                     <li class="dropdown">
                         <a href="{{ route('/') }}" class="nav-link"><i data-feather="monitor"></i><span>Home
                                 Page</span></a>
@@ -303,15 +324,10 @@ $notifications = notification();
                         @can('user_product_access')
                             <li class="dropdown">
                                 <a href="{{ url('user-product/create') }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Add Products</span></a>
+                                        data-feather="monitor"></i><span>Make My Post</span></a>
                             </li>
                         @endcan
-                        @can('user_product_access')
-                            <li class="dropdown">
-                                <a href="{{ url('newfeeds') }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Newsfeed</span></a>
-                            </li>
-                        @endcan
+                        
                         @can('product_image_access')
                             <li class="dropdown">
                                 <a href="{{ url('admin/product-image') }}" class="nav-link"><i
@@ -321,7 +337,7 @@ $notifications = notification();
                         @can('user_product_access')
                             <li class="dropdown">
                                 <a href="{{ route('client.user-product.edit', Auth()->user()->id) }}" class="nav-link"><i
-                                        data-feather="monitor"></i><span>Edit Products</span></a>
+                                        data-feather="monitor"></i><span>Edit My Post</span></a>
                             </li>
                         @endcan
                         @can('forsale_product_access')

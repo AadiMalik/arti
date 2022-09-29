@@ -18,7 +18,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Site title -->
-    <title>Sabzi Mandi</title>
+    <title>Zameendar.com</title>
     <!-- Favicon -->
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -541,7 +541,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
 
                                                     </ul>
                                                 </li>
-                                                <li><a href="{{ url('blog') }}">Blog</a>
+                                                <li><a href="{{ url('blog') }}">Blogs</a>
                                                 </li>
                                                 <li><a href="{{ url('contact-us') }}">Contact us</a></li>
                                                 <li class="static"><a href="#">Calendar <i

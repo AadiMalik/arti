@@ -261,7 +261,10 @@
                                                         </div>
                                                         <div class="col-md-10">
                                                             <a href="{{url('arti-detail/'.$item->id)}}"><b>{{$item->first_name??''}} {{$item->last_name??''}}</b></a><br>
-                                                            {{ $item->created_at??'' }}
+                                                            @php
+                                                                $datetime = date('Y-m-d H:i A', strtotime($item->created_at))
+                                                            @endphp
+                                                            {{ $datetime??'' }}
                                                         </div>
                                                     </div>
                                                 

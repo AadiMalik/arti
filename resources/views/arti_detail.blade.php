@@ -190,7 +190,7 @@ use Carbon\Carbon;
                                 @auth
                                     @if (Auth()->user()->id == $arti->id)
                                         <a href="{{ url('dashboard') }}"><i class="fa fa-line-chart"></i>Dashboard</a>
-                                        <a href="{{ url('user-product/create') }}"><i class="fa fa-truck"></i>Add Products</a>
+                                        <a href="{{ url('user-product/create') }}"><i class="fa fa-truck"></i>Edit My Post</a>
                                         <a href="{{ url('profile') }}"><i class="fa fa-edit"></i>Edit Profile</a>
                                         <a href="javascript:void(0);" style="border-bottom: 1px solid #ccc;"
                                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -230,7 +230,7 @@ use Carbon\Carbon;
                                                 <button class="btn-success" id="phonebtn" style="border-radius: 20px;
                                                 border: 2px solid #28a745;
                                                 cursor: pointer;
-                                                margin-top: 5px;" onclick="ViewPhone()">Phone view</button>
+                                                margin-top: 5px;" onclick="ViewPhone()"><i class="fa fa-phone"></i></button>
                                                 <h5 id="phone" style="display: none;">{{ $arti->phone1 ?? '' }}</h5>
 
                                             </div>
