@@ -342,6 +342,7 @@ class HomeController extends Controller
             ->join('user_products', 'users.id', '=', 'user_products.user_id')
             ->select('users.*', 'user_products.price_low', 'user_products.price_high', 'user_products.image1', 'user_products.user_id', 'user_products.product_id')
             ->get();
+        
         return view('product_detail', compact('verify', 'arti_fallow', 'product', 'feature_product', 'related_product_image', 'related_product', 'user_product', 'product_detail', 'product_image', 'comment'));
     }
     public function product_comment(Request $request)

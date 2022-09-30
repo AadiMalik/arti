@@ -41,8 +41,10 @@ class LoginController extends Controller
     {
         if (is_numeric($request->email)) {
             return ['phone1' => $request->email, 'password' => $request->password];
-        } elseif (filter_var($request->email)) {
+        } elseif (filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
+            return ['email' => $request->email, 'password' => $request->password];
+        }else{
             return ['username' => $request->email, 'password' => $request->password];
-        } 
+        }
     }
 }

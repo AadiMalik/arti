@@ -40,7 +40,7 @@
                                     </div>
                                 @endif
                                 <div class="single-input-item">
-                                    <input type="text" name="email" placeholder="Username/Phone" value="{{ old('email') }}"
+                                    <input type="text" name="email" placeholder="Username/Email/Phone" value="{{ old('email') }}"
                                         required />
                                 </div>
                                 <div class="single-input-item">
