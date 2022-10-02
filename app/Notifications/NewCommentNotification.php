@@ -55,7 +55,7 @@ class NewCommentNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'name' => $this->user->first_name . ' '. $this->user->last_name,
+            'name' => $this->user->first_name,
             'message'=>'add new comment!',
         ];
     }

@@ -407,7 +407,7 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <div class="modal-body" id="comment_section{{ $item->id ?? '' }}">
+                                                <div class="modal-body">
 
                                                     <div class="row">
                                                         <div class="col-12">
@@ -427,7 +427,7 @@
                                                         </div>
                                                     </div>
                                                     <hr>
-                                                    <div class="comment-section"
+                                                    <div class="comment-section"  id="comment_section{{ $item->id ?? '' }}"
                                                         style="overflow-y: auto; height:350px;">
                                                         <ul>
                                                             @foreach ($comment->where('post_id', $item->id)->where('comment', '!=', null) as $item)
@@ -473,6 +473,11 @@
 @section('script')
 <script>
     $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         <?php
         foreach ($post as $item) {
         ?>
@@ -480,6 +485,10 @@
             <?php if (auth()->user() != null) { ?>
             var post_id = parseInt($('#post_id{{ $item->id ?? '' }}').val());
             var comment = $('#word{{$item->id ?? '' }}').val();
+            if(comment==''){
+                alert('please write comment first!');
+                return false;
+            }
             $.ajax({
                 type: 'POST',
                 url: "{{ route('Post.Comment') }}",
@@ -510,16 +519,7 @@
             <?php } ?>
 
         });
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        
 
         $('#likepost<?php echo $item->id; ?>').click(function() {
             <?php if (auth()->user() != null) { ?>

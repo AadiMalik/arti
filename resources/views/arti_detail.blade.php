@@ -189,7 +189,7 @@ use Carbon\Carbon;
                                 <a href="#ratings" data-toggle="tab"><i class="fa fa-star"></i> Ratings</a>
                                 @auth
                                     @if (Auth()->user()->id == $arti->id)
-                                        <a href="{{ url('dashboard') }}"><i class="fa fa-line-chart"></i>Dashboard</a>
+                                        {{-- <a href="{{ url('dashboard') }}"><i class="fa fa-line-chart"></i>Dashboard</a> --}}
                                         <a href="{{ url('user-product/create') }}"><i class="fa fa-truck"></i>Edit My Post</a>
                                         <a href="{{ url('profile') }}"><i class="fa fa-edit"></i>Edit Profile</a>
                                         <a href="javascript:void(0);" style="border-bottom: 1px solid #ccc;"
@@ -1052,6 +1052,10 @@ use Carbon\Carbon;
             <?php if (auth()->user() != null) { ?>
             var post_id = parseInt($('#post_id{{ $item->id ?? '' }}').val());
             var comment = $('#word{{$item->id ?? '' }}').val();
+            if(comment==''){
+                alert('please write comment first!');
+                return false;
+            }
             $.ajax({
                 type: 'POST',
                 url: "{{ route('Post.Comment') }}",
