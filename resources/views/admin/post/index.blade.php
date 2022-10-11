@@ -47,30 +47,22 @@
                                     {{ $index + 1 }}
                                 </td>
                                 @php
-                                    $product = json_decode($item->name, true);
-                                    $price_high = json_decode($item->price_high, true);
-                                    $price_low = json_decode($item->price_low, true);
-                                    $weight = json_decode($item->weight, true);
+                                    $product = json_encode($item->name);
+                                    $price_high = json_encode($item->price_high);
+                                    $price_low = json_encode($item->price_low);
+                                    $weight = json_encode($item->weight);
                                 @endphp
                                 <td>
-                                    @foreach ($product as $item1)
-                                        {{ $item1 }},
-                                    @endforeach
+                                    {{json_decode($product)}}
                                 </td>
                                 <td>
-                                    @foreach ($price_high as $item1)
-                                        {{ $item1 }},
-                                    @endforeach
+                                    {{json_decode($price_high)}}
                                 </td>
                                 <td>
-                                    @foreach ($price_low as $item1)
-                                        {{ $item1 }},
-                                    @endforeach
+                                    {{json_decode($price_low)}}
                                 </td>
                                 <td>
-                                    @foreach ($weight as $item1)
-                                    {{$item1}},
-                                @endforeach
+                                    {{json_decode($weight)}}
                                 </td>
                                 <td>
                                     {{ $item->arti_name->first_name ?? '' }} {{ $item->arti_name->last_name ?? '' }}

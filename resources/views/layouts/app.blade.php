@@ -245,18 +245,10 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                                 <a href="{{ route('register') }}">{{ __('sentence.Register') }}</a>
                                             </li>
                                         @endauth
-                                        {{-- <li>
-                                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span> {{ Config::get('languages')[App::getLocale()]['display'] }}
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                @foreach (Config::get('languages') as $lang => $language)
-                                                @if ($lang != App::getLocale())
-                                                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"><span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span> {{$language['display']}}</a>
-                                                @endif
-                                            @endforeach
-                                            </div>
-                                        </li> --}}
+                                        <li>
+                                            
+                                            <div id="google_translate_element"></div>
+                                        </li>
                                         {{-- <li>
                                             <a href="#">checkout</a>
                                         </li> --}}
@@ -578,7 +570,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                                 <div class="title-icon">
                                     <i class="fa fa-crop"></i>
                                 </div>
-                                <h3>Popular Brand</h3>
+                                <h3>Featured Companies</h3>
                             </div> <!-- section title end -->
                         </div>
                     </div>
@@ -587,7 +579,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
                             <div class="brand-active slick-padding slick-arrow-style">
                                 @foreach ($brand as $item)
                                     <div class="brand-item text-center">
-                                        <a href="#"><img src="{{ asset($item->image ?? '') }}" alt=""></a>
+                                        <a href="#"><img src="{{ asset($item->image ?? '') }}" style="height:200px;" alt=""></a>
                                     </div>
                                 @endforeach
                             </div>
@@ -841,6 +833,12 @@ use Alkoumi\LaravelHijriDate\Hijri;
                 cal2.show();
             };
         </script>
+        <script type="text/javascript">// <![CDATA[
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+            // ]]></script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
         @yield('script')
     </body>
 
