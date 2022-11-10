@@ -387,7 +387,7 @@ use Carbon\Carbon;
                                                     <table class="table table-striped table-hover">
                                                         @if ($item->post_type == 0)
                                                             <thead>
-                                                                <tr style="background:#239B56 ; color:#fff;">
+                                                                <tr style="background:#444444 ; color:#fff;">
                                                                     <th>Name</th>
                                                                     <th>Picture</th>
                                                                     <th>Type</th>
@@ -420,7 +420,7 @@ use Carbon\Carbon;
                                                                 @endforeach
                                                             @else
                                                                 <thead>
-                                                                    <tr style="background:#239B56 ; width:100%;">
+                                                                    <tr style="background:#444444 ; width:100%;">
                                                                         <th colspan="5">
                                                                             <p
                                                                                 style=" color:#fff; text-align:justify;">
@@ -431,7 +431,7 @@ use Carbon\Carbon;
                                                         @endif
                                                         </tbody>
                                                         <tfoot style="text-align:center;">
-                                                            <tr style="border-top:2px solid #239B56 ">
+                                                            <tr style="border-top:2px solid #444444 ">
                                                                 <th colspan="2"
                                                                     @auth
 @if ($comment->where('post_id', $item->id)->where('user_id', Auth()->user()->id)->where('comment',null)->count() > 0) style="color:blue;" @endif @endauth>

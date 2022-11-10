@@ -57,6 +57,7 @@ class NewUserNotification extends Notification
         return [
             'name' => $this->user->first_name,
             'email' => $this->user->email,
+            'link' => 'http://127.0.0.1:8000/arti-detail/'.$this->user->id,
         ];
     }
 }

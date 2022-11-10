@@ -89,6 +89,7 @@ class RegisterController extends Controller
             'tehsil_id'=>$data['tehsil_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'mandi' => $data['mandi']??'',
         ]);
         $request = $data['role'];
         $user->roles()->sync($data['role'], $user->id);

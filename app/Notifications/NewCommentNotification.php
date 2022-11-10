@@ -57,6 +57,7 @@ class NewCommentNotification extends Notification
         return [
             'name' => $this->user->first_name,
             'message'=>'add new comment!',
+            'link' => 'http://127.0.0.1:8000/arti-detail/'.$this->user->id,
         ];
     }
 }

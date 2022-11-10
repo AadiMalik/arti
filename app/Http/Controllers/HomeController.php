@@ -362,7 +362,7 @@ class HomeController extends Controller
         $arti_fallow->save();
         $artis = User::whereHas('roles', function ($query) {
             $query->where('id', 3);
-        })->get();
+        })->where('id',$request->arti_id)->get();
         $user = Auth()->user();
         Notification::send($artis, new NewFallowNotification($user));
         return back();

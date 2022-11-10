@@ -213,7 +213,7 @@ use Alkoumi\LaravelHijriDate\Hijri;
 
                                                                 @foreach ($notifications as $notification)
                                                                     <div class="notification">
-                                                                        <a href="#"
+                                                                        <a href="{{$notification->data['link']??'#'}}"
                                                                             class="dropdown-item dropdown-item-unread  mark-as-read"
                                                                             data-id="{{ $notification->id ?? '' }}"> <span
                                                                                 style="padding: 2px;

@@ -57,6 +57,7 @@ class NewFallowNotification extends Notification
         return [
             'name' => $this->user->first_name,
             'message' => 'new fallow you!',
+            'link' => 'http://127.0.0.1:8000/arti-detail/'.$this->user->id,
         ];
     }
 }

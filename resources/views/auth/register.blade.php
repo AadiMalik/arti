@@ -41,11 +41,29 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="single-input-item">
-                                            <select name="role" id="" class="form-control">
+                                            <select name="role" id="" class="form-control" onchange="showDiv(this)" >
+                                                <option selected disabled>--Select Your Category--</option>
                                                 <option value="2">Zameendar</option>
                                                 <option value="3">Commession Agent</option>
                                             </select>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="hidden_div" style="display:none; margin-top:10px;">
+                                    <div class="col-md-12">
+                                        <label for=""><b>Select Your Market</b></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" value="Gala Mandi" name="mandi[]" required> Gala Mandi
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" value="Sabzi Mandi" name="mandi[]"> Sabzi Mandi
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" value="Mashli Mandi" name="mandi[]"> Mashli Mandi
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" value="Phool Mandi" name="mandi[]"> Phool Mandi
                                     </div>
                                 </div>
                                 <div class="single-input-item">
@@ -165,4 +183,13 @@
             }
         }
     </script>
+    <script type="text/javascript">
+        function showDiv(select){
+           if(select.value==3){
+            document.getElementById('hidden_div').style.display = "flex";
+           } else{
+            document.getElementById('hidden_div').style.display = "none";
+           }
+        } 
+        </script>
 @endsection

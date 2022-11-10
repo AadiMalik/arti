@@ -171,7 +171,7 @@ $notifications = notification();
                                 @if($item->title=='Admin')
                                     @foreach ($notifications as $notification)
                                     <div class="alert">
-                                        <a href="#" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
+                                        <a href="{{$notification->data['link']??'#'}}" class="dropdown-item dropdown-item-unread  mark-as-read"  data-id="{{ $notification->id??'' }}"> <span
                                                 class="dropdown-item-icon bg-primary text-white"> <i
                                                     class="fas
 												fa-bell"></i>

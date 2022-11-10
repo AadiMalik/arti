@@ -126,31 +126,22 @@ use Carbon\Carbon;
 @endsection
 <!-- hero slider start -->
 <!-- Slideshow container -->
-<div class="slideshow-container">
+<div class="container">
+    <div class="slideshow-container">
 
-    <!-- Full-width images with number and caption text -->
-    @foreach ($slider as $item)
-        <div class="mySlides fade">
-            <div class="numbertext"></div>
-            <img src="{{ $item->image ?? '' }}" style="width:100%; height:500px;">
-            <div class="text"></div>
-        </div>
-    @endforeach
-    {{-- <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="img2.jpg" style="width:100%">
-      <div class="text">Caption Two</div>
+        <!-- Full-width images with number and caption text -->
+        @foreach ($slider as $item)
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="{{ $item->image ?? '' }}" style="width:100%; height:500px;">
+                <div class="text"></div>
+            </div>
+        @endforeach
+    
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="img3.jpg" style="width:100%">
-      <div class="text">Caption Three</div>
-    </div> --}}
-
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 <br>
 

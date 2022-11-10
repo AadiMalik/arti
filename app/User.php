@@ -53,6 +53,13 @@ class User extends Authenticatable
         'email_verified_at',
         'image',
         'subscription',
+        'note',
+        'days',
+        'package_id',
+        'expiry',
+        'adds',
+        'mandi',
+
     ];
     public function getIsAdminAttribute()
     {
