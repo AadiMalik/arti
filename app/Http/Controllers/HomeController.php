@@ -78,6 +78,10 @@ class HomeController extends Controller
 
         return view('welcome', compact('rating', 'arti_fallow', 'admin_videos', 'sale_product', 'product', 'user_product', 'arti', 'category', 'product_image', 'slider', 'review', 'blog'));
     }
+    public function getData(){
+        $userData = User::get();
+        return json_encode(array('data'=>$userData));
+    }
     public function search(Request $request)
     {
         $product = Product::orWhere('name', 'LIKE', '%' . $request->search . '%')->orWhere('description', 'LIKE', '%' . $request->search . '%')->orderBy('hits', 'DESC')->where('zamidar', 0)->get();

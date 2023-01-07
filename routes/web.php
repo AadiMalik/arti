@@ -44,6 +44,7 @@ Route::post('get-tehsil-by-district','Auth\RegisterController@getTehsil');
 Route::get('fallow', 'HomeController@getFallow');
 Route::get('vfallow', 'HomeController@getVFallow');
 Route::post('arti_phone/store', 'PhoneCountController@store');
+Route::get('getData', 'HomeController@getData');
 Route::get('arti-package', function () {
     return view('arti_package');
 });

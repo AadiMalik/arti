@@ -54,7 +54,7 @@
                                         <label for=""><b>Select Your Market</b></label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" value="Gala Mandi" name="mandi[]" required> Gala Mandi
+                                        <input type="checkbox" value="Gala Mandi" name="mandi[]"> Gala Mandi
                                     </div>
                                     <div class="col-md-3">
                                         <input type="checkbox" value="Sabzi Mandi" name="mandi[]"> Sabzi Mandi

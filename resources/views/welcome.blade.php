@@ -1,5 +1,5 @@
 @php
-use Carbon\Carbon;
+    use Carbon\Carbon;
 @endphp
 @extends('layouts.app')
 @section('content')
@@ -137,7 +137,7 @@ use Carbon\Carbon;
                 <div class="text"></div>
             </div>
         @endforeach
-    
+
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -462,7 +462,7 @@ use Carbon\Carbon;
                 @foreach ($arti->where('verify', 1) as $item1)
                     @foreach ($item1->roles as $item2)
                         @if ($item2->title == 'Arti')
-                            <div class="product-item fix">
+                            <div class="product-item fix" id="bodyData">
                                 <div class="product-thumb">
                                     <a href="{{ url('arti-detail/' . $item1->id) }}">
                                         <img src="{{ asset($item1->image ?? 'assets/img/user.jpg') }}"
@@ -659,40 +659,7 @@ use Carbon\Carbon;
 <!-- page wrapper end -->
 @endsection
 @section('script')
-<script>
-    $(document).ready(function() {
-        <?php
-    foreach ($arti as $item) {
-    ?>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
-        $('#artifallow<?php echo $item->id; ?>').click(function() {
-            <?php if (auth()->user() != null) { ?>
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('ArtiFallow') }}",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
-                    arti_id: <?php echo $item->id; ?>,
-                    user_id: <?php echo auth()->user()->id; ?>
-                },
-
-                success: function(data) {
-                    location.reload();
-                }
-            });
-            <?php } else { ?>
-            alert('Please Login First!');
-            <?php } ?>
-
-        });
-        <?php }?>
-    });
-</script>
 <script>
     let slideIndex = 0;
     showSlides();
