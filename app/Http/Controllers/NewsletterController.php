@@ -9,6 +9,7 @@ use Mail;
 
 class NewsletterController extends Controller
 {
+    
     public function store(Request $request)
     {
         $validation = $request->validate(

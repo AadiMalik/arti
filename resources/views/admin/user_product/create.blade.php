@@ -33,7 +33,7 @@
                     <label class="required" for="name">User</label>
                     <select class="form-control" name="user" id="user" required>
                         @foreach ($user as $item)
-                            <option value="{{ $item->id ?? '' }}">{{ $item->name ?? '' }}</option>
+                            <option value="{{ $item->id ?? '' }}">{{ $item->first_name ?? '' }} {{ $item->last_name ?? '' }}</option>
                         @endforeach
                     </select>
                     {!! $errors->first('user', "<span class='text-danger'>:message</span>") !!}

@@ -29,7 +29,7 @@ class UserProductController extends Controller
     public function create()
     {
         $product = Product::orderBy('name','ASC')->get();
-        $user = User::orderBy('name','ASC')->get();
+        $user = User::orderBy('first_name','ASC')->get();
         return view('admin/user_product.create',compact('product','user'));
     }
 
