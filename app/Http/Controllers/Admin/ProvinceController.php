@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\District;
 use App\Http\Controllers\Controller;
 use App\Province;
 use Illuminate\Http\Request;
 
-class DistrictController extends Controller
+class ProvinceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        $district = District::orderBy('created_at','DESC')->get();
-        return view('admin/district.index',compact('district'));
+        $province = Province::all();
+        return view('admin/province.index',compact('province'));
     }
 
     /**
@@ -27,8 +26,7 @@ class DistrictController extends Controller
      */
     public function create()
     {
-        $province = Province::all();
-        return view('admin/district.create',compact('province'));
+        return view('admin/province.create');
     }
 
     /**
@@ -41,24 +39,22 @@ class DistrictController extends Controller
     {
         $validation = $request->validate(
             [
-                'name' => 'required|max:255',
-                'province' => 'required'
+                'name' => 'required|max:255'
             ]
         );
-        $district = new District;
-        $district->name = $request->name;
-        $district->province_id = $request->province;
-        $district->save();
-        return redirect('admin/district')->with('success','District has created!');
+        $province = new Province;
+        $province->name = $request->name;
+        $province->save();
+        return redirect('admin/province')->with('success','Province has created!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\District  $district
+     * @param  \App\Province  $province
      * @return \Illuminate\Http\Response
      */
-    public function show(District $district)
+    public function show(Province $province)
     {
         //
     }
@@ -66,48 +62,45 @@ class DistrictController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\District  $district
+     * @param  \App\Province  $province
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $district = District::find($id);
-        $province = Province::all();
-        return view('admin/district.edit',compact('district','province'));
+        $province = Province::find($id);
+        return view('admin/province.edit',compact('province'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\District  $district
+     * @param  \App\Province  $province
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $validation = $request->validate(
             [
-                'name' => 'required|max:255',
-                'province' => 'required'
+                'name' => 'required|max:255'
             ]
         );
-        $district = District::find($id);
-        $district->name = $request->name;
-        $district->province_id = $request->province;
-        $district->update();
-        return redirect('admin/district')->with('success','District has updated!');
+        $province = Province::find($id);
+        $province->name = $request->name;
+        $province->update();
+        return redirect('admin/province')->with('success','Province has updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\District  $district
+     * @param  \App\Province  $province
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
-        $district = District::find($request->id);
-        $district->delete();
-        return response(['message' => 'District delete successfully']);
+        $province = Province::find($request->id);
+        $province->delete();
+        return response(['message' => 'Province delete successfully']);
     }
 }

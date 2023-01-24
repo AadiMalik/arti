@@ -439,6 +439,9 @@ $notifications = notification();
                                         <li class="nav-link "> <a href="/admin/blog">Blogs</a> </li>
                                     @endcan
                                     @can('district_access')
+                                        <li class="nav-link "> <a href="{{ url('admin/province') }}">Province</a> </li>
+                                    @endcan
+                                    @can('district_access')
                                         <li class="nav-link "> <a href="{{ url('admin/district') }}">District</a> </li>
                                     @endcan
                                     @can('tehsil_access')

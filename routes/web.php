@@ -147,6 +147,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // media
     Route::resource('media', 'MediaController');
     Route::post('deletemedia', 'MediaController@destroy')->name('deleteMedia');
+    // Province
+    Route::resource('province', 'ProvinceController');
+    Route::post('deleteprovince', 'ProvinceController@destroy')->name('deleteProvince');
     // District
     Route::resource('district', 'DistrictController');
     Route::post('deletedistrict', 'DistrictController@destroy')->name('deleteDistrict');
