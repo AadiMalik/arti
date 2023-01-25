@@ -38,6 +38,7 @@ class User extends Authenticatable
         'verify',
         'email',
         'address',
+        'province_id',
         'district_id',
         'tehsil_id',
         'phone1',

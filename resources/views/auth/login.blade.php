@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
     <!-- breadcrumb area start -->
@@ -26,7 +26,7 @@
                 <div class="row">
                     <!-- Login Content Start -->
                     <div class="col-md-6 offset-md-3">
-                        <div class="login-reg-form-wrap  pr-lg-50">
+                        <div class="login-reg-form-wrap  pr-lg-50" style="background:#dff3e4; border: 2px solid #4b8b51;">
                             <h2>Sign In</h2>
                             <form action="{{ route('login') }}" method="POST">
                                 @csrf

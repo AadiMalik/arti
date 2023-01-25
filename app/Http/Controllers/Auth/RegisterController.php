@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\District;
 use App\Http\Controllers\Controller;
+use App\Province;
 use App\Tehsil;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -26,9 +27,15 @@ class RegisterController extends Controller
 
     use RegistersUsers;
     public function showRegistrationForm(){
-        $district = District::orderBy('name','asc')->get();
-        $tehsil = Tehsil::orderBy('name','asc')->get();
-        return view('auth.register',compact('district','tehsil'));
+        // $district = District::orderBy('name','asc')->get();
+        // $tehsil = Tehsil::orderBy('name','asc')->get();
+        $province = Province::orderBy('name','asc')->get();
+        return view('auth.register',compact('province'));
+    }
+    public function getDistrict(Request $request){
+        $data['district'] = District::where("province_id",$request->province_id)
+                    ->get(["name","id"]);
+        return response()->json($data);
     }
     public function getTehsil(Request $request){
         $data['tehsil'] = Tehsil::where("district_id",$request->district_id)
@@ -65,6 +72,7 @@ class RegisterController extends Controller
             'phone1' => ['required', 'max:15', 'unique:users,phone1'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'province_id' => ['required'],
             'district_id' => ['required'],
             'tehsil_id' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -85,6 +93,7 @@ class RegisterController extends Controller
             'first_name'=>ucfirst($data['first_name']),
             'last_name'=>ucfirst($data['last_name']),
             'phone1'=>$data['phone1'],
+            'province_id'=>$data['province_id'],
             'district_id'=>$data['district_id'],
             'tehsil_id'=>$data['tehsil_id'],
             'email' => $data['email'],

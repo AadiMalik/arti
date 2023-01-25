@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
     <!-- breadcrumb area start -->
@@ -25,7 +25,7 @@
                 <div class="row">
                     <!-- Register Content Start -->
                     <div class="col-md-6 offset-md-3">
-                        <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
+                        <div class="login-reg-form-wrap mt-md-34 mt-sm-34 mb-4" style="background:#dff3e4; border: 2px solid #4b8b51;">
                             <h2 style="margin-bottom: 0px;">Register</h2>
                             <form action="{{ route('register') }}" method="POST">
                                 @csrf
@@ -41,7 +41,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="single-input-item">
-                                            <select name="role" id="" class="form-control" onchange="showDiv(this)" >
+                                            <select name="role" id="" class="form-control" style="height: 50px;
+                                            border-radius: 0px;"
+                                                onchange="showDiv(this)">
                                                 <option selected disabled>--Select Your Category--</option>
                                                 <option value="2">Zameendar</option>
                                                 <option value="3">Commession Agent</option>
@@ -92,25 +94,41 @@
                                     <input type="email" name="email" value="{{ old('email') }}"
                                         placeholder="Enter your Email" required />
                                 </div>
-
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="single-input-item">
-                                            <select name="district_id" class="select2" id="district-dropdown">
-                                                <option disabled selected>--Select District--</option>
-                                                @foreach ($district as $item)
+                                            <select name="province_id" class="form-control select2" id="province-dropdown" style="height: 50px;
+                                            border-radius: 0px;">
+                                                <option disabled selected>--Select Province--</option>
+                                                @foreach ($province as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name ?? '' }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-6">
                                         <div class="single-input-item">
-                                            <select name="tehsil_id" class="select2" id="district-dropdown">
+                                            <select name="district_id" class="form-control select2" id="district-dropdown" style="height: 50px;
+                                            border-radius: 0px;">
+                                                <option disabled selected>--Select District--</option>
+                                                {{-- @foreach ($district as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name ?? '' }}</option>
+                                                @endforeach --}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-input-item">
+                                            <select name="tehsil_id" class="form-control select2" id="tehsil-dropdown" style="height: 50px;
+                                            border-radius: 0px;">
                                                 <option disabled selected>--Select Tehsil--</option>
-                                                @foreach ($tehsil as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name ?? '' }}({{$item->district_name->name??''}})</option>
-                                                @endforeach
+                                                {{-- @foreach ($tehsil as $item)
+                                                    <option value="{{ $item->id }}">
+                                                        {{ $item->name ?? '' }}({{ $item->district_name->name ?? '' }})
+                                                    </option>
+                                                @endforeach --}}
                                             </select>
                                         </div>
                                     </div>
@@ -136,6 +154,8 @@
                                 </div>
                                 <div class="single-input-item">
                                     <button type="submit" class="sqr-btn">Register</button>
+                                    <p class="mt-4">if you hava account? <a
+                                        href="{{ route('login') }}">Login</a></p>
                                 </div>
                             </form>
                         </div>
@@ -147,9 +167,28 @@
     </div>
 @endsection
 @section('script')
-
     <script>
         $(document).ready(function() {
+            $('#province-dropdown').on('change', function() {
+                var province_id = this.value;
+                $("#district-dropdown").html('');
+                $.ajax({
+                    url: "{{ url('get-district-by-province') }}",
+                    type: "POST",
+                    data: {
+                        province_id: province_id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        $("#district-dropdown").html('<option selected disabled>--Select District--</option>');
+                        $.each(result.district, function(key, value) {
+                            $("#district-dropdown").append('<option value="' + value.id +
+                                '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
             $('#district-dropdown').on('change', function() {
                 var district_id = this.value;
                 $("#tehsil-dropdown").html('');
@@ -162,8 +201,10 @@
                     },
                     dataType: 'json',
                     success: function(result) {
+                        $("#tehsil-dropdown").html('<option selected disabled>--Select Tehsil--</option>');
                         $.each(result.tehsil, function(key, value) {
-                            $("#tehsil-dropdown").append('<option value="' + value.id + '">' + value.name + '</option>');
+                            $("#tehsil-dropdown").append('<option value="' + value.id +
+                                '">' + value.name + '</option>');
                         });
                     }
                 });
@@ -184,12 +225,12 @@
         }
     </script>
     <script type="text/javascript">
-        function showDiv(select){
-           if(select.value==3){
-            document.getElementById('hidden_div').style.display = "flex";
-           } else{
-            document.getElementById('hidden_div').style.display = "none";
-           }
-        } 
-        </script>
+        function showDiv(select) {
+            if (select.value == 3) {
+                document.getElementById('hidden_div').style.display = "flex";
+            } else {
+                document.getElementById('hidden_div').style.display = "none";
+            }
+        }
+    </script>
 @endsection
