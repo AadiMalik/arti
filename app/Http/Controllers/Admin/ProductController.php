@@ -46,7 +46,9 @@ class ProductController extends Controller
                 'image1' => 'required',
                 'image2' => 'required',
                 'category' => 'required',
-                'description' => 'required'
+                'description' => 'required|max:990',
+                'tags' => 'max:50',
+                'type' => 'max:100'
             ]
         );
         $product = new Product;
@@ -124,7 +126,10 @@ class ProductController extends Controller
                 'name' => 'required|max:255',
                 'status' => 'required',
                 'category' => 'required',
-                'description' => 'required'
+                'description' => 'required|max:990',
+                'tags' => 'max:50',
+                'type' => 'max:100'
+                
             ]
         );
         $product = Product::find($id);

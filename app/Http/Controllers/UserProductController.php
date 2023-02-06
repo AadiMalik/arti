@@ -70,8 +70,8 @@ class UserProductController extends Controller
             $user_product->weight = $product->weight;
             $user_product->description = $product->description;
             $user_product->user_id = Auth()->user()->id;
-            $user_product->image1 = $product_image[0]['image'];
-            $user_product->image2 = $product_image[1]['image'];
+            $user_product->image1 = $product_image[0]['image']??'';
+            $user_product->image2 = $product_image[1]['image']??'';
             $user_product->save();
         }
         return redirect(route('client.user-product.edit',Auth()->user()->id))->with('success', 'Products has created!');

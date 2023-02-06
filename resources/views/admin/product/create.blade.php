@@ -48,6 +48,7 @@
             <div class="form-group">
                 <label class="required" for="tags">Tags</label>
                 <input type="text" class="form-control inputtags" name="tags">
+                {!!$errors->first("tags", "<span class='text-danger'>:message</span>")!!}
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
