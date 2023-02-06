@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="name">Product Name</label>
-                    <select class="form-control" name="product[]" id="product" multiple required>
+                    <select class="form-control" name="product[]" id="product" multiple required style="min-hieght:100px;">
                         @foreach ($product as $item)
                             <option value="{{ $item->id ?? '' }}">{{ $item->name ?? '' }}({{ $item->type ?? '' }})</option>
                         @endforeach
