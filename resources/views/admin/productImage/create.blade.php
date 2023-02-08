@@ -3,15 +3,15 @@
 
 <div class="card">
     <div class="card-header">
-        Create Product
+        Create Product Image
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.product.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.product-image.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="category">Product</label>
-                <select class="form-control" name="category" id="category" required>
+                <label class="required" for="product">Product</label>
+                <select class="form-control" name="product" id="product" required>
                     @foreach ($product as $item)
                         <option value="{{$item->id??''}}">{{$item->name??''}}</option>
                     @endforeach

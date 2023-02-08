@@ -41,7 +41,7 @@ class ProductImageController extends Controller
     {
         $validation = $request->validate(
             [
-                'product_id' => 'required',
+                'product' => 'required',
                 'image' => 'required|max:10248|mimes:jpeg,png,jpg'
             ]
         );
@@ -55,7 +55,7 @@ class ProductImageController extends Controller
         }
         $productImage->product_id = $request->product;
         $productImage->save();
-        return redirect('admin/productImage')->with('success','Product Image has created!');
+        return redirect('admin/product-image')->with('success','Product Image has created!');
 
     }
 
