@@ -11,7 +11,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('Admin/users.profile');
+        return view('admin/users.profile');
     }
 
     public function update(Request $request, $id)
