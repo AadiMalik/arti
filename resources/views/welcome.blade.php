@@ -151,7 +151,7 @@
     <div class="container">
         <div class="row">
             <!-- start home sidebar -->
-            <div class="col-lg-3">
+            <div class="col-md-3">
                 <div class="col-md-12">
                     <img src="{{ asset('3.jpg') }}" style="height: 300px; margin-bottom:20px;" alt="">
                 </div>
@@ -201,7 +201,8 @@
                         <div class="section-title-2 d-flex justify-content-between mb-28">
                             <h3>Best seller</h3>
                             <div class="category-append"></div>
-                        </div> <!-- section title end -->
+                        </div>
+                        <!-- section title end -->
                         <div class="category-carousel-active row" data-row="4">
                             @foreach ($product->take(3) as $item)
                                 <div class="col">
@@ -225,7 +226,8 @@
                                             </div>
 
                                         </div>
-                                    </div> <!-- end single item -->
+                                    </div>
+                                    <!-- end single item -->
                                 </div>
                             @endforeach
                         </div>
@@ -259,7 +261,8 @@
                                     </div>
                                     <a href="{{ url('blog-detail/' . $item->id) }}">read more <i
                                             class="fa fa-long-arrow-right"></i></a>
-                                </div> <!-- end single blog item -->
+                                </div>
+                                <!-- end single blog item -->
                             @endforeach
                         </div>
                         <!-- blog wrapper end -->
@@ -270,7 +273,8 @@
                     <div class="main-sidebar testimonial-area pb-sm-70">
                         <div class="section-title-2 mb-28">
                             <h3>Clients Say</h3>
-                        </div> <!-- section title end -->
+                        </div>
+                        <!-- section title end -->
                         <div class="testimonial-carousel-active slick-dot-style">
                             @foreach ($review as $item)
                                 <div class="testimonial-item text-center">
@@ -282,7 +286,8 @@
                                         <h3><a href="#">{{ $item->name ?? '' }}</a></h3>
                                         <p>{!! $item->description ?? '' !!}</p>
                                     </div>
-                                </div> <!-- end single testimonial item -->
+                                </div>
+                                <!-- end single testimonial item -->
                             @endforeach
                         </div>
                     </div>
@@ -290,12 +295,11 @@
 
                 </div>
             </div>
-
         </div>
     </div>
     <!-- end home sidebar -->
 
-    <div class="col-lg-9">
+    <div class="col-md-9">
         <!-- Hot Products area start -->
         <div class="feature-category-area mt-md-70">
             <div class="section-title mb-30">
@@ -398,28 +402,28 @@
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @endif
                                             @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -502,28 +506,28 @@
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @endif
                                             @if (ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 1.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 2.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 2.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 3.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 3.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 4.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                                 <span class="good"><i class="fa fa-star-o"></i></span>
                                             @elseif(ceil($rating->where('arti_id', $item1->id)->avg('rate')) >= 4.0 &&
-                                                ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
+                                                    ceil($rating->where('arti_id', $item1->id)->avg('rate')) < 5.0)
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -654,12 +658,9 @@
         <!-- banner statistic end -->
     </div>
 </div>
-</div>
-</div>
 <!-- page wrapper end -->
 @endsection
 @section('script')
-
 <script>
     let slideIndex = 0;
     showSlides();
