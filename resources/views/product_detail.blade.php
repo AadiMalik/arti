@@ -104,11 +104,11 @@
                                                     role="tabpanel" aria-labelledby="home-tab"
                                                     style="overflow-y: auto; max-height:500px; margin-top:20px; padding:10px;box-shadow: 0px 0px 5px 0px #4444;">
                                                     <ul>
-                                                        @if ($user_product->where('product_id', $product_detail->id)->count() > 0)
-                                                            @foreach ($user_product->where('product_id', $product_detail->id) as $item)
+                                                        @if ($user_product->where('product_id',$product_detail->id)->count() > 0)
+                                                            @foreach ($user_product->where('product_id',$product_detail->id) as $item)
                                                                 <li style="padding:4px; margin-bottom:10px;">
                                                                     <div class="author-avatar">
-                                                                        <img src="{{ asset($item->user_name->image ?? 'assets/img/user.jpg') }}"
+                                                                        <img src="{{ asset($item->image ?? 'assets/img/user.jpg') }}"
                                                                             style="border-radius:50%; height: 90px; max-width: 90px;"
                                                                             alt="">
                                                                     </div>
@@ -121,27 +121,28 @@
                                                                                         style="background:#d8373e; color:#fff !important;">Followed</a>
                                                                                 @else
                                                                                     <a style="cursor: pointer;"
-                                                                                        id="artifallow{{ $item->user_id }}">Follow</a>
+                                                                                        id="artifallow{{ $item->user_id??'' }}">Follow</a>
                                                                                 @endif
                                                                             @else
                                                                                 <a style="cursor: pointer;"
-                                                                                    id="artifallow{{ $item->user_id }}">Follow</a>
+                                                                                    id="artifallow{{ $item->user_id??'' }}">Follow</a>
                                                                             @endauth
                                                                             <br><i class="fa fa-feed"></i> {{ $arti_fallow->where('arti_id', $item->user_id)->count() ?? '0' }}
                                                                         </span>
 
 
                                                                         <b class="comment-author"><a
-                                                                                href="{{ url('arti-detail/' . $item->user_name->id) }}">{{ $item->user_name->first_name }}
-                                                                                {{ $item->user_name->last_name }}</a></b><br>
+                                                                                href="{{ url('arti-detail/' . $item->id) }}">{{ $item->first_name }}
+                                                                                {{ $item->last_name }}</a></b><br>
                                                                         <img src="{{ asset($item->image1 ?? '') }}"
                                                                             style="height: 50px;
                                                                             width: 50px;
                                                                             margin-left: 3px;"
-                                                                            alt=""><b style="margin-left:10px;">Rs.
+                                                                            alt=""><b
+                                                                            style="margin-left:10px;">Rs.
                                                                             {{ $item->price_low ?? '0' }}-{{ $item->price_high ?? '0' }}</b><br>
                                                                         <span
-                                                                            class="comment-author">{{ $item->user_name->address ?? 'abc city state pakistan' }}</span>
+                                                                            class="comment-author">{{ $item->address ?? 'abc city state pakistan' }}</span>
                                                                         <div class="comment-post-date">
 
                                                                         </div>

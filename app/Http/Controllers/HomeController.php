@@ -332,7 +332,10 @@ class HomeController extends Controller
     public function product_detail($id)
     {
         $product = Product::orderBy('created_at', 'DESC')->get();
-        $user_product = UserProduct::all();
+        $user_product = $verify = DB::table('users')->where('verify', 1)
+        ->join('user_products', 'users.id', '=', 'user_products.user_id')
+        ->select('users.*', 'user_products.price_low', 'user_products.price_high', 'user_products.image1', 'user_products.user_id', 'user_products.product_id')
+        ->get();
         $product_detail = Product::find($id);
         $product_detail->hits = $product_detail->hits + 1;
         $product_detail->update();

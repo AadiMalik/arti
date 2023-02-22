@@ -14,7 +14,7 @@
                 <label class="required" for="name">Select District</label>
                 <select name="district_id" class="form-control" name="name" id="name" id="">
                     @foreach ($district as $item)
-                        <option value="{{ $item->id }}" @if($item->id==$tehsil->district_id)>{{ $item->name ?? '' }}</option>
+                        <option value="{{ $item->id }}" @if($item->id==$tehsil->district_id) @endif>{{ $item->name ?? '' }}</option>
                     @endforeach
                 </select>
                 {!! $errors->first('district_id', "<span class='text-danger'>:message</span>") !!}
