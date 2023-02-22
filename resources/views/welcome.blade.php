@@ -270,7 +270,7 @@
                     <!-- blog area end -->
 
                     <!-- testimonial area start -->
-                    <div class="main-sidebar testimonial-area pb-sm-70">
+                    {{-- <div class="main-sidebar testimonial-area pb-sm-70">
                         <div class="section-title-2 mb-28">
                             <h3>Clients Say</h3>
                         </div>
@@ -290,7 +290,7 @@
                                 <!-- end single testimonial item -->
                             @endforeach
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- testimonial area end -->
 
                 </div>
