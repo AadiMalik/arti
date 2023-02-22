@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label class="required" for="name">Review Description</label>
-                    <textarea class="form-control" id="myTextarea" name="description"
+                    <textarea class="form-control" name="description"
                         required>{{ $review->description }}</textarea>
                     {!! $errors->first('description', "<span class='text-danger'>:message</span>") !!}
                 </div>
@@ -49,7 +49,7 @@
 
 
 @endsection
-@section('script')
+{{-- @section('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js"
         integrity="sha512-MbhLUiUv8Qel+cWFyUG0fMC8/g9r+GULWRZ0axljv3hJhU6/0B3NoL6xvnJPTYZzNqCQU3+TzRVxhkE531CLKg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -60,4 +60,4 @@
     </script>
 
 
-@endsection
+@endsection --}}
