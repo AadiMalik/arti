@@ -24,7 +24,10 @@
                                 Sr.
                             </th>
                             <th>
-                                Product Name
+                                Product
+                            </th>
+                            <th>
+                                Type
                             </th>
                             <th>
                                 Min Price
@@ -63,6 +66,9 @@
                                 </td>
                                 <td>
                                     {{ $item->product_name->name ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $item->product_name->category_name->name ?? '' }}
                                 </td>
                                 <td>
                                     <input class="form-control" type="number" name="price_low[]" id="price_low"
