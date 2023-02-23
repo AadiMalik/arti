@@ -68,7 +68,7 @@
                                     {{ $item->product_name->name ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $item->type ?? '' }}
+                                    {{ $item->product_name->type ?? '' }}
                                 </td>
                                 <td>
                                     <input class="form-control" type="number" name="price_low[]" id="price_low"
