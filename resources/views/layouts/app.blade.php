@@ -4,6 +4,7 @@
     $media = media();
     $data = content();
     $notifications = notification();
+    $comission_agent = comission_agent();
     use Carbon\Carbon;
     use Alkoumi\LaravelHijriDate\Hijri;
 @endphp
@@ -340,7 +341,7 @@
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                                         style="left: -130px;">
                                                         <a class="dropdown-item"
-                                                            href="{{ url('user-product/create') }}">Commission agent</a>
+                                                            href="{{($comission_agent > 0)? url('arti-detail/'.Auth()->user()->id):url('user-product/create') }}">Commission agent</a>
                                                         <a class="dropdown-item" href="{{ url('sell') }}">Other
                                                             product</a>
                                                     </div>
@@ -845,6 +846,7 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
+                includedLanguages : 'ur,en',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
         }

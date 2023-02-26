@@ -92,16 +92,17 @@
         /* Fading animation */
         .fade {
             animation-name: fade;
-            animation-duration: 1.5s;
+            animation-duration: 10s;
         }
 
         @keyframes fade {
             from {
-                opacity: .4
+                opacity: 1;
+                transition: 0.25s all ease-in-out;
             }
 
             to {
-                opacity: 1
+                opacity: 1;
             }
         }
 
@@ -152,9 +153,9 @@
         <div class="row">
             <!-- start home sidebar -->
             <div class="col-md-3">
-                <div class="col-md-12">
+                {{-- <div class="col-md-12">
                     <img src="{{ asset('3.jpg') }}" style="height: 300px; margin-bottom:20px;" alt="">
-                </div>
+                </div> --}}
                 <div class="home-sidebar">
                     <!-- hot deals area start -->
                     <div class="main-sidebar hot-deals-wrap mb-30">
@@ -349,7 +350,7 @@
                         <div class="title-icon">
                             <i class="fa fa-users"></i>
                         </div>
-                        <h3>Verified Commession Agents</h3>
+                        <h3>Verified Commission Agents</h3>
 
                     </div> <!-- section title end -->
                     <!-- featured category start -->
@@ -456,7 +457,7 @@
                         <div class="title-icon">
                             <i class="fa fa-users"></i>
                         </div>
-                        <h3>Commession Agents</h3>
+                        <h3>Commission Agents</h3>
 
                     </div> <!-- section title end -->
                     <!-- featured category start -->
@@ -649,13 +650,13 @@
                 <!-- For Sale area end -->
 
                 <!-- banner statistic start -->
-                <div class="banner-statistic pt-28 pb-36">
+                {{-- <div class="banner-statistic pt-28 pb-36">
                     <div class="img-container fix img-full">
                         <a href="#">
                             <img src="{{ asset('1.jpg') }}" style="height: 300px;" alt="">
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <!-- banner statistic end -->
             </div>
         </div>
@@ -677,7 +678,7 @@
                     slideIndex = 1
                 }
                 slides[slideIndex - 1].style.display = "block";
-                setTimeout(showSlides, 2000); // Change image every 2 seconds
+                setTimeout(showSlides, 10000); // Change image every 10 seconds
             }
         </script>
     @endsection

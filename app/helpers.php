@@ -39,6 +39,13 @@ function content(){
         }
         return $notifications;
     }
+    function Comission_agent(){
+        $data = 0;
+        if (Auth::check()){
+        $data  = App\ProductPost::where('user_id',Auth()->user()->id)->count();
+        }
+        return $data;
+    }
     // function news(){
     //     $news  = App\News::orderBy('created_at','DESC')->get();
     //     return $news;
