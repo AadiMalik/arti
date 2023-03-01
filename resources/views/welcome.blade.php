@@ -130,18 +130,37 @@
 <div class="container">
     <div class="slideshow-container">
 
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($slider as $loop=>$item)
+              <div class="carousel-item @if($loop->first) active @endif">
+                <img class="d-block w-100" src="{{ $item->image ?? '' }}" alt="slide" style="width:100%; height:500px;">
+              </div>
+              @endforeach
+              
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
         <!-- Full-width images with number and caption text -->
-        @foreach ($slider as $item)
+        {{-- @foreach ($slider as $item)
             <div class="mySlides fade">
                 <div class="numbertext"></div>
                 <img src="{{ $item->image ?? '' }}" style="width:100%; height:500px;">
                 <div class="text"></div>
             </div>
-        @endforeach
+        @endforeach --}}
 
         <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        {{-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a> --}}
     </div>
 </div>
 <br>
@@ -371,7 +390,11 @@
 
                                         </div>
                                         <div class="product-content">
-                                            <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
+                                            <h4><a style="display: block;
+                                                width: 180px;
+                                                white-space: nowrap;
+                                                overflow: hidden !important;
+                                                text-overflow: ellipsis;" href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
                                                     {{ $item1->last_name ?? '' }}
                                                 </a><i class="fa fa-check-circle" style="color: blue;"
                                                     aria-hidden="true"></i></h4>
@@ -477,7 +500,11 @@
 
                                         </div>
                                         <div class="product-content">
-                                            <h4><a href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
+                                            <h4><a style="display: block;
+                                                width: 180px;
+                                                white-space: nowrap;
+                                                overflow: hidden !important;
+                                                text-overflow: ellipsis;" href="{{ url('arti-detail/' . $item1->id) }}">{{ $item1->first_name ?? '' }}
                                                     {{ $item1->last_name ?? '' }}
                                                 </a></h4>
 
@@ -662,7 +689,7 @@
         </div>
         <!-- page wrapper end -->
     @endsection
-    @section('script')
+    {{-- @section('script')
         <script>
             let slideIndex = 0;
             showSlides();
@@ -681,4 +708,4 @@
                 setTimeout(showSlides, 10000); // Change image every 10 seconds
             }
         </script>
-    @endsection
+    @endsection --}}
