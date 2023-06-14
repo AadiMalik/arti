@@ -1,24 +1,15 @@
 <?php
 
-Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:api']], function () {
-    // Permissions
-    Route::apiResource('permissions', 'PermissionsApiController');
+use Illuminate\Support\Facades\Route;
 
-    // Roles
-    Route::apiResource('roles', 'RolesApiController');
+Route::group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('register', 'Api\Auth\AuthController@register')->name('register');
+    $router->post('login', 'Api\Auth\AuthController@login')->name('login');
+    
+});
 
-    // Users
-    Route::apiResource('users', 'UsersApiController');
-
-    // Categories
-    Route::apiResource('categories', 'CategoriesApiController');
-
-    // Questions
-    Route::apiResource('questions', 'QuestionsApiController');
-
-    // Options
-    Route::apiResource('options', 'OptionsApiController');
-
-    // Results
-    Route::apiResource('results', 'ResultsApiController');
+Route::group(['middleware' => ['jwt.verify'],'prefix' => 'auth'], function () use ($router) {
+    $router->post('logout', 'Api\Auth\AuthController@logout')->name('logout');
+    $router->post('refresh', 'Api\Auth\AuthController@refresh')->name('refresh');
+    $router->post('me', 'Api\Auth\AuthController@me')->name('me');
 });
