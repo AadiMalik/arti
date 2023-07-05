@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\District;
 use App\Http\Controllers\Controller;
+use App\Province;
+use App\Tehsil;
 use App\Traits\ResponseAPI;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -20,10 +25,62 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware(
+            'auth:api',
+            [
+                'except' => [
+                    'login',
+                    'register',
+                    'common',
+                    'refresh',
+                    'me',
+                    'forget'
+                ]
+            ]
+        );
     }
 
-
+    public function common()
+    {
+        $previence = Province::orderBy('name', 'ASC')->get();
+        $district = District::with('province_name')->orderBy('name', 'ASC')->get();
+        $tehsil = Tehsil::with('district_name')->orderBy('name', 'ASC')->get();
+        $category[] = [
+            [
+                "value" => 2,
+                "name" => "Zameendar"
+            ],
+            [
+                "value" => 3,
+                "name" => "Commession Agent"
+            ]
+        ];
+        $mandi = [
+            [
+                "value" => "Gala Mandi",
+            ],
+            [
+                "value" => "Sabzi Mandi",
+            ],
+            [
+                "value" => "Mashli Mandi",
+            ],
+            [
+                "value" => "Phool Mandi",
+            ]
+        ];
+        $data = [
+            'previence' => $previence,
+            'district' => $district,
+            'tehsil' => $tehsil,
+            'category' => $category,
+            'mandi' => $mandi
+        ];
+        return $this->success(
+            "Success!",
+            $data
+        );
+    }
     /**
      * Register a User.
      *
@@ -70,8 +127,9 @@ class AuthController extends Controller
         $user->roles()->sync($request->role, $user->id);
 
         return $this->success(
-            "User Register Successfully!",[]
-        );;
+            "User Register Successfully!",
+            []
+        );
     }
 
 
@@ -122,6 +180,46 @@ class AuthController extends Controller
         }
     }
 
+    public function forget(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            $errors = "";
+
+            foreach ($validator->errors()->all() as $message) {
+                $errors .= $message;
+            }
+
+            return $this->validationResponse($errors);
+        }
+        $user = User::where('email', $request->email)->first();
+
+        if ($user != null) {
+            // Available alpha caracters
+            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            // generate a pin based on 2 * 7 digits + a random character
+            $pin = mt_rand(100, 999)
+                . $characters[rand(0, strlen($characters) - 1)]
+                . mt_rand(100, 999);
+
+            // shuffle the result
+            $code = str_shuffle($pin);
+            $user->password = Hash::make($code);
+            $user->update();
+            $details = [
+                'body' => 'Your new password is ' . $code . ', Thank You!'
+            ];
+
+            Mail::to($request->email)->send(new \App\Mail\ForgetPassordApi($details));
+        } else {
+            return $this->error('This email is wrong!');
+        }
+    }
+
     /**
      * Get the authenticated User.
      *
@@ -156,8 +254,8 @@ class AuthController extends Controller
     {
         return $this->success(
             "Refresh Token!",
-            $this->respondWithRefreshToken()
-        );;
+            $this->respondWithToken(Auth()->user())
+        );
     }
 
     /**
@@ -167,10 +265,10 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    // protected function respondWithToken($token)
-    // {
-    //     return $this->success("Refresh Token", [
-    //         'access_token' => $token
-    //     ]);
-    // }
+    protected function respondWithToken($token)
+    {
+        return $this->success("Refresh Token", [
+            'access_token' => $token
+        ]);
+    }
 }
