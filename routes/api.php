@@ -15,3 +15,7 @@ Route::group(['middleware' => ['api'],'prefix' => 'auth'], function () use ($rou
     $router->post('refresh', 'Api\Auth\AuthController@refresh')->name('refresh');
     $router->post('me', 'Api\Auth\AuthController@me')->name('me');
 });
+
+Route::group(['prefix' => 'Home'], function () use ($router) {
+    $router->get('home', 'Api\Home\HomeController@index')->name('home');
+});
