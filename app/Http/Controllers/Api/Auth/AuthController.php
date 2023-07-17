@@ -215,6 +215,10 @@ class AuthController extends Controller
             ];
 
             Mail::to($request->email)->send(new \App\Mail\ForgetPassordApi($details));
+            return $this->success(
+                "New password send to your email account!",
+                []
+            );
         } else {
             return $this->error('This email is wrong!');
         }
