@@ -19,3 +19,7 @@ Route::group(['middleware' => ['api'],'prefix' => 'auth'], function () use ($rou
 Route::group(['prefix' => 'Home'], function () use ($router) {
     $router->get('home', 'Api\Home\HomeController@index')->name('home');
 });
+
+Route::group(['prefix' => 'Arti'], function () use ($router) {
+    $router->get('arti-profile/{id}', 'Api\ArtiProfile\ArtiProfileController@index');
+});
