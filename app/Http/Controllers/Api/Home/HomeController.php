@@ -39,14 +39,25 @@ class HomeController extends Controller
         $products = [];
         $verify_arti = [];
         $normal_arti = [];
+        $images =[];
         foreach ($product as $item) {
+            foreach($product_image->where('product_id', $item->id) as $item1){
+                $images[]=[
+                    "id"=>$item1->id,
+                    "product_id"=>$item1->product_id,
+                    "image"=>$item1->image,
+                    "created_at"=>$item1->created_at,
+                    "updated_at"=>$item1->updated_at
+                ];
+            }
+            
             $products[] = [
                 "id" => $item->id ?? '',
                 "name" => $item->name ?? '',
                 "type" => $item->type ?? '',
                 "price_low" => $user_product->where('product_id', $item->id)->min('price_low') ?? $item->price_low,
                 "price_high" => $user_product->where('product_id', $item->id)->max('price_high') ?? $item->price_high,
-                "product_images" => $product_image->where('product_id', $item->id)
+                "product_images" => $images
             ];
         }
         foreach ($arti->where('verify', 0) as $item) {
