@@ -20,7 +20,7 @@ class ArtiProfileController extends Controller
     use ResponseAPI;
     public function index($id)
     {
-        $arti = User::find($id);
+        $arti = User::with(['district_name','tehsil_name'])->find($id);
         $user_product = UserProduct::where('user_id', $id)->get();
         $gallery = UserGallery::where('user_id', $id)->get();
         $videos = UserVideo::where('user_id', $id)->get();
@@ -62,8 +62,8 @@ class ArtiProfileController extends Controller
         }
         $data=[
             "arti"=>$arti,
-            "rating"=>$rating,
-            "arti_fallow"=>$arti_fallow,
+            "rating"=>($rating!=null)?$rating:0,
+            "arti_fallow"=>($arti_fallow!=null)?$arti_fallow:0,
             "arti_posts"=>$posts,
             "gallery"=>$gallery,
             "videos"=>$videos,
