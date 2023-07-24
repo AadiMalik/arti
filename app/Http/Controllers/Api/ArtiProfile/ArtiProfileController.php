@@ -20,7 +20,7 @@ class ArtiProfileController extends Controller
     use ResponseAPI;
     public function index($id)
     {
-        $arti = User::with(['district_name','tehsil_name'])->find($id);
+        $arti = User::with(['district_name', 'tehsil_name'])->find($id);
         $user_product = UserProduct::where('user_id', $id)->get();
         $gallery = UserGallery::where('user_id', $id)->get();
         $videos = UserVideo::where('user_id', $id)->get();
@@ -38,36 +38,38 @@ class ArtiProfileController extends Controller
                 $product_price_low = json_decode($item->price_low, true);
                 $product_price_high = json_decode($item->price_high, true);
                 $product_weight = json_decode($item->weight, true);
-                foreach ($product_name as $index => $item1){
-                    $products[]=[
-                        "product_name"=>$product_name[$index],
-                        "product_image"=>$product_image[$index],
-                        "product_type"=>$product_type[$index],
-                        "product_low_price"=>$product_price_low[$index],
-                        "product_high_price"=>$product_price_high[$index],
-                        "product_wieght"=>$product_weight[$index]
-                    ];
+                if ($product_name->count() > 0) {
+                    foreach ($product_name as $index => $item1) {
+                        $products[] = [
+                            "product_name" => $product_name[$index],
+                            "product_image" => $product_image[$index],
+                            "product_type" => $product_type[$index],
+                            "product_low_price" => $product_price_low[$index],
+                            "product_high_price" => $product_price_high[$index],
+                            "product_wieght" => $product_weight[$index]
+                        ];
+                    }
                 }
             }
             $posts[] = [
-                "id"=>$item->id,
+                "id" => $item->id,
                 "date_time" => ($item->created_at->addDay(3) <= Carbon::now()) ? $item->created_at->format('d-m-y h:i A') : $item->created_at->diffForHumans(),
-                "type"=>$item->post_type,
-                "products"=>$products,
-                "description"=>$item->description??'',
-                "total_likes"=>$comment->where('post_id', $item->id)->where('comment',null)->count(),
-                "total_comments"=>$comment->where('post_id', $item->id)->where('comment', '!=', null)->count(),
-                "comments"=>$comment->where('post_id', $item->id)->where('comment', '!=', null)
+                "type" => $item->post_type,
+                "products" => $products,
+                "description" => $item->description ?? '',
+                "total_likes" => $comment->where('post_id', $item->id)->where('comment', null)->count(),
+                "total_comments" => $comment->where('post_id', $item->id)->where('comment', '!=', null)->count(),
+                "comments" => $comment->where('post_id', $item->id)->where('comment', '!=', null)
             ];
         }
-        $data=[
-            "arti"=>$arti,
-            "rating"=>($rating!=null)?$rating:0,
-            "arti_fallow"=>($arti_fallow!=null)?$arti_fallow:0,
-            "arti_posts"=>$posts,
-            "gallery"=>$gallery,
-            "videos"=>$videos,
-            "arti_sale_product"=>$user_product
+        $data = [
+            "arti" => $arti,
+            "rating" => ($rating != null) ? $rating : 0,
+            "arti_fallow" => ($arti_fallow != null) ? $arti_fallow : 0,
+            "arti_posts" => $posts,
+            "gallery" => $gallery,
+            "videos" => $videos,
+            "arti_sale_product" => $user_product
         ];
         return $this->success(
             "Success!",
