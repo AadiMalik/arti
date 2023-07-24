@@ -38,7 +38,7 @@ class ArtiProfileController extends Controller
                 $product_price_low = json_decode($item->price_low, true);
                 $product_price_high = json_decode($item->price_high, true);
                 $product_weight = json_decode($item->weight, true);
-                if ($product_name->count() > 0) {
+                if ($product_name!= null) {
                     foreach ($product_name as $index => $item1) {
                         $products[] = [
                             "product_name" => $product_name[$index],
