@@ -23,3 +23,6 @@ Route::group(['prefix' => 'Home'], function () use ($router) {
 Route::group(['prefix' => 'Arti'], function () use ($router) {
     $router->get('arti-profile/{id}', 'Api\ArtiProfile\ArtiProfileController@index');
 });
+Route::group(['prefix' => 'Product'], function () use ($router) {
+    $router->get('product-detail/{id}', 'Api\Product\ProductController@product_detail');
+});
