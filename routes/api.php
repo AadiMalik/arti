@@ -26,3 +26,6 @@ Route::group(['prefix' => 'Arti'], function () use ($router) {
 Route::group(['prefix' => 'Product'], function () use ($router) {
     $router->get('product-detail/{id}', 'Api\Product\ProductController@product_detail');
 });
+Route::group(['prefix' => 'SaleProduct'], function () use ($router) {
+    $router->get('sale-product-detail/{id}', 'Api\SaleProduct\SaleProductController@sale_product_detail');
+});
