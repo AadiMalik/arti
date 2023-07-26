@@ -46,9 +46,7 @@ Route::get('fallow', 'HomeController@getFallow');
 Route::get('vfallow', 'HomeController@getVFallow');
 Route::post('arti_phone/store', 'PhoneCountController@store');
 Route::get('getData', 'HomeController@getData');
-Route::get('arti-package', function () {
-    return view('arti_package');
-});
+Route::view('arti_package','arti-package');
 
 
 

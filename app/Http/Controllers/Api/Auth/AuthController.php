@@ -146,13 +146,8 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $errors = "";
 
-            foreach ($validator->errors()->all() as $message) {
-                $errors .= $message;
-            }
-
-            return $this->validationResponse($errors);
+            return $this->validationResponse(implode(" ",$validator->errors()->all()));
         }
         if (is_numeric($request->email)) {
             $credentials = ['phone1' => $request->email, 'password' => $request->password];
@@ -161,8 +156,8 @@ class AuthController extends Controller
         } else {
             $credentials = ['username' => $request->email, 'password' => $request->password];
         }
-
-        if ($token = JWTAuth::attempt($credentials)) {
+        $token = Auth::attempt($credentials);
+        if (isset($token)) {
             $user = Auth::user();
             $user->roles;
 
