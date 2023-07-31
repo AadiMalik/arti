@@ -73,7 +73,7 @@ class ArtiProfileController extends Controller
                     $like_check = $comment->where('post_id', $item->id)->where('user_id', $user_id)->where('comment', null)->count();
                     $liked = ($like_check > 0) ? true : false;
                 }
-
+                $comments =Comment::with('user_name')->where('post_id', $item->id)->where('comment', '!=', null)->get();
                 $posts[] = [
                     "id" => $item->id,
                     "date_time" => ($item->created_at->addDay(3) <= Carbon::now()) ? $item->created_at->format('d-m-y h:i A') : $item->created_at->diffForHumans(),
@@ -83,7 +83,7 @@ class ArtiProfileController extends Controller
                     "total_likes" => $comment->where('post_id', $item->id)->where('comment', null)->count(),
                     "liked" => $liked,
                     "total_comments" => $comment->where('post_id', $item->id)->where('comment', '!=', null)->count(),
-                    "comments" => $comment->where('post_id', $item->id)->where('comment', '!=', null)
+                    "comments" => $comments
                 ];
             }
             $data = [

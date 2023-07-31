@@ -35,3 +35,7 @@ Route::group(['prefix' => 'SaleProduct'], function () use ($router) {
     $router->get('sale-product-detail/{id}', 'Api\SaleProduct\SaleProductController@sale_product_detail');
 });
 
+Route::group(['prefix' => 'Blog'], function () use ($router) {
+    $router->get('blog', 'Api\Blog\BlogController@index');
+});
+
