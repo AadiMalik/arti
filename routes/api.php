@@ -27,6 +27,8 @@ Route::group(['prefix' => 'Home'], function () use ($router) {
 Route::group(['prefix' => 'Arti'], function () use ($router) {
     $router->get('arti-profile', 'Api\ArtiProfile\ArtiProfileController@index');
     $router->post('fallow-like-comment', 'Api\ArtiProfile\ArtiProfileController@fallow_like_comment');
+    $router->get('arti-gallery/{id}', 'Api\ArtiProfile\ArtiProfileController@gallery');
+    $router->get('arti-videos/{id}', 'Api\ArtiProfile\ArtiProfileController@videos');
 });
 Route::group(['prefix' => 'Product'], function () use ($router) {
     $router->get('product-detail/{id}', 'Api\Product\ProductController@product_detail');

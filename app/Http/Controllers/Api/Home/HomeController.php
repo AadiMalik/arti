@@ -68,7 +68,9 @@ class HomeController extends Controller
                     "last_name" => $item->last_name ?? '',
                     "image" => $item->image ?? '',
                     "rating"=>($rating->where('arti_id', $item->id)->count()>0)?($rating->where('arti_id', $item->id)->avg('rate')/$rating->where('arti_id', $item->id)->count()):0,
-                    "reviews" => $rating->where('arti_id', $item->id)->count()
+                    "reviews" => $rating->where('arti_id', $item->id)->count(),
+                    "follows"=>ArtiFallow::where('arti_id', $request->id)->count(),
+                    "followed"=>(ArtiFallow::where('user_id',$request->user_id)->where('arti_id', $request->id)->count()>0)?true:false,
                 ];
             }
         }
@@ -80,7 +82,9 @@ class HomeController extends Controller
                     "last_name" => $item->last_name ?? '',
                     "image" => $item->image ?? '',
                     "rating"=>($rating->where('arti_id', $item->id)->count()>0)?($rating->where('arti_id', $item->id)->avg('rate')/$rating->where('arti_id', $item->id)->count()):0,
-                    "reviews" => $rating->where('arti_id', $item->id)->count()
+                    "reviews" => $rating->where('arti_id', $item->id)->count(),
+                    "follows"=>ArtiFallow::where('arti_id', $request->id)->count(),
+                    "followed"=>(ArtiFallow::where('user_id',$request->user_id)->where('arti_id', $request->id)->count()>0)?true:false,
                 ];
             }
         }

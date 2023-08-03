@@ -188,4 +188,34 @@ class ArtiProfileController extends Controller
             return $this->error("Type is wrong!");
         }
     }
+
+    public function gallery($id){
+        
+        $gallery = UserGallery::where('user_id', $id)->get();
+        if(isset($gallery)){
+            return $this->success(
+                "Success!",
+                $gallery
+            );
+        }else{
+            return $this->error(
+                "Data Not Found!"
+            );
+        }
+    }
+
+    public function videos($id){
+        
+        $videos = UserVideo::where('user_id', $id)->get();
+        if(isset($videos)){
+            return $this->success(
+                "Success!",
+                $videos
+            );
+        }else{
+            return $this->error(
+                "Data Not Found!"
+            );
+        }
+    }
 }
