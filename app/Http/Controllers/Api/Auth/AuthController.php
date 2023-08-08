@@ -156,7 +156,7 @@ class AuthController extends Controller
         } else {
             $credentials = ['username' => $request->email, 'password' => $request->password];
         }
-        $token = Auth::attempt($credentials);
+        $token = JWTAuth::attempt($credentials);
         if (isset($token)) {
             $user = Auth::user();
             $user->roles;

@@ -41,3 +41,10 @@ Route::group(['prefix' => 'Blog'], function () use ($router) {
     $router->get('blog', 'Api\Blog\BlogController@index');
 });
 
+Route::group(['middleware' => 'auth:api', 'prefix' => 'Post'], function () use ($router) {
+    $router->get('common', 'Api\UserProduct\UserProductController@index');
+    $router->get('product-by-category', 'Api\UserProduct\UserProductController@getByCategory');
+    $router->post('store-product', 'Api\UserProduct\UserProductController@productStore');
+    $router->post('post','Api\UserProduct\UserProductController@post');
+});
+
