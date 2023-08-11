@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'Post'], function () use (
     $router->get('common', 'Api\UserProduct\UserProductController@index');
     $router->get('product-by-category', 'Api\UserProduct\UserProductController@getByCategory');
     $router->post('store-product', 'Api\UserProduct\UserProductController@productStore');
+    $router->get('arti-products', 'Api\UserProduct\UserProductController@ArtiProduct');
     $router->post('post','Api\UserProduct\UserProductController@post');
 });
 

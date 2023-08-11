@@ -31,9 +31,9 @@ class UserProductController extends Controller
 
         $category = $request->category;
         if ($category != '') {
-            $product = Product::where('category_id', $category)->where('user_id', Auth()->user()->id)->get();
+            $product = Product::where('category_id', $category)->get();
         } else {
-            $product = Product::orderBy('name', 'ASC')->where('user_id', Auth()->user()->id)->get();
+            $product = Product::orderBy('name', 'ASC')->get();
         }
         $products = [];
         foreach ($product as $item) {
@@ -77,7 +77,7 @@ class UserProductController extends Controller
     public function ArtiProduct()
     {
 
-        $user_product = UserProduct::where('user_id', Auth()->user()->id)->get();
+        $user_product = UserProduct::with('product_name')->where('user_id', Auth()->user()->id)->get();
         return $this->success("Success!", $user_product);
     }
 
