@@ -72,6 +72,7 @@ class UserProductController extends Controller
             $user_product->image2 = $product_image[1]['image'] ?? '';
             $user_product->save();
         }
+        return $this->success("Product Add Successfully!", []);
     }
 
     public function ArtiProduct()
@@ -133,5 +134,6 @@ class UserProductController extends Controller
             DB::rollback();
             throw $e;
         }
+        return $this->success("Post created successfully!", []);
     }
 }
