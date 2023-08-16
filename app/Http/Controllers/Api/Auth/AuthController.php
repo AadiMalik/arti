@@ -125,10 +125,26 @@ class AuthController extends Controller
         $user->save();
 
         $user->roles()->sync($request->role, $user->id);
+        if (isset($user)) {
+            $credentials = ['email' => $request->email, 'password' => $request->password];
+            $token = JWTAuth::attempt($credentials);
+            if (isset($token)) {
+                $user = Auth::user();
+                $user->roles;
 
-        return $this->success(
-            "User Register Successfully!",
-            []
+                $data = [
+                    'user' => $user,
+                    'authorisation' => $token
+                ];
+
+                return $this->success(
+                    "User Register Successfully!",
+                    $data
+                );
+            }
+        }
+        return $this->error(
+            "Something Wrong!"
         );
     }
 
@@ -147,7 +163,7 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
 
-            return $this->validationResponse(implode(" ",$validator->errors()->all()));
+            return $this->validationResponse(implode(" ", $validator->errors()->all()));
         }
         if (is_numeric($request->email)) {
             $credentials = ['phone1' => $request->email, 'password' => $request->password];
