@@ -29,6 +29,7 @@ Route::group(['prefix' => 'Arti'], function () use ($router) {
     $router->post('fallow-like-comment', 'Api\ArtiProfile\ArtiProfileController@fallow_like_comment');
     $router->get('arti-gallery/{id}', 'Api\ArtiProfile\ArtiProfileController@gallery');
     $router->get('arti-videos/{id}', 'Api\ArtiProfile\ArtiProfileController@videos');
+    $router->post('add-rating', 'Api\ArtiProfile\ArtiProfileController@add_review');
 });
 Route::group(['prefix' => 'Product'], function () use ($router) {
     $router->get('product-detail/{id}', 'Api\Product\ProductController@product_detail');

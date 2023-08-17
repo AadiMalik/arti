@@ -37,6 +37,7 @@ class ArtiProfileController extends Controller
             $gallery = UserGallery::where('user_id', $id)->get();
             $videos = UserVideo::where('user_id', $id)->get();
             $rating = Rating::where('arti_id', $id)->avg('rate');
+            $reviews = Rating::with('user_name')->where('arti_id', $id)->get();
             $comment = Comment::with('user_name')->orderBy('created_at', 'desc')->get();
             $arti_fallow = ArtiFallow::where('arti_id', $id)->count();
             $post = ProductPost::where('user_id', $id)->orderBy('created_at', 'DESC')->get();
@@ -73,7 +74,7 @@ class ArtiProfileController extends Controller
                     $like_check = $comment->where('post_id', $item->id)->where('user_id', $user_id)->where('comment', null)->count();
                     $liked = ($like_check > 0) ? true : false;
                 }
-                $comments =Comment::with('user_name')->where('post_id', $item->id)->where('comment', '!=', null)->get();
+                $comments = Comment::with('user_name')->where('post_id', $item->id)->where('comment', '!=', null)->get();
                 $posts[] = [
                     "id" => $item->id,
                     "date_time" => ($item->created_at->addDay(3) <= Carbon::now()) ? $item->created_at->format('d-m-y h:i A') : $item->created_at->diffForHumans(),
@@ -89,6 +90,7 @@ class ArtiProfileController extends Controller
             $data = [
                 "arti" => $arti,
                 "rating" => ($rating != null) ? $rating : 0,
+                "reviews" => $reviews,
                 "arti_fallow" => ($arti_fallow != null) ? $arti_fallow : 0,
                 "followed" => $followed,
                 "arti_posts" => $posts,
@@ -176,9 +178,9 @@ class ArtiProfileController extends Controller
             $comment->post_id = $request->post_id;
             $comment->comment = $request->comment;
             $comment->save();
-            $data=[
-                "comments"=>Comment::where('post_id', $request->post_id)->where('comment', '!=', null)->get(),
-                "total"=>Comment::where('post_id', $request->post_id)->where('comment', '!=', null)->count()
+            $data = [
+                "comments" => Comment::where('post_id', $request->post_id)->where('comment', '!=', null)->get(),
+                "total" => Comment::where('post_id', $request->post_id)->where('comment', '!=', null)->count()
             ];
             return $this->success(
                 "Success!",
@@ -189,32 +191,66 @@ class ArtiProfileController extends Controller
         }
     }
 
-    public function gallery($id){
-        
+    public function gallery($id)
+    {
+
         $gallery = UserGallery::where('user_id', $id)->get();
-        if(isset($gallery)){
+        if (isset($gallery)) {
             return $this->success(
                 "Success!",
                 $gallery
             );
-        }else{
+        } else {
             return $this->error(
                 "Data Not Found!"
             );
         }
     }
 
-    public function videos($id){
-        
+    public function videos($id)
+    {
+
         $videos = UserVideo::where('user_id', $id)->get();
-        if(isset($videos)){
+        if (isset($videos)) {
             return $this->success(
                 "Success!",
                 $videos
             );
-        }else{
+        } else {
             return $this->error(
                 "Data Not Found!"
+            );
+        }
+    }
+
+
+    public function add_review(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'arti_id' => 'required',
+            'user_id' => 'required',
+            'rate' => 'required'
+        ], $this->validationMessage());
+
+        if ($validation->fails()) {
+            return $this->validationResponse(implode(' ', $validation->errors()->all()));
+        }
+        $review = new Rating;
+        $review->user_id = $request->user_id;
+        $review->arti_id = $request->arti_id;
+        $review->rate = $request->rate;
+        $review->status = 0;
+        $review->remarks = $request->remarks;
+        $review->save();
+        if (isset($review)) {
+            $rating = Rating::with('user_name')->where('arti_id', $request->arti_id)->get();
+            return $this->success(
+                "Rating Save Successfully!",
+                $rating
+            );
+        } else {
+            return $this->error(
+                "Rating Not Save!"
             );
         }
     }
