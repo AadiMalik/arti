@@ -20,18 +20,17 @@ use Illuminate\Support\Facades\Validator;
 class ArtiProfileController extends Controller
 {
     use ResponseAPI;
-    public function index($id,$user_id)
+    public function index(Request $request)
     {
-        // if ($arti_id == null) {
-        //     $validation = Validator::make($request->all(), [
-        //         'arti_id' => 'required'
-        //     ], $this->validationMessage());
+        $validation = Validator::make($request->all(), [
+            'arti_id' => 'required'
+        ], $this->validationMessage());
 
-        //     if ($validation->fails()) {
-        //         return $this->validationResponse(implode(' ', $validation->errors()->all()));
-        //     }
-        // }
-        $user_id = ($user_id!=0)?$user_id:null;
+        if ($validation->fails()) {
+            return $this->validationResponse(implode(' ', $validation->errors()->all()));
+        }
+        $id = $request->arti_id;
+        $user_id = $request->user_id ?? null;
         $arti = User::with(['district_name', 'tehsil_name'])->find($id);
         if (isset($arti)) {
             $user_product = UserProduct::where('user_id', $id)->get();
@@ -113,8 +112,8 @@ class ArtiProfileController extends Controller
     {
         $validation = Validator::make($request->all(), [
             'type' => 'required',
-            'arti_id'=>'required',
-            'user_id'=>'required'
+            'arti_id' => 'required',
+            'user_id' => 'required'
         ], $this->validationMessage());
 
         if ($validation->fails()) {
@@ -166,7 +165,6 @@ class ArtiProfileController extends Controller
         } else {
             return $this->error("Type is wrong!");
         }
-        
         $id = $request->arti_id;
         $user_id = $request->user_id;
         $arti = User::with(['district_name', 'tehsil_name'])->find($id);
