@@ -48,5 +48,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'Post'], function () use (
     $router->post('store-product', 'Api\UserProduct\UserProductController@productStore');
     $router->get('arti-products', 'Api\UserProduct\UserProductController@ArtiProduct');
     $router->post('post','Api\UserProduct\UserProductController@post');
+    $router->get('post-product-delete/{id}', 'Api\UserProduct\UserProductController@delete_product');
+    $router->get('post-delete/{id}', 'Api\UserProduct\UserProductController@delete_post');
 });
 

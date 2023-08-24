@@ -101,7 +101,6 @@ class UserProductController extends Controller
                 return $this->validationResponse(implode(' ', $validation->errors()->all()));
             }
             foreach ($request->product_id as $index => $item) {
-
                 $user_product = UserProduct::find($request->product_id[$index]);
                 $user_product->price_high = $request->price_high[$index];
                 $user_product->price_low = $request->price_low[$index];
@@ -110,12 +109,12 @@ class UserProductController extends Controller
                 $user_product->update();
                 //post data
                 $user_product = UserProduct::find($request->product_id[$index]);
-                $product_name[] = $user_product->product_name->name;
-                $product_type[] = $user_product->product_name->type;
-                $product_price_low[] = $user_product->price_low;
-                $product_price_high[] = $user_product->price_high;
-                $product_weight[] = $user_product->weight . '-' . $user_product->weight_type;
-                $product_image[] = $user_product->image1;
+                $product_name[] = $user_product->product_name->name??'N/A';
+                $product_type[] = $user_product->product_name->type??'N/A';
+                $product_price_low[] = $user_product->price_low??'0.00';
+                $product_price_high[] = $user_product->price_high??'0.00';
+                $product_weight[] = $user_product->weight . '-' . $user_product->weight_type??'N/A';
+                $product_image[] = $user_product->image1??'N/A';
             }
             // dd($product_name,$product_price_low,$product_price_high,$product_weight);
             $post = new ProductPost;
@@ -135,5 +134,26 @@ class UserProductController extends Controller
             throw $e;
         }
         return $this->success("Post created successfully!", []);
+    }
+
+    public function delete_product($id)
+    {
+        $userproduct = UserProduct::find($id);
+        if (isset($userproduct)) {
+            $userproduct->delete();
+            return $this->success("Product delete successfully!", []);
+        }else{
+            return $this->error("Product not found!");
+        }
+    }
+    public function delete_post($id)
+    {
+        $post = ProductPost::find($id);
+        if (isset($userproduct)) {
+            $post->delete();
+            return $this->success("Post delete successfully!", []);
+        }else{
+            return $this->error("Post not found!");
+        }
     }
 }
