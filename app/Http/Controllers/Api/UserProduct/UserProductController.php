@@ -141,7 +141,8 @@ class UserProductController extends Controller
         $userproduct = UserProduct::find($id);
         if (isset($userproduct)) {
             $userproduct->delete();
-            return $this->success("Product delete successfully!", []);
+            $user_product = UserProduct::with('product_name')->where('user_id', Auth()->user()->id)->get();
+            return $this->success("Product delete successfully!", $user_product);
         }else{
             return $this->error("Product not found!");
         }
@@ -149,9 +150,11 @@ class UserProductController extends Controller
     public function delete_post($id)
     {
         $post = ProductPost::find($id);
-        if (isset($userproduct)) {
+        if (isset($post)) {
             $post->delete();
-            return $this->success("Post delete successfully!", []);
+
+            $user_post = ProductPost::where('user_id',Auth()->user()->id)->get();
+            return $this->success("Post delete successfully!", $user_post);
         }else{
             return $this->error("Post not found!");
         }
