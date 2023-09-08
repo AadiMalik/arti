@@ -52,3 +52,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'Post'], function () use (
     $router->get('post-delete/{id}', 'Api\UserProduct\UserProductController@delete_post');
 });
 
+Route::group(['middleware' => 'auth:api', 'prefix' => 'Newsfeed'], function () use ($router) {
+    
+    $router->get('newsfeed', 'Api\ArtiProfile\ArtiProfileController@newfeeds');
+});

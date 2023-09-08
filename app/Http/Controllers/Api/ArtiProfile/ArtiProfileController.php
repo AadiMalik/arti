@@ -13,8 +13,10 @@ use App\UserGallery;
 use App\UserProduct;
 use App\UserVideo;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ArtiProfileController extends Controller
@@ -305,6 +307,68 @@ class ArtiProfileController extends Controller
         } else {
             return $this->error(
                 "Rating Not Save!"
+            );
+        }
+    }
+
+    public function newfeeds()
+    {
+        try {
+            $user_id=Auth()->user()->id;
+            $query = "SELECT users.username,users.first_name,users.last_name,users.image as arti_image,arti_fallows.arti_id, arti_fallows.user_id,product_posts.id,product_posts.name,product_posts.image,product_posts.type,product_posts.price_low,
+        product_posts.price_high,product_posts.weight,product_posts.post_type,product_posts.description,product_posts.created_at FROM arti_fallows
+        JOIN product_posts ON product_posts.user_id=arti_fallows.arti_id
+        JOIN users ON users.id=arti_fallows.arti_id WHERE arti_fallows.user_id = " . $user_id . " AND date_add(product_posts.created_at, INTERVAL 1 MONTH) >= arti_fallows.created_at ORDER BY created_at DESC";
+            $post = DB::select(DB::raw($query));
+            $comment = Comment::all();
+            $posts = [];
+            $products = [];
+            foreach ($post as $index => $item) {
+                $liked = false;
+                if ($item->type == 0) {
+                    $product_name = json_decode($item->name, true);
+                    $product_image = json_decode($item->image, true);
+                    $product_type = json_decode($item->type, true);
+                    $product_price_low = json_decode($item->price_low, true);
+                    $product_price_high = json_decode($item->price_high, true);
+                    $product_weight = json_decode($item->weight, true);
+                    if ($product_name != null) {
+                        foreach ($product_name as $index => $item1) {
+                            $products[] = [
+                                "product_name" => $product_name[$index],
+                                "product_image" => $product_image[$index],
+                                "product_type" => $product_type[$index],
+                                "product_low_price" => $product_price_low[$index],
+                                "product_high_price" => $product_price_high[$index],
+                                "product_wieght" => $product_weight[$index]
+                            ];
+                        }
+                    }
+                };
+                if ($user_id != null) {
+                    $like_check = $comment->where('post_id', $item->id)->where('user_id', $user_id)->where('comment', null)->count();
+                    $liked = ($like_check > 0) ? true : false;
+                }
+                $comments = Comment::with('user_name')->where('post_id', $item->id)->where('comment', '!=', null)->get();
+                $posts[] = [
+                    "id" => $item->id,
+                    "date_time" => $item->created_at,
+                    "type" => $item->post_type,
+                    "products" => $products,
+                    "description" => $item->description ?? '',
+                    "total_likes" => $comment->where('post_id', $item->id)->where('comment', null)->count(),
+                    "liked" => $liked,
+                    "total_comments" => $comment->where('post_id', $item->id)->where('comment', '!=', null)->count(),
+                    "comments" => $comments
+                ];
+            }
+            return $this->success(
+                "Success!",
+                $posts
+            );
+        } catch (Exception $e) {
+            return $this->error(
+                $e->getMessage()
             );
         }
     }
