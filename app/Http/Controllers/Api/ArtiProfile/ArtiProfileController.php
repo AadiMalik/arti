@@ -372,4 +372,46 @@ class ArtiProfileController extends Controller
             );
         }
     }
+
+    public function newsfeed_like_comment(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'type' => 'required',
+            'post_id' => 'required'
+        ], $this->validationMessage());
+
+        if ($validation->fails()) {
+            return $this->validationResponse(implode(' ', $validation->errors()->all()));
+        }
+        $user_id=Auth()->user()->id;
+        // Type 2 =like, 3=comment
+        if ($request->type == 2) {
+            $likes = Comment::where('post_id', $request->post_id)->where('user_id', $user_id)->where('comment', null)->first();
+            if (isset($likes)) {
+                $likes->delete();
+            } else {
+                $likes = new Comment;
+                $likes->post_id = $request->post_id;
+                $likes->user_id = $user_id;
+                $likes->likes = 1;
+                $likes->save();
+            }
+        } elseif ($request->type == 3) {
+            $validation = Validator::make($request->all(), [
+                'comment' => 'required|max:100'
+            ], $this->validationMessage());
+
+            if ($validation->fails()) {
+                return $this->validationResponse(implode(' ', $validation->errors()->all()));
+            }
+            $comment = new Comment;
+            $comment->user_id = $user_id;
+            $comment->post_id = $request->post_id;
+            $comment->comment = $request->comment;
+            $comment->save();
+        } else {
+            return $this->error("Type is wrong!");
+        }
+        return $this->newfeeds();
+    }
 }

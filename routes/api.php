@@ -55,4 +55,5 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'Post'], function () use (
 Route::group(['middleware' => 'auth:api', 'prefix' => 'Newsfeed'], function () use ($router) {
     
     $router->get('newsfeed', 'Api\ArtiProfile\ArtiProfileController@newfeeds');
+    $router->post('newsfeed-like-comment', 'Api\ArtiProfile\ArtiProfileController@newsfeed_like_comment');
 });
