@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewPostNotification;
 
 class ArtiProfileController extends Controller
 {
@@ -413,5 +415,34 @@ class ArtiProfileController extends Controller
             return $this->error("Type is wrong!");
         }
         return $this->newfeeds();
+    }
+
+    public function post(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $validation = Validator::make(
+                $request->all(),
+                [
+                    'description' => 'required|max:500'
+                ],
+                $this->validationMessage()
+            );
+            if ($validation->fails()) {
+                return $this->validationResponse(implode(' ', $validation->errors()->all()));
+            }
+            $post = new ProductPost;
+            $post->user_id = Auth()->user()->id;
+            $post->description = $request->description??'';
+            $post->post_type = 1;
+            $post->save();
+            $user = Auth()->user();
+            Notification::send($user, new NewPostNotification($user));
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+        return $this->success("Post created successfully!", []);
     }
 }

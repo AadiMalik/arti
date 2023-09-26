@@ -21,24 +21,15 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $wh=[];
-        $wh_arti=[];
         if(isset($request->search) && $request->search!=0 && $request->search!=''){
             $wh=[['name','LIKE','%'.$request->search.'%']];
-            $wh_arti[]=[['username','LIKE','%'.$request->search.'%']];
-            $wh_arti[]=[['first_name','LIKE','%'.$request->search.'%']];
-            $wh_arti[]=[['last_name','LIKE','%'.$request->search.'%']];
-            $wh_arti[]=[['phone1','LIKE','%'.$request->search.'%']];
         }
         $product = Product::orderBy('hits', 'DESC')->where('zamidar', 0)->where($wh)->get();
         $product_image = ProductImage::all();
         $user_product = UserProduct::orderBy('created_at', 'ASC')->get();
         $featured_sale_product = OtherProduct::orderBy('created_at', 'DESC')->where($wh)->where('expiry','>', Carbon::now())->get();
         $normal_sale_product = OtherProduct::orderBy('created_at', 'DESC')->where($wh)->where('expiry','<', Carbon::now())->orWhere('expiry','=', null)->get();
-        $arti = User::orderBy('created_at', 'ASC')->where($wh_arti)->get();
-        $rating = Rating::all();
         $products = [];
-        $verify_arti = [];
-        $normal_arti = [];
         $images =[];
         foreach ($product as $item) {
             foreach($product_image->where('product_id', $item->id) as $item1){
@@ -60,6 +51,29 @@ class HomeController extends Controller
                 "product_images" => $images
             ];
         }
+        $data=[
+            "products"=>$products,
+            "featured_sale_product"=>$featured_sale_product,
+            "normal_sale_product"=>$normal_sale_product
+        ];
+        return $this->success(
+            "Success!",
+            $data
+        );
+    }
+
+    public function arti(Request $request){
+        $wh_arti=[];
+        if(isset($request->search) && $request->search!=0 && $request->search!=''){
+            $wh_arti[]=[['username','LIKE','%'.$request->search.'%']];
+            $wh_arti[]=[['first_name','LIKE','%'.$request->search.'%']];
+            $wh_arti[]=[['last_name','LIKE','%'.$request->search.'%']];
+            $wh_arti[]=[['phone1','LIKE','%'.$request->search.'%']];
+        }
+        $arti = User::orderBy('created_at', 'ASC')->where($wh_arti)->get();
+        $rating = Rating::all();
+        $verify_arti = [];
+        $normal_arti = [];
         foreach ($arti->where('verify', 0) as $item) {
             if ($item->roles[0]['title'] == 'Arti') {
                 $verify_arti[] = [
@@ -67,9 +81,9 @@ class HomeController extends Controller
                     "first_name" => $item->first_name ?? '',
                     "last_name" => $item->last_name ?? '',
                     "image" => $item->image ?? '',
-                    "rating"=>($rating->where('arti_id', $item->id)->count()>0)?($rating->where('arti_id', $item->id)->avg('rate')/$rating->where('arti_id', $item->id)->count()):0,
+                    "rating"=>number_format($rating->where('arti_id', $item->id)->avg('rate')??0,2),
                     "reviews" => $rating->where('arti_id', $item->id)->count(),
-                    "follows"=>ArtiFallow::where('arti_id', $request->id)->count(),
+                    "follows"=>ArtiFallow::where('arti_id', $item->id)->count(),
                     "followed"=>(ArtiFallow::where('user_id',$request->user_id)->where('arti_id', $request->id)->count()>0)?true:false,
                 ];
             }
@@ -81,19 +95,16 @@ class HomeController extends Controller
                     "first_name" => $item->first_name ?? '',
                     "last_name" => $item->last_name ?? '',
                     "image" => $item->image ?? '',
-                    "rating"=>($rating->where('arti_id', $item->id)->count()>0)?($rating->where('arti_id', $item->id)->avg('rate')/$rating->where('arti_id', $item->id)->count()):0,
+                    "rating"=>number_format($rating->where('arti_id', $item->id)->avg('rate')??0,2),
                     "reviews" => $rating->where('arti_id', $item->id)->count(),
-                    "follows"=>ArtiFallow::where('arti_id', $request->id)->count(),
+                    "follows"=>ArtiFallow::where('arti_id', $item->id)->count(),
                     "followed"=>(ArtiFallow::where('user_id',$request->user_id)->where('arti_id', $request->id)->count()>0)?true:false,
                 ];
             }
         }
         $data=[
-            "products"=>$products,
             "verify_arti"=>$verify_arti,
-            "normal_arti"=>$normal_arti,
-            "featured_sale_product"=>$featured_sale_product,
-            "normal_sale_product"=>$normal_sale_product
+            "other_arti"=>$normal_arti
         ];
         return $this->success(
             "Success!",
