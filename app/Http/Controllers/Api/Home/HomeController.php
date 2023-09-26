@@ -125,15 +125,23 @@ class HomeController extends Controller
             return $this->validationResponse(implode(' ', $validation->errors()->all()));
         }
         $id = $request->arti_id;
-        $follow = ArtiFallow::where('arti_id', $request->arti_id)->where('user_id', $request->user_id)->first();
-        if (isset($follow)) {
-            $follow->delete();
+        $arti = User::with(['district_name', 'tehsil_name'])->find($id);
+        if (isset($arti)) {
+            $follow = ArtiFallow::where('arti_id', $request->arti_id)->where('user_id', $request->user_id)->first();
+            if (isset($follow)) {
+                $follow->delete();
+            } else {
+                $arti_fallow = new ArtiFallow;
+                $arti_fallow->arti_id = $request->arti_id;
+                $arti_fallow->user_id = $request->user_id;
+                $arti_fallow->save();
+            }
+
+           return $this->arti($request);
         } else {
-            $arti_fallow = new ArtiFallow;
-            $arti_fallow->arti_id = $request->arti_id;
-            $arti_fallow->user_id = $request->user_id;
-            $arti_fallow->save();
+            return $this->error(
+                "Commission Agent Not Found!"
+            );
         }
-        return $this->arti($request);
     }
 }
