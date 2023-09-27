@@ -51,8 +51,8 @@ class ArtiProfileController extends Controller
                 $followed = ($follow > 0) ? true : false;
             }
             $posts = [];
-            $products = [];
             foreach ($post as $index => $item) {
+                $products = [];
                 $liked = false;
                 if ($item->type == 0) {
                     $product_name = json_decode($item->name, true);
