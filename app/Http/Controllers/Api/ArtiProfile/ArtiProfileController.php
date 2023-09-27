@@ -40,7 +40,7 @@ class ArtiProfileController extends Controller
             $user_product = UserProduct::where('user_id', $id)->get();
             $gallery = UserGallery::where('user_id', $id)->get();
             $videos = UserVideo::where('user_id', $id)->get();
-            $rating = Rating::where('arti_id', $id)->avg('rate');
+            $rating = number_format(Rating::where('arti_id', $id)->avg('rate'),2);
             $reviews = Rating::with('user_name')->where('arti_id', $id)->get();
             $comment = Comment::with('user_name')->orderBy('created_at', 'desc')->get();
             $arti_fallow = ArtiFallow::where('arti_id', $id)->count();
