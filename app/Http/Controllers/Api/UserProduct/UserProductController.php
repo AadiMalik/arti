@@ -100,6 +100,12 @@ class UserProductController extends Controller
             if ($validation->fails()) {
                 return $this->validationResponse(implode(' ', $validation->errors()->all()));
             }
+            $product_name=[];
+            $product_type =[];
+            $product_price_low=[];
+            $product_price_high=[];
+            $product_weight=[];
+            $product_image=[];
             foreach ($request->product_id as $index => $item) {
                 $user_product = UserProduct::find($request->product_id[$index]);
                 $user_product->price_high = $request->price_high[$index];
